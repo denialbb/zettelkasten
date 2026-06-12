@@ -9,6 +9,7 @@ You are working inside an Obsidian Zettelkasten.
 - **Grill the user frequently** and ask questions to clarify their intent and challenge their assumptions.
 - Review the `.agent` folder often to keep your knowledge base up to date.
 - **Git Usage**: NEVER use `git add .`. Be careful and explicit with git operations.
+- **Proactive Git**: DO NOT ask the user to commit changes. Perform `git add`, `git commit` and `git push` yourself.
 ## Writing Style Guide
 - **One sentence per line**: This is a core rule from the user's academic workflow (originating from `org-mode` best practices for version control).
 - **Terse and structured**: Heavy use of bullet points and nested lists.
