@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-05-02 Mon 03:33\\]"
+date: 2022-05-02 03:33
 id: 43f645a8-e5d4-4ab7-ad45-a39059fdfe88
 title: Numbering Headings w/ CSS
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-02-27 Tue 11:58\\]"
+date: 2024-02-27 11:58
 id: c35c6f86-c674-4e55-a354-4bcd6be12e41
 roam_aliases: TLN
 title: Tecnologie del Linguaggio Naturale
@@ -130,27 +130,21 @@ Le ipotesi di dipendenza e indipendenza ci sono date dalla teoria linguistica.
 - **modelling**
 - **learning**, algorithm for setting the parameters of the model
 - **decoding**, algorithm for applying the model in order to compute results
-
 1.  Rule-Based Tagging
-
     - `ENGTWOL` tagging
       - English Two Level analysis
     - assegna tutti i tag alle parole
       - analisi morfologica per determinare i possibili tag
     - rimuovi i tag secondo **regole**
       - controllando le parole precedenti e successive per eliminare delle possibilità
-
 2.  Sequence Labelling
-
     - data una base di conoscenza di parole/tag
     - data una sequenza (*observation*, *sequence of observations*)
     - qual'è la miglior sequenza di tag che corrisponde a questa sequenza di osservazioni
     - visione **probabilistica**
       - qual'è la sequenza di tag più probabile data la *sequence of observations*
       - il numero di possibilità è enorme $`n^m`$ con $`n`$ parole e $`m`$ tag
-
 3.  HMMs
-
     Il **modelling** è molto rigido, solo parole (distinzione rigida da maiuscolo a minuscolo) e sequenza di tag. Non si può inserire conoscenza linguistica all'interno del modello tramite feature linguistiche.
     ``` math
     \widehat{t} _1^n = \text{argmax}_{t_{1}^n} P(t_1^n | w_1^n)
@@ -158,7 +152,6 @@ Le ipotesi di dipendenza e indipendenza ci sono date dalla teoria linguistica.
 
     - approccio generativo
     - regola Bayesiana
-
     ``` math
     P(x|y) = \frac{P(y|x)P(x)}{P(y)}
     ```
@@ -167,11 +160,9 @@ Le ipotesi di dipendenza e indipendenza ci sono date dalla teoria linguistica.
     ```
 
     - prima $`P`$ detta *likelihood*, seconda detta *prior*
-
     La fase di **learning** è molto semplice nei `HMM`
 
     - si calcolano le probabilità di *tag transitions* tramite conteggio sul corpus annotato
-
     ``` math
     P(t_i | t_{i-1}) = \frac{C(t_{i-1},t_i)}{C(t_{i-1})}
     ```
@@ -181,7 +172,6 @@ Le ipotesi di dipendenza e indipendenza ci sono date dalla teoria linguistica.
       - questo significa che non si possono *ipotizzare* parole sconosciute
       - un conteggio nullo di una parola significa probabilità nulla
     - si calcola la *probabilità di likelihood* o di *emissione* in modo simile
-
     ``` math
     P(w_i | t_{i}) = \frac{C(t_{i},w_i)}{C(t_{i})}
     ```
@@ -192,7 +182,6 @@ Le ipotesi di dipendenza e indipendenza ci sono date dalla teoria linguistica.
     - i prefissi vengono calcolati una singola volta e poi mantenuti in *memo*
     - idea della programmazione dinamica è di memorizzare solo la massima cammino di probabilità per ciascuna cella, non ogni cammino
       - la sequenza più probabile passa per le singole transizioni più probabili
-
     Viterbi, calcolo di probabilità dei prefissi:
     ``` math
     v(j) = \text{max}_{i=1}^N v_{t-1} (i) a_{ij} b_j(o_t)
@@ -201,12 +190,10 @@ Le ipotesi di dipendenza e indipendenza ci sono date dalla teoria linguistica.
     - v, viterbi
     - a, probabilità di transizione
     - b, probabilità di emissione
-
     L'algoritmo agisce ricorsivamente su una finestra di 2 colonne sulla matrice markoviana.
 
     - i *backpointer* sono salvati uno per ogni nodo in ogni colonna
     - solo l'ultimo step determina poi a ritroso risalendo i backpointer il path tra gli stati, a ritroso nel tempo
-
     Questo algoritmo è lineare per il numero di parole e quadratico rispetto il numero dei tag, non più esponenziale.
 
     Si arriva tranquillamente a 93-94% accuracy già solo con questo.
@@ -214,9 +201,7 @@ Le ipotesi di dipendenza e indipendenza ci sono date dalla teoria linguistica.
     - si può complicare utilizzando non i bigrammi ma i trigrammi
       - aumenta anche la *sparseness*, molti valori nulli nella distribuzione di probabilità
       - moltiplicazione di *Lagrange* utilizza i bigrammi e monogrammi se non sono disponibili trigrammi
-
 4.  MEMM
-
     **Maximum Entropy Markov Models** Nel **modelling**:
 
     - non si applica la regola bayesiana
@@ -224,7 +209,6 @@ Le ipotesi di dipendenza e indipendenza ci sono date dalla teoria linguistica.
       - prende un approccio diretto
       - calcola $`P(y|x)`$ discriminando tra i possibili valori della classe $`y`$ invece che prima calcolare una verosimiglianza
         - si descrive solo ciò che *discrimina* tra le classi, non tutte le feature
-
     Le ipotesi sono 2:
 
     - uno stato è condizionalmente indipendente da tutte le osservazioni e label precedenti
@@ -232,7 +216,6 @@ Le ipotesi di dipendenza e indipendenza ci sono date dalla teoria linguistica.
     - le *feature* possono essere inserite nel modello
       - dati prefissi, postfissi è più probabile che una parola sia un verbo o un'altra categoria
       - ipotesi che solo le feature che decidiamo hanno impatto nella predizione
-
     La difficoltà sta nel **learning** per il calcolo dei pesi delle *feature* che sono inserite manualmente.
 
     ``` math
@@ -247,9 +230,7 @@ Le ipotesi di dipendenza e indipendenza ci sono date dalla teoria linguistica.
       - queste feature globali riescono a catturare dipendenze più complesse e a distanza maggiore dei soli suffissi e l'osservabile
     - poi ci sono feature locali
     - come decoding anche in questo caso viene utilizzato viterbi
-
 5.  Tagging Unknown Words
-
     - parole vengono aggiunge alla lingua di continuo
     - nomi propri
     - metodi detti di *smoothing*
@@ -308,16 +289,12 @@ Chomsky definisce due concetti:
   - deriva la struttura sintattica dalla sequenza di parole
 - `S` - `NP` - `VP` - `N` - `V` - `N`
 - la costituenza è la relazione sintagmatica
-
 1.  Grammatiche Generative
-
     $`G = (\Sigma, V, S, P)`$
 
     - context free
     - albero di derivazione utilizzato per catturare la sintassi
-
 2.  Gerarchie di Chomsky
-
     - **Type 0**
       - nessun vincolo
     - **Context-sensitive**
@@ -326,14 +303,11 @@ Chomsky definisce due concetti:
       - riesco a catturale una grande parte della complessità del linguaggio
     - **Linear**
       - terminali solo a dx o solo a sx
-
     Schieber dimostra che un dialetto svizzero-tedesco non è `CF`. Per Joshi le dipendenze sintattiche nelle lingue naturali sono o nested o cross-serial, a partire da queste lui ipotizza una congettura che queste lingue siano **mildly context-sensitive**.
 
     - poco context-sensitive, leggermente più complesse delle `CF`
     - 4 proprietà: includono `CFG`, nested/cross-serial dependencies, parsing polinomiale, crescita lineare
-
 3.  Parser Anatomy
-
     - grammar
       - conoscenza dichiarativa della sintassi
       - context-free, `TAG`, `CCG`, dependency (non generativa)
@@ -343,7 +317,6 @@ Chomsky definisce due concetti:
     - oracle
       - deve guidare le scelte algoritmiche
       - probabilistico, rule-based
-
     Le strategie (algoritmiche) si differenziano da cosa guida la ricerca:
 
     - goal-directed parsing, top-down
@@ -354,16 +327,13 @@ Chomsky definisce due concetti:
       - solo ricerche compatibili con le parole in input
       - comporta la creazione di alberi non corretti
       - *empiricisti*
-
     Il problema principale da risolvere algoritmicamente è quello della ambiguità strutturale:
 
     - una frase può avere alberi di parsing corretti multipli
     - 2 tipi di ambiguità: *attachment* ambiguity (PP) e *coordination* ambiguity
       - esplosione combinatoria dei possibili alberi
       - i `PP` possono legarsi al verbo o al complemento oggetto
-
 4.  CKY
-
     - $`O(n^3)`$
     - calcola tutti i possibili *parse*
     - **Earley** simile a questo
@@ -376,7 +346,6 @@ Chomsky definisce due concetti:
       - le strutture vengono memorizzate secondo gli indici di riferimento in una matrice
     - nelle celle va anche memorizzato il backtrace, altrimenti non è un parsing ma recognition
       - senza backtrace non si può ricostruire l'albero, solo un recogniser
-
     Si può avere anche una versione che utilizza un oracolo probabilistico (`PCFG`) per fare *pruning*:
 
     - associa un valore di probabilità alle soluzioni
@@ -385,7 +354,6 @@ Chomsky definisce due concetti:
       - regole con la stessa testa vincolate a sommare a 1
     - probabilità di un albero produttoria di tutte le probabilità delle regole utilizzate
     - le probabilità vengono derivate da un corpus
-
     Si estraggono le regole automaticamente da un corpus di alberi sintattici, semplice quando questi alberi sono scritti in forma `lisp-like` (S-espressioni). Una volta estratte le regole si contano le frequenze associate e quindi le loro probabilità.
 
     L'algoritmo poi fa un `beam-search` seguendo le strade più promettenti, le strade che hanno associata una probabilità troppo bassa vanno scartate preventivamente. Solo le soluzioni parziali più promettenti sono sviluppate.
@@ -427,7 +395,6 @@ Vantaggi:
 > \[…\] \[the fact that\] head-dependent relations are a good proxy for the semantic relationship between predicates and their arguments is an important reason why dependency grammars are currently more common than constituency grammars in `NLP`. – Jurafsky
 
 1.  Dependency Parsing
-
     - **dynamic programming** similmente a `CKY`
     - **graph algorithms**
       - comunque dinamico
@@ -439,14 +406,11 @@ Vantaggi:
     - **constituency parsing + conversion**
     - **deterministic parsing**
       - a transizioni
-
     1.  MALT
-
         - deterministic parsing
         - la grammatica è nascosta nel corpus attraverso l'oracolo
         - bottom-up, depth-first, senza back-tracking
           - non serve back-tracking in quanto si arriva sempre a una soluzione legale
-
         Componenti:
 
         - input buffer
@@ -454,7 +418,6 @@ Vantaggi:
         - parser, con oracolo
         - insieme di azioni possibili
         - relazioni di dipendenza attuali
-
         Gli alberi che vengono prodotti sono solo **proiettivi**, ovvero non ci sono incroci tra le relazioni
 
         - questa è una grossa approssimazione
@@ -475,11 +438,8 @@ Vantaggi:
 Struttura a grafo. Si può immaginare un approccio secondo **vocabolario** ma questo presenta dei problemi:
 
 - ricorsività delle definizioni
-
 - semantica lessicale, delle parole
-
   - approcci: *Classico*, *Distribuzionale*
-
 - semantica formale, della frase
 
 Approccio lessicale classico (simbolico):
@@ -502,24 +462,17 @@ Approccio distribuzionale
 > You shall know a word by the company it keeps! - Firth 1957
 
 - meaning is related to the distribution of the words around
-
 - word $`\to`$ numerical vector $`\to`$ embedding
-
   - matrici di co-occorrenza
   - prima vettori lunghi e sparsi ora più brevi e densi
   - *neural embedding*
   - la distanza tra le parole informa sulla semantica
-
 - *contextualized word embedding*
-
   - si codifica anche il contesto
   - condiziona ogni parola con il suo contesto
   - nasce con `BERT` e il deep learning
-
 - **vettori**
-
 - Semantica Composizionale
-
   - per poter eseguire inferenza logica
   - traduzione dal linguaggio naturale in una qualche forma di rappresentazione della conoscenza
   - *reasoning*
@@ -1076,7 +1029,6 @@ Tre principali teorie sulla costruzione del significato (*word meaning*)
 ### Triangolo Semiotico
 
 - [[C.S Peirce]]
-
 1.  **concetto** (significato, interpretazione)
 2.  **referente** (fenomeno, istanza)
 3.  **rappresentazione** (segno, termine, simbolo)
@@ -1150,7 +1102,6 @@ Teoria delle **valenze**
 > Yesterday I saw a `grest` with a telescope, it was very fast.
 
 1.  Potenza generativa dei pattern
-
     > Lorem \* dolor sit \*, consectetur adipiscing \*.
 
     - *linguistic instances* occorrenze un pattern in un corpus

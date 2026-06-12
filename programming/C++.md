@@ -18,11 +18,8 @@ type\*
 Simili ai puntatori, metodo sintattico per leggibilita'
 
 - Non sono vere e proprie variabili
-
 - Non possono essere cambiate una volta assegnate
-
 - Devono essere inizializzate
-
   type&
 
 # Classes

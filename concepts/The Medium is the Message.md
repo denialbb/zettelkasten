@@ -1,6 +1,5 @@
 ---
-date: "\\[2024-02-04 Sun 17:17\\]"
+date: 2024-02-04 17:17
 id: 73fdb93d-c1d8-4f75-9bce-72ee6f240d8f
 title: The Medium is the Message
 ---
-

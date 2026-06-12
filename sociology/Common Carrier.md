@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-01-31 Wed 04:39\\]"
+date: 2024-01-31 04:39
 id: ca257e7d-d900-4eed-b4d8-498445c315d6
 title: Common Carrier
 ---

@@ -1,6 +1,5 @@
 ---
-date: "\\[2024-02-02 Fri 11:10\\]"
+date: 2024-02-02 11:10
 id: 3419fea7-4a57-4349-a182-9394de3313d7
 title: A robot collecting the data does not mean the treatment will be automatic
 ---
-

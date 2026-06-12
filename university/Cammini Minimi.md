@@ -71,9 +71,7 @@ Numero massimo di elementi prefissato
   - non ha impatti sui tempi di calcolo
 - N: numero attuale de elementi
   - occupano sempre le prime N celle dell'array
-
 1.  Insert
-
     Senza controllo sulla ripetizione di chiave
 
     ArrayInsert(A,k): if A.N != A.M A\[A.N\] = k A.N++ return k else return nil
@@ -84,11 +82,9 @@ Numero massimo di elementi prefissato
 
     - inserendo k in fondo
     - far scendere alla posizione giusta con scambi (`InsertionSort`)
-
     $`O(N)`$
 
 2.  Delete
-
     Assumendo non ci siano ripetizioni
 
     ArrayDelete(A, k): for i=1 to A.N do if A\[i\] == k then A.N = A.N + 1 for j=i to A.N do A\[j\] = A\[j+1\] return k return nil
@@ -96,7 +92,6 @@ Numero massimo di elementi prefissato
     $`O(N)`$ lineare
 
 3.  Search
-
     ArraySearch(A,k): for i=1 to A.N do if A\[i\] == k then return k return nil
 
     $`O(N)`$ lineare
@@ -122,19 +117,15 @@ Le 2 idee utilizzate sono due soluzioni diverse per la realizzazione di un `Abst
       - $`T_{amm}= \frac{(2^k -1)c+2^kd}{2^k} \in O(1)`$
 - sequenza di rimozioni di elementi
 - sequenza di inserimenti, ma aumentando la dimensione dell'array di una costante se riempito
-
 1.  Extend
-
     Si basa sull'espandere l'array quando esso diventa troppo piccolo
 
     - l'espansione costa $`O(N)`$ in quanto richiede di allocare memoria e copiare gli elementi dell'array
-
     ArrayExtend(A,n): B = array\[A.M + n\] B.M = A.M + n B.N = A.N for i=1 to A.N do B\[i\] = A\[i\] return B
 
     Il problema é che se N == M allora i successivi inserimenti richiedono ulteriori riallocazioni
 
 2.  Insert
-
     DynArrayInsert(A,k): if A.N == A.M then A = ArrayExtend(A,1) ArrayInsert(A,k)
 
     Array non pieno: $`O(1)`$ Array pieno: $`O(N)`$ Dipende dalle operazioni precendenti
@@ -143,15 +134,12 @@ Le 2 idee utilizzate sono due soluzioni diverse per la realizzazione di un `Abst
       - il costo sará circa $`O(1)`$ ma si rischia di sprecare spazio
     - se M é tale da sforare molte volte
       - il costo sará circa $`O(N)`$
-
     Il problema é che se N == M allora i successivi inserimenti richiedono ulteriori riallocazioni
 
     - raddoppiamo il numero di elementi se l'array si riempie
-
     DynArrayInsert(A,k): if A.N == A.M then A = ArrayExtend(A,A.M) ArrayInsert(A,k)
 
 3.  Delete
-
     Possiamo recuperare spazio se l'array si riduce di dimensione
 
     DynArrayDelete2(A,k): ArrayDelete(A,k) if A.N \<= 1/4 \* A.M then B = array\[A.M/2\] B.M = A.M/2 B.N = A.N for i=1 to A.N do B\[i\] = A\[i\] A = B
@@ -349,15 +337,11 @@ In un Computer le chiavi sono interpretate come sequenze di bit
 
 - si cerca di utilizzare ogni bit della chiave
 - una buona funzione hash sceglie posizioni in modo tale da eliminare eventuale regalaritá nei dati
-
 1.  Metodo della divisione
-
     Veloce ma dipende da m
 
     - m potenza di 2 é una buona scelta solo se si ha la certezza che gli ultimi bit hanno distribuzione uniforme
-
 2.  Metodo della moltiplicazione
-
     m non é critico, solitamente si sceglie una potenza di 2 A dipende dai dati
 
     - una scelta ragionevole empiricamente é $`(\sqrt{5} - 1) / 2`$
@@ -386,13 +370,10 @@ Per risolvere questo addensamento si introduce il `doppio hashing`
 
 - $`h(k,i) = (h_1(k) + ih_2(k)) \mod m`$
   - permette una uguale probabilitá per ogni sequenza di ispezione
-
 1.  Insert
-
     HashInsert(T,x): for i=0 to i \< m do j = h(x.key,i) if T\[j\] == nil then T\[j\] = x return j return nil
 
 2.  Search
-
     HashSearch(T,k): for i=0 to i \< m do j = h(x.key,i) if T\[j\] == nil then return nil if T\[j\].key == k then return T\[j\] return nil
 
     `caso ottimale`
@@ -412,13 +393,10 @@ Per risolvere questo addensamento si introduce il `doppio hashing`
         - $`E[X] = \sum_{i=1}^{\infty}(X \ge i) \le \sum_{i=1}^{\infty} \alpha^{i-1}=\frac{1}{1-\alpha}`$
     - Elemento Presente
       - sicuramente meno celle da esaminare che nel caso dell'elemento assente
-
 3.  Delete
-
     Inserire nil creerebbe buchi nella tabella
 
     - si potrebbe marcare le con costanti `deleted`
-
     Di solito l'indirizzamento aperto si usa quando non c'é necessitá di cancellazione di elementi
 
 ## Pile
@@ -717,21 +695,15 @@ Dequeue(Q)
 Strutture gerarchiche: $`a \in A \land T_1 \in T(A) \land T_2 \in T(A) \land ... \land T_k \in T(A)\implies \{a,T_1,T_2,...,T_k\} \in T(A)`$
 
 - k \>= 0
-
 - A insieme di etichette
-
 - T(A) insieme di alberi su A
-
 - a radice
-
 - Un `albero` é un grafo connesso aciclico
-
   - una `radice` é un nodo privilegiato
   - una `foglia` é un nodo da cui non esce alcun arco
   - se un nodo non é foglia é interno
   - il grado di un albero é il massimo numero di figli di un nodo
   - un insieme di alberi é una `foresta`
-
 - Ma un grafo non é detto sia un albero
 
 `Cammino`
@@ -838,7 +810,6 @@ In questo caso non é possbile utilizzare l'algoritmo per alberi binari
 Stessa complessitá degli algoritmi di Cardinalitá e Altezza per alberi
 
 1.  In profonditá DFS
-
     DFS con preordine sinistro
 
     ``` example
@@ -854,7 +825,6 @@ Stessa complessitá degli algoritmi di Cardinalitá e Altezza per alberi
     DFS iterativo con preordine destro utilizzando uno Stack
 
     - l'ordine di visita é l'ordine di rimozione dallo Stack
-
     ``` example
     Tree-DFS-Stack(k-Tree T)
       S = empty stack
@@ -869,11 +839,9 @@ Stessa complessitá degli algoritmi di Cardinalitá e Altezza per alberi
     ```
 
 2.  In ampiezza BFS
-
     Non operabile con una ricorsione Iterativo utilizzando una coda
 
     - l'ordine di visita é l'ordine di rimozione dalla Coda
-
     ``` example
     Tree-BFS(k-Tree T)
       Q = empty queue
@@ -888,7 +856,6 @@ Stessa complessitá degli algoritmi di Cardinalitá e Altezza per alberi
     ```
 
 3.  Complessitá
-
     - in base alla cardinalitá n dell'albero
     - il numero di cicli dipendono molto dalla struttura dell'albero
       - possiamo contare il numero di operazioni Push/Pop e Enqueue/Dequeue
@@ -1112,9 +1079,7 @@ else
 Copia isomorfo di un albero
 
 - inserimenti successivi di una lista dei nodi visitati in preordine di T
-
 1.  Red-Black
-
     `Alberi binari di ricerca bilanciati` Questo é utile in alberi in cui le operazioni in cui l'altezza conta sono usate spesso
 
     - in un albero sbilanciato
@@ -1122,7 +1087,6 @@ Copia isomorfo di un albero
     - un albero bilanciato
       - $`h`$ proporzionale al logaritmo di $`n`$
       - $`n=2^h`$
-
     Senza meccanismi particolari la forma dell'albero dipende solamente dall'ordine dell'inserimento
 
     $`R-N`$ é un BRT aumentato, i cui vertici sono colorati di rosso o nero:
@@ -1131,25 +1095,20 @@ Copia isomorfo di un albero
     - rosso: se un nodo é rosso tutti i suoi figli sono neri
       - nodi adiacenti non possono essere entrambi rossi
     - cammino: per ogni nodo x tutti i cammini da x ad una foglia hanno lo stesso numero di nodi neri
-
     $`bh(x) =`$ altezza nera di x
 
     - numero di nodi neri su un ramo a x ad una foglia(*nil*) (x escluso)
-
     `Proposizione`
 
     - l'altezza massima di un albero R-N con n nodi é $`2 \log_2(n+1)`$
       - limite massimo di $`h`$
-
     Ricerca $`O(\log n)`$ Inserimento $`O(\log n)`$ Cancellazione $`O(\log n)`$
 
     Queste peró devono mantenere l'albero bilanciato
 
     1.  Rotazione
-
         - dopo una rotazione l'albero rimane di ricerca
         - se non rispettava le regole R-N dopo le rispetta
-
         ``` example
         Left-Rotate(T,x)
           y = x.right
@@ -1169,12 +1128,10 @@ Copia isomorfo di un albero
         ```
 
     2.  Inserimento
-
         1.  `x(R)` come in albero binario a. se `x` radice allora colorato B
         2.  … a. Caso 0
             - `p(B)`
               - altezza B di `p` non cambia
-
             b\. Caso 1
             - `u(R)`, `p(R)` altrimenti Caso 0
               - violata la regola R
@@ -1190,7 +1147,6 @@ Copia isomorfo di un albero
                 - rotazione `g` verso destra come Caso 2
               - `u(N)` e `x` figlio destro
                 - 2 rotazioni come Caso 3
-
             c\. Caso 2
             - `p(R)` `u(B)` ed é nil
               - rotazione verso destra di `g`
@@ -1199,13 +1155,11 @@ Copia isomorfo di un albero
               - `p(R)` deventa B
               - localmente le regole vengono rispettate
               - l'altezza B del padre di `p` non cambia
-
             d\. Caso 3
             - `u(B)` ed é nil e `x` figlio destro
             - rotazione a sinistra di `p`
             - rotazione a destra di `g`
             - ricondotto al Caso 2
-
         x é il nodo che puó creare problemi
 
         ``` example
@@ -1231,7 +1185,6 @@ Copia isomorfo di un albero
         ```
 
     3.  Cancellazione
-
         1.  cancellazione come in un albero di ricerca ordinario
         2.  ripristino delle regole per ricolorazioni/rotazioni
             - `x` mantiene il suo colore
@@ -1246,7 +1199,6 @@ Copia isomorfo di un albero
               - violate regola R, regola dei cammini
                 - `x` puó essere radice e R
               - si colora `x` di B
-
         ``` example
         ```
 
@@ -1370,9 +1322,7 @@ Visita-Tutti-Vert(G)
 Il sottografo di predecessori diventa una foresta se il grafo contiene piú componenti
 
 - `foresta di scoperta`
-
 1.  Versione piú concreta
-
     - operazioni, D insiemi dei nodi Grigi
       - Make-Empty
         - crea una nuova struttura
@@ -1384,7 +1334,6 @@ Il sottografo di predecessori diventa una foresta se il grafo contiene piú comp
         - se aggiunge x come ultimo el -\> queue
       - Remove-First(D)
       - Not-Empty(D)
-
     ``` example
     Visita(G,s)
       D = Make-Empty
@@ -1404,12 +1353,10 @@ Il sottografo di predecessori diventa una foresta se il grafo contiene piú comp
     Complessitá $`O(|V|)`$ per le operazioni su D e $`O(|E|)`$ per la ricerca dei nodi B
 
     - tempo totale $`O(|V|+|E|)`$
-
     D `coda`
 
     - visita in ampiezza (breadth first search - `BFS`)
     - la costruzione del livello n+1 non comincia prima di concludere la costruzione del livello n
-
     In una coda possiamo modificare l'Algoritmo cosí:
 
     ``` example
@@ -1429,12 +1376,10 @@ Il sottografo di predecessori diventa una foresta se il grafo contiene piú comp
     ```
 
 2.  Versione ulteriore BFS
-
     `Breadth First Search` due campi per ogni el nella lista di adiacenti
 
     - vtx é il vertice
     - next é il prossimo
-
     ``` example
     Visita(G,s)
       D = Make-Empty
@@ -1490,16 +1435,13 @@ Il sottografo di predecessori diventa una foresta se il grafo contiene piú comp
     - `proprietá`
       - il cammino da s a v nell'albero BFS é un cammino minimo
       - il livello di un nodo nell'albero ottenuto con la visita BFS é indipendente dal ordine in cui sono memorizzati i vertice nelle liste di adiacenza
-
 3.  Versione ulteriore DFS
-
     `Depth First Search` Ordine di scoperta con un contatore
 
     - inc quando un nodo cambia colore
     - ogni nodo é marcato 2 volte (B -\> G, G -\> N) su 2 attributi
       1.  inizio visita
       2.  fine visita
-
     ``` example
     Inizializza(G)
       for \forall u \in V do
@@ -1526,7 +1468,6 @@ Il sottografo di predecessori diventa una foresta se il grafo contiene piú comp
     La struttura di attivazione rivela che un vertice non viene disattivato finché non sono stati attivati e disattivati tutti i suoi discendenti
 
     - stesso ordine in cui si percorre un albero di ricorsione
-
     ``` example
     Visita(G,s)
       s.color = G
@@ -1542,7 +1483,6 @@ Il sottografo di predecessori diventa una foresta se il grafo contiene piú comp
 
     - .d
     - .f
-
     ``` example
     Inizializza(G)
       for \forall u \in V do
@@ -1566,14 +1506,11 @@ Il sottografo di predecessori diventa una foresta se il grafo contiene piú comp
     ```
 
     1.  Proprietá
-
         - `Teorema delle parestesi`
           - ogni visita DFS in un grafo, $`\forall (u,v) \in G`$ 1 e 1 sola di queste condizioni é soddisfatta: a) u.d \< v.d \< v.f \< u.f e u é antenato di v in un albero della foresta DFS
             - nel G esiste un cammino do u a v
-
             b\) v.d \< u.d \< u.f \< v.f e u é discendente di v in un albero della foresta DFS
             - nel G esiste un cammino da v a u
-
             c\) u.d \< u.f \< v.d \< v.f o v.d \< v.f \< u.d \< u.f e non esiste relazione antenato-discendente tra u e v nella foresta DFS
             - u e v fanno parte di 2 alberi distinti, nel G non esiste cammino da uno all'altro
         - `classificazione degli archi del grafo durante DFS`
@@ -1587,7 +1524,6 @@ Il sottografo di predecessori diventa una foresta se il grafo contiene piú comp
             - nodi - nodo non in relazione antenato-discendente,
               - due alberi distinti della foresta
               - due rami distinti dello stesso albero
-
         La classificazione é fatta quando si esamina v nella lista di adiaceti adj\[u\]
 
         - v.color:
@@ -1619,18 +1555,15 @@ Print-Path(G,s,u)
 ### Ordinamento Topologico
 
 1.  Def, Proprietá
-
     $`\sigma : V \rightarrow \{1,...,|V|\}`$ t.c. $`\sigma(u) < \sigma(v)`$ se esiste un cammino da $`u`$ a $`v`$ in $`G`$ Ció ha senso solo in grafi `orientati` def equivalente: un ordinamento lineare dei vertici di un grafo tale che $`\forall (u,v) \in E`$, $`u`$ precede $`v`$ nell'ordinamento
 
     L'ordinamento puó esistere solo se il grafo é `aciclico` (`DAG`) Ne puó esistere piú di uno
 
 2.  Algoritmo naive
-
     - il primo nodo deve essere senza archi entrambi, denotato $`o_1`$
     - il secondo nodo puó avere archi entranti solo da $`o_1`$, denotato $`o_2`$
     - il terzo nodo puó evere archi entranti solo da $`o_1,o_2`$, denotato i$`o_3`$
     - …
-
     ``` example
     Topological-Order(G)
       H = G
@@ -1644,12 +1577,10 @@ Print-Path(G,s,u)
     ```
 
 3.  Algoritmo DFS
-
     In ordine di attributo fine visita decrescente
 
     - si parte alla radice dell'ultimo albero DFS
       - si scorrono i rami da destra a sinistra
-
     ``` example
     Topological-Sort(G)
       L = lista vuota di vertici
@@ -1679,41 +1610,33 @@ Print-Path(G,s,u)
 `cfc`
 
 1.  Def, Proprietá
-
     2 nodi u,v sono mutualmente raggiungibili se u é raggiungibile da v e viceversa In un grafo $`G = (V,E)`$ la relazione $`V \for V`$ mutualmente raggiungibile é una relazione di equivalenza (riflessiva, simmetrica, transitiva) Le cfc di un grafo orientato sono le classi di equivalenza su questa relazione $`u \leftrightarrow v`$ simboleggia la appartenenza alla stessa classe di equivalenza, e alla stessa cfc
 
 2.  Naive
-
 3.  DFS
-
     - `lemmi`
       1.  se $`x \leftrightarrow y`$ allora nessun cammino tra essi puó uscire dalla loro cfc
     - `teoremi`
       1.  in una qualunque DFS di un grafo G orientato tutti i vertici di una cfc vengono collocati nello stesso albero
           - nello stesso albero di scoperta ci sono nodi di piú cfc
-
     Gli alberi della foresta di scoperta si possono, sempre, `potare` in modo da separare le cfc
 
     Consideriamo il grafo trasposto:
 
     - dall'alto al basso
     - da destra verso sinistra
-
     Intervalli di attivazione di due vertici
 
     1.  x.d \< y.d \< y.f \< x.f
     2.  y.d \< y.f \< x.d \< x.f
-
     In entrambi i casi x.f \> y.f
 
     - i vertici vanno considerati in ordine decrescente di tempo di fine visita
-
     **Algoritmo**:
 
     1.  visita $`G`$ in profonditá preparando una lista dei vertici in ordine decrescente dei tempi di fine visita
     2.  costruisci $`G^T`$
     3.  visita $`G^T`$ in profonditá considerando i vertici secondo la lista restituita dal passo 1. per quanto riguarda la scelta del nodo bianco da dove fare (ri)partire la visita
-
     Complessitá: $`3 * O(|V| + |E|) = O(|V|+|E|)`$
 
 ### Albero Minimo Ricoprente
@@ -1811,18 +1734,15 @@ MST-Kruskal(G)
 ```
 
 1.  Complessitá
-
     Ordinamento: $`O(|E|\log |E|)`$ Operazioni sulla foresta di insiemi disgiunti: $`O((|V|+|E|) \log |V|)`$ Il grafo é connesso: $`O((|V|+|E|) \log |V|) = O(|E|\log |V|)`$ Totale: $`O(|E|\log |E|) = O(|E| \log |V|^2) = O(|E|2\log |V|) = O(|E|\log |V|)`$
 
 2.  Correttezza
-
     Invariante: $`A`$ é un sottoinsieme degli archi di un MST di $`G`$
 
     - inizializzazione: $`A = \emptyset`$ OK
     - ciclo for:
       - se l'arco crea un ciclo non viene aggiunto
       - se non crea un ciclo allora per corollario l'arco é sicuro e OK
-
     Si dimostra per assurdo che al termine del algoritmo $`(V,A)`$ é connesso
 
 ### Algoritmo di Prim
@@ -1866,17 +1786,14 @@ MST-Prim(G,s)
 ```
 
 1.  Complessitá
-
     $`Q`$ puó essere implementata come coda di prioritá usando un heap minimo Le prioritá sono date dall'attributo $`d`$ il costo dell'algoritmo di Prim é limitato da:
 
     - inizializzazione: $`O(|V|)`$
     - estrazioni del minimo: $`O(|V|\log |V|)`$
     - risistemazione dello heap benario dopo il decremento eventuale delle chiavi: $`O(|E|\log |V|)`$
-
     Complessitá: $`O((|V|+|E|)\log |V|) = O(|E|\log|V|)`$
 
 2.  Correttezza
-
     Invarianti
 
     1.  $`\forall t \in Q: t.\pi \neq nil \implies t.\pi \in V-Q`$
@@ -1902,9 +1819,7 @@ dato un $`G`$ orientato e pesato Definiamo distanza di un vertice $`u`$ da un ve
 Si costruisce un albero radicato in $`s`$ che percorre tutti i cammini minimi
 
 - man mano che si inseriscono i vertici con il loro costo si controllano i suoi adiacenti, in quanto potrebbe esserci un cammino dal costo minore di quello precedentemente considerato passante dall'ultimo vertice aggiunto
-
 1.  Algoritmo di Dijkstra
-
     ``` example
     Dijkstra(G,s)
       Q = V
@@ -1920,15 +1835,12 @@ Si costruisce un albero radicato in $`s`$ che percorre tutti i cammini minimi
     ```
 
     1.  Complessitá
-
         Simile all'algoritmo di Prim
 
         - entrambi costruiscono un albero
-
         La complessitá di Dijkstra é uguale a quella di Prim
 
     2.  Correttezza
-
         - proprietá
           1.  un sottocammino di un cammino minimo é minimo
         - invarianti banali

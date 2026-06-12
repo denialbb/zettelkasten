@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-03-10 Thu 14:53\\]"
+date: 2022-03-10 14:53
 id: ec117724-fe01-424b-aeb7-227655014273
 title: Diffusione e Confusione
 ---

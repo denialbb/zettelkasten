@@ -5,7 +5,6 @@
 ```c++
 static bool Running;
 
-
 if (WindowHandle) {
 	while (Running) {
 		MSG Message;

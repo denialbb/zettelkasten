@@ -1,9 +1,3 @@
-#neovim #cheatsheet #editor #programming
-
-# Neovim (LazyVim) Cheatsheet
-
-A concise reference sheet for custom keybindings, plugins, motions, and editor tricks in my configuration.
-
 ---
 
 ## 1. Custom Core Bindings

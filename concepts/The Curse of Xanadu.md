@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-24 Fri 15:13\\]"
+date: 2021-12-24 15:13
 id: 69eaf96c-819c-4d8f-9d57-1582886d5d4d
 title: The Curse of Xanadu
 ---

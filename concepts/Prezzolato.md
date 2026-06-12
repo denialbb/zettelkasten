@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-01-06 Thu 16:32\\]"
+date: 2022-01-06 16:32
 id: 3b9365dc-ea43-4ebb-a0aa-8fa176e68284
 title: Prezzolato
 ---

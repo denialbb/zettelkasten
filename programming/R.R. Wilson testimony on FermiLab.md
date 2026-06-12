@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-07 Wed 02:47\\]"
+date: 2022-12-07 02:47
 id: 48fc04fc-8b71-4c58-9978-53afe5f21bea
 title: R.R. Wilson testimony on FermiLab
 ---
@@ -28,4 +28,4 @@ title: R.R. Wilson testimony on FermiLab
 >
 > **DR. WILSON**. Only from a long-range point of view, of a developing technology. Otherwise, it has to do with: Are we good painters, good sculptors, great poets? I mean all the things that we really venerate and honor in our country and are patriotic about.
 >
-> In that sense, this new knowledge has all to do with honor and country but it has nothing to do directly with defending our country except to help make it worth defending. [[$cit]]
+> In that sense, this new knowledge has all to do with honor and country but it has nothing to do directly with defending our country except to help make it worth defending. #cit

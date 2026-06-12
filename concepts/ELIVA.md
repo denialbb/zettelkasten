@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-02-28 Wed 13:50\\]"
+date: 2024-02-28 13:50
 id: 09abee1d-9173-4504-a9c2-14d1c3d3e9a0
 roam_aliases: "\"Immagini, Visione e Realtà Virtuale\""
 title: ELIVA

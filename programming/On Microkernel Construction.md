@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-03-12 Sun 20:40\\]"
+date: 2023-03-12 20:40
 id: 5571d2a4-bee6-4008-aded-cbd94c8c782d
 title: On Microkernel Construction
 ---

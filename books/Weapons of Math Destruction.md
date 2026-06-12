@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-13 Wed 22:14\\]"
+date: 2023-12-13 22:14
 id: 46f61717-4114-4b16-b7c7-5779c6f3bfb5
 title: Weapons of Math Destruction
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-05 Tue 05:51\\]"
+date: 2023-12-05 05:51
 id: 3aca283b-c8e0-45d6-9699-967ffdd869a5
 title: Fisica per Applicazioni di Realtà Virtuale
 ---
@@ -1061,7 +1061,6 @@ Semplifica la descrizione della luce:
 ### Riflessione
 
 1.  Riflessione Speculare
-
     > Il raggio incidente su una superficie perfettamente piana viene riflesso formando un'angolo uguale a quello formato dal raggio incidente con la normale alla superficie.
 
     ``` math
@@ -1069,13 +1068,10 @@ Semplifica la descrizione della luce:
     ```
 
 2.  Riflessione Diffusiva
-
     > Il raggio incidente su una superficie scabra la normale cambia punto a punto e quindi i raggi vengono riflessi in ogni direzione.
 
     - quindi un ossevatore può vedere la luce tutto attorno all'oggetto
-
 3.  Formazione di Immagini
-
     - **punto oggetto**
       - sorgente di un flusso divergente
       - può essere una sorgente o un flusso che emerge da un punto
@@ -1085,11 +1081,9 @@ Semplifica la descrizione della luce:
       - punto da cui emerge un flusso di raggi divergente
       - *immagine virtuale* se il flusso di raggi sembra incontrarsi in quel punto
       - *immagine reale* se il flusso di raggi si incontra effettivamente in quel punto
-
     **NB**: concetto dell'invertibilità dei cammini reali, i percorsi che i raggi fanno all'andata sono gli stessi che i raggi fanno al ritorno.
 
 4.  Equazione dello specchio
-
     **Legge di Gauss** o Equazione dei punto coniugati[^1]:
     ``` math
     \frac{1}{f} = \frac{1}{d_i} + \frac{1}{d_o}
@@ -1099,7 +1093,6 @@ Semplifica la descrizione della luce:
       - ottica di Gauss e ottica parassiale
         - deve esistere un fuoco
         - consideriamo $`\text{AB}`$ un segmento perchè molto vicini
-
     **Ingrandimento trasversale** $`m`$:
     ``` math
     m = \frac{h_i}{h_o} = - \frac{d_i}{d_o}
@@ -1108,13 +1101,9 @@ Semplifica la descrizione della luce:
     - $`|m|>1`$ ingrandimento
     - $`|m|<1`$ rimpicciolimento
     - $`m<0`$ capovolgimento
-
 5.  Specchi piani
-
     - riflettono senza modificare l'immagine virtuale
-
 6.  Specchi sferici
-
     Considerando raggi paralleli (sorgente all'infinito) questi vengono riflessi, secondo la legge di riflessione punto per punto, ma non convergono tutti nello stesso punto. Il fenomeno è noto come **aberrazione sferica**. Per questo specchi sferici forniscono immagini meno nitide rispetto agli specchi piani.
 
     - con uno specchio piccolo rispetto al raggio di curvatura l'aberrazione è trascurabile
@@ -1122,7 +1111,6 @@ Semplifica la descrizione della luce:
       - due condizioni: **ottica di Gauss** e **ottica parassiale**
     - **Caustica di confusione**
       - se è abbastanza piccola la si può ignorare, come nei casi suddetti
-
     Un sistema la cui caustica di confusione è ignorabile si definisce **stigmatico**, ovvero crea immagini puntiformi con una buona approssimazione.
 
     - **convesso**, la riflessione avviene sulla superficie esterna della sfera e il centro di curvatura è dalla parte opposta rispetto l'osservatore
@@ -1167,9 +1155,7 @@ n = \frac{c}{v}
 ```
 
 - $`c`$ dipende dalla lunghezza d'onda $`\lambda`$
-
 1.  Legge di Smell
-
     > La parte del raggio di luce che viene trasmessa nel passaggio attraverso due mezzi con indice di rifrazione diverso viene deviato, la parte restante viene riflessa.
 
     ``` math
@@ -1178,11 +1164,9 @@ n = \frac{c}{v}
 
     - quando si entra in un mezzo più lento ci si avvicina alla normale
     - per l'invertibilità del cammino ottico entrando in un mezzo più veloci ci si allontana dalla normale
-
     Si ha riflessione totale passando a mezzi ad indice di rifrazione minore per angoli maggiori dell'angolo limite $`\theta_c`$.
 
     - questo perchè il raggio rifratto si allontana dalla normale, oltre un angolo di rifrazione di $`90^{\circ}`$ (sulla superficie del mezzo) tutta la luce viene riflessa
-
     ``` math
     \sin \theta_c = \frac{n_2}{n_1} \sin 90^{\circ} = \frac{n_2}{n_1}
     ```
@@ -1191,33 +1175,19 @@ n = \frac{c}{v}
       - binocolo
       - fibra ottica (**guida di luce**)
       - endoscopio
-
 2.  Lenti
-
     - 2 diottri
-
       - con caratteristiche diverse
-
     - attenzione che ai due lati ci siano 2 mezzi uguali con lo stesso indice di rifrazione
-
       - esempi che non lo hanno sono maschera da sub, lente a contatto
-
     - lenti convergenti
-
       - più spesse in centro
-
     - lenti divergenti
-
       - più sottili in centro
-
     - doppio-convesse e doppio-concave
-
     - piano-convesse e piano-concave
-
     - menisco-convesse e menisco-concave
-
     - consideriamo un **caso particolare**
-
       - lenti sottili
         - spessore trascurabile rispetto alla sezione trasversa
       - ottica Gauss e parassiale
@@ -1225,31 +1195,26 @@ n = \frac{c}{v}
       - stesso mezzo davanti e dietro
       - sotto queste ipotesi il sistema è **stigmatico**
         - la caustica è un punto e quindi trascurabile seconda la definizione del mezzo che definiamo
-
     Avviene una doppia rifrazione sui raggi incidenti
 
     - prima rispetto alla normale del piano di curvatura di incisione
     - seconda rispetto alla normale del piano di curvatura di uscita
-
     Una lente convergente
 
     - un flusso di raggi paralleli, distanza infinita
     - convergenza in un singolo punto, il fuoco
     - si crea un'immagine reale in quanto indistinguibile da un punto oggetto
       - da dove divergono i raggi
-
     Una lente divergente
 
     - un flusso di raggi paralleli, distanza infinita
     - divergenza dei raggi
     - intersezione sul fuoco posto di fronte alla lente, immagine virtuale
       - non può essere osservata su uno schermo ma solo con uno strumento ottico
-
     In entrambi i casi stesse distanze focali da entrambi i lati, si può ribaltare la lente
 
     - conseguenza di essere immersi nello stesso mezzo
     - il **piano focale** è l'insieme dei punti immagine dei raggi provenienti dall'infinito
-
     Si definiscono i due fuochi come fuoco oggetto uno e fuoco immagine l'altro.
 
     La **potenza della lente** $`P`$ è il reciproco della distanza focale ed è misurata in *diottrie* ($`\text{D}`$).
@@ -1263,7 +1228,6 @@ n = \frac{c}{v}
     ```
 
     - equazione dei punti coniugati
-
     ``` math
     m = \frac{h_i}{h_o} = - \frac{d_i}{d_o}
     ```
@@ -1271,13 +1235,11 @@ n = \frac{c}{v}
     In quanto ogni immagine non è distinguibile da un oggetto si possono creare sistemi di lenti sottili regolati dalle stesse leggi.
 
     1.  Equazione del costruttore di lenti
-
         3 condizioni:
 
         - ottica Gauss parassiale
         - stesso mezzo dai due lati
         - lenti sottili
-
         ``` math
         P = \frac{1}{f} = (n-1) \bigg(\frac{1}{R_1}+\frac{1}{R_2}\bigg)
         ```
@@ -1404,13 +1366,10 @@ Dove $`m \in (0,1,2,\dots)`$
 ### Interferenza su lamine sottili
 
 - interferenza della luce riflessa sulle due superfici di una lamina sottile produce frange di interferenza
-
 1.  Anelli di Newton
-
     > Se si illumina con luce monocramatica una superficie di vetro incurvata a contatto con una lastra di vetro piana si forma una figura di interferenza costituita da anelli concentrici alternativamente chiari e scuri, gli anelli di Newton.
 
 2.  Rivestimento anti-riflettente
-
     - si progetta per eliminare certe lunghezze d'onda attraverso la creazione di interferenze distruttive
     - andata e ritorno eguagliano un multiplo dispari di $`\lambda/2`$
 

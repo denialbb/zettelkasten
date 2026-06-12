@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-14 Thu 00:49\\]"
+date: 2023-12-14 00:49
 id: ff167bfa-616c-487b-adce-397b00edc5e8
 title: git new initial commit to current status
 ---

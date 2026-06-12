@@ -54,7 +54,6 @@ La Macchina di Turing essendo estremamente semplice é ottima per lo studio dell
 4.  $`\delta: Q \times \Gamma \rightarrow Q \times \Gamma \times \{L,R\}`$: funzione di transizione
     - Left (\<) / Right (\>)
 5.  $`q_{accept}`$
-
 - Lo stato di rifiuto non viene inserito, é sottointeso a ogni Input non riconosciuto una transizione allo stato di rifiuto, bloccante
 - Lo stato $`S`$ di `StayPut` é simulabile muovendosi continuamente $`L`$ e $`R`$, raddoppiando gli stati
 - Il nastro infinito a destra e sinistra si simula sulle celle pari e dispari su un nastro infinito solamente a destra
@@ -62,11 +61,9 @@ La Macchina di Turing essendo estremamente semplice é ottima per lo studio dell
 ### Grafi
 
 1.  Stringhe Uguali
-
     ![](../media/img/grafoEs1.jpg)
 
 2.  Stringa di 0 di lunghezza 2<sup>n</sup>
-
     ![](../media/img/graphPowerOfTwoLength.jpg)
 
 ### Macchine Turing a piú registri
@@ -236,13 +233,10 @@ $`E_{\textsc{CFG}}=\{\langle G \rangle \mid G\mbox{ is a \textsc{CFG} and }L(G) 
 Per molti problemi si utilizza la tecnica della riduzione
 
 - se un problema che sappiamo non decidibile si puó ridurre al problema che stiamo studiando allora anche questo non sará decibidile
-
 1.  Eguaglianza Chompsky
-
     $`EQ_{\textsc{CFG}}=\{\langle G,H \rangle \mid G\mbox{ and }H\mbox{ are \textsc{CFG}s and }L(G) = L(H)\}`$
 
 2.  Accettazione
-
     `4.11` Problema <u>positivamente decidibile</u>
 
     $`\textsc{proof}`$ Si procede per *diagonalizzazione* utilizzando due `TM` di supporto $`H`$ e $`D`$
@@ -252,7 +246,6 @@ Per molti problemi si utilizza la tecnica della riduzione
     - simulabile con una macchina $`U`$ di Turing universale
       - macchina capace di simulare qualsiasi macchina utilizzando 5 tape
     - si osserva l'esecuzione che non termina
-
     Si prova utilizzando la tecnica della *diagonalizzazione* scoperta dal matematico [[Georg Cantor]] nel 1873
 
     - iniezione - suriezione (biezione)
@@ -261,7 +254,6 @@ Per molti problemi si utilizza la tecnica della riduzione
       - per i Reali si cambia nella ennesima enumerazione la ennesima cifra dopo la virgola
         - si trova cosí un numero che differisce per una cifra da tutti i numeri enumerati
     - esistono infinite terne
-
     $`\textsc{\textbf{proof}}`$ Si definiscono delle `MT` di supporto:
 
     ``` math
@@ -272,7 +264,6 @@ Per molti problemi si utilizza la tecnica della riduzione
     ```
 
     - supponiamo che `H` esista, e accetti se `M` accetta `w` e rifiuti altrimenti
-
     ``` math
     D(\langle M \rangle) = \begin{cases}
     \text{accept} \quad &\text{if }M\text{ does not accept } \langle M \rangle \\
@@ -282,7 +273,6 @@ Per molti problemi si utilizza la tecnica della riduzione
 
     - `D` prende in input una macchina `M` e con un decisore `H` che decide `M` con input la propria descrizione $`\langle M \rangle`$, accetta se `H` rifiuta e viceversa, continua con altre macchine
       - diagonalizza infinite macchine `M`
-
     Allora si procede diagonalizzando con $`D`$ applicato a $`\langle D\rangle`$
     ``` math
     D(\langle D \rangle)\begin{cases}
@@ -294,80 +284,64 @@ Per molti problemi si utilizza la tecnica della riduzione
     - dovrebbe rifiutare se $`D`$ accetta
     - dovrebbe accettare altrimenti
       - non puó terminare perché per terminare avrebbe bisogno di dare la risposta opposta di se stesso
-
     <u>Abbiamo raggiunto una contraddizione</u> $`\blacksquare`$
 
 3.  Immortalitá
-
     `4.23` $`\overline A_{\textsc{tm}}`$ <u>positivamente decidibile</u> $`\implies  A_{\textsc{tm}}`$ <u>negativamente decidibile</u> per `T.Post`
 
     - Falso per `4.11`
-
 4.  Fermata
-
     `5.1` Il problema della decisione per $`L_{1}`$ si riduce al problema della decisione per $`L_{2}`$ se sappiamo trasformare un decisore per $`L_{2}`$ in un decisore per $`L_{1}`$
 
     $`\textsc{halt}_{\textsc{tm}}=\{\langle M,w\rangle \mid M \mbox{ is a \textsc{tm} and }M \mbox{ halts on input } w\}`$
 
     - $`A_{\textsc{tm}} <_m \textsc{Halt}_{TM}`$
-
     $`\textsc{\textbf{proof}}`$ Per contraddizione. Supponiamo esista una `TM` $`R`$ che decida la fermata, definiamo una `TM` $`S`$ che decide l'accettazione. Ma l'accettazione non é decidibile. Definiamo $`S`$ su input $`w`$:
 
     - Se $`R`$ accetta $`\langle M,w \rangle`$ procedi, altrimenti rifiuta
     - Simula $`M`$ su $`w`$, se accetta fa altrettanto, altrimenti rifiuta
-
     $`A_{\text{TM}} \le_m \text{HALT}_{\text{TM}}`$ in quanto se $`R`$ accetta significa che $`M`$ termina, accettando o rifiutando. Se diverge $`w`$ non appartiene al linguaggio riconosciuto da $`M`$ e $`S`$ puó rifiutare. Per ció $`S`$ accetta tutte e sole le stringhe in $`L`$, ovvero riconosciute da $`M`$.
 
     Ma questa é una contraddizione in quanto si dimostra che $`A_{\text{TM}}`$ non é decidibile. $`\blacksquare`$
 
 5.  Decibidilitá dei Linguaggi di Chompsky
-
     *Simboli, Produzioni, Terminali* Un linguaggio definibile da una grammatica in forma normale di Chompsky é detto `context-free` Si dimostra che il numero di passi per derivare una stringa di lunghezza $`n`$ é $`2n-1`$
 
     Questo implica che il problema é decidibile, anche se in tempo esponenziale
 
     - si scrivono sulla tape 2 tutte le deduzioni di lunghezza $`2n-1`$
     - si controlla la correttezza una ad una, se ne si trova una corretta e che corrisponde accettiamo, altrimenti continuiamo, se alche l'ultima non va bene rifiutiamo
-
     Per ridurre la complessitá si utilizza la **programmazione dinamica**
 
     - ci si appunta i risultati intermedi
-
 6.  Emptyness
-
     `5.2` Si dimostra per assurdo, se esistesse si potrebbe risolvere l'accettazione
 
     - si riduce a $`A_{\textsc{tm}}`$
       - $`A_{\textsc{tm}} <_m E_{\textsc{tm}}`$
-
     $`\textsc{\textbf{proof}}`$ Per contraddizione. Supponiamo esista una $`R`$ tale che decida la emptyness, dato una stringa di input $`w`$ si modifica $`M`$ per accettare solo questa stringa. Definiamo $`M`$, su input $`x`$:
 
     - se $`x \neq w`$ rifiuta
     - altrimenti accetta
-
     Questa macchina decide il linguaggio che contiene la sola stringa $`w`$.
 
     Allora $`S`$, su input $`\langle M, w \rangle`$:
 
     - costruisce la $`M`$ modificata come specificato
     - esegue $`R`$ su $`M`$, se $`R`$ accetta allora rifiuta, e viceversa
-
     In questo modo abbiamo ridotto l'accettazione alla emptyness: $`R`$ rifiuta se e solo se $`M`$ accetta $`w`$, e quindi il linguaggio $`L`$ riconosciuto da $`M`$ non é vuoto. Viceversa se $`M`$ rifiuta $`w`$ allora $`R`$ accetterá in quanto $`L`$ riconosciuta da $`M`$ é il linguaggio vuoto. Quindi $`S`$ decide l'accettazione. Contraddizione in quanto l'accettazione é non decidibile. $`\blacksquare`$
 
 7.  Equality
-
     `5.4` Intesa tra due `MT`
 
     - se sapessi deciderla potrei decidere anche l'`Emptyness`
       - In quanto $`E_{\text{TM}}`$ é considerabile un caso particolare di $`EQ_{\text{TM}}`$
       - tra una macchiana e la macchina che rifiuta sempre
-
     Anche per i reali:
 
     - calcoli diversi portano anche arrotondamenti diversi, per questo reali rigorosamente uguali possono risultare diversi
     - $`A_{\textsc{tm}}<_m EQ_{\textsc{Real}}`$
       - e di conseguenza anche il \< e il \>
-
     $`EQ_{TM} = \{\langle M_{1}, M_{2} \rangle \mid L(M_{1}) = L(M_{2})\}`$ $`\blacksquare`$ $`\textsc{proof}`$ Si dimostra per riduzioni:
 
     1.  $`A_{TM} \le_{m} \overline{EQ}_{TM}`$
@@ -375,7 +349,6 @@ Per molti problemi si utilizza la tecnica della riduzione
         - spostiamo al decidibilitá a $`A_{TM}`$
     2.  $`\overline A_{TM} \le_{m} EQ_{TM}`$
         - questo indica che $`EQ_{TM}`$ non puó essere positivamente decidibile
-
     Ora basta raggiungere queste conclusioni per chiudere la dimostrazione.
 
     1.  Definisco una macchina $`F`$ che implementa la funzione $`f`$ che riduce $`A`$ a $`\overline{EQ}`$
@@ -398,9 +371,7 @@ Per molti problemi si utilizza la tecnica della riduzione
             - esegue $`M`$ su $`w`$ e accetta se $`M`$ accetta
               - $`\begin{cases} M \mbox{ accetta}: & L(M_{2})=\Sigma^{*}\\M \mbox{ non accetta}: & L(M_{2}) = \emptyset  \end{cases}`$
           - $`L(M_{1}) \neq L(M_{2}) \iff M \mbox{ non accetta }w \qquad\qquad \blacksquare`$
-
 8.  Corrispondenza di Post
-
     `PCP - 4.22`
 
     $`A_{TM} \le_{m} \text{PCP}`$
@@ -409,7 +380,6 @@ Per molti problemi si utilizza la tecnica della riduzione
 
     - in quanto corrisponde alla visualizzazione della [[Configurazione di una TM]]
       - visualizzando la storia del calcolo della macchina
-
     Si definisce un *Modified Post Correspondance Problem*:
 
     $`A_{TM} \le_{m} \text{MPCP} \le_{m} \text{PCP}`$
@@ -418,7 +388,6 @@ Per molti problemi si utilizza la tecnica della riduzione
 
     - sopra abbiamo $`n-1`$ passi di calcolo
     - sotto abbiamo $`n`$ passi di calcolo
-
     Questi *domini* rappresentano le funzioni di transizione attraverso le configurazioni della `TM`
 
     - $`[\frac{\#qa}{\#rb}]`$
@@ -429,26 +398,20 @@ Per molti problemi si utilizza la tecnica della riduzione
       - $`[\frac{\sqcup}{\sqcup}]`$
       - $`[\frac{\#}{\sqcup\#}]`$
         - utilizzato quando lo stato deve spostarsi a destra oltre l'ultimo simbolo
-
     Si devono definire dei domino per l'accettazione, che faccia *match*: $`[\frac{q_{accept}\#\#}{\qquad \;\;\;\: \#}]`$ Per arrivare a questo *accept*: $`\forall a\in \Gamma`$
 
     - $`[\frac{a\: q_{accept}}{\quad q_{accept}}]`$
     - $`[\frac{q_{accept} \: a}{q_{accept}\quad}]`$
-
 9.  Tassellazione - Wang Tiles
-
     [Wikipedia](https://en.wikipedia.org/wiki/Wang_tile) Solo negativamente decidibile
 
     - le tassellazioni aperiodiche sono utilizzate per la sintesi procedurale di texture, heightfields
-
     Si dimostra che $`\textsc{Wang}`$ non é positivamente decidibile in quanto
 
     - $`\overline{\textsc{Halt}} \le_m \textsc{Wang}`$
     - procedendo in maniera non deterministica, il caso di *non-rifiuto* indica che un albero della computazione ha per caso scelto la configurazione corretta per risolvere il problema della tassellazione
     - la computazione non deterministica si ferma solo in caso di rifiuto di tutti i rami non deterministici, quindi se la computazione non si ferma si dovrebbe accettare
-
 10. Esistenza di un DFA equivalente
-
     `5.3` $`A_{\textsc{tm}} <_m\textsc{Regular}_{\textsc{tm}}`$
 
 ### Configurazione di una TM
@@ -538,30 +501,24 @@ L'esplorazione dell'albero non deterministico é svolto utilizzando *l'ordine le
 - a livello $`n`$ l'albero ha massimo $`k^{n}`$ nodi con $`k`$ numero di possibili figli
 - il numero di passi necessari all'esplorazione dell'albero é $`2^{O(m)}`$
   - $`m`$ profonditá dell'albero
-
 1.  Raggiungibilitá
-
     $`\textsc{Path} = \{ \langle G,s,t  \rangle \mid G \text{ é  diretto con un cammino da }s \text{ a } t \}`$ La soluzione banale non deterministica ha $`2^{O(t(n))}`$ <u>esponenziale</u>
 
     Con un algoritmo marcando i nodi man mano che vengono scoperti si raggiunge complessitá <u>polinomiale</u>
 
     - rappresentando il grafo con liste di adiacenza la si puó stimare $`O(n)`$ nel numero di archi
-
 2.  Algoritmo di Euclide
-
     $`\textsc{RelPrime}`$, il `MCD` tra due numeri Relativamente Primi é 1 $`\textsc{mcd}(x,y) = \textsc{mcd}(x \mod(y), y)`$ quindi procediamo: $`(x,y) \to (x \mod{y}, y) \to (y, x\mod{y})\to \cdots \to (x,0)`$ $`\textsc{mcd}(x,0) = x`$
 
     I passi sono eseguiti $`min(2 \log_{2} x, 2\log_{2} y)`$ ovvero proporzionali al numero di cifre nella rappresentazione binaria: $`O(n)`$ quindi <u>polinomiale</u>
 
 3.  Grammatiche di Chompsky
-
     Per migliorare la complessitá si cerca di derivare tutte le sottostringhe di lunghezza crescente della stringa di input
 
     - si memorizzano le soluzioni delle sottostringhe
       - per ogni sottostringa la si divide in sottostringhe e si guarda la soluzione delle sottostringhe
       - in una rappresentazione matriciale la soluzione si trova nella riga precedente
     - ogni controllo richiede $`O(1)`$ in quanto le sottostringhe sono sempre riconducibile ai siboli terminali
-
     Con questo algoritmo si raggiunge $`O(n^3)`$
 
 ### NP
@@ -591,56 +548,45 @@ Un linguaggio é `NP` se dispone di un *verificatore* in tempo polinomiale, dett
 Si dimostra quindi che le due definizioni sono equivalenti in quanto é sempre possibile convertire un $`V`$ polinomiale in una $`M`$ polinomiale non deterministica e viceversa.
 
 1.  NP-completo
-
     $`\textsc{\textbf{definition}}`$ Un linguaggio $`B`$ é $`\textsc{NP}\text{-completo}`$ se soddisfa le seguenti condizioni:
 
     1.  $`B \in \textsc{NP}`$
     2.  $`\forall A\in \textsc{NP}, A  <_P B`$
         - $`A`$ si riduce in tempo polinomiale a $`B`$
-
     Ci sono quindi due possibilitá che si escludono l'un l'altra:
 
     - $`\text{P} = \text{NP}`$
     - Tutti i problemi $`\text{NP-completi}`$ non sono polinomiali
-
     La classe $`\text{NP-completo}`$ descrive i problemi piú difficili in $`\text{NP}`$
 
 2.  Teorema di Cook-Levin
-
     Problemi in $`\textsc{NP}`$ la cui complessitá é legata a quella dell'intera classe sono detti $`\textsc{NP}\text{-completi}`$ Il problema della soddisfatibilitá (*satisfiability problem*) fa parte di questa classe
 
     - Una formula booleana é soddisfacibile se qualche assegnamento di 0 e di 1 fa si che la formula risulti 1
     - $`\textsc{SAT}=\{ \langle \phi \mid \phi \rangle`$ é una formula booleana soddisfacibile $`\}`$
-
     `7.27` $`\textsc{\textbf{theorem}}`$ $`\textsc{SAT}\in \textsc{P} \iff \textsc{P}=\textsc{NP}`$
 
     Questo teorema é implicato da `7.37`: $`\textsc{\textbf{theorem}}`$ $`\textsc{SAT}`$ é $`\textsc{NP}\text{-completo}`$ $`\textsc{\textbf{corollary}}`$ $`\text{3SAT}`$ é $`\text{NP-completo}`$
 
     - $`\text{CNF-SAT} \le_P \text{3-SAT}\le_P \text{CLIQUE}`$
-
     **NB** - Per provare la $`\text{NP-completessa}`$ si procede da $`\text{SAT}`$ al problema in particolare
 
 3.  Hamilton's Path
-
     Percorso che percorre tutti il grafo a partire da $`p`$ arrivando in $`t`$ senza ripetizioni. Si percorre il grafo non deterministicamente
 
     - si scartano tutti i rami in cui il primo nodo non é $`p`$ o $`t`$ non é l'ultimo
     - si scartano i rami in cui ci sono ripetizioni
-
     Non conosciuto algoritmo in $`\text{P}`$
 
     $`\text{3SAT}  \le_P \textsc{HamPath}`$
 
 4.  Compositeness
-
     $`\textsc{Composites} = \{x \mid x = pq \text{ for integers }p,q > 1\}`$ Un numero composto é un numero non primo. Esiste un algoritmo polinomiale per verificare se un numero é composto o meno ma non per trovare la sua scomposizione (o almeno non lo si é trovato) Quindi: $`\textsc{Composites} \in \text{NP} \land \textsc{Composites} \in \text{P}`$
 
 5.  Clique
-
     `7.32` Grafo <u>non orientato</u>, fornito un $`k`$
 
     - si richiede un <u>sottografo</u> in cui 2 qualunque nodi distinti sono connessi di un arco
-
     Non si sa se esistono algoritmi polinomiali $`\text{P}`$
 
     $`\textsc{Clique} = \{\langle G,k \rangle \mid G \text{ is an undirected graph with a k-clique}\}`$
@@ -650,7 +596,6 @@ Si dimostra quindi che le due definizioni sono equivalenti in quanto é sempre p
     $`\textsc{\textbf{proof}}`$ Data $`\phi`$ una formula con $`k`$ clausole del tipo
 
     - $`\phi = (a_1 \lor b_1 \lor c_1) \land \cdots \land (a_k \lor b_k \lor c_k)`$
-
     Si definisce la riduzione $`f`$ per cui $`\textsc{Clique} <_P \text{3SAT}`$
 
     - $`f`$ genera la stringa $`\langle G,k \rangle`$, dove $`G`$ é un grafo non orientato
@@ -658,11 +603,9 @@ Si dimostra quindi che le due definizioni sono equivalenti in quanto é sempre p
     - gli archi di $`G`$ connettono tutti i nodi tranne:
       1.  nodi della stessa tripletta
       2.  due nodi contraddittori, come $`x_1`$ e $`\overline{x_1}`$
-
     Si dimostra che $`\phi \in \text{3SAT} \iff G\in k\textsc{-Clique}`$ Quindi $`\text{3SAT} <_P \textsc{Clique}`$ $`\blacksquare`$
 
 6.  Subset-Sum
-
     `7.56` $`\textsc{Subset-Sum} = \{\langle S,t  \rangle \mid S = \{s_1,\ldots ,s_n\}`$ dove esistono $`\{y_1,\ldots,y_m\}\subseteq S`$ tali che $`\sum y_i  = t\}`$
 
     Si dimostra facilmente che questo é $`\textsc{np}`$ definendone un verificatore polinomiale oppure una `TM` non deterministica polinomiale che lo definisca.

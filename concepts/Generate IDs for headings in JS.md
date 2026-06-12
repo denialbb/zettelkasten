@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-05-13 Fri 18:58\\]"
+date: 2022-05-13 18:58
 id: 897e63e9-8bcd-4b7f-b680-7d122c7da650
 title: Generate IDs for headings in JS
 ---

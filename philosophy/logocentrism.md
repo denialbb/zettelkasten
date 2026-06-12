@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-01 Thu 16:26\\]"
+date: 2022-12-01 16:26
 id: 6670e394-e5f1-4789-b3a3-e9d5de3aba84
 title: logocentrism
 ---

@@ -21,11 +21,9 @@ A Compiler reads a program in a Source Language and translates it in a target la
 The `Lexer` groups character, the `Lexical Analyzer` outputs Tokens for each Lexem. The token are then used by the `Syntax Analyzer` to get information from the `symbol-table`
 
 1.  Lexemes
-
     Meaningful groups of characters
 
 2.  Tokens
-
     \<token-name,attribute-value\>
 
 ## Synthesis

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-30 Fri 01:49\\]"
+date: 2022-12-30 01:49
 id: 878a5653-cf6a-4b87-981d-fd55c1c69ebf
 title: How to switch, customize, or write themes
 ---

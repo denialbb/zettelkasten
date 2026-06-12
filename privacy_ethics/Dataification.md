@@ -1,6 +1,5 @@
 ---
-date: "\\[2024-01-09 Tue 13:47\\]"
+date: 2024-01-09 13:47
 id: 99594e59-63ee-400a-ae18-d37ec055f338
 title: Dataification
 ---
-

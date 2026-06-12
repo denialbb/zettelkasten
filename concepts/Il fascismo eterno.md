@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-01-09 Tue 16:09\\]"
+date: 2024-01-09 16:09
 id: 7d7f3c31-be3b-4950-83a8-94573f5f867a
 title: Il fascismo eterno
 ---

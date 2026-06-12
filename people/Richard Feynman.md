@@ -9,4 +9,4 @@ title: Richard Feynman
 
 |  |
 |----|
-| Notes aren’t a record of my thinking process. They are my thinking process.[[$cit]] |
+| Notes aren’t a record of my thinking process. They are my thinking process.#cit |

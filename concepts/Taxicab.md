@@ -4,11 +4,9 @@ title: Taxicab
 ---
 
 - [Documento di Presentazione del Progetto](file:///home/dan/Documents/UNI/II/SO/PROGETTO.pdf)
-
   - Opzioni di compilazione
     - gcc -std=c89 -pedantic
   - utilizzo di make
-
 - [Overview](home/dan/Documents/UNI/II/SO/taxicab-overview.pdf)
 
 # Struttura della Simulazione

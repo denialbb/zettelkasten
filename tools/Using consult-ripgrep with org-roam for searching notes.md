@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-10-06 Thu 07:23\\]"
+date: 2022-10-06 07:23
 id: 5098aa25-6d54-4dab-b49c-c16fafe205e2
 title: Using consult-ripgrep with org-roam for searching notes
 ---

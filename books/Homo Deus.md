@@ -12,9 +12,7 @@ title: Homo Deus
 ### 3 problems
 
 1.  famine
-
 2.  plague
-
 3.  war
 
 ## in the third millenium
@@ -129,7 +127,7 @@ The true enemy is now human destruction on our own planet
 
 Having overcomed disease, famine and war the next aims of humanity will be overcoming death, achiving happiness and putting past us our beastly survival struggles, upgrading Homo Sapiens into `Homo Deus`
 
-- [[$cit]] Success breeds ambition, and our recent achievements are now pushing humankind to set itself even more daring goals. Having secured unprecedented levels of prosperity, health and harmony, and given our past record and our current values, humanity’s next targets are likely to be immortality, happiness and divinity. Having reduced mortality from starvation, disease and violence, we will now aim to overcome old age and even death itself. Having saved people from abject misery, we will now aim to make them positively happy. And having raised humanity above the beastly level of survival struggles, we will now aim to upgrade humans into gods, and turn Home sapiens into Homo deus.
+- #cit Success breeds ambition, and our recent achievements are now pushing humankind to set itself even more daring goals. Having secured unprecedented levels of prosperity, health and harmony, and given our past record and our current values, humanity’s next targets are likely to be immortality, happiness and divinity. Having reduced mortality from starvation, disease and violence, we will now aim to overcome old age and even death itself. Having saved people from abject misery, we will now aim to make them positively happy. And having raised humanity above the beastly level of survival struggles, we will now aim to upgrade humans into gods, and turn Home sapiens into Homo deus.
 
 ## Death & Immortality
 
@@ -138,21 +136,17 @@ Having overcomed disease, famine and war the next aims of humanity will be overc
 Universal right
 
 1.  Death goes against this
-
     Crime against humanity, `A technical problem to solve` This was not the case in the past
 
     - religions and ideologies sanctified Death not Life the focus was on the afterlife and Death was vital in that sense
-
     We now understand the technical nature of Death
 
     - Death is now associed with a mistake, not with a cosmic plan
-
 2.  Consequenses
-
     - Social structures would have to change
       - marriages won't be forever
     - Elder people won't leave way to the youth so easily
-      - [[$cit]] Science advances one funeral at the time ~ Max Planck
+      - #cit Science advances one funeral at the time ~ Max Planck
 
 ### But in reality science won't solve Death in the foreseable future
 
@@ -160,10 +154,8 @@ The life-span of humans hasn't changed, we got better at preventing premature de
 
 ### On immortality
 
-- [[$cit]] I don't want to achieve immortality through my work. I want to achieve it by not dying. ~ Woody Allen
-
+- #cit I don't want to achieve immortality through my work. I want to achieve it by not dying. ~ Woody Allen
 - Immortality is the ultimate objective of humanism (the worship of humankind)
-
   - this is the agenda of humankind in the end as the humanism has conquered the world
 
 hy did this happen? Why has humanism become the dominant world religion and why attempting to fulfil the idead this religion proposes is likely to cause our disentegration
@@ -190,46 +182,36 @@ Epochs: `Pleistocene, Pliocene, Miocene, Holocene` But really `Anthropocene` nev
 Soon our impact will be superior to the asteroid that extinted dinosaurs
 
 1.  Anthropocene
-
     The epoch of the Sapiens – Holocene Sapiens broke the barrier between the biomes
 
     - they united the globe into one ecological unit for the first time
       - they shuffled species all around the world
-
 2.  Animism
-
     It is believe the first humans considered animals and plants and spirits to be inihabitants of the same land as themselves
 
     - all beings were considered at the same level
-
     This view is now alien to nearly everyone
 
     1.  Serpent
-
         - even the Bible were created much later than that time:
           - the sole occurrence when an animal initiates conversation is the serpent in the garden of Eden
             - a <u>condamnation of Animism</u>
-
         Adam and Eve lived as forangers
 
         - expulsion from Eden == Agricultural Revolution
         - Eve means snake in most Semitic Languages
-
         An archaic animistic mith believed humans descended from priomordial snakes or lizards
 
         - this is believed by modern Westeners
           - the human brain is built around a reptillian core
-
         <u>In the Genesis</u>
 
         - everything is initiated by God in the first part
         - then the serpent initiates conversation
           - this is followed by the first act initiated by Eva that responds
-
         This is the series of events that lead to the fall from grace
 
     2.  Ancestral Needs
-
         <u>Agricultural Revolution</u>
 
         - by-products
@@ -238,7 +220,6 @@ Soon our impact will be superior to the asteroid that extinted dinosaurs
             - they suffer greatly although still living on and multiplying
               - the humans needs shape their life and their emotional needs are ignored
                 - as these needs were formed milions of years ago these animals suffer greatly as a resoult of not meeting them, even if from a evolutional standpoint they don't need to anymore
-
         <u>Algorithms</u>
 
         - these algorithms take in sensual input and output sensations and feelings
@@ -250,53 +231,40 @@ Soon our impact will be superior to the asteroid that extinted dinosaurs
             - they produce copies of themselves
           - All animals are
             - these algorithms are always undergoing a quality control in the form o natural selection
-
         <u>Theist Religions</u>
 
         - catered to peasants and shepards
           - their holydays revolved around farming
-
     3.  Agricultural deal
-
         - in the animistic cosmos everybody interacted directily with one another
         - in the theist cosmos the Gods mediate
           - non-human entities are silenced
             - this serves the two main parties at the expense of the ecosystem
-
         Jainism, Buddhism and Hinduism demonstrate more empathy toward animals
 
         - `Ahimsa` - non-violence
           - this extends to all living being, not only humans as in the Bible
-
         Still, in all religions humans are placed higher on some sort of hierarchy
 
         - The Deal
           - cosmic forces grant humankid command over other animals on some condition toward the Gods, Nature, the animals themselves
-
         1.  Hunters vs Farmers
-
             - hunters
               - were in smaller number than the animals they hunted
               - were in contact with the animals and their behavior and thinking
             - farmers
               - lived in a world controlled by human dreams and ideas
               - lived with domestic, subjogated animals
-
     4.  One Man Show
-
         If with the Agricultural Revolution humans sileced Nature; With the scientific revolution they silenced God
 
         - Humankind stood on an empty stage
-
         1.  Newton's Tree of Knowledge
-
             The story turns the Genesis on its head
 
             - man is now the sole agent
               - not at the mercy of the Serpent or God anymore
-
         2.  Humanist Religions
-
             Risen with the scientific revolution, worship of humans
 
             - Founding ideas
@@ -306,9 +274,7 @@ Soon our impact will be superior to the asteroid that extinted dinosaurs
               - liberalism
               - communism
               - Nazism
-
         3.  Rethinking of lower life-forms
-
             In the recent years this is a trend Maybe because we are about to become a lower life-form ourselves with AI super-intelligence
 
             - if AI should not be allowed to exploit humans for its ends why should humans be allowed to do so with nature?

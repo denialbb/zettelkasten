@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-04-09 Tue 15:49\\]"
+date: 2024-04-09 15:49
 id: e9aa5261-55ce-4a65-958d-6d691f4e46b6
 title: Ottimizzazione Combinatoria
 ---

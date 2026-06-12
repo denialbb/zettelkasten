@@ -5,7 +5,7 @@ title: Note Taking
 
 Some interesting ideas about taking notes:
 
-- [[$zettel]]
+- #zettel
 - [[Zettelkasten]]
 - [[Zettelkasten principles]]
 - [[Atomic Notes]]

@@ -13,9 +13,7 @@ title: org-capture
 ### directory di org-roam nel caso di
 
 1.  journal
-
     1.  usando `org-roam-today`
-
 2.  roam
 
 ### directory di agenda o ledger nei casi
@@ -45,9 +43,7 @@ title: org-capture
 ### keys
 
 1.  "a" o "-tasto-"
-
 2.  "ab" per due tasti
-
     1.  in questo caso le combinazioni devono essere consequenziali e seguite da una descrizione
 
 ### description
@@ -57,101 +53,59 @@ title: org-capture
 ### type
 
 1.  un simbolo
-
 2.  es
-
     1.  entry
-
         1.  org mode node
-
         2.  con headline
-
         3.  inserita come child della target entry
-
             1.  target deve essere .org
-
     2.  item
-
         1.  un oggetto lista
-
         2.  piazzata nella prima lista del target
-
             1.  target .org
-
     3.  checkitem
-
         1.  checkbox
-
         2.  nel resto uguale al item
-
     4.  table-line
-
         1.  nuova riga alla prima tabella del target
-
         2.  dove verra inserita dipende dalle proprieta'
-
             1.  :prepend
-
             2.  :tabel-line-pos
-
     5.  plain
-
         1.  testo che verra' incollato cosi' com'e'
 
 ### target
 
 1.  dove verra' inserito l'elemento catturato
-
     1.  ‘(file "path/to/file")’
-
     2.  ‘(id "id of existing org entry")’
-
     3.  ‘(file+headline "filename" "node headline")’
-
     4.  ‘(file+olp "filename" "Level 1 heading" "Level 2" …)’
-
     5.  ‘(file+regexp "filename" "regexp to find location")’
-
     6.  ‘(file+olp+datetree "filename" \[ "Level 1 heading" …\])’
-
         1.  creates a heading in a date tree for today’s date. If the optional outline path is given, the tree will be built under the node it is pointing to, instead of at top level. Check out the :time-prompt and :tree-type properties
-
     7.  ‘(file+function "filename" function-finding-location)’
-
     8.  ‘(clock)’
-
     9.  ‘(function function-finding-location)’
 
 ### template
 
 1.  The template for creating the capture item. If you leave this empty, an appropriate default template will be used. Otherwise this is a string with escape codes, which will be replaced depending on time and context of the capture call.
-
     (file "/path/to/template-file") (function FUNCTION-RETURNING-THE-TEMPLATE)
 
 ### properties
 
 1.  :prepend
-
 2.  :immediate-finish
-
 3.  :empty-lines
-
 4.  :clock-in
-
 5.  :clock-keep
-
 6.  :clock-resume
-
 7.  :time-prompt
-
 8.  :tree-type
-
 9.  :unnarrowed
-
 10. :table-line-pos
-
 11. :kill-buffer
-
 12. :no-save
 
 # Template expansion

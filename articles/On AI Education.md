@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-02 Fri 18:45\\]"
+date: 2022-12-02 18:45
 id: e0744ef5-4e1c-4a19-992d-c3277bcecc9f
 title: On AI Education
 ---

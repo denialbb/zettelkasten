@@ -13,13 +13,9 @@ title: Sistemi Operativi
 2 obiettivi di un OS:
 
 - utente: rendere il sistema semplice
-
 - macchina: rendere il sistema efficente e sicuro
-
 - fornisce strumenti per uso corretto e semplice da usare
-
 - Alloca risorse in maniera conveniente
-
 - Controlla l'esecuzione dei processi per evitare pericoli
 
 ## Confine OS - Software
@@ -67,15 +63,11 @@ natura hardware
 natura software
 
 - causate dal' programma in esecuzione divise in
-
 1.  Trap
-
     - Malfunzionamenti del programma in esecuzione
       - tentata divisione per 0
       - tentato accesso ad area protetta
-
 2.  System Call
-
     - Richiesta di un servizio da parte del OS
       - richiesta di eseguire un operazione su un file
 
@@ -183,9 +175,7 @@ Mantenere in memoria principale piu' programmi insieme ai dati di questi in modo
     - in realta' provocano eccezioni
     - l'OS gestisce (kernel mode) e poi restituisce il controllo all'utente
   - realizzate attraverso <u>eccezioni</u> che cambiano il bit di modalita'
-
 1.  Normale
-
 2.  Sistema \| Kernel \| Monitor \| Supervisor
 
 ### Timer
@@ -356,13 +346,9 @@ Unita' di lavoro del OS
 
 - il primo ruolo del OS e' amministrare i processi
   - creazione
-
   - cancellazione
-
   - scheduling dei processi
-
   - sincronizzazione e comunicazione
-
     Un processo non e' solamente un programma in esecuzione
 
     - Struttura in Memoria `immagine del processo`
@@ -370,17 +356,14 @@ Unita' di lavoro del OS
       - dati
       - stack
       - heap
-
     Un programma puo' definire piu' processi
 
     - un programma puo' contenere codice per generare piu' processi
     - piu' processi possono condividere lo stesso codice
-
     Fondamentalmente:
 
     - processo: entita' `attiva`
     - programma: entita' `statica`
-
     Un processo nasce sempre a partire da un'altro processo attraverso una opportuna `System Call`
 
     - tranne il primo: all'accensione \#systemd#
@@ -406,9 +389,7 @@ L'OS sposta il processo tra vari stati attraverso cui esso evolve
 - `Terminated`
   - Il processo termina
   - L'OS riprende il controllo per ripulire la memoria dall'area occupata dal processo ora terminato
-
 1.  `diagramma` di transizione degli stati di un processo
-
     - Rimuovere l'arco interrupt
       - da' il diagramma di un OS multitasking ma non time-sharing
 
@@ -457,37 +438,25 @@ Il codice e' copiato solo concettualmente, le aree dati sono realmente duplicate
 ### Operazioni su processi
 
 1.  Creazione
-
     - ogni OS possiede almeno una `System Call` di creazione
       - tutti i processi nascono da altri processi `con l'eccezione` di quello all'accensione del Sistema
     - nel sistema si forma un `albero di processi`
       - Il Creatore e' detto Padre - `parent`
-
       - Il Creato e' detto Figlio - `child`
-
         Nel Creare un albero l'OS riferisce i processi con un `PID` (Process ID) ovvero un identificatore
 
         - Comando:
           - ps - process status
-
     1.  Scelte ingenieristiche
-
         Moderni OS implementato tutte queste combinazioni nelle loro System Call
 
         1.  Avvio
-
             1.  Processo padre continua concorrentemente al figlio - ready queue
-
             2.  Processo padre di ferma attendendo l'esecuzione del figlio - waiting queue
-
         2.  Esecuzione
-
             1.  Fornire al figlio copia del codice padre
-
             2.  Nuovo programma al figlio
-
 2.  Uccisione
-
     - kill / TerminateProcess(Win)
       - secondo PID
       - puo' avvenire se `TRAP`
@@ -497,20 +466,16 @@ Il codice e' copiato solo concettualmente, le aree dati sono realmente duplicate
 ### Comunicazione tra processi
 
 1.  indipendenti
-
     Non si influenzano l'uno con l'altro
 
 2.  cooperanti
-
     si influenzano l'un l'altro
 
     - si scambiano informazioni
     - portano avanti una elaborazione suddivisa tra i processi
-
     Per permettere cio' l'OS deve mettere a disposizione meccanismi appositi
 
     1.  Inter-Process Communication `IPC`
-
         L'OS mette a disposizione System Call volte all'implementazione di:
 
         - memoria condivisa
@@ -527,26 +492,18 @@ Il codice e' copiato solo concettualmente, le aree dati sono realmente duplicate
                 - limite alla dimensione della coda?
                 - ricevente se non ci sono messaggi? sospensione?
                 - trasmittente se la coda e' piena? sospensione?
-
             Esempi di System Call
             - msgget()
             - send(message, line, PID)
             - receive(message, line, PID)
-
         1.  Pipe
-
         2.  Client-server
-
             1.  Socket
-
             2.  Remote Procedure Call `RPC`
-
         3.  Produttore - Consumatore
-
             processo `produttore`, produce informazioni utilizzate da un processo `consumatore`
 
             - informazioni poste in un `buffer`
-
               `produttore` - Compilatore ~ produce codice oggetto `consumatore` - Assemblatore ~ consuma codice oggetto
 
             ``` c
@@ -641,9 +598,7 @@ Avviene normalmente in modo che ciascun thread possa eseguire
 ### Scheduling Thread
 
 1.  livello User
-
 2.  livello Kernel
-
     OS mantiene strutture dati per gestire sia i normali processi che tutti i peer thread di un task Quando un thread si blocca volontariamente o meno, il OS assegna la CPU:
 
     - a un altro peer-thread dello stesso task
@@ -674,9 +629,7 @@ I context switch saranno solamente tra peer-thread con massima efficienza I core
   - numero di task
     - numero di peer-thread
   - numero di processi
-
 1.  CPU/CORE Multithreaded
-
     Attraverso una pipe-line é possibile eseguire fino a 4 o 5 istruzione del programma in esecuzione `multiple issue`
 
     - Pipeline
@@ -687,12 +640,10 @@ I context switch saranno solamente tra peer-thread con massima efficienza I core
       - WB
     - Architettura Superscalare
       - ogni core deve essere dotati di piú ALU e Unitá Floating Point
-
     Questo non é sempre possibile
 
     - le istruzioni devono essere indipendenti tra di loro
       - non devono avere bisogno del risultato di un'istruzione precedente
-
     Invece le istruzioni di due peer-thread distinti saranno probabilmente indipendenti
 
     - esecuzione in parallelo di istruzioni appartenenti a thread diversi
@@ -705,7 +656,6 @@ Presupponendo un sistema Single-core L'OS fa credere ai processi di avere tutta 
 
 - Process Switch/Context Switch
   - L'`unico` PC viene aggiornato con i valori relativi al processo Running
-
     NB: Diagramma di Gantt
 
 ### Context Switch
@@ -713,11 +663,8 @@ Presupponendo un sistema Single-core L'OS fa credere ai processi di avere tutta 
 Passaggio da un processo in esecuzione all'altro `Commutazione` della CPU tra i processi
 
 - OS prende il controllo CPU ~ questo e' tecnicamente pure un Context Switch
-
 - Salva lo stato della computazione del processo uscente in `PCB`
-
 - Scrive in PC e nei registri CPU i valori PCB del processo entrante
-
   Questa operazione richiede tempo: `overhead` di sistema (sovraccarico)
 
 ### Code di Scheduling
@@ -733,9 +680,7 @@ OS gestisce varie code di processi
     - piu' processi possono essere in coda per l'accesso ad un dispositivo
     - ogni dispositivo ne ha una
   - Code di Eventi `Waiting Queues`
-
 1.  Diagramma di accodamento
-
     riformulazioe del diagramma di transizione prendendo in considerazione le code
 
 ### Implementazione
@@ -743,9 +688,7 @@ OS gestisce varie code di processi
 Tecniche per massimizzare la produttivita' della CPU
 
 - `Multitasking`
-
 - `Time Sharing` Per cio' devono essere definite delle regole dal progettista
-
   I processi vivono fasi di `CPU-burst` e `I/O-burst` I processi possono essere
 
   - CPU-bound
@@ -753,9 +696,7 @@ Tecniche per massimizzare la produttivita' della CPU
   - I/O-bound
     - un browser
     - un editor
-
 1.  Scheduler
-
     anche Short Term Scheduler decide quale processo in coda di ready sara' eseguito quando:
 
     1.  il processo in esecuzione passa volontariamente in stato di waiting
@@ -765,32 +706,25 @@ Tecniche per massimizzare la produttivita' della CPU
     4.  un processo $`P_x`$ entra in coda di ready arrivando da un coda di wait oppure e' stato appena lanciato
         1.  l'OS interviene per gestire il `PCB` di $`P_x`$ spostandolo in coda di ready
         2.  se $`P_x`$ e' piu' importante del processo in esecuzione
-
     per 1. 2. e' sufficiente un OS multitasking
 
 2.  Dispatcher
-
     - implementa il <span class="spurious-link" target="Context Switch">*Context Switch*</span>
     - passa in user mode
     - ripristina il PC della CPU alla corretta locazione
-
     Tempo impiegato per queste operazioni detto `Dispatch Latency`
 
 3.  senza diritto di prelazione
-
     `non-preempive scheduling` Casi 1. e 2.
 
     - I processi non posso interrompere l'esecuzione di altri processi
-
     Implementazione piu' snella utilizzata per OS specifici
 
 4.  con diritto di prelazione
-
     `preemptive scheduling` Casi 1. 2. 3. e 4.
 
     - I processi non possono eseguire a tempo indeterminato
     - I processi possono avere priorita' diverse
-
     Implementazione utilizzata per OS general purpuse
 
     Se una `System Call` chiamata dal processore in esecuzione viene `interrotta dal vettore di interrupt`?
@@ -799,9 +733,7 @@ Tecniche per massimizzare la produttivita' della CPU
       - `disattiva gli interrupt`
     - ultima istruzione
       - `riabilitazione degli interrupt`
-
     1.  Criteri
-
         Obiettivi:
 
         - massimizzare `uso CPU`
@@ -815,11 +747,9 @@ Tecniche per massimizzare la produttivita' della CPU
               - per semplificare non si considera la creazione e la terminazione del processo
         - minimizzare il `Waiting time`
           - somma del tempo passato dal processo in `coda di Ready`
-
         `Turnaround Time` = WaitingT + RunningT
 
     2.  Algoritmi
-
         Considerando in questo corso processi con un `unico burst di CPU` e `nessun burst di I/O`
 
         Un Algoritmo tanto é migliore quanto le sue prestazioni di avvicinano da `SJF` allontanandosi da `FCFS`
@@ -828,9 +758,7 @@ Tecniche per massimizzare la produttivita' della CPU
           - il processo non viene mai scelto in quanto mai di prioritá
             - Aging
               - il processo aumenta di prioritá con il tempo passato in RQ
-
         1.  First Come, First Served
-
             `FCFS`
 
             - Normale coda FIFO
@@ -844,9 +772,7 @@ Tecniche per massimizzare la produttivita' della CPU
               - sfavorisce i processi brevi
               - non implementa sistemi time-sharing
               - Peggiore degli Algoritmi ragionevoli
-
         2.  Shortest Job First
-
             `SJF` ~ Shortest Next CPU Burst
 
             - Esamina la durata del prossimo burst di CPU dei processi in RQ
@@ -862,31 +788,25 @@ Tecniche per massimizzare la produttivita' della CPU
             - `MA`
               - la durata del prossimo burst di CPU non é nota
                 - SJF non é implementabile
-
         3.  Priority scheduling
-
             `PS` calcolo della prioritá:
 
             - interna al sistema
               - sulla base di ogni processo
             - esterna al sistema
               - sulla base del utente Puó essere `preemptive` o `non-preemptive`
-
     3.  Round Robin
-
         `RR` L'algoritmo di implementazione del time-sharing, la RQ e' utilizzata come una coda circolare
 
         - ogni processo ha un `quanto di tempo` implementato da un timer hardware che invia un interrupt allo scadere del tempo
           - entro il suo tempo il processo non lascia la CPU se non per wait
           - alla fine del suo tempo il processo é interrotto
         - il prossimo processo ad andare in esecuzione sará il primo in RQ
-
         Con $`n`$ processi in coda di ready e il quanto di tempo $`q`$ ogni processo riceve $`1/n`$ del tempo della CPU e nessun processo aspetta piú di $`(n-1)q`$ unitá di tempo
 
         - Turnaround medio peggiore di SJF
           - ovviamente
         - Tempo di risposta medio migliore di SJF
-
         Prestazioni dipendenti da $`q`$:
 
         - $`q \to\infty`$
@@ -897,9 +817,7 @@ Tecniche per massimizzare la produttivita' della CPU
             - e quindi l'overhead
         - regola empirica per max turnaround
           - $`80\% \text{ dei CPU burst} < q`$
-
     4.  Multilevel Queue
-
         `MQ` Code multiple
 
         - foreground – RR
@@ -908,7 +826,6 @@ Tecniche per massimizzare la produttivita' della CPU
           - non interagiscono
         - batch
           - la loro esecuzione puó essere differita
-
         Si puó suddividere la RQ in piú code
 
         - gestire ogni coda con un algoritmo ottimale
@@ -917,9 +834,7 @@ Tecniche per massimizzare la produttivita' della CPU
             - possibile starvation
             - time slice
               - quanti di tempo maggiori per foreground, minori per background e batch
-
         1.  Multilevel Feedback Queue
-
             `MFQS` Code multilivello con retroazione
 
             - I processi possono essere promossi a code a piu' alta prioritá o retrocessi
@@ -930,9 +845,7 @@ Tecniche per massimizzare la produttivita' della CPU
             - Es
               - se il processo esaurisce il quanto assegnato dalla prima coda RR, sara' spostato alla coda RR successiva con un quanto maggiore
               - se il processo esaurisce i quanti delle code RR sará spostato in una coda FCFS
-
     5.  Multielaborazione Simmetrica
-
         `SME`
 
         - scheduler per ogni core
@@ -948,7 +861,6 @@ Tecniche per massimizzare la produttivita' della CPU
 ### Esempi di Scheduling
 
 1.  Solaris
-
     - Scheduling a code multiple con retroazioine
       1.  real time
       2.  sistema
@@ -956,7 +868,6 @@ Tecniche per massimizzare la produttivita' della CPU
           - 60 livelli di prioritá - 50-59
       4.  timesharing
           - 60 livelli di prioritá - 0-40
-
     Di norma i processi nascono nella classe <u>timesharing</u> I processi seguono prioritá formattate cosí:
 
     |  |  |  |  |
@@ -969,21 +880,17 @@ Tecniche per massimizzare la produttivita' della CPU
     I processi possono essere promossi o meno in base al quanto che hanno sfruttato
 
     - maggiore é la prioritá maggiore é la probabilitá che verrá scelto per l'esecuzione al prossimo ciclo ma minore sará il quanto a lui assegnato dal OS
-
     Processi di sistema e real time hanno prioritá fissa, maggiore di interattiva e time sharing
 
     - lo scheduler calcola la prioritá globale di un processo
       - prioritá == si usa RR
       - algoritmo preemptive
-
 2.  Windows
-
     Prioritá con retroazione e prelazione
 
     - 32 livelli
       - real time - 16-31
       - altri - 1-15
-
     Lo scheduler sceglie il processo a prioritá piú alta
 
     - se il processo va in wait
@@ -993,13 +900,10 @@ Tecniche per massimizzare la produttivita' della CPU
     - in caso di prioritá uguale é utilizzato il RR
       - se il quanto viene esaurito la sua prioritá é abbassata
         - limite 1
-
     Favorisce i processi che interagiscono con mouse e tastiera Inoltre distingue tra background e foreground
 
     - il processo foreground ottiene 3 volte l'aumento del quanto di tempo che gli altri processi
-
 3.  Linux
-
     Completly Fair Scheduler `CFS` Cerca di distribuire a tutti i processi equamente il tempo di CPU
 
     Ad ogni context switch lo scheduler calcola il quanto tempo che spetta ad un processo P in modo che tutti i processi abbiano avuto la stessa quantitá di tempo di CPU
@@ -1027,7 +931,6 @@ Devono sincronizzarsi `Problema`
   - produttore - consumatore
     - utilizzata variabile condivisa buffer/counter (buffer circolare)
       - se produttore esegue counter++ 'mentre' consumatore esegue counter–
-
         - questo puó verificarsi perché quella eseguita non é una operazione `atomica`, non utilizzano una sola istruzione ISA a livello di architettura
 
 La sincronizzazione é un problema solamente se si effettuano scritture su memoria condivisa
@@ -1061,13 +964,10 @@ Zona del codice di manipolazione delle variabili condivise, non deve `intrecciar
 - se un processo $`P_i`$ sta eseguendo una sua sezione critica allora altri processi $`P_j`$ non possono eseguire la propria
 - L'esecuzione della sezione critica di un $`P_i`$ é mutualmente esclusiva con l'esecuzione delle sezioni critiche di altri $`P_j`$
   - anche se interrotto dalla scheduler nessun altro processo manipolante
-
 1.  Nel Sistema Operativo
-
     - accesso contemporaneo alla tabella dei file aperti
     - uso contemporaneo della fork
       - devono avere diversi PID
-
     In un sistema operativo il problema é risolto con una scelta
 
     - `kernel con diritto di prelazione`
@@ -1080,12 +980,10 @@ Zona del codice di manipolazione delle variabili condivise, non deve `intrecciar
       - implementazione semplice: <u>disattivazione degli interrupt</u>
       - un solo processo alla volta puó accedere alle strutture dati dei kernel
         - accesso in modo esclusivo al codice della System Call
-
     Soluzione:
 
     - istruzioni macchina particolari
       - TestAndSet(v)
-
     ``` c
     boolean TestAndSet(boolean *lockvar){
         boolean tempvar = *lockvar;
@@ -1119,28 +1017,23 @@ Zona del codice di manipolazione delle variabili condivise, non deve `intrecciar
           - perdita di controllo per un tempo arbitrario del OS
           - ci si deve fidare che il processo riabiliterá gli interrupt
     - Swap($`v1`$,$`v2`$)
-
     Queste sono istruzioni macchina e quindi <u>atomiche</u>, non saranno mai interrotte a metá da un context switch I passi sono:
 
     - il processo tenta di accedere al lock
     - esegue la sezione critica
     - restituisce il lock
-
     `NB` La mutua esclusione in sistemi multi-core é piú complessa
 
     1.  Semafori
-
         Dijkstra - 1965 Semaforo $`S`$: variabile strutturata operabile tramite operazioni atomiche:
 
         - wait(S) ALIAS: P, down
-
         ``` c
         while S <= 0 do no-op;
         S = S-1;
         ```
 
         - signal(S) ALIAS: V, up
-
         ``` c
         S = S+1;
         ```
@@ -1183,7 +1076,6 @@ Zona del codice di manipolazione delle variabili condivise, non deve `intrecciar
           - `wakeup()`
             - rimette il processo in Ready Queue
         - implementazione
-
         ``` c
         typedef struct{
             int valore; // se > 0 indica sezione critica libera
@@ -1216,15 +1108,12 @@ Zona del codice di manipolazione delle variabili condivise, non deve `intrecciar
               - se mutex = 1 allora $`P_1`$ entra e $`mutex = 0`$, context switch
               - un $`P_2`$ testa mutex, $`mutex = -1`$, $`P_2`$ si addormenta
           - Utilizzabile un valore di semafori \> 1 allora una risorsa é utilizzabile da piu' P contemporaneamente
-
         I semafori se utilizzati non correttamente possono provocare <u>deadlock</u> e <u>starvation</u>
 
 2.  Esempi
-
     Problemi di sincronizzazione risolti utilizzando semafori
 
     1.  Produttori e Consumatori
-
         - buffer circolare\[SIZE\]
           - memoria condivisa da tutti i produttori e tutti i consumatori
         - semafori
@@ -1233,7 +1122,6 @@ Zona del codice di manipolazione delle variabili condivise, non deve `intrecciar
           - mutex
         - in
         - out
-
         ``` c
         while(true){
             produciItemInNextp();
@@ -1259,23 +1147,19 @@ Zona del codice di manipolazione delle variabili condivise, non deve `intrecciar
         ```
 
     2.  Lettori e Scrittori
-
         Condivisione di un file tra molti processi
 
         - alcuni processi richiedono la sola lettura
           - possono essere paralleli
         - alcuni richiedono la scrittura
           - richiede la mutua esclusione di tutti i processi
-
         1.  Readers First
-
             Variabili:
 
             - condivise
               - semaforo mutex = 1
               - semaforo scrivi = 1
               - int numlettori = 0
-
             ``` c
             wait(scrivi);
             scriviFile();
@@ -1301,19 +1185,14 @@ Zona del codice di manipolazione delle variabili condivise, non deve `intrecciar
 
             - no
               - uno scrittore addormentato su scrivi dovra aspettare la terminazione di tutti i lettori, se continuano ad aggiungersi lettori ci sara' un Deadlock
-
         2.  Writers First
-
         3.  Fair
-
     3.  Cinque Filosofi
-
         - 1 tavolo circolare
           - 5 posti
           - 5 piatti
           - 5 bacchette condivise
             - 2 necessarie per mangiare
-
         Ogni risorsa e' associata ad un semafori in un array
 
         ``` c
@@ -1398,9 +1277,7 @@ Associazione degli indirizzi
   - MMU - Memory Management Unit
     - risolve gli indirizzi relativi in assoluti
 - cosi non ci sono complicazioni nel spostare un processo da un'area all'altra
-
 1.  Librerie
-
     2 tipi:
 
     - `Statiche`
@@ -1445,7 +1322,6 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
 ### Tecniche di Gestione della memoria
 
 1.  Swapping
-
     Salvataggio in memoria secondaria di un `immagine` del processo non in esecuzione (`swap out`) e ricaricarla successivamente (`swap in`) prima di dargli la cpu
 
     - `area di swap`
@@ -1456,9 +1332,7 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
       - tecnica abbandonata
         - ora sostituita dalla memoria virtuale
           - e' spostato solo una parte del programma
-
 2.  Allocazione contigua a partizioni multiple fisse
-
     NB: tecnica utilizzata dal IBM OS/360 Memoria Principale suddivisa in 2 <u>partizioni</u>
 
     - OS
@@ -1472,21 +1346,17 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
         - ogni processo puo' accedere solo alla sua porzione
           - registri di rilocazione aggiornati ad ogni context switch
           - registro limite aggiornato con la dimensione della partizione
-
     <u>Limiti</u>
 
     - Questa tecnica limita il grado di `multiprogrammazione` al numero di partizioni previste
     - Inoltre si verifica `frammentazione`
       - interna perche' nessun processo occupera' esattamente la partizione assegnata
       - esterna perche' le frammentazioni interne si sommano per uno spreco globale
-
 3.  Allocazione contigua a partizioni multiple variabile
-
     <u>Partizioni</u> misurate sulla grandezza dei processi
 
     - Questo crea buchi di RAM sempre piu' piccoli e numerosi tra i processi durante l'evoluzione dell'esecuzione
       - sara' sempre piu' difficile utilizzare lo spazio in quanto troppo frammentato
-
     <u>Scelta della partizione</u>
 
     - First Fit
@@ -1495,12 +1365,10 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
       - utilizza piu' piccola partizione abbastanza grande
     - Worst Fit
       - utilizza la partizione piu' grande
-
     <u>Limiti</u>
 
     - Frammentazione esterna aumenta con il tempo
     - Frammentazione interna in quanto costa troppo tenere traccia dei buchi piccoli tra i processi e questi rimarranno nascosti
-
     <u>Soluzione</u>
 
     - Rilocazione dei processi in maniera contigua
@@ -1509,11 +1377,8 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
     - Compattamento
       - creazione di un unica area libera di memoria
       - la compattazione puo' richiedere molto tempo e rende il sistema inutilizzabile
-
 4.  Paginazione
-
     - Vedi [[IA-32]]
-
     Area di memoria allocata da un processo suddivisa in pezzi <u>non contigui</u>
 
     - `Frame` o `Pagine Fisiche`
@@ -1521,7 +1386,6 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
         - a differenza dalla `segmentazione`
     - `Pagine`
       - pezzi di dimensione identica ai frame in cui e' suddiviso lo spazio di indirizzamento logico
-
     L'OS carica $`x`$ pagine cercando $`x`$ frame liberi, il cui ordine e posizione non e' importante
 
     <u>Architettura di Paginazione</u>
@@ -1536,7 +1400,6 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
           - questo e' sommato all'indirizzo puntato da $`p`$ nella tabella delle pagine per ricavare l'indirizzo fisico
     - Elenco dei frame liberi
       - aggiornato ogni volta che e' necessario
-
     <u>Indirizzi Logici</u> reimplementati
 
     - non piu' lineari
@@ -1544,7 +1407,6 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
       - coppia di valori `(page, offset)`
         - numero della pagina da indirizzare
         - offset rispetto all'inizio della pagina
-
     L'hardware `impone` alcune dimensioni
 
     - bit indirizzo logico - $`m`$
@@ -1553,18 +1415,15 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
       - $`m-n`$ bit per indirizzare le pagine
     - Spazio di Indirizzamento Logico
       - $`2^{m-n}\times 2^{n}`$
-
     In questo caso l'OS deve adeguarsi al hardware cui e' posto, cosi' facendo la sequenza lineare i valori degli indirizzi fisici e' interpretata come coppia di valori
 
     - bit piu' significativi come numero del frame
     - bit meno significativi come offset $`d`$
-
     Questo e' implementato in modo piu' semplice utilizzando come grandezze di indirizzamento potenze di 2
 
     - in questo modo:
       - non sara' necessario memorizzare l'indirizzo di partenza del <u>frame</u> ma solo il suo <u>numero</u>
       - non sara' necessario operare una somma tra indirizzo e offset ma solamente una <u>concatenazione</u> (piu' veloce e semplice a livello hardware)
-
     <u>Vantaggi</u>
 
     - `Protezione` dello spazio di indirizzamento
@@ -1578,13 +1437,11 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
         - ogni frame indirizzato dalla pagina (indirizzo logico) é di fatto/agisce come un registro di rilocazione
           - ma in questo caso non c'é piú un controllo sulla validitá del offset
             - ovvero che l'indirizzamento non esca dai limiti del processo
-
     <u>Dimensioni</u> Le pagine storicamente sono aumentate di dimensioni col tempo
 
     - \> la dimensione
       - \> la frammentazione interna
       - \< la lunghezza della tabella delle pagine
-
     <u>Svantaggi</u>
 
     - page-table
@@ -1606,9 +1463,7 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
             - indirizzi da 16 bit
       - essendo la tabella contenuta in MP (in una zona riservata dal OS)
         - in questo modo per ogni indirizzo logico richiesto dal processore il `numero di accessi alla MP raddoppia`
-
     1.  TLB
-
         Una tecnica di `caching` della PT mediante memoria associativa messa a disposizione della CPU
 
         - Memoria Associativa
@@ -1628,9 +1483,7 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
             - al context switch viene svuotato
           - `page-table base register` `PTBR`
             - al context switch basta modificare questo registro per attivare la PT del processo mandato in esecuzione
-
         1.  i7
-
             Due livelli di cache di indirizzi TLB
 
             - L1 - a sua volta divisa in due cache
@@ -1642,17 +1495,13 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
             - L2
               - 512 entry
               - costo di 6 cicli
-
             In caso di miss il costo sará piú di 100 cicli giá solo per la ricostruzione dell'indirizzo
 
     2.  Pagine condivise
-
         La paginazione facilita la condivisione di codice in quanto questo non cambia durante l'esecuzione e tutti i processi possono leggerlo in maniera sicura
 
         - la pagina condivisa puó essere usata per contenere una libreria dinamica
-
 5.  Paginazione a piu' livelli
-
     Paginazione Gerarchica
 
     - le page-tables possono raggiungere grandi dimensioni
@@ -1670,9 +1519,7 @@ Solitamente vale questa relazione: $`|RAM|_{effettiva}<|RAM|_{max}<<|PhisSpace|<
                 - sarebbero richiesti 7 livelli
                   - overhead altissimo in caso di miss nel `TLB`
                     - in quanto si dovrebbe seguire la catena delle tabelle delle pagine per ricostruire l'indirizzo fisico
-
     1.  Tabella delle Pagine Invertita `IPT`
-
         Adottata in alcune architetture a 64 bit
 
         - 1 tabella per tutto il sistema
@@ -1719,7 +1566,6 @@ Tecniche che permettono di eseguire processi in cui codice e/o dati non sono com
 ### Tecniche
 
 1.  Paginazione su Richiesta
-
     `Demand Paging` Portare una pagina in Memoria solo al momento del primo indirizzamento di una locazione della pagina stessa
 
     - un'indirizzazione su una pagina che non si trova in Memoria
@@ -1731,30 +1577,22 @@ Tecniche che permettono di eseguire processi in cui codice e/o dati non sono com
     - bit di validitá
       - ad ogni entry della page table indica se si trova in Memoria Principale
         - un bit di validitá 0 scatta la trap `page fault`
-
     1.  Pure Demand Paging
-
         Un processo é eseguito senza nessuna delle sua pagine in Memoria Principale
 
         - la prima istruzione indirizzata da PC (inizializzato da OS)
           - `page fault`
-
     2.  Demand Paging
-
         Almeno qualche pagina é caricata in Memoria Principale
 
     3.  Supporto Hardware
-
         Mentre la paginazione puó essere aggiunta in qualsiasi sistema la memoria virtuale necessita un hardware specifico
 
         - le istruzioni devono essere rieseguibili dopo page fault
-
         Oppure
 
         - CPU deve controllare bit di validitá di tutti gli operandi prima di eseguire l'istruzione
-
     4.  Prestazioni
-
         $`\text{ma}`$ Tempo di accesso MP se dato é presente $`p`$ probabilitá di page-fault $`\text{eat}`$ Effective Time Access $`t`$ Tempo gestione del page-fault
 
         $`\text{eat} = [(1-p) \times \text{ma}] + [p \times t]`$
@@ -1762,25 +1600,19 @@ Tecniche che permettono di eseguire processi in cui codice e/o dati non sono com
         $`t`$ consiste grossolanamente al tempo di recupero della pagina dalla Memoria di Massa
 
         - in quanto nell'ordine dei $`ms`$ invece che $`\mu s`$
-
         Perció per non degradare troppo le prestazioni il numero di page-fault deve essere molto basso
 
         - questo puó anche essere fatto aumentando di dimensioni le pagine
           - pagine grandi danno meno page-fault in media
-
     5.  Considerazioni sulle pagine
-
         Pagine piccole implicano
 
         - PT piú grandi
         - meno frammentazione interna
         - peggiori prestazioni nell'uso dell'HD perché seek e latenza del disco sono costanti
         - maggiori page-fault in media
-
 2.  Area di Swap
-
     1.  Memorizzazione Pagine
-
         Utilizzo di meccanismi piú semplici ed efficienti di quelli utilizzati per il filesystem
 
         - non vengono utilizzati file
@@ -1792,14 +1624,11 @@ Tecniche che permettono di eseguire processi in cui codice e/o dati non sono com
           - migliora tempo di gestione page-fault
             - il recupero delle pagine in swap é piú efficiente che non la normale Memoria Secondaria
               - questo a causa del file system
-
     2.  Liberare Spazio
-
         L'idea della memoria virtuale é proprio di
 
         - eseguire un processo piú grande della memoria primaria
         - esecuzione contemporanea di processi che assieme occupano pú spazio di quello disponibile in RAM
-
         All'avvenire di page-fault se tutti i frame sono occupati
 
         - OS libera un frame rimuovendo la `pagina vittima`
@@ -1812,61 +1641,46 @@ Tecniche che permettono di eseguire processi in cui codice e/o dati non sono com
             - non deve essere salvata, c'é nel file system
               - se erano giá copiate nello swap potranno essere recuperate piú velocemente
             - in questo caso il tempo di gestione migliora
-
     3.  Problemi
-
         1.  Scelta delle pagine vittima
-
             1.  Algoritmo di sostituzione delle pagine
-
                 Ottimalmente scelta una pagina che non provocherá page-fault nel futuro
 
                 - altrimenti sará uno spreco di tempo e lavoro
-
                 Per test si utilizzano le sequenze di riferimenti durante l'esecuzione
 
                 - si ignorano le ripetizioni
-
                 Un maggior numero di frame causerá meno page-fault
 
                 La sostituzione delle pagine sará `locale`
 
                 1.  FIFO
-
                     Pagina vittima quella che é da piú tempo in memoria principale
 
                     - inizializzazione del processo
                       - buon candidato vittima
                     - inizializzazione di una variabile utilizzata per tutto il processo
                       - pessima candidata vittima
-
                     Soffre della `Anomalia di Belady`
 
                     - piú frame possono aumentare i page-fault
-
                 2.  OPT - MIN
-
                     Optimal / Minimal Pagina vittima quella che sará usata piú in lá nel tempo
 
                     - ovviamente `non implementabile`
                     - utilizzato come confronto per altri algoritmi
-
                 3.  LRU
-
                     Least Recently Used Pagina vittima quella che non é stata usata per piú tempo
 
                     - si avvicina piú a OPT che FIFO
                     - difficilmente implementabile in modo efficiente
                       - dovrebbe avere un supporto hardware non disponibile normalmente
                         - sarebbe necessario un timer per tener traccia
-
                     <u>Approssimazione</u> `Reference Bit`
 
                     - bit associato ad ogni entry della PT
                       - quando una pagina é indirizzata il bit é settato ad 1
-
                 4.  Algoritmo della Seconda Chance
-
                     Soffre dell'`Anomalia di Belady` Utilizza i reference bit per approssimare LRU
 
                     - Utilizza una coda FIFO circolare
@@ -1874,30 +1688,23 @@ Tecniche che permettono di eseguire processi in cui codice e/o dati non sono com
                         - se ha reference bit 1 gli viene data una seconda chance
                           - azzera il bit e prosegue la coda
                       - nel caso peggiore equivale a FIFO
-
                 5.  Algoritmo della Seconda Chance Migliorato
-
                     Utilizza sia
 
                     - dirty bit
                     - reference bit
-
                     4 classi (r,d)
 
                     - (0,0) ottima per essere sostituita
                     - (1,0)
                     - (0,1) va salvata in memoria secondaria
                     - (1,1) peggiore candidata
-
                 6.  Tecniche aggiuntive
-
                     Uso del pool di frame liberi, non assegnati normalmente a nuovi processi
 
                     - pagine con dirty bit spostate qui prima di essere salvate
                       - a tempo perso, quando l'OS é abbastanza libero
-
         2.  Allocazione dei frame
-
             I `frame` vanno `distribuiti` tra i processi in modo
 
             - `Uniforme`
@@ -1905,7 +1712,6 @@ Tecniche che permettono di eseguire processi in cui codice e/o dati non sono com
             - `Proporzionale`
               - in base alla loro dimensione
             - `Prioritá`
-
             Da quale gruppo di pagine scegliere la vittima?
 
             - `Allocazione Globale` - Unix
@@ -1915,20 +1721,16 @@ Tecniche che permettono di eseguire processi in cui codice e/o dati non sono com
             - `Allocazione Locale` - Windows
               - troppe pagine ad un processo possono peggiorare il throughput
                 - in quanto gli altri processi causeranno page-fault causando l'intervento dell'OS
-
             L'allocazione `globale` porta un `throughput maggiore` sperimentalmente in sistemi time-sharing
 
         3.  Thrashing
-
             Questo avviene quando il <u>grado di multiprogrammazione diventa troppo alto</u> Un `page-fault` porta alla <u>rimozione di una pagina di un altro processo</u>
 
             - questo causerá successivi page-fault da altri processi
-
             Si innesca un `circolo vizioso`
 
             - processi passano il loro tempo in waiting
             - OS passa il suo tempo a gestire page-fault
-
             L'`utilizzo della CPU crolla`
 
             - questo puó ingannare gli utenti che vedendo un basso utilizzo di CPU
@@ -2026,15 +1828,11 @@ Mappatura complicata dalla diversa lunghezza delle tracce e dai difetti di fabbr
 Interessa solo la traccia su cui si trova il settore da leggere
 
 - si puó semplificare in quanto tutte le testine e tutti i dischi si muovono assieme
-
 1.  FCFS
-
 2.  C-SCAN
-
     La testine si muove da un estremo all'altro del piatto
 
     - raggiunta l'estremitá del piatto torna all'inizio senza servire nessuna richiesta
-
     La sequenza delle tracce viene trattata come una `lista circolare`
 
 ### Formattazione
@@ -2233,9 +2031,7 @@ Una directory é un **file particolare**
       - e una file reference ad una struttura interna
       - `alcuni attributi` sono immediatamente accessibili
     - il tempo di ricerca é lo stesso indipendentemente dalla posizione nell'albero
-
 1.  Struttura
-
     - directory `unica`
     - directory a `due livelli` *nasce il concetto di pathname*
       - una directory per ogni utente
@@ -2251,28 +2047,22 @@ Una directory é un **file particolare**
     - directory con struttura a `grafo generale`
       - una directory puó contenere il nome di una directory padre o antenata
         - pericoloso in quanto <u>puó creare cicli all'interno del FS</u>
-
     La struttura procede in questo modo: Programmi Applicativi –\> Fyle System Logico –\> Modulo organizzazione dei file –\> –\> File System di base –\> Controllo I/O –\> Dispositivi Passaggio dalla rappresentazione `esterna` alla rappresentazione `interna`
 
     1.  Accesso rapido ai file
-
         L'accesso utilizzando il `pathname` é estremamente `inefficiente`
 
         - richiede piú accessi alla memoria secondaria
-
         L'OS mette a disposizione l'operazione *open* che restituisce un **descrittore**
 
         - open file table
           - in **RAM**, contiene le <u>informazioni relative al file aperto</u>
           - le <u>modifiche sono prima fatte sulla copia</u> del file in MP
-
     2.  Protezione dei file
-
         <u>Implementazioni perfette</u> ma `non realizzabili` con
 
         - `lista d'accesso`
         - `capability list`
-
         <u>Implementazione in Unix</u>
 
         - classi di utenti
@@ -2293,13 +2083,10 @@ L'OS vede l'HD come un array di entry (sequenza di 256 / 4096 byte)
 Per ogni File il Sistema mantiene una struttura interna che memorizza tutti gli attributi del file
 
 - per gestire le operazioni compiute sul file
-
 1.  Allocazione
-
     I File che superano la dimensione di un blocco vengono allocati con 3 metodi
 
     1.  allocazione contigua - buono per l'area di swap
-
         - necessario memorizzare solamente
           - blocco di `partenza`
           - `numero di blocchi` utilizzati
@@ -2320,9 +2107,7 @@ Per ogni File il Sistema mantiene una struttura interna che memorizza tutti gli 
               - forte frammentazione interna
                 - comunque presente nell'ultimo blocco che non sará mai completamente occupato
               - il problema si ripresenterá
-
     2.  allocazione concatenata
-
         - ogni `blocco contiene un puntatore al successivo`
         - info aggiuntive
           - `numero di blocchi`
@@ -2349,23 +2134,18 @@ Per ogni File il Sistema mantiene una struttura interna che memorizza tutti gli 
               - meno spazio sprecato per i puntatori
               - maggiore frammentazione interna
                 - mediamente sará sprecata una maggiore quantitá dell'ultima parte del cluster
-
         1.  FAT
-
             Variante di allocazione concatenata molto efficiente `File Allocation Table` Area (array) all'<u>inizio della Memoria Principale</u> in cui l'indice di ogni entry corrisponde ad un blocco e ne contiene il numero del successivo
 
             - l'ultimo blocco J di un file é segnalato:
               - alla J-esima entry contiene un <u>marker di fine file</u>
             - entry 0 corrispondono a blocchi liberi
-
             <u>Svantaggi</u>
 
             - Occupa **spazio in MP**
             - se la FAT é persa non c'é modo di accedere i dati
               - **va periodicamente salvata** il Memoria Secondaria
-
     3.  allocazione indicizzata
-
         Utilizzato un `blocco indice poi portato in memoria principale` per indicare la posizione dei blocchi dati del file
 
         - <u>Vantaggi</u>
@@ -2380,13 +2160,10 @@ Per ogni File il Sistema mantiene una struttura interna che memorizza tutti gli 
           - Necessario mantenere un `elenco dei blocchi liberi`
         - <u>Problemi</u>
           - Blocco indice non sufficiente per contenere i numeri di tutti blocchi dati
-
         1.  Schema Concatenato
-
             `Ultima entry del precedente blocco indice` punta al successivo blocco indice
 
             1.  NTFS
-
                 `New Technology File System`
 
                 - ogni file descritto da un elemento
@@ -2399,17 +2176,13 @@ Per ogni File il Sistema mantiene una struttura interna che memorizza tutti gli 
                     - variante di schema concatenato
                 - `Master File Table all'inizio del disco` gestito da OS
                   - **numero di elemento** associato al **nome del file** nella directory corrispondente
-
                 Necessario tenere traccia di tutti i blocchi liberi
 
                 - `MFT`
-
         2.  Schema a piú livelli
-
             Blocco `indice esterno` che punta a blocchi `indice interni`
 
             1.  I-Node
-
                 Struttura interna Unix gestita dall'OS memorizzata <u>in Memoria Secondaria</u> (zona riservata)
 
                 - ad ogni file ne viene associato uno
@@ -2417,7 +2190,6 @@ Per ogni File il Sistema mantiene una struttura interna che memorizza tutti gli 
                     - **attributi**
                     - **elenco dei blocchi**
                   - scritto affianco al nome simbolico di un file nella tabella di una directory che lo contiene
-
                 <u>Ogni i-Node memorizza</u>
 
                 - 10 puntatori `diretti` a blocchi dati
@@ -2427,14 +2199,11 @@ Per ogni File il Sistema mantiene una struttura interna che memorizza tutti gli 
                   - punta a un blocco indice contenente puntatori a blocchi indice che contengono puntatori a blocchi dati
                 - 1 puntatore `triple indirect`
                   - punta a un blocco indice contenente puntatori a blocchi indice che contengono puntatori a blocchi indice che contengono puntatori a blocchi dati
-
                 Necessario <u>tenere traccia di tutti i blocchi liberi</u>
 
                 - `superblocco`
                   - a partire dal blocco 1
-
     4.  Elenco dei Blocchi Liberi
-
         - `MFT / Superblocco`
         - `Vettori di bit` in Mac/OS
           - ogni bit indica se il blocco corrispondente é occupato o libero
@@ -2449,9 +2218,7 @@ Per ogni File il Sistema mantiene una struttura interna che memorizza tutti gli 
         - `Conteggio`
           - mantenere il <u>numero di un blocco e quanti blocchi consecutivi liberi lo seguono</u>
             - simile alla lista concatenata con meno entry
-
 2.  Efficienza \| Prestazioni
-
     Necessari degli accorgimenti da parte del Sistema Operativo
 
     - `caching` in Memoria Principale dei `file` (e `attributi`) utilizzati frequentemente / recentemente

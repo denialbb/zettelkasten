@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-05-17 Tue 21:25\\]"
+date: 2022-05-17 21:25
 id: 6456f3d1-2bc3-4e50-abf0-1379bef1278d
 title: Semantic Web
 ---

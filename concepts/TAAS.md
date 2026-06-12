@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-09-19 Mon 10:14\\]"
+date: 2022-09-19 10:14
 id: d9ec0783-4ae7-4c9f-92b0-fe3c8fb09332
 roam_aliases: "\"Tecniche e Architetture Avanzate per lo Sviluppo del Software\""
 title: TAAS
@@ -88,11 +88,8 @@ Offre funzionalità *on top of* i componenti di gestione dati e database
 Implementa l'architettura 3-tier presentation/business/data
 
 - questa architettura è basata sul design-pattern `Model View Controller`, ma in questi casi di architetture di grandi dimensioni è più corretto parlare di tier
-
 - differenti dai Java Beans classici
-
 - tipologie:
-
   - Session Beans
     - stateless/stateful
     - modellano la business logic nell'interazione tra utente e servizio

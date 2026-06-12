@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-29 Wed 02:12\\]"
+date: 2021-12-29 02:12
 id: 29b18999-bb4a-4131-bfc8-5a98c08acfe8
 title: The Necessity of Marginalia in the Age of the Ebook
 ---

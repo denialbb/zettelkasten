@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-02-28 Mon 14:23\\]"
+date: 2022-02-28 14:23
 documentclass: arsclassica
 id: 4ed14fbf-ae6e-4536-b4d7-5897fcbdd016
 title: Sistemi Intelligenti
@@ -153,9 +153,7 @@ Problema di ricerca nello spazio degli stati
 - funzione successore, spostamento di una tessera adiacente allo spazio vuoto nel suddetto
 - test obiettivo, verifica che la stato sia quello desiderato (tabella ordinata)
 - costo del cammino, ogni passo costa 1 e il costo del cammino é il numero di passi che lo costituiscono
-
 1.  Euristiche
-
     - $`h_1`$ numero delle tessere fuori posto (rispetto alla configurazione goal)
     - $`h_2`$ distanza di Manhattan
       - in particolare
@@ -208,37 +206,29 @@ Nello studio di queste ricerche si considerano:
 Un goal a meno passi dalla radice non dà garanzia di ottimalità, in quanto vanno considerati i costi non il numero di passi. Il costo per l'ottimalità é una funzione monotona crescente in relazione alla profondità.
 
 1.  Ricerca in Ampiezza
-
     - completa a patto che $`b,d`$ siano finiti
     - ottima solo se il costo del cammino é $`f`$ monotona crescente della profondità
-
     ``` math
     \textsc{time} =  \textsc{space} = O(b^{d+1})
     ```
 
     - esponenziale, non trattabile anche con $`d`$ ragionevoli
-
 2.  Ricerca Costo Uniforme
-
     Cerca una soluzione ottima, che non in tutti i problemi corrisponde al minor numero di passi. La scoperta di un goal non porta alla terminazione della ricerca. Questa termina solo quando non possono esserci nodi non ancora scoperti con un costo minore di quello già trovato.
 
     La ricerca può non terminare in caso di `no-op`, che creano loop o percorsi infiniti sempre allo stesso stato. Quindi: $`\text{costi} \ge \epsilon > 0`$
 
     - $`\epsilon`$ costo minimo
     - condizione necessaria per garantire ottimalità e completezza
-
     ``` math
     \textsc{time} = \textsc{space} = O(b^{1+\lfloor \frac{C^{*}}{\epsilon} \rfloor})
     ```
 
     - $`C^{*}`$ costo soluzione ottima
-
 3.  Ricerca in Profondità w/o Backtracking
-
     Si esplora espandendo tutti i figli ogni volta che viene visitato un nodo non goal
 
     - viene utilizzato uno `stack` (`LIFO`) per gestire la frontiera
-
     ``` math
     \textsc{time} = O(b^{m})
     ```
@@ -247,12 +237,10 @@ Un goal a meno passi dalla radice non dà garanzia di ottimalità, in quanto van
     ```
 
 4.  Ricerca in Profondità w/ Backtracking
-
     Si producono successori su successori man mano, percorrendo in profondità l'albero. In fondo, in assenza di goal, viene fatto backtracking cercando altri successori degli nodi già percorsi.
 
     - viene esplorato un ramo alla volta, in memoria rimane solo il ramo che sta venendo esplorato
     - più efficiente in utilizzo della memoria
-
     ``` math
     \textsc{time} = O(b^{m})
     ```
@@ -261,14 +249,12 @@ Un goal a meno passi dalla radice non dà garanzia di ottimalità, in quanto van
     ```
 
 5.  Iterative Deepening
-
     Ricerca a profondità limitata in cui questa viene incrementata a ogni iterazione
 
     - ogni iterazione viene ricostruito l'albero di ricerca
     - cerca di combinare ricerca in profondità e in ampiezza
       - completa con $`b`$ finito
       - ottima quando il costo non é funzione decrescente delle profondità
-
     ``` math
     \textsc{time}= O(b^d)
     ```
@@ -277,12 +263,10 @@ Un goal a meno passi dalla radice non dà garanzia di ottimalità, in quanto van
     ```
 
 6.  Ricerca Bidirezionale
-
     2 ricerche parallele
 
     - *forward* dallo stato iniziale
     - *backwards* dallo stato obiettivo
-
     Termina quando queste si incontrano a una intersezione. Il rischio é che si faccia il doppio del lavoro e che non convergano a metà percorso ma agli estremi
 
     - $`\textsc{time}= O( b^{\frac{d}{2}})`$
@@ -303,49 +287,38 @@ Una strategia é il mantenere la frontiera ordinata secondo una $`f(n)`$ detta *
 - questa contiene a sua volta una componente $`h(n)`$ spesso
 - in generale questa strategia é chiamata **best-first search**, il nodo più promettente é espanso per primo
   - si tratta di una famiglia di strategie (greedy, A\*, RBFS)
-
 1.  Greedy
-
     - costruisce un albero di ricerca
     - mantiene ordinata la frontiera a seconda di $`h(n)`$
       - $`f(n) = h(n)`$
-
     Ma l'euristica può essere imperfetta e creare dei problemi. Questa strategia considera solo informazioni *future*, che riguardano ciò che non é ancora stato esplorato.
 
 2.  A\*
-
     Combina informazioni future e passate:
 
     - **Greedy** e **Ricerca a costo uniforme**
-
     Utilizza una funzione di valutazione: $`f(n) = g(n) + h(n)`$
 
     - $`g(n)`$ é il costo minimo dei percorsi esplorati che portano dalla radice a $`n`$
-
     I costi minimi reali sono definiti con: $`f^{\star}(n) = g^\star(n) + h^\star(n)`$
 
     - definizione utilizzata nelle dimostrazioni
-
     $`A^\star`$ é **ottimo** quando
 
     - tutti i costi da un nodo a un successore sono positivi
     - l'euristica $`h(n)`$ é ammissibile
-
     **Ammissibilità**
 
     - $`\forall n: h(n) \le h^\star(n)`$
       - ovvero l'euristica é ottimistica
-
     Nel caso di ricerca in grafi $`h(n)`$ deve essere anche **monotona consistente** per garantire l'ottimalità.
 
     - vale una disuguaglianza triangolare
     - $`h(n) \le c(n,a,n') + h(n')`$
     - $`\textsc{nb}`$ tutte le monotone sono ammissibili ma non vale il viceversa
-
     Inoltre é **ottimamente efficiente** e completo
 
     - espande sempre il numero minimo di nodi possibili
-
     Ma $`\textsc{space}=O(b^d)`$
 
     Algoritmo implementato in `Python`:
@@ -434,7 +407,6 @@ Una strategia é il mantenere la frontiera ordinata secondo una $`f(n)`$ detta *
     </div>
 
 3.  Recursive Best-First Strategy
-
     `RBFS`
 
     - simile alla ricerca ricorsiva in profondità
@@ -443,21 +415,18 @@ Una strategia é il mantenere la frontiera ordinata secondo una $`f(n)`$ detta *
     - ha poche esigenze di spazio
       - mantiene solo nodi del percorso corrente e fratelli, in questo é migliore di `A*`
     - lo <u>stesso nodo può essere visitato più volte</u> se l'algoritmo ritorna a un percorso aperto
-
     Intuitivamente:
 
     - procede come $`A^{\star}`$ fino a che la soluzione rispetta l'*upper bound*
     - sospende la ricerca lungo il cammino quando non più migliore
       - il cammino viene dimenticato, si cancella dalla memoria
       - é conservata la traccia nella sua radice del costo ultimo stimato
-
     L'algoritmo ha 3 argomenti
 
     - $`N`$ nodo
     - $`f(N)`$ valore
     - $`b`$ upper bound
       - inizialmente impostato a $`+ \infty`$
-
     `RBFS` é ottimo se l'euristica é ammissibile
     ``` math
     \textsc{Space} = O(b\cdot d)
@@ -514,7 +483,7 @@ Si valuta la qualità dell'euristica (sperimentalmente) con il *branching factor
 
 La ricerca in questo ambito si basa su delle **strategie** basate su punteggi dati dagli eventi. In questo ambito si studiano spesso giochi.
 
-> I giochi non vengono scelti perché sono chiari e semplici, ma perché ci danno la massima complessità con le minime strutture iniziali. $`\qquad\qquad\qquad`$ [[Marvin Minsky]] [[$cit]]
+> I giochi non vengono scelti perché sono chiari e semplici, ma perché ci danno la massima complessità con le minime strutture iniziali. $`\qquad\qquad\qquad`$ [[Marvin Minsky]] #cit
 
 Alcuni giochi sono anche a *somma zero* se le interazioni tra gli agenti se portano a una **perdita/guadagno** per uno ciò compensato da un **guadagno/perdita** dell'altro, suo avversario. I nodi terminali dei grafi creati nella risoluzione di questi giochi posso indicare stati di `vittoria`, `sconfitta`, `parità`.
 
@@ -530,21 +499,17 @@ Dall'Economia, poi traslata in algoritmi nell'ambito dell'IA.
 L'*osservabilità* é totale nei giochi a turno e parziale nei giochi ad azione simultanea. I giocatori `Min` e `Max` tengono conto dell'avversario nel calcolo dell'utilità degli stati ![](../static/ox-hugo/max-min-game.png)
 
 1.  Minimax
-
     `Minimax` é un algoritmo pessimista nel senso che simula che `Min` si muova in modo perfetto.
 
     - ricerca in profondità, esplora tutto l'albero ma non mantiene tutto in memoria
-
     Nella simulazione dell'albero di gioco si hanno i due attori
 
     1.  `Max`
     2.  `Min`
-
     L'algoritmo fa *venire a galla* i costi *terminali* dei rami del gioco, in quanto per guidare la scelta `Max` deve poter scegliere tra i nodi a se successivi.
 
     - é completo in grafi finiti
     - é ottimale se `Max` e `Min` giocano ottimamente
-
     La funzione utilità valuta gli stati *terminali* del gioco, agisce per casi sul nodo $`n`$ in maniera ricorsiva $`\text{minimax-value}(n)`$:
 
     - se $`n`$ *terminale*
@@ -553,7 +518,6 @@ L'*osservabilità* é totale nei giochi a turno e parziale nei giochi ad azione 
       - $`\text{max}_{s \in succ(n)}(\text{minimax-value}(n))`$
     - se $`n`$ `Min`
       - $`\text{min}_{s \in succ(n)}(\text{minimax-value}(n))`$
-
     ``` python
     def minimaxDecision(state): # returns action
         v = maxValue(state)
@@ -588,14 +552,11 @@ L'*osservabilità* é totale nei giochi a turno e parziale nei giochi ad azione 
     ```
 
     1.  Potatura alpha-beta
-
         - [Handout MIT sull'argomento per approfondire](https://web.mit.edu/6.034/wwwbob/handout3-fall11.pdf)
-
         Per migliorare la complessità temporale dell'algoritmo si agisce potando le alternative che non potranno cambiare la stima corrente a quel livello. La potatura viene fatta in base all'intervallo $`\alpha \cdots \beta`$ dove:
 
         - $`\alpha`$ é il valore della migliore alternativa per `Max` nel percorso verso `state`
         - $`\beta`$ é il valore della migliore alternativa per `Min` nel percorso verso `state`
-
         Se il $`v`$ considerato é fuori da questo intervallo allora é inutile considerarlo.
 
         ``` python
@@ -634,7 +595,6 @@ L'*osservabilità* é totale nei giochi a turno e parziale nei giochi ad azione 
           - nel caso migliore
           - se l'ordine é sfavorevole é possibile che non avvengano potature
           - comunque molto costoso
-
         Esistono tecniche di apprendimento per le *killer move*, il sistema si ricorda le *killer move* passate e le cerca nelle successive applicazioni. Queste tecniche sono studiate in quanto la complessità continua a essere troppo alta per applicazioni `RealTime`:
 
         - **trasposizioni**
@@ -665,17 +625,14 @@ I problemi sono affrontati con approcci diversi in base alle caratteristiche del
 ### Algoritmi
 
 1.  Generate and Test
-
     *Bruteforce*
 
     1.  genera un assegnamento completo
     2.  controlla se é una soluzione
     3.  se si `return` altrimenti `continue`
-
     É estremamente semplice ma non é scalabile.
 
 2.  Profondità con Backtracking
-
     Si esplora l'albero delle possibili assegnazioni in profondità. Si fa backtracking quando si incontra una assegnazione parziale che non soddisfa più le condizioni. Il problema é che in `CSP` il `branching factor` é spesso molto alto, producendo alberi molto larghi.
 
     Dati $`n`$ variabili e $`d`$ media del numero di valori possibili per una variabile:
@@ -683,23 +640,19 @@ I problemi sono affrontati con approcci diversi in base alle caratteristiche del
     - il `branching factor` al primo livello, $`n \cdot d`$
     - … al secondo, $`(n-1)\cdot d`$
     - l'albero avrà $`n! \cdot d^{n}`$ foglie
-
     Questo é migliorabile con la tecnica del *fuoco* su una singola variabile a ogni livello dell'albero, questo in quanto i `CSP` godono della proprietà commutativa rispetta all'ordine delle variabili. Questo permette di rimuove il fattoriale nel numero di foglie.
 
     Uno dei difetti di questo approccio é il `Thrashing`, riconsiderando assegnamenti successivi che si sono già dimostrati fallimentari durante l'esplorazione.
 
 3.  Forward Checking
-
     Approccio locale di propagazione della conoscenza. Si propagano le scelte delle variabili ai vicini diretti, restringendo il dominio di questi vicini. In caso di individuare una inconsistenza se esiste.
 
 4.  AC-3
-
     `Arc Consistency` - McWorth
 
     - funziona con vincoli binari
     - simile al Forward Checking
     - `Arc Consistency` non é una proprietà sufficiente a garantire l'esistenza di una soluzione
-
     ``` python
     def AC-3(csp): # returns redox CSP
         queue = csp.arcs
@@ -708,7 +661,6 @@ I problemi sono affrontati con approcci diversi in base alle caratteristiche del
             if (RemoveInconsistentValues(xi,xj)):
                 for (xk in xi.neighbours):
                     queue.Add(xk,xi)
-
 
     def RemoveInconsistentValues(xi,xj): # returns boolean
         removed = false
@@ -720,11 +672,9 @@ I problemi sono affrontati con approcci diversi in base alle caratteristiche del
     ```
 
 5.  Back-Jumping
-
     Risolve i limiti del tradizionale `Backtracking Cronologico`, che torna passo per passo indietro senza sfruttare i vincoli. Si viene guidati dal *Conflict Set*. Si fa backtracking a una variabile che potrebbe risolvere il conflitto.
 
     - questi `CS` sono costruiti tramite `Forward Checking` durante gli assegnamenti
-
     > Sia $`A`$ un assegnamento parziale consistente, sia $`X`$ una variabile non ancora assegnata. Se l'assegnamento $`A \cup \{X=v_{i}\}`$ risulta inconsistente per qualsiasi valore $`v_{i}`$ appartenente al dominio di $`X`$ si dice che $`A`$ é un <u>conflict set</u> di $`X`$
 
     Quando tutti gli assegnamenti possibili successivi a $`X_{j}`$ falliscono si agisce con il `Back-Jumping`
@@ -746,9 +696,7 @@ Euristiche di *scelta* e *inferenza*
 
 - alternanza tra esplorazione e inferenza
   - ovvero propagazione di informazione attraverso i vincoli
-
 1.  Consistency
-
     1.  `Node Consistency`
         - vincoli di arità 1 soddisfatti
     2.  `Arc Consistency`
@@ -757,11 +705,9 @@ Euristiche di *scelta* e *inferenza*
     3.  `Path Consistency`
         - 3 variabili legate da vincoli binari
         - considerate 2 variabili $`x, y`$ queste sono `path-consistent` con $`z`$ se $`\forall`$ assegnamento consistente di $`x,y \; \exists`$ un assegnamento $`z`$ tale che $`\{x,z\}`$ e $`\{y,z\}`$ questi sono entrambi consistenti.
-
     Questi concetti sono generalizzabili con la `k-consistenza`
 
     - per ogni sottoinsieme di $`k-1`$ variabili e per ogni loro assegnamento consistente é possibile identificare un assegnamento per la $`k\text{-esima}`$ variabile che é consistente con tutti gli altri.
-
     Un `CSP` *fortemente consistente* (k-consistente per $`k`$ e tutti i $`k_{i}`$ minori di $`k`$) puó essere risolto in tempo lineare.
 
 ### Vincoli Speciali
@@ -878,7 +824,6 @@ Vari approcci:
 Questo é utilizzato nella dimostrazione per *refutazione*.
 
 1.  Horn Clauses
-
     Un caso particolare delle clausole.
 
     > Una clausola di horn é una disgiunzione di letterali in cui al piú uno é positivo.
@@ -894,22 +839,18 @@ Questo é utilizzato nella dimostrazione per *refutazione*.
     ```
 
 2.  Forward Chaining
-
     Va nell'ordine dell'inferenza
 
     - <u>lineare</u> nel numero di clausole
     - ogni clausola é applicata al più una volta
     - però sono applicate clausole inutili per il *target*
-
     ![](../media/img/forward-chaining.jpg)
 
 3.  Backward Chaining
-
     Parte dalla formula da dimostare e va a ritroso
 
     - piú efficiente del `Forward Chaining`
     - <u>meno che lineare</u>
-
     ![](../media/img/backward-chaining.jpg)
 
 ### First Order Logic
@@ -957,15 +898,11 @@ La base di conoscenza puó essere interrogata con `ask`
 - quando compare una formula `ground` é banale la richiesta
 - quando compaiono variabili si intende una sostituzione
   - quindi la variabile $`x`$ é interpretata in senso esistenziale ( $`\exists`$ )
-
 1.  Clausole di Horn
-
     - disgiunzioni di letterali di cui al piú uno é positivo
     - atomiche
     - implicazioni il cui antecedente é una congiunzione di letterali
-
 2.  Inferenza su FOL
-
     - `Proposizionalizzazione`
       - $`KB_{\text{FOL}} \rightarrow KB_{\text{LP}}`$
       - Regola di Instanziazione Universale - `UI`
@@ -988,7 +925,6 @@ La base di conoscenza puó essere interrogata con `ask`
     - `Lifting` delle regole di inferenza
       - Regole di Inferenza $`\text{LP}`$ trasformate in Regole di Inferenza $`\text{FOL}`$
       - **Modus Ponens Generalizzato**[^3]
-
     ``` math
     \frac{p_{1}',\cdots ,p_{n}' \qquad p_{1} \land \cdots \land p_{n} \implies q}{\text{subst}(q,\Theta)}
     ```
@@ -1001,11 +937,9 @@ La base di conoscenza puó essere interrogata con `ask`
         - in caso contrario il caso negativo puó non terminare
     - `Backward Chaining`
       - stesse considerazioni del `FC` ma piú efficiente
-
     <!-- -->
 
     - `Lifting` della Risoluzione[^5]
-
     - $`KB_{\text{FOL}} \rightarrow_{\text{traduzione}}  KB_{\text{FOL-CNF}}`$
       1.  Eliminazione delle **implicazioni**
       2.  Spostamento delle **negazioni all'interno** ($`\lnot \forall \equiv \exists \lnot`$)
@@ -1436,9 +1370,7 @@ Le regole sono <u>prodotte</u>
   - estraendole da un albero di decisione
 - direttamente
   - **Sequential Covering**
-
 1.  Sequential Covering
-
     - *focus* su una classe alla volta, le altre sono considerate contro-esempi
     - ogni ciclo produce una regola
       - e vengono rimosse le istanze riconosciute da questa regola
@@ -1695,7 +1627,6 @@ I $`w_{j}`$ sono prodotti incrementalmente tramite questo processo e sono deposi
 </figure>
 
 1.  Limiti
-
     Rappresentazione dello `XOR`
 
     | x   | y   | $`\oplus`$ |
@@ -1737,11 +1668,9 @@ I livelli di percettori *hidden* possono identificare regioni dello spazio dei d
 <!-- -->
 
 1.  Epoca di Apprendimento
-
     - passata *forward* individua con le tuple del `Learning Test` l'*errore*
     - passata *backward* propaga l'informazione dell'errore a ritroso nella rete
       - aggiornando i pesi
-
     Si utilizza il metodo di apprendimento noto come **Discesa del Grandiente**.
     ``` math
     \Delta w_{ij} = - \lambda \frac{dE(\overline w)}{d w_{ij} }
@@ -1750,7 +1679,6 @@ I livelli di percettori *hidden* possono identificare regioni dello spazio dei d
     - $`E(\overline w)`$ matrice dei pesi
     - si identifica la *direzione* in cui le configurazioni dei pesi si sviluppano rispetto all'errore
       - lo si abbassa minimizzando l'errore
-
     L'apprendimento nel `MLP` si puó sviluppare in 2 casi
 
     1.  neurone di *output* $`o`$ e neurone *hidden* $`i`$ collegato direttamente a $`o`$

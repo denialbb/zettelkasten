@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-01-09 Tue 13:44\\]"
+date: 2024-01-09 13:44
 id: aef6c981-2a99-4f15-beaf-372fbe7ee137
 title: Law of Unintended Consequences
 ---

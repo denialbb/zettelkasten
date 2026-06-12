@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-11 Sun 04:02\\]"
+date: 2022-12-11 04:02
 id: b57ca228-c2b9-4976-ba26-4f5ba653234a
 title: Opening books w/ zathura and rofi
 ---

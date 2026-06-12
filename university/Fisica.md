@@ -94,11 +94,9 @@ $`\vec{p} = q\vec{d}`$
 Momento del Dipolo $`p=qd`$
 
 1.  Piano Mediano
-
     Sul piano di direzione del campo elettrico é costante e uguale a quella della congiungente tra i due poli
 
     - le componenti $`y`$ si annullano
-
     ``` math
     \vec{E} =- k_e \frac{qa}{(\frac{d^2}{4}+y^2)^{3/2}}\vec{i}
     ```
@@ -109,7 +107,6 @@ Momento del Dipolo $`p=qd`$
       ```
 
 2.  Lungo l'Asse
-
     ``` math
     \vec{E} = k_e \frac{2qxd}{x^2 - \frac{d^2}{4}}\vec{i}
     ```
@@ -135,15 +132,12 @@ Vale sempre, é una legge generale del campo elettrico.
 Valgono alcuni casi particolari
 
 1.  Simmetria Sferica di carica
-
     $`E = k_e \frac{Q}{R^2}`$
 
 2.  Simmetria Assiale
-
     $`E= 2k_e \frac{\lambda}{R}`$
 
 3.  Simmetria Planare
-
     $`E = 2 \pi k_e \sigma = \frac{\sigma}{2\epsilon_0}`$
 
 ## Circuiti
@@ -169,9 +163,7 @@ $`C = C_1+C_2`$
 $`U_E = \frac{q^2}{2C} = \frac{1}{2}CV^2 = \frac{1}{2}qV`$
 
 - Energia immagazzinata in un condensatore
-
 1.  Condensatore Piano
-
     $`C=\varepsilon_0 \frac{S}{d}`$
 
     - 

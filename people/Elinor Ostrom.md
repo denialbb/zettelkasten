@@ -2,4 +2,3 @@
 id: 3ef677d1-5556-4bcf-aec3-8ef5965f408b
 title: Elinor Ostrom
 ---
-

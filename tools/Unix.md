@@ -122,13 +122,9 @@ extern char **environ;
     - almeno PID diverso
     - copia di
       - stack
-
       - heap
-
       - dati
-
       - text segment
-
         ``` c
         pid_t fork(void);
         ```
@@ -136,9 +132,7 @@ extern char **environ;
     Il figlio riprende l'esecuzione a partire dalla prima istruzione successiva alla fork che lo ha creato
     - la fork restituisce
       - 0 al figlio
-
       - PID del figlio al genitore se avviene con successo
-
         ``` c
         pid_t procID;
         procID = fork();
@@ -169,7 +163,6 @@ extern char **environ;
     - in modo che il kernel possa allocarle
     - status
       - intero che descrive lo stato di terminazione del processo
-
     I Processi possono terminare in due modi
     - in maniera anomala
       - segfault per esempio
@@ -247,14 +240,11 @@ in generale un padre sopravvive al figlio
 - in caso di orfano il padre diventa il processo <u>init</u>
 - per garantire una wait dalla parte del padre per conoscere lo status del figlio
   - il kernel permette di trasformare il figlio in zombie
-
 1.  zombies
-
     Non possono essere uccisi da un segnale
 
     - rimangono nella tabella dei processi
       - se si verificano zombie potrebbe riempirsi la tabella
-
     Idealmente si devono evitare processi zombie
 
 ## Signals
@@ -330,16 +320,13 @@ Nel periodo di tempo intercorrente tra la generazione e l'invio al processo il s
 ### in Unix
 
 1.  trap
-
     Segnali generati da eventi prodotti da un processo e inviati al processo stesso
 
     - comportamenti errati possono generare trap
       - divisioni per zero <u>SIGFPE</u>
       - indirizzamento errato di array <u>SIGEGV</u>
       - negato l'accesso a instruzioni privilegiate <u>SIGILL</u>
-
 2.  interrupt
-
     Segnali inviati ad un processo da un agente esterno (utente o altro processo)
 
     - User
@@ -348,9 +335,7 @@ Nel periodo di tempo intercorrente tra la generazione e l'invio al processo il s
       - kill -s SIGNAL PID
     - Altro processo
       - kill(PID,SIGNAL)
-
 3.  disposition
-
     Impostazione della disposizione del segnale: sovrascrivere la disposizione (risposta) di default
 
     - default
@@ -358,41 +343,28 @@ Nel periodo di tempo intercorrente tra la generazione e l'invio al processo il s
     - exec signal hadler
       - funzione che esegue le azioni appropriate in riposta alla ricezione di un segnale
       - il segnale in questo caso é gestito <u>handled</u> o intercettato <u>caught</u>
-
     1.  signal() & sigaction()
-
 4.  Segnali
-
     1.  SIGABRT
-
     2.  SIGALRM
-
     3.  SIGCHLD
-
     4.  SIGCONT
-
     5.  SIGINT
-
         Il terminale invia questo segnale al gruppo del processo in foreground
 
     6.  SIGKILL
-
         Non puó essere bloccato, ignorato, intercettato da un hander
 
         - termina sempre un processo
-
     7.  SIGPIPE
-
         Inviato quando un processo tempa di scrivere su un pipe o FIFO il quale non ha un corrispondente lettore
 
     8.  SIGSEGV
-
         O Segmentation Violation Processo tenta un riferimento in memoria non valido
 
         - la pagina non esiste
         - tentata modifica a locazione read-only
         - tentato accesso alla memoria del kernel
-
         Spesso a causa di un puntatore che contiene un <u>bad address</u>
 
 ## Facilities
@@ -400,34 +372,26 @@ Nel periodo di tempo intercorrente tra la generazione e l'invio al processo il s
 ### System V IPC
 
 1.  syscall
-
     - msgget()
     - semget()
     - shmget()
-
 2.  message queues
-
     I messaggi possono essere pescati per tipo oltre che ordine
 
 3.  shared memory
-
     Uno degli strumenti di IPC piú veloci
 
 4.  semaphores
-
     set di semafori
 
 ### Sincronizzazione
 
 1.  Semafori
-
     - blocking
     - non-blocking
-
     Aumento del semaforo :: reso disponibile Decremento del semaforo :: accesso all'area critica
 
     1.  Syscall
-
         ``` c
         #include <sys/types.h>
         #include <sys/sem.h>
@@ -471,14 +435,11 @@ Nel periodo di tempo intercorrente tra la generazione e l'invio al processo il s
         - un processo sblocca il semaforo
         - viene interrotto da un segnale di Interrupt
           - EINTR
-
     2.  binary semaphores
-
         1: Free, 0: Reserved
 
         - Reserve
         - Wait
-
         ``` c
         int initSem();
         int reserveSem(int semID, int semNum);
@@ -488,48 +449,37 @@ Nel periodo di tempo intercorrente tra la generazione e l'invio al processo il s
 ### Communication Facilities
 
 1.  Distruttivitá
-
     I dati sono consumati con la lettura
 
 2.  Data transfer
-
     1.  byte stream
-
         Si scrivono/leggono numeri arbitrari di byte
 
         1.  Pipes
-
             Permettono l'utilizzo dell'output di un processo come input di un altro processo Il suo funzionamento é implementato utilizzando
 
             - fork()
             - exec()
-
             Il pipe ha un <u>verso</u>
 
             - write end
             - read end
-
             I processi semplicemente scrivono su fd1 e leggono da fd0
 
             - Essendo flussi non c'é la nozione di dimensione del messaggio
             - La lettura é sequenziale secondo l'ordine di scrittura
-
             Il pipe é semplicemente un `buffer`, ha una capacitá massima
 
             - quando é pieno la scrittura viene bloccata finche non sará effettuata una lettura
             - generalmente non é necessario conoscere la capacitá della pipe
             - una dimensione maggiore porterá a meno context switch
-
             1.  Protocol
-
                 - carattere delimitatore
                   - si sceglie un carattere che non sará utilizzato nei messaggi
                 - header / body
                   - intestazione con lunghezza del messaggio seguente
                 - messaggi a dimensione fissa a $`n`$ byte
-
             2.  Syscal
-
                 ``` c
                 int pipe(int filedes[2]);
                 // ritorna 0 on success, -1 on error
@@ -538,43 +488,33 @@ Nel periodo di tempo intercorrente tra la generazione e l'invio al processo il s
                 ```
 
             3.  Chiusura fd
-
                 Se il lettore non chiude il write-end alla chiusura dalla parte dello scrittore non verrá scritto EOF alla fine dello stream Quando uno scrittore scrive su una pipe senza lettori questo riceve SIGPIPE
 
                 - che puó essere gestito
-
                 Un pipe chiamato prima di una fork puó mettere in comunicazione processi imparentati
 
         2.  FIFO
-
             Sono dotati di un nome a differenza di un pipe
 
             - possono essere utilizzati per comunicazione tra processi non imparentati
               - architettura client-server
-
             Come pipe
 
             - write-end read-end
-
             1.  Syscall
-
                 ``` c
                 int mkfifo(const char *pathname, mode_t mode);
                 // returns  on success, -1 on error
                 ```
 
             2.  Sincronizzazione
-
                 Possibile creare una fork nella pipeline utilizzando il comando `tee`
 
                 - duplicato dell'outut viene inviato ad un terzo processo <u>oltre</u> che il suo successore nella pipeline
-
     2.  message
-
         Si scrivono/leggono messaggi interi
 
         - ogni read legge 1 solo messaggio
-
         1.  message queue
 
 ### Shared Memory
@@ -596,9 +536,7 @@ I figli ereditano i segmenti di SM a disposizione del genitore
 - durante una exec() i segmenti sono staccati <u>detached</u>
   - NB: non distrutti
   - sono staccati anche al momento della terminazione dei processi
-
 1.  lifecycle
-
     - shmget()
       - creazione
       - ottenere l'id di un segmento giá esistentsetxkbmap -option ctrl:swapcapse
@@ -611,9 +549,7 @@ I figli ereditano i segmenti di SM a disposizione del genitore
       - cancellare (IPC<sub>RMID</sub>)
         - solo un processo la esegue
       - un segmento sará effettivamente distrutto solo dopo che tutti i processi correntemente attaccati lo avranno staccato
-
 2.  syscalls
-
     ``` c
     int shmget(key_t key, size_t size, int shmflg);
     // funzionamento analogo alla malloc ma accessibile

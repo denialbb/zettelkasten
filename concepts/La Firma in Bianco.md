@@ -7,4 +7,4 @@ title: La Firma in Bianco
 
 ![](../media/img/la-firma-in-bianco.jpg)
 
-> Le cose visibili possono essere invisibili. Se qualcuno va a cavallo in un bosco, prima lo si vede, poi no, ma si sa che c’è. Nella Firma in bianco, la cavalerizza nasconde gli alberi e gli alberi la nascondono a loro volta. Tuttavia il nostro pensiero comprende entrambi, il visibile e l’invisibile. E io utilizzo la pittura per rendere visibile il pensiero. ~ Magritte - [[$cit]]
+> Le cose visibili possono essere invisibili. Se qualcuno va a cavallo in un bosco, prima lo si vede, poi no, ma si sa che c’è. Nella Firma in bianco, la cavalerizza nasconde gli alberi e gli alberi la nascondono a loro volta. Tuttavia il nostro pensiero comprende entrambi, il visibile e l’invisibile. E io utilizzo la pittura per rendere visibile il pensiero. ~ Magritte - #cit

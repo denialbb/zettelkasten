@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-02-02 Fri 11:06\\]"
+date: 2024-02-02 11:06
 id: d289e315-db0d-4166-9bd1-8df2c0ab31a5
 title: Do users understand what happens to their data?
 ---

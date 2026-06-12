@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-16 Sat 21:02\\]"
+date: 2023-12-16 21:02
 id: 807632b3-5424-4d5c-8cea-fa3665b377b1
 title: The Master Switch
 ---

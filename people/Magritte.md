@@ -2,4 +2,3 @@
 id: 0d8ce446-a51b-4250-a772-53b1e9ced044
 title: Magritte
 ---
-

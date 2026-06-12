@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-09-22 Thu 19:16\\]"
+date: 2022-09-22 19:16
 id: db3694d3-01ed-4a3c-ba6b-74190b348e6d
 roam_aliases: RNDL
 title: Reti Neurali & Deep Learning
@@ -231,7 +231,7 @@ Le memorie fondamentali sono **attrattori** di versioni corrotte in input.
 
 - il principio di **Hebb** per l'apprendimento ci aiuta nello storage
 
-> When an axon of cell A is near enough to excite a cell B and repeatedly or persistently takes part in firing it, some growth process or metabolic change takes place in one or both cells such that A's efficiency, as one of the cells firing B, is increased. [[$cit]]
+> When an axon of cell A is near enough to excite a cell B and repeatedly or persistently takes part in firing it, some growth process or metabolic change takes place in one or both cells such that A's efficiency, as one of the cells firing B, is increased. #cit
 
 - fire together means strong connection
   - i neuroni si rafforzano
@@ -461,7 +461,7 @@ L'implementazione può essere fatta:
     - l'ultimo livello viene dato in input a un livello supervisionato trattato poi con i criteri supervisionati
 2.  Stacked `RBM`​s
     - hanno un focus generativo
-    - *To recognize shapes, first learn to generate images*\[[$cit]] Hinton\]
+    - *To recognize shapes, first learn to generate images*\#cit Hinton\]
     - prima si addestra il primo livello che riconosce i pixel
       - li genera a livello visible
     - poi si addestra un secondo livello basato sulle attivazioni nel livello hidden precedentemente addestrato
@@ -554,9 +554,7 @@ Aggiornamento dei pesi:
 - il delta viene corretto nella direzione **opposta** del gradiente di $`E`$
   - il gradiente è l'insieme di tutte le derivate di $`E`$ in funzione dei pesi
     - queste sono tante quante i pesi, ogni variazione di peso ha un impatto sull'errore totale della rete
-
 1.  Caso del neurone di output
-
     In questo caso il neurone $`j`$ è a conoscenza del suo errore e può andare a modificare gli input dei neuroni del livello successivo.
 
     ``` math
@@ -568,7 +566,6 @@ Aggiornamento dei pesi:
     ```
 
 2.  Caso del neurone hidden
-
     Con $`j`$ neurone hidden:
     ``` math
     \Delta w_{ji} = \eta \delta_j y_{i}
@@ -578,7 +575,6 @@ Aggiornamento dei pesi:
     ```
 
 3.  Delta Rule
-
     con
 
     con
@@ -916,9 +912,7 @@ Per ottenere una **feature map** viene utilizzata la convoluzione. Si usano *ker
 
 - questi passano l'input matrix calcolando la **feature map**
 - ogni elemento della feature map è una somma pesata locale che utilizza i pesi del filtro
-
 1.  Proprietà
-
     - pesi sparsi
       - i calcoli sono più veloci e localizzati
     - i parametri sono condivisi
@@ -939,7 +933,6 @@ Definiti da esperti:
 Ora i `CNN` imparano in base al task definito i filtri migliori per risolverlo.
 
 1.  Iperparametri
-
     - numero di filtri
     - kernel size
       - quanto l'analisi è locale
@@ -964,9 +957,7 @@ I possibili pooling sono solitamente
 
 - average
 - max
-
 1.  Iperparametri
-
     - kernel size (2x2)
     - padding
     - stride (2)

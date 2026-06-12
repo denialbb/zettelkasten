@@ -4,11 +4,9 @@ title: Dalla Robotopia al Cyberpunk
 ---
 
 - Source: <https://not.neroeditions.com/dalla-robotopia-al-cyberpunk/>
-
   > Perché il Giappone appare, perennemente, come la più intrinsecamente futuristica tra le nazioni? Quando ero bambino il futuro era l’America. Il ruolo del Giappone stava solo nella produzione di robot di latta a carica e astronauti di plastica stampati a iniezione. Quarant’anni dopo, la relazione speciale che l’America aveva con il futuro si è spezzata. ~ [[William Gibson]]
 
 - Giappone - Tecnologia
-
   - Epoca Meiji
     - 1868 - 1912
     - acquisire tecnologie aliene per sopravvivere
@@ -17,9 +15,7 @@ title: Dalla Robotopia al Cyberpunk
     - vera apocalisse
   - Dopoguerra
     - tecnologia e societa' dei consumi creano a identita' nazionale odierna
-
 - [[Nishida Kitaro]]
-
   - fondatore della scuola di Kyoto
     - *filosofi del nulla*
   - compremesso cultura giapponese e tecnologia occidentale
@@ -40,13 +36,9 @@ title: Dalla Robotopia al Cyberpunk
 Queste letture sono culla di autori come [[Masamune Shiro]] (*Ghost in the Shell*).
 
 - un infanzia educata dalla <u>fanta robotica</u>
-
 - robot amici, attrezzi umani
-
 - tecnologia nel dopoguerra fondamentale per la ricostruzione e per l'emancipazione dal'occidente e la colonializzazione
-
 - Mecha - primi anni '70
-
   - Mazinga Z
   - UFO Robo
 

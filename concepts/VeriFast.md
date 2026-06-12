@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-05-03 Tue 03:23\\]"
+date: 2022-05-03 03:23
 id: 8c1765a3-7f08-4312-b5d0-8653b62dbcdf
 title: VeriFast
 ---
@@ -163,7 +163,6 @@ struct node {
 struct stack {
     node* node
 };
-
 
 struct stack *create_stack()
 //@ requires true
@@ -435,7 +434,6 @@ lemma void lseg_add_lemma(struct node *first)
         close lseg(first,next,count+1);
     }
 @*/
-
 
 int stack_get_count(struct stack *stack)
 //@ requires stack(stack, ?count);

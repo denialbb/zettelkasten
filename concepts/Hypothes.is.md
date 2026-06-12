@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-23 Thu 00:29\\]"
+date: 2021-12-23 00:29
 id: 0709a81e-b7ee-440a-89e7-22519ab925dd
 title: Hypothes.is
 ---

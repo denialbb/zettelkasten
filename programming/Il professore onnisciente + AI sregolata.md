@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-18 Mon 09:43\\]"
+date: 2023-12-18 09:43
 id: 3c924677-a889-498a-9ae3-dccd94ffb09d
 title: Il professore onnisciente + AI sregolata
 ---

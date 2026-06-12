@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-02-02 Fri 09:58\\]"
+date: 2024-02-02 09:58
 id: 0761c542-5013-4bd5-84dd-2798e1c56aa5
 title: Do WMD have a political bias?
 ---

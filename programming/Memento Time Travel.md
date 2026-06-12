@@ -4,9 +4,6 @@ title: Memento Time Travel
 ---
 
 - Source: <https://notes.peter-baumgartner.net/2021/05/25/memento-time-travel/>
-
 - Author: [[Peter Baumgartner]]
-
 - Related: [[Web Development]], [[Scraping]]
-
 - Memento Protocol behind the Internet Archive: Wayback Machine

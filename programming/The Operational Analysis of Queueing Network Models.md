@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-10-06 Thu 06:25\\]"
+date: 2022-10-06 06:25
 id: 70af4f43-65f9-474c-9ffb-fa627cd96b47
 roam_refs: "cite:denning78"
 title: The Operational Analysis of Queueing Network Models

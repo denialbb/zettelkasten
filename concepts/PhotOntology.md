@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-01-27 Fri 17:09\\]"
+date: 2023-01-27 17:09
 documentclass: my_thesis
 id: fa31fd31-a6a5-40ea-b22f-7950a4e0322b
 title: PhotOntology

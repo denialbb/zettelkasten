@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-30 Fri 02:10\\]"
+date: 2022-12-30 02:10
 id: 3e730382-1688-4772-a482-46d5e4dff738
 title: Tecosaur's Doom Emacs Configuration
 ---

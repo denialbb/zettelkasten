@@ -20,9 +20,7 @@ Input NOR Not(Input)
 
 - Input NOR InRitardato
 - il `ritardo` introdotto diventa l'`intervallo alto` del Clock
-
 1.  rd/wr/fetch
-
     richiesta di lettura di memoria nel ciclo k –\> ricevuta dei dati al ciclo k+2
 
 ## Control Unit
@@ -41,7 +39,6 @@ Input NOR Not(Input)
 Micro Instruction Register
 
 1.  36 bit
-
     definiscono le configurazioni della ALU
 
     | Addr | JAM | ALU | C   | Mem | B   | */* |
@@ -49,26 +46,18 @@ Micro Instruction Register
     | 9    | 3   | 8   | 9   | 3   | 4   | bit |
 
     1.  Address
-
         1.  0x100
-
     2.  JAM - controlla la Highbit Network
-
         1.  000
-
             1.  goto(Addr)
-
                 implicito tra ogni microistruzione, sottointeso in MAL
 
         2.  JMPC - salto incondizionato
-
             - Ogni `opcode` e' l'indirizzo della sua prima microistruzione nel suo microprogramma
             - Questo semplifica molto l'architettura
             - L'unica connessione hardware da MBR e' verso MPC
             - JMPC implementa il goto(MBR), usato nella fase di fetch nel Main1
-
         3.  JAMZ/JAMN - salto condizionato
-
             Il bit Addr\[8\], piu' significativo, passa attraverso la la High-bit network
 
             - 000
@@ -84,23 +73,16 @@ Micro Instruction Register
               - quindi usiamo il formato:
                 - X e X+k
                   - utilizzando dei semplici segnali di controllo
-
     3.  [[Shifter]] + [[ALU]]
-
         1.  SLL8
-
             shift sinistra logico
 
             - utilizzato per la consecuzione di 2 Byte
-
         2.  SRA1
-
             shift destra aritmetico
 
             - moltiplicazione per 2
-
         3.  ALU
-
             a 32 bit
 
             - f0
@@ -109,23 +91,17 @@ Micro Instruction Register
             - EnB
             - InvA
             - Inc
-
     4.  Controllo del Bus C
-
         - segnali indipendenti
         - controllano individualmente i 9 registri scritti dal bus C
           - tutti tranne `MBR`
-
     5.  Memoria
-
         - rd
         - wr
           - riguardanti `MAR` e `MDR`
         - fetch
           - riguardante `PC` e `MBR`
-
     6.  Controllo del Bus B
-
         - controlla un [[Decoder]] a 4 bit, 2<sup>4</sup> uscite
           - utilizziamo 9 delle 16 possibili uscite
             - le uscite in piu' ci permettono una decima configurazione che sara' il segnale per la selezione di nessun registro
@@ -138,32 +114,25 @@ Micro Instruction Register
             - vedi 8-bit Memory
             - implementato con: `Wired OR Connection`
               - usando diodi e la terra, l'intersezione dei bit In rappresenta il valore logico dell'Out
-
               ![](https://upload.wikimedia.org/wikipedia/en/8/82/WiredOR.JPG)
 
 ### MPC
 
 1.  OR
-
     tra le entrate del registro (escluso highbit)
 
     - Addr
     - MBR
-
     –\> controllo: JMPC
 
     - JMPC=1 Addr OR MRB ~ dove Addr=0x000/0x100
-
     1.  goto(Addr)
-
         JMPC = 0 = JAMZ = JAMN
 
     2.  goto(MBR OR Addr)
-
         JMPC = 1 `NB` il bit piu' significativo di Addr sara' comunque indipendentemente deciso dal Highbit Network
 
     3.  salti condizionati
-
         ~ if(N) goto(Addr+0x100) else goto(Addr)
 
         ~ if(Z) goto(Addr+0x100) else goto(Addr)
@@ -171,16 +140,13 @@ Micro Instruction Register
 ### Registri virtuali
 
 1.  MPC
-
     effettivamente un registro vero e proprio, come PC o LV…
 
     - sono flip-flop (9 nel caso specifico)
     - infatti per motivi di temporizzazione MPC deve essere caricato DOPO il `fronte ascendente` del ciclo di clock, perche' ha bisogno di tutti i registri caricati alla fine del ciclo di datapath
       - viene impostato nella finestra alta
         - sara' cosi' pronto per impostare il MIR durante il `fronte discendente` subito successivo
-
 2.  MIR
-
     non e' un registo, piuttosto una astrazione per motivi didattici
 
     - e' semplicemeente l'uscita della memoria ROM Control Store
@@ -242,7 +208,6 @@ sempre con il riferimento dell'`equilibrio costo/beneficio`
 <!-- -->
 
 1.  un incrementatore dedicato al PC
-
 2.  16 bit per la porta della memoria di lettura di offset a 2 byte
 
 ### Semplificare l'organizzazione
@@ -258,35 +223,27 @@ Risolvibile estendendo il campo B in MIR da 4 bit a 9 bit
 ### Sovrapporre l'esecuzione delle istruzioni
 
 1.  `Pipelining`
-
     spezzare microistruzioni in sottocicli tra loro paralelizzabili
 
     semplificando il ciclo fetch-decode-execute
 
     1.  sovrapporre l'esecuzione delle istruzioni
-
     2.  il datapath mic-2 e' strettamente sequenziale
-
         3 operazioni (sottocicli) che dipendono l'una dall'altra temporalmente
 
     3.  introduciamo 3 latch
-
         scritti ad ogni ciclo
 
         - A latch
         - B latch
         - C latch
-
     4.  microstep
-
         ora il datapath precedente la ALU e il datapath successivo sono indipendenti Ora abbiamo 3 `microstep` (micropassi)
 
         1.  I registri scrivono sui latch A e B
         2.  ALU legge i latch A e B, scrive nel latch C il risultato
         3.  leggere dal latch C e scrivere sui registri abilitati
-
     5.  parallelismo
-
         Abbiamo guadagnato `parallelismo` Potremmo immaginare di triplicare il clock, ad ogni ciclo eseguiamo 1 microstep
 
         Non acceleriamo la velocita' di una microistruzione, il tempo lo guadagnamo iniziando il primo microstep della microistruzione `successiva` contemporaneamente al secondo microstep della `precedente`

@@ -2,4 +2,3 @@
 id: 7392ec21-9058-4dfb-a8cf-27f06c01e53d
 title: Pay Gap
 ---
-

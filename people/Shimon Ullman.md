@@ -1,6 +1,5 @@
 ---
-date: "\\[2023-01-08 Sun 11:17\\]"
+date: 2023-01-08 11:17
 id: ce7ceed2-1b6a-4010-9ce3-6030d818c337
 title: Shimon Ullman
 ---
-

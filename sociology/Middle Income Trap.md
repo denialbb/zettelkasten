@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-29 Wed 19:39\\]"
+date: 2021-12-29 19:39
 id: 83c86e32-f5f0-466b-90e1-91a344b501d2
 title: Middle Income Trap
 ---

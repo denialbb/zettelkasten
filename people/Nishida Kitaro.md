@@ -2,4 +2,3 @@
 id: 4ae3eed0-e31b-4e2b-a898-2883b06b6bb9
 title: Nishida Kitaro
 ---
-

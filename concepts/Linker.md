@@ -1,6 +1,5 @@
 ---
 id: 77236563-9844-42cf-a8a1-d59e2771a6d8
 title: Linker
+tags: [informatica]
 ---
-
-:informatica:

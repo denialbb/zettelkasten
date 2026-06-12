@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-07 Wed 02:07\\]"
+date: 2022-12-07 02:07
 id: 03d58ce6-d9d0-4955-b4c6-6821a5a14216
 title: The Cowpox of Doubt
 ---

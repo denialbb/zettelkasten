@@ -27,7 +27,6 @@ Preferibile ad una ALU completa
         - 8bit
     2.  MBR2
         - 16bit
-
         questi nuovi registri non si interfacciano piu' direttamente alla memoria si interfacciano invece alla IFU
 
 # Composizione
@@ -39,11 +38,9 @@ Preferibile ad una ALU completa
 6 byte: \[ \]\[ \]\[ \]\[ \]\[ \]\[1\] –\> \[ \]\[ \]\[ \]\[ \]\[2\]\[1\]
 
 1.  Quando richiesto MBR1 (per un goto MBR)
-
     Il contenuto della posizione piu' a destra e' spostato in MBR1
 
 2.  Quando e' richiesto MBR2 (offset)
-
     Contenuto delle due posizioni piu' a destra sono invertite e spostate su MBR2
 
     - questo ci permette di non usare
@@ -71,7 +68,6 @@ PC e' copiato con i 2 bit meno significativi su IMAR
 ### E' questo registro che comunica con la memoria
 
 1.  al peggio non uso i byte aggiuntivi caricati
-
 2.  al meglio in quei byte ho valori che usero'
 
 # Questo permette di automatizzare il ciclo di Fetch Main1

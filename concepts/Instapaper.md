@@ -1,6 +1,5 @@
 ---
-date: "\\[2021-12-23 Thu 00:16\\]"
+date: 2021-12-23 00:16
 id: 3d9f45a2-ddf3-4920-9d09-148cd2fd7b43
 title: Instapaper
 ---
-

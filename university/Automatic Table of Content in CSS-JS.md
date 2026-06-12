@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-05-13 Fri 18:48\\]"
+date: 2022-05-13 18:48
 id: cc344471-0d23-4fec-97f6-5202230100ea
 title: Automatic Table of Content in CSS/JS
 ---

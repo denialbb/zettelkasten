@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-01-08 Sun 11:03\\]"
+date: 2023-01-08 11:03
 id: d5733806-d7b3-4b08-afd1-7a8d94664ffa
 title: Assessing the Ability of LSTMs to Learn Syntax-Sensitive Dependencies
 ---

@@ -45,11 +45,9 @@ Quando b = 1 store: s' = i Quando b = 0 hold: s' = s
 ## Latch SR
 
 - INPUT
-
   S, R
 
 - OUTPUT
-
   Q, NOT(Q)
 
 Lo stato S=R=1 e' `instabile`
@@ -57,11 +55,9 @@ Lo stato S=R=1 e' `instabile`
 ## Latch D sincronizzato
 
 - INPUT
-
   D, CK
 
 - OUTPUT
-
   Q, NOT(Q)
 
 Risolve l'ambiguita' dello stato S=R=1 Il latch e' `trasparente` in quanto la sua uscita rappresenta il suo stato istante per istante
@@ -78,5 +74,4 @@ Memorizzo il contenuto di D solo al livello alto del clock
 
 - In quanto l'invertitore comporta un `ritardo` il campionamento avverra' solo quando il risultato sara' alto, quindi al `fronte di clock`
   - qui si sovrappongono CK e NOT(CK)
-
   Perde la trasparenza del latch

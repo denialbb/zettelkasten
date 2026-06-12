@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-28 Tue 19:25\\]"
+date: 2021-12-28 19:25
 id: 52cbcf53-c46f-47af-a17c-4221ae7bcfed
 title: The Map is Not the Territory
 ---
@@ -11,7 +11,7 @@ The *map*[^1] we have of reality (any reality or subject or matter) is *not* rea
 
 # Notes
 
-> The map appears to us more real than the land - [[$cit]] [[D.H.Lawrence]]
+> The map appears to us more real than the land - #cit [[D.H.Lawrence]]
 
 - a map is a reduction of the territory
 - a perfect fidelity map would not be a reduction and as such not a map anymore
@@ -26,7 +26,7 @@ Our reliance on abstraction can lead us astray:
 - **any** model is better than **no** model
 - maps need to be **interpreted**, which is hard
 
-> All models are wrong, some are useful. - [[$cit]] [[George Box]]
+> All models are wrong, some are useful. - #cit [[George Box]]
 
 - statistical analysis in economics is very prone to this
   - [[Nassim Nicholas Taleb]]: on the day before whatever “worst case” event happened in the past, you would have not been using the coming “worst case” as your worst case, because it wouldn’t have happened yet.

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-07 Wed 01:55\\]"
+date: 2022-12-07 01:55
 id: d3296f65-eac3-48f2-8ee6-087c5176fcd7
 title: Homo unius libri
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-09-24 Sat 02:32\\]"
+date: 2022-09-24 02:32
 id: 46bc1246-bcf3-4cf4-9fa1-3a64fb5e60d4
 title: Some notes on solving hard problems
 ---
@@ -13,7 +13,7 @@ title: Some notes on solving hard problems
   - the different points of observation can help to surpass moments where the progress halts to a stop
   - the different perspectives are just mental tools, modes of thinking
 
-> \[…\] try to restate it in just as many different forms as you can. Change the words. Change the viewpoint. Look at it from every possible angle. After you’ve done that, you can try to look at it from several angles at the same time and perhaps you can get an insight into the real basic issues of the problem, so that you can correlate the important factors and come out with the solution. It’s difficult really to do this, but it is important that you do. If you don’t, it is very easy to get into ruts of mental thinking. You start with a problem here and you go around a circle here and if you could only get over to this point, perhaps you would see your way clear; but you can’t break loose from certain mental blocks which are holding you in certain ways of looking at a problem. That is the reason why very frequently someone who is quite green to a problem will sometimes come in and look at it and find the solution like that, while you have been laboring for months over it. You’ve got set into some ruts here of mental thinking and someone else comes in and sees it from a fresh viewpoint. - [[Claude Shannon]] [[$cit]]
+> \[…\] try to restate it in just as many different forms as you can. Change the words. Change the viewpoint. Look at it from every possible angle. After you’ve done that, you can try to look at it from several angles at the same time and perhaps you can get an insight into the real basic issues of the problem, so that you can correlate the important factors and come out with the solution. It’s difficult really to do this, but it is important that you do. If you don’t, it is very easy to get into ruts of mental thinking. You start with a problem here and you go around a circle here and if you could only get over to this point, perhaps you would see your way clear; but you can’t break loose from certain mental blocks which are holding you in certain ways of looking at a problem. That is the reason why very frequently someone who is quite green to a problem will sometimes come in and look at it and find the solution like that, while you have been laboring for months over it. You’ve got set into some ruts here of mental thinking and someone else comes in and sees it from a fresh viewpoint. - [[Claude Shannon]] #cit
 
 - corner pieces of puzzles are the easiest to place
   - at first concentrate on the easy stuff, so that you can then work on solid ground towards the hardest aspects of the problem

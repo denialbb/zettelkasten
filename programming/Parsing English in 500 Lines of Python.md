@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-06-06 Thu 19:34\\]"
+date: 2024-06-06 19:34
 id: 1279b590-79e1-4c28-b046-29fd8f556f39
 title: Parsing English in 500 Lines of Python
 ---

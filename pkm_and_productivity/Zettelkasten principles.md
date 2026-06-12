@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-22 Wed 23:42\\]"
+date: 2021-12-22 23:42
 id: 6a03539f-008a-4f3d-8480-784fb7192702
 title: Zettelkasten principles
 ---

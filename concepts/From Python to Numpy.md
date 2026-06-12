@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-10-12 Wed 05:48\\]"
+date: 2022-10-12 05:48
 id: a9f10b1c-906d-4fe9-a267-9a93b51690f4
 title: From Python to Numpy
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-03-09 Wed 17:09\\]"
+date: 2022-03-09 17:09
 id: 51177984-16bc-4c8b-8b69-969dba9f1dd9
 title: One-time Pad
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-02-27 Mon 10:57\\]"
+date: 2023-02-27 10:57
 id: 66f28b61-8380-4480-9cb4-43cf319d6e9a
 title: Quality of Service in Computer Networks
 ---

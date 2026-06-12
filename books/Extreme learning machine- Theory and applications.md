@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-01 Thu 17:27\\]"
+date: 2022-12-01 17:27
 id: ccdb3de2-8856-46f8-875d-1bbd5a8ab52b
 title: "Extreme learning machine: Theory and applications"
 ---

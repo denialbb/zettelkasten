@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-02-04 Sun 17:25\\]"
+date: 2024-02-04 17:25
 id: bf3802f6-bc39-4aeb-818d-8deedd976c1f
 title: Can a monopoly be beneficial in improving a service?
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-11-29 Tue 16:37\\]"
+date: 2022-11-29 16:37
 id: 6f5ace33-b1ce-4cd5-be63-8e81ba2b4d7c
 title: Journaling with org-mode
 ---

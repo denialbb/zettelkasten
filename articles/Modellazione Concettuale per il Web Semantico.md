@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-11-30 Wed 16:20\\]"
+date: 2022-11-30 16:20
 id: 803f5b09-941a-4cf4-84ca-9e8c537ef453
 roam_aliases: ModSem
 title: Modellazione Concettuale per il Web Semantico
@@ -96,22 +96,18 @@ Il comando utente **find** trova uno o più nodi della rete
 ### Inferenza
 
 1.  Riduzione
-
     Dedurre dal grafo una porzione in esso contenuta.
 
 2.  Path
-
     Stabilire che un percorso fatto di certe relazioni è uguale a una relazione usando il comando `define-path`
 
     - si definisce un certo percorso (definito in base alle sue caratteristiche) uguale a un singolo arco
-
     ``` example
     (define-path isa (compose isa
                         (kstar (compose object-isa))))
     ```
 
     - `kstar` sta per zero o più occorrenze
-
     ``` example
     (define-path
         has2 (compose   (kstar (compose isa object- ))
@@ -120,12 +116,10 @@ Il comando utente **find** trova uno o più nodi della rete
     ```
 
 3.  Regole
-
     - regole definite arbitrariamente dall'utente
       - questo è il loro punto debole
     - parte della base di conoscenza
     - aumentano notevolmente la conoscenza della rete
-
     ``` example
     (assert member Marcus class man)
     (assert member Marcus class Pompeian)

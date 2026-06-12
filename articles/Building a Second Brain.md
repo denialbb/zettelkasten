@@ -28,7 +28,6 @@ Creando dei link si creano pagine dedicate a quella parola, qui vengono evidenzi
 Projects, Areas, (Resources), Archives
 
 - la forza di [[roam]] sta nel non necessitare una struttura rigida, gerarchica
-
   - I progetti non sono creati nella pagina `Projects` ma sono semplicemente linkati, cosi' sono poi rimuovibili semplicemente cambiando il link in `Archives`
 
 ### Progressive Summarization
@@ -43,4 +42,4 @@ Non utilizzato perche' un una rete di connessioni di questo genere ogni contenut
 
 Integra in modo fluido la scrittura e i collegamenti, lasciando l'utente libero di esplorare, riesplorare, la rete di collegamenti
 
-> As Homo Sapiens, we're especially adapted to learning in ways that are vivid, visual and experimental. Scientists refer to this as 'the picture superiority effect.'" ~ [[Jonathan Levi]] - [[$cit]]
+> As Homo Sapiens, we're especially adapted to learning in ways that are vivid, visual and experimental. Scientists refer to this as 'the picture superiority effect.'" ~ [[Jonathan Levi]] - #cit

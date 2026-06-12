@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-02-04 Sun 17:16\\]"
+date: 2024-02-04 17:16
 id: 9cb68b90-a4ff-424a-8131-c42fc7f223e4
 title: Can free speech be controlled by industry?
 ---

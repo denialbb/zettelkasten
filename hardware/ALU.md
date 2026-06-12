@@ -8,11 +8,9 @@ title: Circuiti Combinatori
 Funzione di `indirizzamento`
 
 - INPUT
-
   n
 
 - OUTPUT
-
   2<sup>n</sup>
 
 # Multiplexer
@@ -20,29 +18,23 @@ Funzione di `indirizzamento`
 Puo' implementare una qualsiasi `funzione n-aria`, esiste anche un `Demultiplexer`
 
 - INPUT
-
   2<sup>n</sup>
 
 - Controllo
-
   n
 
 - OUTPUT
-
   1
 
 # Comparatori
 
 - INPUT
-
   due serie da n bit l'una
 
 - OUTPUT
-
   1 se uguali 0 se diversi
 
 - Implementazione
-
   NOR(In1 XOR In2)
 
 # Shifter
@@ -50,15 +42,12 @@ Puo' implementare una qualsiasi `funzione n-aria`, esiste anche un `Demultiplexe
 Implementa la moltiplicazione binaria
 
 - INPUT
-
   n bit
 
 - OUTPUT
-
   n bit \<\< o \>\> di 1 bit
 
 - Controllo
-
   Determina la direzione dello shift
 
 # Adder

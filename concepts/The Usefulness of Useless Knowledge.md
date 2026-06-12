@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-07 Wed 02:41\\]"
+date: 2022-12-07 02:41
 id: 8f7bca5b-c092-4c06-9c5b-8ea6e749d235
 title: The Usefulness of Useless Knowledge
 ---

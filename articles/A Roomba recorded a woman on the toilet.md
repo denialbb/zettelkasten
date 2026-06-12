@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-01-31 Wed 04:54\\]"
+date: 2024-01-31 04:54
 id: 6d254c53-a5bf-48d3-b0e9-b5c006e8d944
 title: A Roomba recorded a woman on the toilet
 ---

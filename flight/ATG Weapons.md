@@ -1,4 +1,3 @@
-
 |**Weapon**|**Type**|**Description**|**Brevity Code**|
 |---|---|---|---|
 |**AGM-88 HARM**|Anti-Radiation|Homes in on enemy radar waves (SAM sites). You shoot this at the "Mud" or "Spike" on your RWR.|**"Magnum"**|

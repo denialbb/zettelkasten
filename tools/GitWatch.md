@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-30 Fri 08:04\\]"
+date: 2022-12-30 08:04
 id: 8a5b097c-f0a4-4ab4-a87c-4e465b26db08
 title: GitWatch
 ---

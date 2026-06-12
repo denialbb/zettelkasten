@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-24 Fri 15:31\\]"
+date: 2021-12-24 15:31
 id: b17ad652-f198-41bc-87dd-6386809356ee
 roam_aliases: ADHD
 title: Attention Deficit Disorder

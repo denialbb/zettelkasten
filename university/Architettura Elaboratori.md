@@ -76,19 +76,13 @@ Questo in quanto i reali allo la `potenza dell'infinito`: avremo aree non rappre
 ### Codifiche
 
 1.  Caratteri
-
     1.  ASCII
-
     2.  UNICODE
-
     3.  UTF-8
-
 2.  Suoni e Immagini
-
     `Campionamento del segnale`
 
     1.  discretizzando colori nello spazio
-
     2.  discretizzando suoni nel tempo
 
 # Livelli di Architettura di un Elaboratore
@@ -121,25 +115,19 @@ Elemento base: `Transistor`
   - MSI
   - LSI
   - VLSI
-
 1.  [[Circuiti Combinatori]]
-
     Dipendono da una `funzione` d'entrata
 
     - L'output dipende solo dall'input
-
 2.  [[Circuiti Sequenziali]]
-
     Dipendono da una `funzione` d'entrata e da uno `stato`
 
 3.  Registri
-
     flip-flop dipo D temporizzati indirizzati attraverso decoder o bit di attivazione
 
     - CS - Chip Select
     - RD - Read
     - OE - Output Enabled
-
     Organizzati a indirizzi di n parole da m bit
 
     le uscite degli indirizzi passano per un multiplexer che passa il dato voluto in uscita
@@ -147,7 +135,6 @@ Elemento base: `Transistor`
     Possiedono un controllo prima dell'uscita: registro con buffer (3 stati: 0,1, scollegato)
 
 4.  Memorie
-
     Insieme di celle, ampiezza di parola 1B/4B/8B
 
     Ordinamento:
@@ -166,16 +153,13 @@ Elemento base: `Transistor`
         - transistor con condensatori
       - ROM
         - sola lettura
-
 5.  Bus
-
     linee di
 
     - controllo
       - evitano che i dispositivi accedano allo stesso momento al Bus
     - dati
     - indirizzi
-
     La larghezza del bus dipende dall'architettura, in Mic-1 si tratta di Bus da 32 bit
 
     Tipi di Bus
@@ -183,14 +167,12 @@ Elemento base: `Transistor`
     - Sistema
     - Interni alla CPU
     - SCSI esterni
-
     La CPU comunica con la cache e la memoria in caso di Miss (vedi `Principio di Localita' del Codice`)
 
     I dispositivi possone essere:
 
     - attivi \| master
     - passivi \| slave
-
     o entrambi (CPU): transceiver
 
     Principi di progettazione:

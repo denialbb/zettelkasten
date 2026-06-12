@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-23 Thu 00:15\\]"
+date: 2021-12-23 00:15
 id: 97d8a318-03f4-4c20-8b83-6ef99a93374c
 title: Import Notes from Instapaper
 ---

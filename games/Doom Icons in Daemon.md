@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-06-27 Mon 18:07\\]"
+date: 2022-06-27 18:07
 id: 48e7fe9f-e7b0-4d58-b62a-bd0680b34590
 title: Doom Icons in Daemon
 ---

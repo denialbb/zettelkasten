@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-05-05 Thu 11:02\\]"
+date: 2022-05-05 11:02
 id: a3d9f126-3a54-499e-8693-5b2ec1ee7bcd
 title: What is This?
 ---

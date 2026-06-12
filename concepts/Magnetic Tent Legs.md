@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-06-30 Thu 21:59\\]"
+date: 2022-06-30 21:59
 id: 27dabb61-78bd-4bb1-9cf7-24290fd600e7
 title: Magnetic Tent Legs
 ---

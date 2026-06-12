@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-04-15 Fri 01:40\\]"
+date: 2022-04-15 01:40
 id: 5138a424-b3a8-42cb-b87d-3dd8d647c270
 roam_aliases: SHA
 title: Secure Hash Algorithm

@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-04-19 Wed 05:07\\]"
+date: 2023-04-19 05:07
 id: b10940e8-f505-4d04-b119-d113707e0076
 title: Flattening Hierarchical Scheduling
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-03-09 Wed 17:27\\]"
+date: 2022-03-09 17:27
 id: ad07cbed-5c0b-448c-861e-3f8ee80e6803
 roam_aliases: DES
 title: Data Encryption Standard

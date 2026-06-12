@@ -118,11 +118,9 @@ Differenze tra *linguaggio* e *calcolo*
 ### Funzioni
 
 1.  Punto di vista estensionale
-
     $`f = \{(0,1),(1,2),(2,5),\cdots\}`$
 
 2.  Punto di vista intensionale
-
     $`f(x) = x^{2} + 1`$
 
 ### Sintassi
@@ -139,19 +137,14 @@ Differenze tra *linguaggio* e *calcolo*
   - $`(\lambda x.x)`$ - Funzione Identitá
   - $`((\lambda x.(xx))(\lambda y.(yy)))`$ - loop infinito
   - $`(\lambda f.(\lambda x.(f(f x))))`$
-
 1.  Convenzioni Sintattiche
-
     - parentesi esterne omesse
     - corpo delle astrazioni si estende a destra
       - a destra del punto
     - l'applicazione é associativa a sinistra
-
 2.  Variabili Libere e Legate
-
     - $`x`$ in $`M`$ é legata se compare in sotto-termine
     - diciamo che un'occorrenza di $`x`$ in $`M`$ é libera altrimenti
-
     Esempi
 
     - $`\lambda x.\: x`$
@@ -160,9 +153,7 @@ Differenze tra *linguaggio* e *calcolo*
       - tutte le variabili sono libere
     - $`(\lambda x.\: x \: y) \: x`$
       - $`x`$ sia legata che libera
-
     1.  Sostituzione
-
         - $`M\{N/y\}`$ é ottenuta sostituendo le occorrenze libere di $`y`$ in $`M`$ con $`N`$
         - evitare la cattura delle variabili libere di $`N`$ per non alterarne il senso
           - le variabili libere sono definite esternamente allo scope della astrazione, non posso modificarle
@@ -170,87 +161,66 @@ Differenze tra *linguaggio* e *calcolo*
 ### Relazioni di Equivalenza
 
 1.  α-conversione
-
     $`y \notin fv(M) \implies \lambda x.M \: \iff_{\alpha}\: \lambda y.M\{y/x\}`$ congruenza tra λ-espressioni tali che hanno lo stesso corpo, solo con nome dell'argomento diverso
 
 2.  β-riduzione
-
     <u>Applicare</u> una funzione $`\lambda x.M`$ a un argomento $`N`$ significa valutare il corpo in cui ogni occorrenza libera dell'argomento $`x`$ é sostituita con $`N`$. $`(\lambda x.M) \: N \rightarrow_{\beta}M\{N/x\}`$
 
     - $`M \rightarrow_{\beta}M^{'} \implies M \: N \rightarrow_{\beta}M^{'}\:N`$
-
     Da `redex` (reducible expression) a `ridotto`
 
     - $`(\lambda x.M) \: N`$
     - $`M\{N/x\}`$
-
 3.  η-riduzione
-
     $`x \notin fv(M) \implies \lambda x.M \: x \rightarrow_{\eta}M`$
 
     - $`M \rightarrow_{\eta}M^{'} \implies M\: N \rightarrow_{\eta}M^{'}\: N`$
     - $`M \rightarrow_{\eta}M^{'} \implies N\: M \rightarrow_{\eta}N \: M^{'}`$
     - $`M \rightarrow_{\eta}M^{'} \implies \lambda x.M \rightarrow_{\eta} \lambda x.M^{'}`$
-
 4.  Convertibilitá
-
     $`N\rightarrow M \land M\rightarrow N  \implies M \leftrightarrow N`$
 
     - $`\Leftrightarrow`$ indica la chiusura riflessiva e transitiva di $`\leftrightarrow`$
-
 5.  Confluenza
-
     **Teorema**:
 
     - $`M \Rightarrow N_{1} \land M \Rightarrow N_{2} \implies \exists N \mid N_{1} \Rightarrow N \land N_{2} \Rightarrow N`$
     - l'ordine delle riduzioni del β-redex non importa
     - il teorema si generalizza in $`n`$ $`N`$
-
     Questo risultato é importante in quanto non risulta per nessun altro linguaggio di programmazione
 
     - in quanto la memoria puó essere modificata dall'esecuzione, l'ordine diventa fondamentale
       - al contrario del lambda calcolo che é un *linguaggio puro*
         - come `Haskell`, nella sua versione piú pura
     - *Es*: l'assegnamento é una espressione mista, sia espressione sia un comando
-
     1.  Forma Normale
-
         Un `M` é in forma normale se non puó piú essere ridotto, ovvero:
 
         - $`\nexists N \mid M \rightarrow N \implies M \nrightarrow`$
-
         Un termine in forma normale ci indica che <u>la computazione é finita</u>
 
     2.  Corollario
-
         La forma normale di `M`, se esiste, é unica (a meno di α-conversioni).
 
 6.  Strategie di Riduzione
-
     In alcuni casi é piú efficiente l'uno, in altri l'altro
 
     1.  Ordine Applicativo
-
         redex piú a sinistra e piú interno, **linguaggi zelanti** `(\lambda x.x)((\lambda y.y)z) -> (\lambda x.x)z -> z` `.      ----------     --------`
 
         - applicare una funzione a un argomento significa prima valutare l'argomento poi sostituire nel corpo della funzione
-
     2.  Ordine Normale
-
         redex piú a sinistra e piú esterno, **linguaggi pigri** `(\lambda x.x)((\lambda y.y)z) -> (\lambda y.y)z -> z` `-----------------     --------`
 
         - applicare una funzione a un argomento significa sostituire l'argomento nel corpo della funzione
           - si posticipa la valutazione degli argomenti fino a che non é strettamente necessaria
-
         Ottimizzabile in caso di argomenti valutati piú volte
 
         - si memorizza il risultato parziale, in modo da non doverlo ricalcolare multiple volte
           - questo é sicuro se il linguaggio é puro
           - molto delicato da utilizzare in contesti diversi
           - simile alla tecnica di *memoizzazione* nella [[Programmazione Dinamica]]
-
     3.  Teorema Normalizzazione
-
         Se $`M \Leftrightarrow N`$ é normale, allora c'é una riduzione in ordine nomale $`M \Rightarrow N`$
 
         - se la forma normale di un'espressione esiste, la posso trovare riducendo l'espressione in ordine normale
@@ -261,53 +231,40 @@ Differenze tra *linguaggio* e *calcolo*
 ### Programmare nel λ-calcolo
 
 1.  Booleani
-
     `TRUE = \lambda x.\lambda y.x` `FALSE = \lambda x.\lambda y.y` `IF = \lambda z.z` `AND = \lambda x.\lambda y.IF x y FALSE` `OR = \lambda x.\lambda y.IF x TRUE y` `NOT = \lambda x.\lambda y.IF x FALSE TRUE`
 
     L'ordine applicativo non puó essere utilizzato nel caso di questo `IF`
 
     - questo perché nel caso del `False` l'elemento piú interno é quello che non andrebbe valutato, sprecando computazione per valutarlo inutilmente
-
 2.  Coppie
-
     `PAIR = \lambda x . \lambda y . \lambda z . z x y` `FST = \lambda p . p TRUE` `SND = \lambda p . p FALSE`
 
 3.  Naturali
-
     Come iteratori: `n = \lambda f . \lambda x . f^n x` `SUCC = \lambda a . \lambda f . \lambda x . a f (f x)` `ADD = \lambda a . \lambda b . b  SUCC a` `MUL = \lambda a . \lambda b . b (ADD a) 0` `EXP = \lambda a . \lambda b . b (MUL a ) 1`
 
     Il predecessore é piú complesso
 
     - idea: applicare `n` volte una funzione che calcola `n` coppie, questa n-esima coppia nella prima componente avrá `n-1`
-
     `ISZERO = \lambda a . a (\lambda x . FALSE) TRUE` `FACT = \lambda a . IF (ISZERO a) 1 (MUL a (FACT (PRED a)))`
 
     - non é una definizione in senso stretto, compare il nome della funzione anche a destra
-
     Da questa scrittura si evince che `FACT` é in forma
 
     - $`x = F(x)`$
     - `FACT = AUX FACT`
-
     Che é la definizione di <u>punto fisso</u> della funzione `F` Definiamo allora l'operatore di punto fisso: `FIX = \lambda f . (\lambda x . f (x x)) (\lambda x . f (x x))` allora `FACT = FIX AUX`
 
 4.  Estendere il calcolo
-
     Per ragioni di efficienza ogni linguaggio di programmazione basato sul λ-calcolo fornisce dati nativi (numeri, booleani, caratteri, …)
 
     - questo peró permette di espressioni <u>sintatticamente corrette ma prive di significato</u>
-
     1.  Sistema di tipi
-
         Il problema é indecibile, vanno quindi previste delle approssimazioni conservative nello sviluppo di un **sistema di tipi**
 
         1.  **Giudizio di Tipo**
-
             - $`\vdash M :\: t`$
               - `M` é ben tipato e ha tipo `t` nel *contesto* Γ
-
         2.  **Proprietá**
-
             - Lemma **Subject Reduction**
               - $`\Gamma \vdash M : \: t \land M \rightarrow N \implies \Gamma \vdash N : \: t`$
             - Teorema **Progresso**
@@ -317,7 +274,6 @@ Differenze tra *linguaggio* e *calcolo*
 ### Algoritmo di Inferenza
 
 1.  Fase di Costruzione dell'albero sintattico
-
     L'albero corrispondente al termine $`M`$ é $`T[M]`$ Casi:
 
     - variabile
@@ -327,9 +283,7 @@ Differenze tra *linguaggio* e *calcolo*
     - applicazione
       - *associativa a sinistra*
     - if then else
-
 2.  Fase dell'Annotazione dell'albero sintattico
-
     *e della generazione dei vincoli*
 
     Visita dal basso verso l'alto, a partire dalle foglie
@@ -340,7 +294,6 @@ Differenze tra *linguaggio* e *calcolo*
       - $`\tau , \sigma := \begin{cases}\alpha \\ \mbox{Bool} \\ \tau \rightarrow \sigma \end{cases}`$
     - **vincolo**
       - $`\tau = \sigma`$
-
     Annotazioni:
 
     - variabile - $`\alpha`$
@@ -356,9 +309,7 @@ Differenze tra *linguaggio* e *calcolo*
       - generati i <u>vincoli</u>
         - $`\tau_{1}=\mbox{Bool}`$
         - $`\tau_{2} = \tau_{3}`$
-
 3.  Fase di Risoluzione dei vincoli
-
     Si parte da un sistema ottenuto dalla fase precedente della forma:
 
     $`\{\tau_{i} = \sigma_{i}\}_{1\le i \le n}`$
@@ -366,11 +317,9 @@ Differenze tra *linguaggio* e *calcolo*
     Si determina se questo ammette una soluzione
 
     - cerchiamo la soluzione piú generale
-
     Si procede agendo per **sostituzioni**
 
     - $`\theta(\tau)`$ sostituendo in $`\tau`$ tutte le $`\alpha`$ con $`\theta(\alpha)`$
-
     Dove $`\theta`$ é detta **soluzione** (o **unificatore**) del sistema se
 
     $`\forall i : 1\le i \le n \implies \theta(\tau_{i}) = \theta(\sigma_{i})`$
@@ -392,15 +341,12 @@ Differenze tra *linguaggio* e *calcolo*
         - sostituire $`\alpha`$ con $`\tau`$ in tutti gli altri vincoli ($`\alpha = \tau`$ rimane)
     - nessuna trasformazione applicabile
       - l'algoritmo ha successo
-
 4.  Estensioni
-
     Costanti:
 
     - False, True
     - numeri **interi**
     - numeri **float**
-
     Aggiungiamo i tipi corrispondenti.
 
     Le fasi 1 e 2 non hanno variazioni. La fase 3 fallisce se c'é un vincolo:
@@ -408,19 +354,16 @@ Differenze tra *linguaggio* e *calcolo*
     - $`\tau \rightarrow \sigma = \text{Int}`$
     - $`\text{Int} = \tau \rightarrow \sigma`$
     - $`\text{Int} = \text{Bool}`$
-
     Aggiungendo le **liste**: $`c \in \{\cdots, [\:] ,(:)\}`$
 
     Tipi:
 
     - $`(:) : : \alpha \rightarrow [\alpha] \rightarrow [\alpha]`$
     - $`[\:] : : [\alpha]`$
-
     La fase 1 non varia. La fase 2:
 
     - ogni occorrenza di un costruttore fa uso di nuove variabili di tipo
       - questo vale per qualsiasi funzione *polimorfa*
-
     La fase 3:
 
     - i vincoli $`[\tau] = [\sigma]`$ si rimpiazza con $`\tau = \sigma`$
@@ -430,11 +373,9 @@ Differenze tra *linguaggio* e *calcolo*
       - $`[\tau] = \sigma_{1} \rightarrow \sigma_{2}`$
       - $`\alpha = [\alpha]`$ - *occur check*
         - il tipo contiene se stesso ed é contenuto da se stesso, errore
-
     Stesse considerazione valgono per le **coppie**: $`c \in \{\cdots,(\:,)\}`$ Tipo:
 
     - $`(\:,) : : \alpha \rightarrow \beta \rightarrow (\alpha,\beta)`$
-
     Le costanti includono le **funzioni di libreria**: $`c \in \{\cdots, \text{id}, \text{head}, \text{tail}, \cdots\}`$
 
     Per la **ricorsione**: $`f = M`$
@@ -442,7 +383,6 @@ Differenze tra *linguaggio* e *calcolo*
     La fase 1:
 
     - $`f`$ é trattato come una variabile
-
     La fase 2:
 
     - $`f`$ é trattato come una variabile
@@ -485,16 +425,13 @@ Il principio di induzione permette di dimostrare una proprietá per un insieme *
 <!-- -->
 
 1.  Principio di Induzione Forte
-
     $`(\forall m < n : P (m)) \implies P(n)\: \forall n \in \mathbb{N}`$
 
 2.  Principio di Induzione sulle liste finite
-
     Ogni lista é costruita a partire dalla lista vuota e un numero finito di applicazioni del costruttore : o `cons`
 
     - $`P([])`$
     - $`P(xs) \implies P(x : xs) \forall x \land xs`$
-
     Come per il principio di induzione sui naturali é possibile generalizzare a tutte le liste <u>piú corte</u> di quella considerata per dimostrare il caso induttivo
 
 ### Estensionalitá
@@ -629,9 +566,7 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
 ### Casi di Studio
 
 1.  Contatore accessi Web
-
     - [Source](https://boystrange.github.io/LPP/HitCounter)
-
     Relazione biunivoca tra IP e utenti unici in accesso
 
     Java
@@ -677,7 +612,6 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
     ```
 
 2.  Fibonacci Logaritmico
-
     <div class="code">
 
     type Matrice = (Integer, Integer, Integer, Integer)
@@ -698,7 +632,6 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
     </div>
 
 3.  Ordinamento
-
     <div class="code">
 
     insertSort :: \[Int\] -\> \[Int\] insertSort \[\] = \[\] insertSort (x : xs) = insert x (insertSort xs) where insert x \[\] = \[x\] insert x (y : ys) \| x \<= y = x : y : ys
@@ -720,7 +653,6 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
     </div>
 
 4.  Java Virtual Mini-Machine
-
     vedi: [[IJVM]], [[JVM]] Istruzioni:
 
     - `PUSH v`
@@ -729,7 +661,6 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
     - `OP f`
     - `IF R l`
     - `RETURN`
-
     <div class="code">
 
     type Value = Int type Var = Int – indice di una variabile type Stack = \[Value\] – con : inseriamo in testa – estraiamo con pattern matching type Frame = \[Value\] – qui invece dobbiamo accedere – in posizioni arbitrarie
@@ -785,7 +716,6 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
 ### Caratteristiche Linguaggio
 
 1.  Guardie
-
     Introducono delle condizioni, alternativa al piú operazionale `if...then...else`
 
     ``` haskell
@@ -797,7 +727,6 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
     Nel caso che i casi siano <u>esaustivi</u> l'ultimo identificatore puó essere `otherwise` L'ordine delle guardie é significativo, sará scelta la prima guardia il cui valore sia valutato `True`
 
 2.  Ricorsione
-
     Non esistono *loop* non esistendo la memoria, e quindi variabili su cui fare iterazione. e É quindi necessario utilizzare le definizioni ricorsive:
 
     ``` haskell
@@ -826,18 +755,14 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
     Anche usando questa forma Haskell valuta le funzioni dall'alto verso il basso, nell'ordine.
 
     - i pattern piú generali vanno piú in basso, `Haskell` in caso emette un `Warning` riguardo la ridondanza dei match non raggiungibili
-
     1.  Dall'iterazione alla ricorsione
-
         Esistono algoritmi piú efficienti in forma iterativa
 
         - `fibonacci` applicato ricorsivamente ha una complessitá $`n^{2}`$
         - una versione iterativa in un linguaggio imperativo ha complessitá $`n`$
-
         É possibile riprodurre anche in `Haskell` l'iterazione con un metodo meccanico
 
         - inserire le variabili che vengono modificate nell'iterazione all'interno di una funzione ricorsiva che simula il ciclo
-
         ``` java
         public static int fibonacci(int k) {
             assert k >= 0;
@@ -871,9 +796,7 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
         Una serie di chiamate ricorsive del genere consumerebbe memoria aumentando la dimensione dello stack dei frame? Meno efficiente del corrispettivo imperativo? No, il compilatore `Haskell` ricicla il vecchio frame delle funzione in quanto vede che i vecchi valori non sono utilizzati dopo la prima applicazione
 
         - quando la funzione é *ricorsiva in coda*, ovvero la chiamata ricorsiva é l'ultima cosa fatta dalla funzione
-
 3.  Funzioni Anonime
-
     <u>λ-Astrazioni</u>
 
     ``` haskell
@@ -890,7 +813,6 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
     ```
 
 4.  Currying
-
     ``` haskell
     addizione :: Int -> Int -> Int
     addizione x y = x + y
@@ -910,25 +832,20 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
     - `fromIntegral`
     - `truncate`
     - `round`
-
 5.  Coppie e Tuple
-
     E' sufficiente circondare gli elementi con parentesi tonde
 
 6.  Liste
-
     Sequenza omogenea di elementi, che hanno quindi lo stesso tipo La sintassi utilizza le parentesi quadre.
 
     - `[1..]` lista con tutti i numeri interi da 1 in avanti
       - possibile perche' il linguaggio e' lazy
-
     Ogni lista puo' essere contruita a partire da due *costruttori canonici*
 
     - `X : L`
       - utilizzando *cons*
     - `1 : 2 : 3 : []`
       - cons e lista vuota
-
     Esiste funzione di concatenazione di liste
 
     - `++`
@@ -940,16 +857,13 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
 `Haskell` e' un linguaggio fortemente tipato
 
 1.  Tipi primitivi
-
     - `Int` numeri interi a precisione finita
     - `Integer` numeri interi a precisione arbitraria
     - `Float` numeri in virgola mobile a precisione singola
     - `Double` numeri in virgola mobile a precisione doppia
     - `Bool` booleani Il comando `:type` di GHCi interroga `Haskell` sul tipo inferito ad una espressione Si puo' scrivere il tipo di un valore affianco ad esso con la sintassi `:: Int`
       - non e' una conversione di tipo, e' solo una annotazione utile al compilatore
-
 2.  map
-
     <div class="code">
 
     map :: (a -\> b) -\> \[a\] -\> \[b\] map \_ \[\] = \[\] map f (x : xs) = f x : map f xs
@@ -957,7 +871,6 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
     </div>
 
 3.  filter
-
     <div class="code">
 
     filter :: (a -\> bool) -\> \[a\] -\> \[b\] filter \_ \[\] = \[\] filter p (x : xs) \| p x = x : filter p xs
@@ -969,7 +882,6 @@ $`\sigma^{(k+1)}=(\sigma^{(k)})'`$
     </div>
 
 4.  fold
-
     <div class="code">
 
     foldr :: (a -\> b -\> b) -\> b -\> \[a\] -\> b foldr \_ x \[\] = x foldr f x (y : ys) = f y (foldr f x ys) – come fosse associativo a destra

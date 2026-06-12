@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-18 Mon 08:07\\]"
+date: 2023-12-18 08:07
 id: 3b856c1c-2f91-4887-8d58-ccb8779dc065
 title: "Etica e Filosofia nell'Intelligenza Artificiale: definire i limiti dello sviluppo"
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-01-31 Wed 04:17\\]"
+date: 2024-01-31 04:17
 id: e230e415-df73-4871-bbfb-44d699b9ce12
 title: Kronos effect
 ---

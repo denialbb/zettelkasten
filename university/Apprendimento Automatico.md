@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-09-21 Wed 20:39\\]"
+date: 2022-09-21 20:39
 id: 77cc59df-765f-4523-a1d5-b937e581d8fc
 roam_aliases: AAUT
 title: Apprendimento Automatico
@@ -123,16 +123,13 @@ Apprendere un classificatore significa costruire la funzione $`\cap c`$ in modo 
   - per questo il dataset viene diviso in training set e test set per evitare bias
     - il bias sul test set e' l'opposto, abbiamo un bias in difetto
     - quando il test set viene riutilizzato per un nuovo addestramento il modello migliorera' e quindi le stime precedenti saranno in difetto
-
 1.  Contingency Table
-
     Tavola in cui vengono riportati
 
     - true positives
     - false negatives
     - false positives
     - true negatives
-
     Contiene anche informazioni sui positivi e negativi del set.
 
     Con questa tabella possono essere calcolate varie misure di **performance**:
@@ -152,34 +149,27 @@ Apprendere un classificatore significa costruire la funzione $`\cap c`$ in modo 
       - $`TN/Neg`$
     - *precision*, *confidence*
       - $`TP/(TP+FP)`$
-
     Classificatore troppo specifico significa *recall* bassa, troppo generale significa *precision* bassa.
 
 2.  Coverage Plot
-
     Sulle assi `TP` e `FP`
 
     - i classificatori che si posizionano sulla diagonale mediana sono i peggiori
     - in alto a sinistra `ROC` heaven
     - in basso a destra `ROC` hell
-
     L'accuratezza e' la stessa per classificatori che giacciono su una stessa linea con pendenza 1 Punti sulla una linea parallela alla diagonale principale (pendenza $`Pos/Neg`$) hanno la stessa *average recall*
 
     - $`\frac{(TP/Pos)+(TN/Neg)}{2}`$
-
 3.  Roc Plot
-
     Gli assi vengono normalizzati, percentuale di `TP` e `FP`
 
     - tpr - true positive rate
     - fpr - false positive rate
-
     Lo spazio di rappresentazione viene schiacciato in un quadrato, percio' le pendenze delle rette cambiano di conseguenza. Per l'accuracy la pendenza delle rette diventa $`Neg/Pos`$ Per la avr recall la pendenza diventa 1
 
     Gli errori sulle classi possono avere pesi diversi, questo puo' essere manipolando cambiando il ratio tra `FP` e `FN`.
 
 4.  Scoring Classifier
-
     Una mappa:
     ``` math
     s : X \to R^{k}
@@ -190,14 +180,12 @@ Apprendere un classificatore significa costruire la funzione $`\cap c`$ in modo 
     Il **margine** e' una misura di confidenza, considerando $`c(x)`$ +1 per esempi positivi, -1 per esempi negativi:
 
     - $`z(x) = c(x) \cap s (x)`$
-
     E' desiderabile premiare grossi margini positivi e penalizzare grossi margini negativi. Questo lo si ottiene con una **loss function**:
     ``` math
     L : R \to [0, \infty )
     ```
 
     - mappa ogni margine dell'esempio $`z(x)`$ con a un valore di **loss**
-
     In molti casi l'apprendimento e' posto come un problema di ottimizzazione di <u>minimizzazione della funzione di loss</u>. Ce ne sono di diverse:
 
     - 0-1 Loss
@@ -205,16 +193,13 @@ Apprendere un classificatore significa costruire la funzione $`\cap c`$ in modo 
     - Logistic Loss
     - Exponential Loss
     - Squared Loss
-
     Il **ranking** e' indotto naturalmente dalla funzione di scoring
 
     - il **ranking error rate** viene definito tra tutte e coppie positivo-negativo
       - si controlla se si sta dando un ranking errato (positivo con ranking minore del negativo) con 1 punto di penalita', mezzo punto in caso di ranking uguale
       - matematicamente si sta calcolando l'area al di sotto della curva `roc`
       - un **ranking error** di 1 significa che si e' sbagliato tutto
-
 5.  Class Probability Estimation
-
     Classificatore di scoring che mappa:
     ``` math
     p: X \to [0,1]^{k}

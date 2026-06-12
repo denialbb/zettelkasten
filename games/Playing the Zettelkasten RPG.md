@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-07-03 Sun 12:39\\]"
+date: 2022-07-03 12:39
 id: 74e003bb-b49a-444e-85e8-25ea22da4027
 title: Playing the Zettelkasten RPG
 ---

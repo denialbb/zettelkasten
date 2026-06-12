@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-05-27 Fri 00:40\\]"
+date: 2022-05-27 00:40
 id: 0d27872a-3b4b-44ae-9479-dd9f51cae2e8
 title: QMK Italian accents
 ---

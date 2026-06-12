@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-05-12 Thu 20:30\\]"
+date: 2022-05-12 20:30
 id: 39aaa161-d486-4fff-90f7-9e0d2ef88d1d
 title: Adding double borders to bspwm
 ---

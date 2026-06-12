@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-02-29 Thu 18:46\\]"
+date: 2024-02-29 18:46
 id: d85df405-73f0-4567-b8b4-d3e22f2aa7a7
 roam_aliases: "\"Intelligenza Artificiale e Laboratorio\""
 title: IALAB
@@ -185,24 +185,15 @@ Dobbiamo definire delle euristiche per scegliere ad ogni passo l'azione da esegu
 In `prolog`:
 
 - `applicabile(AZ,S)`
-
 - `trasforma(AZ,S1,S2)`
-
 - `iniziale(S)`
-
 - `finale(S)`
-
 - ricerca in ampiezza garantisce l'ottimalità
-
   - esponenziale in spazialità, mantiene tutti gli stati in memoria
-
 - ricerca in profondità
-
   - efficiente
   - non garantisce l'ottimalità
-
 - *iterative deepening*
-
   - ricerca in profondità iterativamente a profondità sempre maggiori
   - garantisce l'ottimalità
 

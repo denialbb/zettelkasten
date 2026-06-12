@@ -10,7 +10,6 @@ title: Time Management
 ### Parkingson's Law
 
 1.  attivita' si adeguano al tempo a disposizione
-
     quindi se non ci si crea un sitema ff
 
 ## Time Boxing
@@ -26,25 +25,20 @@ possibile usare un calendario
 es gaps tra lezioni
 
 1.  metodo di Cal Newport
-
     BUT
 
 2.  Planning Fallacy
-
     bestcase == average case
 
     stupid humans
 
     1.  Time Traking
-
         puo' compattere la PF, in questo modo si migliorano le previsioni
 
 ### Split tasks into sub-tasks
 
 1.  Interruzioni
-
     1.  revisions
-
     2.  buffer time tra le tasks
 
 # Over Scheduling

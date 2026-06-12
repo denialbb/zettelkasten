@@ -67,11 +67,8 @@ se almeno una delle componenti di xj(B) e' nulla la base B e' detta degenere
 `Sa`, regione ammissibile e' in generale intersezione di `iperpiani` e `semispazi`
 
 - Iperpiano: definito da un punto x0 e un vettore v costituito dai punti x t.c. il vettore (x - x0) e' ortogonale a v (equazioni: vx = a)
-
 - Semispazio: definito a partire da un iperpiano e da un vettore costituito dai punti x t.c (x - x0) non forma un angolo superiore ai 90gradi con v (disequazioni: vx \> a)
-
 - un insieme convesso
-
   - in particolare un `Poliedro convesso`
   - se limitato e' chiamato `Politopo`
   - un Politopo avra' sempre almeno una soluzione che sara' un vertice
@@ -82,7 +79,6 @@ se almeno una delle componenti di xj(B) e' nulla la base B e' detta degenere
   - il vettore nullo non appartiene a S
   - se S' sottoinsieme di S allora S' e insieme libero
   - se S1 e S2 liberi la loro intersezione e' un insieme libero
-
   Equivalentemente
   - x1v1 + … + xkvk = 0 ==\> x1 = … = xk = 0
   - vettore0 non appartiene a S e nessun vj risulta appartenere a L(S)
@@ -120,7 +116,6 @@ w = x1v1 + x2v2 + … + xkvk
 <!-- -->
 
 - Uno spazio ha infiniti possibili generatori
-
   S = { v1,v2, … ,vk } S' = { v2, … ,vk }
 
   - L(S') sottoinsieme di L(S)
@@ -133,5 +128,4 @@ Un insieme generatore di un sottospazio v e' detto base se e solo se e' anche un
 tutte le infinite basi di V hanno la stessa cardinalita'
 
 1.  detta dimensione di V
-
     dimostrabile per il metodo degli scarti successivi

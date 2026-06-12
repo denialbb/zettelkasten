@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-05-02 Mon 03:59\\]"
+date: 2022-05-02 03:59
 id: b8ab650b-0697-433a-b794-7d4d99c2cc82
 title: CSS Post Tags
 ---

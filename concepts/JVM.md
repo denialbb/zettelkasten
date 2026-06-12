@@ -6,13 +6,9 @@ title: Linguaggi Formali e Traduttori
 ---
 
 - Teacher: Sproston Jeremy
-
 - [PDF Version](./LFT.pdf)
-
 - Prova di laboratorio (progetto, interrogazione singola anche in caso di progetto di gruppo con gruppi da 3)
-
   - Sostenibile dopo aver superato Teoria
-
   1/3 del voto
 
   - [[LFTCompiler]]
@@ -72,32 +68,19 @@ Costante numerica intera sequenza non vuota di cifre decimali, preceduta da + o 
 Vedi: [[Parser Top-Down]] e [Codice Parser a Discesa Ricorsiva](file:///mnt/archive/DanyB/Code/Java/LFT/Parser.java)
 
 - Prende input dall'analizzatore lessicale
-
 - Crea un Albero Sintatico
-
   - che sará utilizzato poi dal Analizzatore Semantico
     - vedi [[Analisi Semantica]]
-
 - In caso l'input non corrisponda ad un albero lessicale
-
   - deve restituire un errore
-
 - Espressioni Booleane
-
   - RELOP $`\in`$ $`\{==, <>, <=, >=, <, >\}`$
-
 - Separatore
-
   - punto e virgola
-
     - <u>non</u> un terminatore di istruzione
-
 - Produzioni ![](file:///home/dan/Pictures/shots/1605619407.png)
-
   - In caso di rami annullabili attenzione ai FOLLOW
-
 - Sintassi scheme-like
-
   - espressioni aritmetiche
     - notazione prefissa
     - puó comprendere ID
@@ -138,26 +121,18 @@ Vedi: [[Parser Top-Down]] e [Codice Parser a Discesa Ricorsiva](file:///mnt/arch
 Con cui si definisce un `albero sintattico annotato`
 
 - i cui nodi possono essere annotati con 0 o piú attributi
-
 1.  Attributi
-
     - Sintetizzati Il suo valore dipende da quello di attributi dei figli ed eventualmente da altri attributi di se stesso
     - Ereditati Il suo valore dipende da quello dal padre e dai fratelli del nodo
-
 2.  Grafo delle dipendenze
-
     Alcuni attributi dipendono da altri, questo impone un'ordine tra questi
 
     - se il grado contiene dei cicli non é possibile trovare un'ordine di valutazione degli attributi
-
 3.  S-attribuite
-
     Contiene solo attributi sintetizzati
 
     - ogni S-attribuita é a sua volta L-attribuita
-
 4.  L-attribuite
-
     Per ogni produzione $`A\to X_1 X_2 ... X_n`$ e ogni attributo ereditato $`X_i.e`$ la regola semantica che definisce il valore di $`X_i.e`$ dipende solo da
 
     - attributi ereditati da $`A`$
@@ -174,9 +149,7 @@ Con cui si definisce un `albero sintattico annotato`
       - specificano il calcolo degli attributi ma anche codice arbitrario
       - l'ordine di esecuzione é esplicito a differenza delle regole semantiche
       - essendo eseguite da sinistra verso destra non richiedono la costruzione dell'albero sintattico annotato
-
 1.  da SDD L-attribute a SDT
-
     data $`A\to X_1 X_2 ... X_n`$
 
     1.  subito prima di $`X_i`$
@@ -234,15 +207,10 @@ Non deterministico: l'automa puo' scegliere di spostarsi in 0 o piu' stati possi
 Quintupla composta da:
 
 1.  $`Q`$ - insieme finito di stati
-
 2.  $`\Sigma`$ - alfabeto riconosciuto
-
 3.  $`\delta`$ - funzione di transizione il cui codominio e' un'insieme delle parti di Q
-
 4.  $`q_0`$ - e' lo stato iniziale
-
 5.  $`F`$ - insieme di stati finali
-
     Insiemi singoletto indicano transizioni deterministiche (da funzione di transizione estesa) Automi che possono eseguire transizioni spontanee senza leggere alcun simbolo nella stringa da riconoscere
 
     - passa di stato anche senza consumare alcun simbolo
@@ -252,15 +220,11 @@ Quintupla composta da:
 calcolare l'insieme di stati raggiungibili solo con transizioni-epsilon `ECLOSE`
 
 - la chiusura e' transitiva
-
 - la chiusura di q include q ECLOSE(S) = Unione di ECLOSE(q<sub>i</sub>)
-
   Gli NFA sono un caso particolare di epsilon-NFA in cui non ci sono transizioni epsilon
 
   - il potere riconoscitivo degli epsilon-NFA e' <u>almeno</u> pari a quello dei DFA/NFA
-
 1.  Teorema
-
     Dato un eNFA E esiste un DFA D tale che L(D) = L(E)
 
 ## Passaggio da `DFA` a `NFA` e viceversa
@@ -286,21 +250,16 @@ $`L(0) = 0`$ $`L(\epsilon) = \{\epsilon\}`$ // la stringa vuota $`L(a) = {a}`$ $
 ### Proprietá
 
 1.  Unione
-
     - Commutativa
     - Associativa
     - Idempotenza
     - Identitá
-
 2.  Concatenazione
-
     - Associativa
     - Identitá
     - Assorbimento
     - distributivitá
-
 3.  Chiusura di Kleene
-
     - Idempotenza
 
 ## Indistinguibilitá tra stati
@@ -339,9 +298,7 @@ Fissato un automa a pila $`P`$ $`D.I.=(q,w,\alpha)`$
 - stato in cui si trova l'automa
 - ció che rimane da riconoscere nella stringa di input
 - contenuto della pila dalla cima al fondo (sx a dx)
-
 1.  Mosse
-
     relazioni da $`D.I.`$ a $`D.I.`$ $`I\vdash_{P}J`$ chiusura riflessiva e transitiva $`I\vdash^{*}_{P}J`$
 
 ### Linguaggio Accettato
@@ -374,7 +331,6 @@ Mentre il linguaggio $`ww^R`$ non é riconoscibile in quanto fa uso chiave del n
 - Dim - Ogni linguagio regolare é riconosciuto da un DPDA
   - $`A = (Q,\Sigma,\delta_A,q_0,F)`$
   - $`P = (Q,\Sigma,\{Z_0\}, \delta_P,q_0,Z_0,F)`$
-
   dove
   - $`\delta_P(q,a,Z_0) = \{(\delta_A(q,a,Z_0))\}`$ per ogni $`q \in Q, a \in \Sigma`$
   - $`\delta_P(q,\epsilon,Z_0) = \emptyset`$
@@ -445,52 +401,32 @@ Esiste almeno un Automa A che lo riconosce
 `def` Un Linguaggio riconoscibile da un `DFA`
 
 1.  I linguaggi regolari sono chiusi rispetto all'operazione di unione
-
     'Collego' i due automi deterministici attraverso uno stato q0 che con epsilon-transizioni passa da uno o dall'altro
 
 2.  I linguaggi regolari sono chiusi rispetto all'operazione di concatenazione
-
     'Collego' lo stato finale (che non sara' piu' finale) del e-NFA corrispondente al primo automa con quello iniziale di quello e-NFA del successivo, con una epsilon-transizione
 
 3.  Chiusura `dim`
-
     p- $`L\cup L^{'}`$
 
     - Dati $`E_{1}`$ e $`E_{2}`$
-
       - Si dimostra che $`E_{1}+E{_2}`$ genera $`L\cupL^{'}`$
       - Essendo quella ancora un'espressione regolare anche il linguaggio generato sará regolare
-
     - $`LL^{'}`$
-
     - Simile all'unione
-
     - $`not{L}`$
-
     - $`not{L}= \Sigma^{*}-L`$
-
     - si crea un automa $`B = (Q,\Sigma,\delta,q_{0},Q-F)`$
-
       - abbiamo complementato l'insieme degli stati finali
-
     - i$`L\cap L^{'}`$
-
     - Si utilizzano le leggi di De Morgan
-
       - ci si riconduce al caso dell'unione e della complementazione
-
     - O si construisce un automa $`B`$ che riconosce una simulazione dei due automi iniziali $`A_1`$ e $`A_2`$
-
     - $`L -L^{'}`$
-
     - $`L_1 - L_2 = L_1 \cap notL_2`$
-
     - $`L^{R}`$
-
       - L rovesciato
-
     - Si ricava un $`E^R`$ per induzione
-
       $`\emptyset^R=\emptyset`$ $`\epsilon^R=\epsilon`$ $`a^R=a`$ $`(E_1+E_2)^R={E_1}^R+{E_2}^R`$ $`(E_1 E_2)^R = {E_2}^R {E_1}^R`$ $`(E^*)^R = (E^R)^*`$ Facile poi dimostrare che $`L(E^R) = L(E)^R`$ Tutti questi sono ancora regolari
 
 ## Linguaggi non Regolari
@@ -500,18 +436,14 @@ Esiste almeno un Automa A che lo riconosce
 Per ogni linguaggio regolare $`L`$ esiste $`n`$ appartenente a $`N`$ tale che per ogni $`w`$ appartenente a $`L`$ con $`|w|>= n`$ esistono $`x,y,z`$ tc $`w=xyz`$ :
 
 1.  $`y \ne\epsilon`$
-
 2.  $`|xy|\le n`$
-
 3.  $`xy^kz`$ appartiene $`L`$ per ogni $`k\ge 0`$ Abbiamo una stringa media $`y`$ non vuota che puó essere replicata un numero arbitrario di volte sempre ottenendo un Liguaggio Regolare.
-
     - Esempio
       - $`L=\{a^kb^k \mid k >= 0\}`$ non é regolare
 
 <!-- -->
 
 1.  dim
-
     - $`L`$ regolare
     - $`A = (Q,\Sigma,\delta,q_0,F)`$ tc $`L=L(A)`$
     - $`n=|Q|`$
@@ -520,13 +452,11 @@ Per ogni linguaggio regolare $`L`$ esiste $`n`$ appartenente a $`N`$ tale che pe
     - Il numero di stati attraversati sará $`m+1`$
     - $`m>=n`$ implica $`m+1>n`$ quindi gli stati attraversati non possono essere tutti distinti
     - $`q_i =q_j`$ ( $`i<j`$ ) é il primo `stato che si ripete` nel cammino dell'automa
-
     Allora concludiamo identificando $`x,y,z`$
 
     - $`x=a_1a_2...a_i`$
     - $`y=a_{i+1}a_{i+2}...a_j`$
     - $`z=a_{j+1}a_{j+2}...a_m`$
-
     1.  $`y!=\epsilon`$ in quanto $`i<j`$
     2.  $`|xy|<=n`$ in quanto $`q_i=q_j`$ é il primo stato che si ripete e sono al massimo $`n+1`$
     3.  $`xy^kz`$ appartiene a $`L`$ per ogni $`k>=0`$
@@ -560,7 +490,6 @@ Il potere riconoscitivo delle grammatiche libere e' almeno tanto quanto quello d
   - $`\Rightarrow_{lm}`$
 - rightmost
   - $`\Rightarrow_{rm}`$
-
   Se esistono due derivazioni canoniche distinte (entrambe `lm` o `rm`) per la stessa stringa allora $`G`$ e' `ambigua`
 
 ### Alberi Sintattici
@@ -587,30 +516,24 @@ Data una grammatica $`G = (V,T,P,S)`$ gli alberi sintattici di $`G`$:
 Il `prodotto` é la stringa ottenuta concatenando(sx verso dx) le etichette di tutte le foglie
 
 1.  Teorema
-
     $`A\to_{G}^{*} \alpha`$ se e solo se esiste un albero sintattico di $`G`$ con radice $`A`$ e prodotto $`\alpha`$
 
 2.  Risoluzione delle ambiguitá (grammatiche in forma infissa)
-
     - `Precedenza` degli operatori
     - `Associativitá` degli operatori
       - per operatori associativi questo non é un problema
       - lo é per altri operatori
-
     `Soluzione ad hoc` Utilizziamo associativitá a sinistra, sbilanciamo le espressioni e le stratifichiamo
 
     - Espressione = somma di termini
     - Termine = prodotto di fattori
     - Fattore = costante o espressione tra parentesi
-
     Nuova grammatica: $`(\{E,T,F\},\{0,1,...,9,+,*,(,)\},P,E)`$ Produzioni:
 
     - $`E\to T \mid E+T`$
     - $`T\to F \mid T \times F`$
     - $`F\to0\mid1\mid...\mid9\mid(E)`$
-
 3.  Linguaggi inerentemente ambigui
-
     ``` math
     L = \{a^n b^n c^m d^m \mid n \ge 1, m \ge 1\} \cup \{a^n b^m c^m d^n \mid n\ge 1, m \ge 1\}
     ```
@@ -624,19 +547,15 @@ Il `prodotto` é la stringa ottenuta concatenando(sx verso dx) le etichette di t
 ### Chiusura
 
 1.  Unione & Concatenazione
-
     <u>SI</u> dati $`L_1 = L(G_1)`$ e $`L_2 = L(G_2)`$ dove $`V_1 \cap V_2 = \emptyset`$ costruiamo la grammatica $`(V_1 \cup V_2, T_1\cup T_2, P_1 \cup P_2 \cup \{S\to S_1 \mid S_2\},S)`$ che genera $`L_1 \cup L_2`$ e la grammatica $`(V_1 \cup V_2, T_1\cap T_2, P_1 \cap P_2 \cap \{S\to S_1 S_2\},S)`$ che genera $`L_1 L_2`$
 
 2.  Intersezione
-
     <u>NO tra 2 Linguaggi Liberi</u> $`L_1 = \{a^n b^n c^m \mid \ge 0\}`$ $`L_1 = \{a^m b^n c^n \mid \ge 0\}`$ Sono liberi ma $`L_1 \cap L_2 = \{a^n b^n c^n \mid n \ge 0\}`$ Non é libero, dimostrabile con il pumping lemma <u>SI tra linguaggio Libero e linguaggio Regolare</u> NB: L'intersezione non é piú un linguaggio regolare es. $`L = \{a^n b^n \mid n \ge 0\}`$ e $`R = L(a^* b^*)`$ $`L\cap R = L`$ il quale non é regolare
 
 3.  Complemento & Differenza
-
     <u>NO</u> Se fossero chiusi per complemento allora $`L_1 \cap L_2 = \overline{\overline{L_1 \cap L_2}} = \overline{\overline{L_1} \cup \overline{L_2}}`$ Contrario a ció dimostrato Il complemento é esprimibile per differenze e quindi nemmeno la differenza é chiusa
 
 4.  Inversione
-
     <u>SI</u> $`G^R = (V,T,P^RS)`$ dove $`P^R= \{A \to \alpha^R\mid A \to \alpha \in P\}`$ Si dimostra che $`L(G^R) = L(G)^R`$
 
 # JVM
@@ -661,19 +580,16 @@ Composta da Frames
   - istore
   - iload
   - swap
-
   *Aritmetica*
   - ineg
   - iadd
   - isub
   - imul
-
   *Gestione Array*
   - newarray
   - arraylength
   - iaload
   - iastore
-
   *Controllo del Flusso*
   - goto
   - if<sub>icmpeq</sub>

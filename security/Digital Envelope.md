@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-03-23 Wed 14:36\\]"
+date: 2022-03-23 14:36
 id: e5c81738-06bf-4d9d-b962-cf9bc56023ef
 title: Digital Envelope
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-11 Sun 02:39\\]"
+date: 2022-12-11 02:39
 id: 07d2e0e5-b7f4-4b4e-abba-1843295e6f39
 title: Power Menu w/ rofi
 ---

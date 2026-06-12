@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-02-27 Mon 10:53\\]"
+date: 2023-02-27 10:53
 id: fad85788-53f8-4de6-9e3c-775c3907e07c
 title: Knowledge Discovery & Data Mining
 ---

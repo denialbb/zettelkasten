@@ -2,4 +2,3 @@
 id: 04a74d3b-7659-4fb8-b939-253f854cb344
 title: Nick Bostrom
 ---
-

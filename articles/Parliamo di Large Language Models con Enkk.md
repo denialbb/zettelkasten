@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-21 Thu 06:16\\]"
+date: 2023-12-21 06:16
 id: b6a81b5c-9cf8-43cd-8021-d53e571896af
 title: Parliamo di Large Language Models con Enkk
 ---

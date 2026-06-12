@@ -289,26 +289,19 @@ Grado di controllo dell'imprenditore varia
 Ragione Sociale
 
 - forme individuali
-
 - forme collettive
-
 - Gestione
-
   - Strategica
   - Direzionale
   - Operativa
-
 - Stakeholder, Portatori di interesse
-
   - primari
   - secondari
   - supportive
   - non supportive
   - mixed
   - marginali
-
 - Joint venture
-
   - rapporti strategici con stakeholder
   - con concorrenti
 
@@ -509,9 +502,7 @@ Quota di mercato relativa:
 - rapporto tra la QM di un azienda e quella del piú grande concorrente
   - una QM relativa vicino al 1 indica una concorrenza agguerrita
   - una QM relativa di diversi punti é difficilmente attaccabile
-
 1.  Matrice di Ansoff
-
     Come sviluppare l'offerta secondo le caratteristiche e richieste del mercato
 
     4 alternative strategiche
@@ -540,16 +531,13 @@ Quota di mercato relativa:
         - diversificazione di 2 tipi
           - collegata - stesso settore
           - non collegata - settore diverso
-
 2.  Piano di Marketing
-
     partendo dalle analisi del mercato di riferimento si definisce li piano di marketing attraverso le leve del `marketing mix` (product, price, promotion, place) Un sistema coerente di azioni che il promotore intende intraprendere per raggiungere i propri obiettivi di penetrazione nel mercato
 
     - prodotto
     - prezzo
     - distribuzione
     - comunicazione
-
     Queste sono le `politiche del marketing`
 
     Ogni mercato va segmentato secondo parametri:
@@ -561,7 +549,6 @@ Quota di mercato relativa:
       - personalitá, autonomia, preferenza per l'innovazione
     - comportamentali - costoso
       - disposzione all'acquisto, grado di fedeltá, benefici desiderati
-
     Per individuare il target
 
     Strategia di Marketing:
@@ -575,7 +562,6 @@ Quota di mercato relativa:
     - concentrato
       - indirizzato verso uno o al massimo pochi segmenti
       - unico programma di marketing
-
     Politica di `prodotto`:
 
     - ampiezza dell'offerta
@@ -617,7 +603,6 @@ Quota di mercato relativa:
       - o viene rivitalizzato o va in declino
     - innovativitá delle produzioni
     - visibilitá dei prodotti
-
     Politiche di `prezzo`:
 
     - funzione del prezzo in relazione alla segmentazione / posizionamento
@@ -634,7 +619,6 @@ Quota di mercato relativa:
       - concorrenza
     - Scrematura del mercato
       - si parte con un costo piú alto e lo si abbassa per inserirsi in nuovi settori
-
     Politiche di `distribuzione`:
 
     - contatto con il mercato
@@ -652,9 +636,7 @@ Quota di mercato relativa:
       - quota
         - numerica
         - ponderata
-
 3.  Customer Life-Time Value
-
     Obiettivo finale é il miglioramento della profittabilitá nel lungo termine e la massimizzazione del customer lifetime value Valore medio transazione X Frequenza annua di acquisto X ciclo di vita atteso del cliente
 
 ### programmazione della produzione

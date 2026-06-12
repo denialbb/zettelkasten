@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-06-16 Thu 18:41\\]"
+date: 2022-06-16 18:41
 id: c8973a37-5b8a-4fe9-9aee-7669269562e7
 title: Annotated Bibliography with Emacs org-mode
 ---

@@ -64,13 +64,10 @@ L'utilitá é l'analisi matematica che dimostri la robustezza e la correttezza d
 - Out:
   - evidenza del fatto che il sistema soddisfa la specifica
   - controesempio che non funziona
-
 1.  Semantica Operazionale
-
     Definisce il significato di un programma come il suo comportamento che, quando termina, trasforma uno stato in un altro
 
 2.  Semantica Logica
-
     Pre e Post condizioni che un programma soddisfa
 
     - Floyd
@@ -81,16 +78,13 @@ L'utilitá é l'analisi matematica che dimostri la robustezza e la correttezza d
       - Logica di Hoare
         - $`\{\varphi\} P \{\psi\}`$
           - in P out
-
 3.  Verifica Statica
-
     Il programma non viene eseguito - statico Il testing é fatto sull'esecuzione - dinamico
 
     - l'importante é la scelta degli esempi di testing
       - G.J.Myers, *The Art of Software Testing*
     - essendo i test **infiniti** il superamento di qualsiasi test non verifica il programma
       - é un metodo di ricerca degli errori, non di verifica
-
     Processo:
 
     1.  Contratto
@@ -98,9 +92,7 @@ L'utilitá é l'analisi matematica che dimostri la robustezza e la correttezza d
         - esistono euristiche per trovarlo ma non algoritmi
     3.  Asserzioni Intermedie
         - conducono alla dimostrazione di ció che voglio
-
 4.  Logica di Hoare
-
     `HL` Usiamo logica debole, <u>non dimostriamo la terminazione</u>. Se il programma termina allora é il risultato sará corretto.
 
     - Rules:
@@ -110,18 +102,14 @@ L'utilitá é l'analisi matematica che dimostri la robustezza e la correttezza d
       - conditionals
       - while loops
       - consequence
-
     1.  Correttezza di HL
-
         Teorema: Se la tripla é derivabile in HL, allora é valida
 
     2.  Limiti teorici
-
         La logica del primo ordine é corretta e completa ma é <u>indecidibile</u>
 
         - Teorema di Church
         - non esiste un algoritmo che verifichi che formula logica sia corretta
-
         `HL` é corretta, ma <u>completa solo in senso debole</u>; include FOL dunque é indecidibile
 
         Allora si utilizzano Truth Assistant, il teorema di `Rice` ci dimostra che i Verificatori non possono esistere.
@@ -132,15 +120,12 @@ L'utilitá é l'analisi matematica che dimostri la robustezza e la correttezza d
           - un linguaggio di programmazione funzionale
         - [[VeriFast]]
           - ProofAssistant dedicato a <u>Separation Logic</u> in C e Java
-
 5.  Separation Logic
-
     Per trattare linguaggi imperativi con puntatori, gestione dinamica della memoria
 
     - si utilizza per *modularizzare*
     - si guarda una funzione per volta
       - poi si uniscono i risultati per dimostrare la correttezza totale
-
     Si estendono le asserzioni con:
 
     - $`s,h \vDash \text{emp}`$
@@ -150,11 +135,9 @@ L'utilitá é l'analisi matematica che dimostri la robustezza e la correttezza d
     - $`s,h \vDash P \star Q`$
       - *separating conjunction*
       - $`h_{1} \uplus h_{2}`$
-
     Le triple $`(c,s,h)`$ sono dette *safe* se $`(c,s,h)  \not{\rightarrow_{*}} \text{error}`$
 
     1.  Frame Rule
-
         ``` math
         \frac{\{P\}\; c\; \{Q\}}{\{P \star R\}\; c\; \{Q\star R\}}
         ```
@@ -162,7 +145,6 @@ L'utilitá é l'analisi matematica che dimostri la robustezza e la correttezza d
         - pre-condizione $`P`$
         - post-condizione $`Q`$
         - contesto $`R`$
-
         Se vale questo allora posso spezzare in moduli il codice e verificare questi sottoinsiemi **Lemmi**:
 
         - *monotonicitá*
@@ -174,12 +156,10 @@ L'utilitá é l'analisi matematica che dimostri la robustezza e la correttezza d
              \exists h_{0}' \perp h_{1} :  (c,s,h_{0})\rightarrow^{*} (\text{skip},s',h_{0}')\land h' = h_{0}' \uplus h_{1}`$
 
     2.  Heap Simbolici
-
         $`H ::= \exists \vec{x} : (P_{1} \land \cdots \land P_{n}) \land (S_{1} \star \cdots \star S_{m})`$
 
         - $`\vec{x} = \Cup_{i} fv(P_{i}) \cup \Cup_{j} fv(S_{j})`$
         - *puro* e *spaziale*
-
         Dai *comandi atomici*, definiti conseguentemente alle rispettive regole della logica. Si eseguono poi *sequenze atomiche*
         ``` math
         \{H\} A_{1};\cdots ;A_{n} \{H'\}
@@ -210,7 +190,6 @@ Descrivo <u>Grammatiche Senza Contesti</u> con le <u>Regole di Inferenza</u>
 ### Astratte
 
 1.  Backus Normal Form
-
     Utiliziamo la notazione <u>carrificata</u>
 
     ``` example
@@ -262,7 +241,6 @@ FV (Plus a_1 a_2) = (FVa_1) U (FVa_2)
 ```
 
 1.  Lemma FVa
-
     Se per ogni $`x \in FVa`$ gli stati $`s, s^{'} \mid sx = s^{'}x`$ allora $`aval \: as = aval \: as^{'}`$
 
     - dim su ind. strutturale su $`a`$
@@ -281,7 +259,6 @@ $`a[a^{'}/x]`$ intendiama la <u>sostituzione di x con a' in a</u>
 **Modifica delle variabili** Se $`s\in state, x\in vname, n \in val \mid s[x \rightarrow n] \in state`$
 
 1.  Lemma di Sostituzione
-
     ``` math
     aval \: (a[a^{'}/x])s = aval \: a \: s [x\rightarrow aval \: a^{'}\: s]
     ```
@@ -349,7 +326,6 @@ Sistema formale:
 ```
 
 1.  Regole
-
     - `Skip`
       ``` math
       \frac{}{(SKIP,s)\implies s}
@@ -385,11 +361,9 @@ Sistema formale:
       \frac{ bval \: b\: s = tt \:\: (c,s)\implies s^{'} \:\: (W,s^{'})\implies t}{(WHILE \: b\:DO \: c, s)\implies t}
       ```
       - $`W`$ abbrevia $`(WHILE \: b \: DO \: c, s)\implies t`$
-
     Con queste si studia la **convergenza**
 
     1.  Proposizione SKIP
-
         $`\forall s,t \nvdash (WHILE \: true \: DO \: SKIP,s) \Rightarrow t`$ <u>Dim</u>
 
         - per assurdo sia $`D`$ una dimostrazione (*derivazione chiusa*) t.c. la sua conclusione sia $`(WHILE \: true \: DO \: SKIP,s) \Rightarrow t`$
@@ -397,24 +371,18 @@ Sistema formale:
           - $`\frac{(SKIP,s)\Rightarrow s^{'} \:\: (W,s^{'})\Rightarrow t}{(W,s)\Rightarrow t}`$
           - ma `s'=s` per SKIP, dunque la des. `D'` ha la stessa forma di `D`, essendo propriamente inclusa in `D`, cioé é infinita
         - dunque `D` non é una dimostrazione
-
     2.  Equivalenza di Programmi
-
         I comandi $`c_{1},c_{2}`$ sono <u>equivalenti</u> \[\$c<sub>1</sub> ∼ c<sub>2</sub>\$\]
 
         - $`\forall s,t \in state . (c_{1},s)\Rightarrow t \iff (c_{2},s)\Rightarrow t`$
-
         **Lemma** `WHILE b DO c ~ IF b THEN (c;WHILE b DO c) ELSE SKIP`
 
     3.  Determinismo della semantica naturale
-
         **Teorema**:
 
         - Per ogni $`c \in com`$ , per ogni $`st,,t' \in state`$
         - $`(c,s)\Rightarrow t \land (c,s)\Rightarrow t^{'} \implies t=t^{'}`$
-
     4.  Funzione parziale
-
         $`[\![ \cdot ]\!]: com \rightarrow state \rightharpoonup state`$ $`[\![c]\!]s = \begin{cases}t & \mbox{se} \vdash (c,s) \Rightarrow t\\\perp & \mbox{altrimenti}\end{cases}`$
 
 ### Semantica SOS - Small Step
@@ -479,7 +447,7 @@ $`\forall (\lambda \: x \: \rightarrow B\: x): \text{Set}`$
 >
 > Propositions as Types was first formulated for intuitionistic logic. It is a perfect fit, because in the intuitionist interpretation the formula A ⊎ B is provable exactly when one exhibits either a proof of A or a proof of B, so the type corresponding to disjunction is a disjoint sum.
 >
-> (Parts of the above are adopted from “Propositions as Types”, Philip Wadler, Communications of the ACM, December 2015.) ~ [[Philip Wadler]] [[$cit]]
+> (Parts of the above are adopted from “Propositions as Types”, Philip Wadler, Communications of the ACM, December 2015.) ~ [[Philip Wadler]] #cit
 
 - [[Propositions as Types]] è un paradigma che pone le proposizioni e tipi come equivalenti.
   - in [[Type Theory]]
@@ -510,7 +478,6 @@ M\: :\: B[t]
 la notazione `[a]` richiama il concetto di heap come array, dove `a` ne é l'indice
 
 1.  Semantica
-
     `store = var_name -> Val` `heap = loc -> Val`
 
     Per $`h \in \text{heap}, n\ge 0`$
@@ -518,11 +485,9 @@ la notazione `[a]` richiama il concetto di heap come array, dove `a` ne é l'ind
     - $`h = \{l_{1} \rightarrow v_{1} \cdots  l_{n} \rightarrow v_{n}\}`$
     - $`\text{dom}(h | {l_{1}\cdots l_{n}})`$
       - le locazioni allocate
-
     Viene aggiunta alla semantica `SOS` lo heap `h`
 
     1.  Indipendenza dello Heap
-
         $`h_{1} \perp h_{2} \iff \text{dom}(h_{1}) \cap \text{dom}(h_{2}) = \emptyset`$
 
 ### Semantica Operazionale
@@ -571,7 +536,6 @@ Si definisce `lookup i P` dove $`0 \le i < \text{size} P`$
 Un singolo passo di esecuzione (programma $`P`$ esegue dalla configurazione $`c`$ a $`c'`$) $`P \vdash c \rightarrow c'`$
 
 1.  bcomp
-
     $`bcomp :: bexp \Rightarrow bool \Rightarrow int \Rightarrow prog`$
 
     `Lemma 8.8` Si definisce il program counter sui salti condizionali:

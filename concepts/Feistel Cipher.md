@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-03-09 Wed 17:35\\]"
+date: 2022-03-09 17:35
 id: aae9177d-7c30-4144-a42a-eb38cc7d5c90
 title: Feistel Cipher
 ---

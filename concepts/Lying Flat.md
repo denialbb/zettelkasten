@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-01-03 Mon 02:01\\]"
+date: 2022-01-03 02:01
 id: de94eda5-1071-447b-9722-d37d51f4bd90
 title: Lying Flat
 ---

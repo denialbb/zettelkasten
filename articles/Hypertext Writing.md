@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-23 Thu 01:13\\]"
+date: 2021-12-23 01:13
 id: 11057aef-cdf4-428e-bf6e-38bdd94858b5
 title: Hypertext Writing
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-05-31 Tue 16:32\\]"
+date: 2022-05-31 16:32
 id: be1f147e-35ef-4044-8142-b75a0c5e19fb
 title: Writing Academic Papers w/ Emacs
 ---

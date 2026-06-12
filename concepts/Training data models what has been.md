@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-02-02 Fri 10:35\\]"
+date: 2024-02-02 10:35
 id: 2a6e9438-c9cb-49be-88e9-78b73f25d563
 title: Training data models what has been
 ---

@@ -2,4 +2,3 @@
 id: 0e248755-8030-4c5a-a87e-0e6f374fc788
 title: Umberto Eco
 ---
-

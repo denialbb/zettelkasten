@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-27 Mon 23:44\\]"
+date: 2021-12-27 23:44
 id: 0c44f0cd-7c3b-4d05-acbb-4463a520bff9
 title: The Cat Lady
 ---

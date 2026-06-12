@@ -4,4 +4,4 @@ roam_ref: Waiting for Godot
 title: Aspettando Godot
 ---
 
-> We are not saints, but we have kept our appointment. How many people can boast as much? ~ [[$cit]]
+> We are not saints, but we have kept our appointment. How many people can boast as much? ~ #cit

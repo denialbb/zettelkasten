@@ -55,17 +55,11 @@ Used for sorting.
 For <u>flow control</u> there are:
 
 - if … else
-
 - elifs
-
 - case … when … then
-
 - unless … else
-
 - cond ? if<sub>true</sub> : if<sub>false</sub>
-
 - Loops \> [Article on Skorks About Loops and Iterators](https://skorks.com/2009/09/a-wealth-of-ruby-loops-and-iterators/)
-
   - `while`
   - `for`
   - `loop`
@@ -73,9 +67,7 @@ For <u>flow control</u> there are:
   - `.times`
   - `.upto`
   - `.downto`
-
 - Arrays \> [docs API](https://ruby-doc.org/core-3.0.0/Array.html) \> [ZetCode tutorial](https://zetcode.com/lang/rubytutorial/arrays/)
-
   - `.last(n)`
   - `.first(n)`
   - `.push`
@@ -88,7 +80,6 @@ For <u>flow control</u> there are:
     - add elements at the beginning
   - `.concat()`
     - works the same as +, also - can subtract any element from an array
-
   To get a list of available methods run:
 
   ``` ruby
@@ -96,7 +87,6 @@ For <u>flow control</u> there are:
   ```
 
   - Hashes Similar to JS' objects and Python's dictionaries. Hashes are similar to arrays but in place of indexes to access the values stored it uses `keys`. Hashes depend solely an keys whereas arrays are highly dependant an order.
-
     ``` ruby
     hash = {
       "score" => 11,

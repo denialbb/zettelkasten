@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-06-29 Wed 18:00\\]"
+date: 2022-06-29 18:00
 id: 8d52ba7c-61af-4424-849c-f4ddbff244bf
 title: Lily58
 ---

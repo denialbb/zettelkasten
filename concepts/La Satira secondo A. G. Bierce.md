@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-27 Mon 16:10\\]"
+date: 2021-12-27 16:10
 id: 674852c3-f00f-41f8-86dc-85eeed4a0b69
 title: La Satira secondo A. G. Bierce
 ---

@@ -28,13 +28,9 @@ Prof: `Cattuto`
   - va previsto un rimedio
 - Sono cosi' comuni che il compilatore pretende che il programmatore gestisca l'eccezione
   - o avverta con la parola chiave `throws`
-
 1.  IOException
-
     1.  FileNotFoundException
-
     2.  EOFException
-
         - End Of File
 
 ### Unchecked
@@ -42,19 +38,12 @@ Prof: `Cattuto`
 - Eccezioni non controllate
   - origine interna
   - possiomo prevedere un rimedio oppure no
-
 1.  RuntimeException
-
     1.  NullPointerException
-
     2.  ArithmeticException
-
         - / 0
-
     3.  IllegalArgumentException
-
         1.  NumberFormatException
-
             ``` java
             Integer.parseInt("ciro");
             ```

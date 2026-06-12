@@ -1,11 +1,10 @@
 ---
-date: "\\[2023-05-07 Sun 22:47\\]"
+date: 2023-05-07 22:47
 id: 12cd574e-b9d6-4728-8612-aa0a284a1ed3
 title: Bike Sharing Dataset
 ---
 
 - Link: <https://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset#>
-
 - Related: [[Knowledge Discovery & Data Mining]]
 
 # Files

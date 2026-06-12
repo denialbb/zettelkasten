@@ -1,6 +1,5 @@
 ---
-date: "\\[2023-05-15 Mon 10:32\\]"
+date: 2023-05-15 10:32
 id: 1a0715f4-db9c-4df4-9524-f59d12b58be8
 title: Tandem Queues
 ---
-

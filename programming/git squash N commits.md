@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-13 Wed 22:41\\]"
+date: 2023-12-13 22:41
 id: bb02bd23-17b5-40c8-ad7b-90e6e8d605dc
 title: git squash N commits
 ---

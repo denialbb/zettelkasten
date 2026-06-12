@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-28 Tue 20:00\\]"
+date: 2021-12-28 20:00
 id: f259c2dc-fe03-4b66-8fa7-fbeed4260845
 title: The Conversation We Have with Books
 ---

@@ -1,6 +1,5 @@
 ---
-date: "\\[2022-01-02 Sun 23:53\\]"
+date: 2022-01-02 23:53
 id: 8d0d9ade-f935-4def-ba51-1af627003f3c
 title: Skepticism
 ---
-

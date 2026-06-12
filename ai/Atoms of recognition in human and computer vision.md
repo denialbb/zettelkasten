@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-01-08 Sun 11:05\\]"
+date: 2023-01-08 11:05
 id: b87ad6a4-b6d4-471e-89f2-aca9011ae401
 title: Atoms of recognition in human and computer vision
 ---

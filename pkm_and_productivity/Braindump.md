@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-28 Tue 16:22\\]"
+date: 2021-12-28 16:22
 id: eadb791b-4eac-4f4f-bf7b-266162429b6d
 title: Braindump
 ---

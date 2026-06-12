@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-07-08 Fri 23:05\\]"
+date: 2022-07-08 23:05
 id: e8adfe91-eeba-4a55-9fb4-11fd5943d4be
 title: Sharing Video and Audio between Machines
 ---

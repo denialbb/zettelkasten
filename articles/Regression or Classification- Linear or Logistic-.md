@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-05-09 Tue 19:35\\]"
+date: 2023-05-09 19:35
 id: 5ae90890-8e93-4dec-921b-911dc001a905
 title: Regression or Classification? Linear or Logistic?
 ---

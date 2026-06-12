@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-02 Sat 18:22\\]"
+date: 2023-12-02 18:22
 id: 3f46d2a9-8110-41e7-947b-a013bae00fee
 title: L'Homme Machine
 ---

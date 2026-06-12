@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-01-02 Sun 23:20\\]"
+date: 2022-01-02 23:20
 id: 3bb646e8-3eb1-4881-bd92-f6fbf19356eb
 title: EntropyForLife
 ---

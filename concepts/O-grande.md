@@ -48,11 +48,9 @@ end for
 ```
 
 1.  Left Peak Finding
-
     Nel caso migliore `p=0` é un picco Nel caso peggiore `p=n-1` confronti
 
 2.  Max Peak Finding
-
     ``` example
     MAX-PEAK(A)
     r = 0
@@ -68,11 +66,9 @@ end for
     Fa sempre lo stesso numero di confronti, sempre `n-1`
 
 3.  Analisi
-
     Teorema picco Si trovano segmenti sempre piú corti su cui vale il teorema a partire da un `q` centrale.
 
 4.  Divide et Impera
-
     ``` example
     PEAK-DI(A,i,j)
     p<-(i+j)/2
@@ -142,13 +138,10 @@ return q,r
 ```
 
 1.  Schema dell'induzione semplice
-
     1.  Caso base P(1)
     2.  Passo induttivo P(m+1), P(m) é l'ipotesi induttiva
     3.  1\. e 2. implicano che $`\forall n \ge 1, P(n)`$
-
 2.  Schema dell'induzione completa
-
     1.  Caso base
     2.  Passo induttivo
     3.  Conclusione
@@ -244,28 +237,23 @@ return A
 ```
 
 1.  Terminazione
-
     assicurata dalla limitatezza dei cicli **for** e **while**
 
 2.  Correttezza
-
     2 cicli `->` 2 invarianti
 
     1.  `A[1...i-1]` é ordinato
         - corretto se il ciclo interno é corretto
     2.  `A[1...j-1]` e `A[j...i]` sono ordinati `&&` `A[1...j-1] \le A[j+1...i]`
-
     All'uscita dell'algoritmo abbiamo `i` uguale a `n+1` che implica che tutto il vettore `A[1...n]` é ordinato
 
 3.  Complessitá
-
     dipende da `n` e dalla distribuzione all'interno del vettore assegnamo un costo ad ogni riga dell'algoritmo e lo moltiplichiamo alle volte per cui é eseguito
 
     1.  for - `n`
     2.  `<-` - `n-1`
     3.  while - $`\sum_{i}^{n}{t_i-1}`$ a. 1 nel caso migliore b. i nel caso peggiore
     4.  scambio - $`\sum_{i}^{n}{t_i-1}`$
-
     **Worst**: $`an^2 + bn + c`$ Nel caso peggiore Insert-Sort ha <u>complessitá temporale quadratica</u> **Best**: $`dn + e`$ Nel caso migliore Insert-Sort ha <u>complessitá temporale lineare</u>
 
 ### Selection Sort
@@ -291,18 +279,14 @@ return A
 ```
 
 1.  Terminazione
-
     Implicata dalla terminazione dei cicli
 
 2.  Correttezza
-
     2 Invarianti
 
     1.  `A[1...i-1]` ordinato e `A[i...n]` \<= `A[1...i-1]`
     2.  `A[k]` ≤ `A[i...j-1]`
-
 3.  Complessitá
-
     Sia nel caso migliore che nel caso peggiore, Complessitá temporale quadratica
 
 ### Alberi di Decisione
@@ -385,13 +369,9 @@ Se $`p(n)`$ é un polinomio di grado $`k`$ allora $`p(k) \in O(n^k)`$
     - $`O(\log_a n) = O(\log_b n) \text{ con } a,b >1`$
 - **Inclusioni**
   - $`O(1) \subset O(\log n)`$
-
   - $`O(\log n) \subset O(n)`$
-
   - $`O(n) \subset O(n \log n)`$
-
   - $`O(n^p) \subset O(2^n)`$
-
   - $`O(2^n) \subset O(3^n)`$
 
 Il tempo di calcolo sufficiente alla risoluzione del problema é il suo confine superiore
@@ -531,17 +511,12 @@ Per dimostrarne la correttezza va utilizzata l'induzione completa, non semplice.
 Uno volta dimostrata la correttezza di `partizione` la dimostrazione é banale
 
 1.  Complessitá
-
     Il partizionamento esamina una volta ogni elemento: é lineare $`T_p(n)=an`$ Identifichiamo le situazioni estreme della ricorsione di quicksort
 
     1.  due partizioni con lo stesso numero degli elementi
-
     2.  una contiene tutti gli elementi e una é vuota
-
     3.  da luogo ad una relazione di ricorrenza
-
         - $`T(n) = c`$ con $`n=1`$
-
         - $`T(n)= T(n-1)+T_p(n)+b`$ altriment
 
 ### Relazioni Lineari a Partizione costante
@@ -588,7 +563,6 @@ int merge_sort(int a[], int i, int n){
 ```
 
 1.  Complessitá
-
     $`T(n)=2T(n/2)+n`$ $`T(n)=\log_2 n \cdot n \text{ . } cn \in \Theta(n \log n)`$ L'algoritmo é ottimo.
 
 ### Quick Sort: caso medio
@@ -712,5 +686,4 @@ Il Tempo di calcolo di questa procedura ricorsiva é esponenziale: $`T(k)=2T(k-1
 Si costruiscono due tabelle basate sullo schema ricorsivo $`c[0..m, 0..n]`$ e $`b[1..m, 1..n]`$
 
 1.  Algoritmo Bottom-up
-
     permette di ottimizzare riempiendo una tabella $`m \cdot n`$ $`T(k) \in \Theta(m \cdot n)`$

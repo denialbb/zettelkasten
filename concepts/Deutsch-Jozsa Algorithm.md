@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-04-02 Sat 09:28\\]"
+date: 2022-04-02 09:28
 id: d7686f15-7f24-476e-9ecf-87ef577d5a4c
 title: Deutsch-Jozsa Algorithm
 ---

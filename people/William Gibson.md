@@ -2,4 +2,3 @@
 id: 7a2841f8-6093-4aac-8834-13b4d00a1e5b
 title: William Gibson
 ---
-

@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-05 Tue 05:33\\]"
+date: 2023-12-05 05:33
 id: 12d8d60a-ef07-42eb-8bcd-4784da892246
 title: Lo Zen e L'Occidente
 ---

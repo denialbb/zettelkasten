@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-06-29 Wed 01:52\\]"
+date: 2022-06-29 01:52
 id: f3cbb1d9-6a8c-461c-9336-742d3f8e0010
 title: Shortcuts in Ranger
 ---

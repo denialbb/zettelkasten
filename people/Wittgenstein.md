@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-05 Tue 05:38\\]"
+date: 2023-12-05 05:38
 id: e81950b9-bace-4f5e-af5a-2fd576d92a5e
 title: Wittgenstein
 ---

@@ -2,4 +2,3 @@
 id: 1a5b9af3-8b2d-48b8-9ca8-15b3ef68ac80
 title: Daniel Goleman
 ---
-

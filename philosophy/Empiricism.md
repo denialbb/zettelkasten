@@ -1,6 +1,5 @@
 ---
-date: "\\[2022-01-02 Sun 23:52\\]"
+date: 2022-01-02 23:52
 id: 9b84a5c2-c6dd-4c7e-83b3-3e665bccca20
 title: Empiricism
 ---
-

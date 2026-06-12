@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-03-09 Wed 17:01\\]"
+date: 2022-03-09 17:01
 documentclass: arsclassica
 id: 3da2dbd3-6bae-4612-9d0f-12fca387a8e4
 roam_aliases: Sic

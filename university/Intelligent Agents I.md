@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-02-27 Mon 10:55\\]"
+date: 2023-02-27 10:55
 id: 54623d0e-8f4b-44c7-9de5-902f6fad6d7a
 title: Intelligent Agents I
 ---
@@ -130,9 +130,7 @@ Operators:
 - liveness properties
   - something good eventually happens (infinitely often)
   - uses $`G`$ and $`F`$
-
 1.  Linear temporal logics
-
     `LTL`
 
     - prop symbols
@@ -141,21 +139,17 @@ Operators:
     - $`X`$
       - its the same as $`\square`$ and $`\diamond`$ but being linear now they are the same
     - $`U`$
-
     We can define
 
     - $`F`$ is the tautology of $`F \phi = \text{T} U \phi`$
     - $`G`$ is defined as the dual of future $`G \phi = \lnot F \lnot \phi`$
-
     The set of worlds represent the infinite set of time instants. For the semantics we define $`\lambda`$ as the possible worlds model
 
     - can think about the trace a system
     - used to simplify notation of the accessibility relation $`R`$ (which is a total order)
     - access a point (world) in the sequence as $`\lambda(i) = w_i`$
     - have a new *trace* starting from $`i`$ with $`\lambda^i = w_i w_{i+1} w_{i+2}\cdots`$
-
 2.  Computation Tree logic
-
     `CTL` We want to talk about partial orders. It is an extention of `LTL`, temporal operators and path quantifiers.
 
     - path formulas (`LTL`) and reference to state formulas
@@ -217,9 +211,7 @@ Rules:
 - $`A`$ is proven when each branch is closed
   - if all rules have been applied but there is still an open branch $`A`$ cannot be proven
 - it is **sound and complete**
-
 1.  Inference rules
-
     Prefix is indicated by $`\sigma`$. The whole idea is to simplify formulas by removing connectives. The \| is the representation of the tree. It creates two branches where one side is true or the other is. The reasoning is by cases and proceeds by proving contradictions (closing the branch) in all these cases.
 
 ## Multi-agent Logics
@@ -278,13 +270,10 @@ Different levels of logic in dialogues with these sentences
 - dynamic (operational)
   - considering the whole set of sentences
   - higher level of reasoning
-
 1.  Operational semantics
-
     - indicates how the states of a system change as a result of execution of the commands in a programming language
       - commands here are in an argumentation dialogue according to the rules of the protocol (Fatio)
     - define the **locutions**
-
     **Agent Decision Mechanisms**
 
     - D1(φ): Claim or Not

@@ -47,7 +47,7 @@ Cita [[Ozymandias]]:
 
 > Sopraffatti e infiacchiti, battiamo su questa tastiera derelitta: "IL MIO NOME É RAGIONE, IL RE DEI RE!"
 >
-> Ma siamo soltanto dei giardinieri tra le rovine. Il nostro battere sui tasti fa eco nei cunicoli… sterminate e spoglie, le grotte si diramano in lontananza. Siamo in ritardo. Sempre in ritardo… ~ [[$cit]]
+> Ma siamo soltanto dei giardinieri tra le rovine. Il nostro battere sui tasti fa eco nei cunicoli… sterminate e spoglie, le grotte si diramano in lontananza. Siamo in ritardo. Sempre in ritardo… ~ #cit
 
 ## Where the Strangers Come From
 

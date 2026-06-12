@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-02-27 Mon 10:56\\]"
+date: 2023-02-27 10:56
 id: ad8e431b-7af6-4eb9-99a7-41af9cd0c4ce
 title: Microkernel Based Systems
 ---

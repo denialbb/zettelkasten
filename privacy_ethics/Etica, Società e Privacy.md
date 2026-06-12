@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-11-09 Thu 09:41\\]"
+date: 2023-11-09 09:41
 id: 29545128-07cf-4918-8988-9ed11bb1e684
 roam_aliases: ESP
 title: Etica, Società e Privacy
@@ -507,15 +507,10 @@ Quindi il problema ora cambia: il rischio è la disclosure della presenza o meno
 ### k-anonymity
 
 - il dataset rilasciato deve continuare a contenere l'informazione veritiera
-
   - generalizzata ma comunque coerente
-
 - Samarati, Sweeney 1998
-
 - basato sulla definizione di quasi-identifier
-
 - def.
-
   - 
     ``` math
     A = \{a_1, \dots , a_n\}
@@ -565,9 +560,7 @@ Il problema di trovare la minima tabella \$k\$​-anonima con generalizzazione e
 
 - la maggioranza degli algoritmi proposti in letteratura hanno tempo di computazione esponenziale nel numero di attributi componenti il quasi-identifier.
 - quando il numero $`|\textsc{QI}|`$ di attributi del quasi-identifier è piccolo rispetto il numero di tuple nella tabella privata questi algoritmi possono essere pratici
-
 1.  Samarati's Algorithm
-
     - basato su **generalizzazione localmente minima**
     - ogni generalizzazione k-minima è localmente minima rispetto al path (il contrario non è vero)
     - risalendo la gerarchia il numero di tuple da rimuovere per garantire la k-anonimity diminuisce
@@ -576,20 +569,16 @@ Il problema di trovare la minima tabella \$k\$​-anonima con generalizzazione e
       2.  se esiste soluzione si valuta ad altezza $`\lfloor h/4 \rfloor`$; se non esiste si valuta ad altezza $`\lfloor 3h/4 \rfloor`$
       3.  si continua finché l'algoritmo non raggiunge l'altezza minima per cui si soddisfa \$k\$​-anonymity
     - per diminuire il costo computazionale si utilizza un **distance vector matrix** per evitare computazione esplicita per ogni tabella generalizzata
-
 2.  Incognito Algorithm
-
     - approccio **bottom-up** nella visita di $`\textsc{DGHs}`$
     - la \$k\$​-anonymity rispetto un sottoinsieme proprio di quasi-identifier $`\textsc{QI}`$ è una condizione **necessaria** e non sufficiente per la \$k\$​-anonymity rispetto a $`\textsc{QI}`$.
       - se non è soddisfatta da un sottoinsieme stretto allora non sarà nemmeno soddisfatta da un sottoinsieme più grande
     - iterazione dopo iterazione parte da attributi singoli testando k-anonymity per poi combinare quelli che la soddisfano
     - iterazione $`i`$: combina tutte le \$i\$​-uple di attributi ottenute dalla combinazione di generalizzazioni che soddisfavano k-anonymity a $`i-1`$, scarta le soluzioni non k-anonime
     - l'iterazione $`|\textsc{QI}|`$ ritorna il risultato finale
-
     Sfrutta le proprietà di generalizzazione e di sottoinsieme: *rollup* e *apriori*.
 
 3.  Mondrian Algorithm
-
     ![](https://64.media.tumblr.com/914b055f301a5804f173e87f5cf9fa1f/54caa079496cfc2d-2e/s500x750/20ffb446155d64ac747ff936c53b8e51807a44d5.png)
 
     - ogni attributo in $`\textsc{QI}`$ rappresenta una dimensione
@@ -608,9 +597,7 @@ Il problema di trovare la minima tabella \$k\$​-anonima con generalizzazione e
         - misura il perimetro del gruppo
         - long boxes, bad generalization
         - squares, good generalization
-
 4.  Topdown Algoritm
-
     - inizia con il dataset completo
     - split iterativamente a metà
     - continua fino a gruppi con meno di $`2k -1`$ tuple
@@ -618,9 +605,7 @@ Il problema di trovare la minima tabella \$k\$​-anonima con generalizzazione e
       - trova *seeds*, 2 punti massimamente lontani tramite euristiche
       - questi semi crescono diventando i due gruppi di split
       - esamina punti casualmente assegnandoli al gruppo cui `NCP` cresce **meno**
-
 5.  Generalization Strength
-
     - single dimensional global recoding
       - incognito, samarati
     - multi dimensional global recoding
@@ -837,28 +822,23 @@ Si dimostra teorema per cui questo meccanismo preserva la \$ϵ\$​-differential
 - sensibilità bassa significa distorsione piccola
 - piccolo privacy budget significa maggiore distorsione
   - i.e. voglio più privacy e quindi devo perturbare di più
-
 1.  Esempi
-
     **Counting Queries**
 
     - base di molti task
     - sensibilità è 1, chiaramente il cambiamento di un record modifica di 1 l'output
     - noise: $`\text{Lap}(1/\epsilon)`$
     - distorsione attesa di $`1/\epsilon`$, indipendente dalla dimensione del database
-
     **Multiple Counting Queries**
 
     - ogni individuo può cambiare conteggio nel caso pessimo con $`m`$ nel gruppo
     - distorsione attesa $`m/\epsilon`$
-
     **Histogram Queries**
 
     - caso particolare di query strutturalmente disgiunte, non serve scalare la noise con numero di query
     - l'universo $`\mathcal{D}`$ è partizionato in celle, la query chiede un conteggio in ogni cella
     - le celle sono disgiunte e quindi modifiche non interferiscono tra celle diverse
     - si ricade nel caso di **Counting Query** e la sensibilità è 1
-
     **Mean Query**
 
     - media su quantità uniformemente distribuita in intervallo $`[\alpha, \beta]`$
@@ -972,9 +952,7 @@ Approcci diversi:
 - fully homomorphic encryption
   - forma di criptazione che permette di ottenere la versione criptata dei risultati tramite la computazione degli input criptati
 - federated learning
-
 1.  Secure Multiparty Computation
-
     - `SMC`
     - multiparty, inteso effettivamente come 2-party
       - vanno tenute in considerazione le complicazioni
@@ -988,7 +966,6 @@ Approcci diversi:
           - uno lo sceglie per criptarlo tramite $`p`$
         - **A** non sa quale sia quello scelto, quindi decripta tramite chiave privata tutti i valori e rimanda a **B** il risultato dell'operazione tra i suoi dati e tutti e 4 i valori ricevuti
         - **B** sa quale dei 4 è quello che aveva scelto e quindi lo cripta nuovamente con $`p`$ e restituisce il risultato finale
-
     **Esempio di utilizzo**
 
     - costruzione degli alberi decisionali
@@ -1010,9 +987,7 @@ Approcci diversi:
       - si utilizza **Yao** per una non ottima approssimazione di $`\ln(x)`$
         - tramite serie di **Taylor** con $`n`$ membri
       - quindi che la soluzione sicura è una approssimazione
-
 2.  Federated Learning
-
     > Permette di addestrare algoritmi tra multiple nodi o server decentralizzati in possesso di data sample locali, senza scambiarli.
 
     - collaborative learning with no data sharing
@@ -1021,43 +996,35 @@ Approcci diversi:
     - *raw data* non lascia i client e rimangono locali
     - `FL` orizzontale, ogni client ha un sottoinsieme degli esempi
     - `FL` verticale, ogni client ha potenzialmente tutti gli esempi ma solo una parte delle feature
-
     **Assunzioni**:
 
     - parametri del modello non contengono più informazioni che i dati di addestramento
     - la dimensione del modello è generalmente più piccola della dimensione dei dati di addestramento
-
     **Goal**:
 
     - *confidentiality*, i client non condividono i loro dati
     - *usefulness*, i client giovano dalla federazione
-
     **Desired**:
 
     - che il *federated model* sia simile a quello centralizzato
-
     Protocollo generale:
 
     1.  aggregatore inizializza modello globale e lo condivide con i client
     2.  i client aggiornano il modello utilizzando i loro dati privati
     3.  l'aggregatore aggrega i modelli aggiornati
     4.  il processo si ripete fino a convergenza (l'apprendimento avviene a *round*)
-
     **Problemi**:
 
     - *non-IID*, dati generati da utenti non omogenei
     - *unbalanced*, alcuni utenti generano quantità di dati maggiori
     - *massively distributed*, utenti device mobile offrono molti più dati della media
     - *limited communication*, mobile network instabile
-
     1.  FedSGD
-
         - ogni round uno step di discesa del gradiente
         - `FL` con una **C-fraction** dei client, secondo diversi criteri
           - solitamente molto piccolo rispetto la totalità
         - ogni client $`k`$ computa gradiente $`g_k`$ sui propri dati locali
           - single batch
-
         Alternative:
 
         1.  ogni client invia $`g_k`$
@@ -1066,11 +1033,9 @@ Approcci diversi:
         2.  ogni client computa $`w_{t+1}^k \leftarrow w_t - \eta g_k`$
             - aggregatore aggrega
             - $`w_{t+1} \leftarrow \sum_{k=1}^K \frac{n_{k}}{n} w_{t+1}^k`$
-
         Altamente inefficiente, in quanto ogni round viene inviato e ricevuto un modello.
 
     2.  FedAvg
-
         - in un round
         - broadcast del modello globale corrente ai client
         - ogni client $`k`$ computa gradiente sui dati locali
@@ -1080,31 +1045,24 @@ Approcci diversi:
         - funziona discretamente bene
         - **ma** non garantisce la convergenza lineare anche con funzioni di loss fortemente convesse e smooth
           - questo in quanto i dati locali possono avere distribuzioni molto diverse e portare a divergenza dall'ottimo
-
     3.  Gossip Federated Learning
-
         - una soluzione decentralizzata, solo client
         - ogni nodo inizializza il modello
         - a cadenza regolare si inviano modelli tra peer
         - i modelli vengono integrati e condivisi tra peer a loro volta
-
     4.  Considerazioni sulla Privacy
-
         - l'assunzione che il `FL` non dia leak di dati privati non è vera
         - il modello provoca leak di informazioni sui training data
         - si è dimostrato un teorema per cui l'input al network può essere ricostruito a partire dei soli gradienti della rete
-
         Quindi possono esistere attaccanti in contesto di `FL`:
 
         - **semi-honest**, avversari sono passivi oppure onesti ma curiosi
           - può imparare lo stato privato dei partecipanti senza deviare dal protocollo
         - **malicious**, avversari che cercano di imparare gli stati privati dei partecipanti, deviando dal protocollo modificando, riproducendo, rimuovendo messaggi
-
         Attacchi:
 
         - **membership inference**, inferire se dei dati appartengono al training dataset
         - **model inversion**, imparare i dati utilizzati per il training
-
         C'è bisogno di metodi di protezione.
 
         - **homomorphic encryption**
@@ -1162,14 +1120,10 @@ Approcci diversi:
 - può formulare domande, ordini, richieste
   - tramite formule linguistiche definiamo e cambiamo le regole che regolano il mondo in cui agiamo
 - [[How to Do Things with Words]]
-
 1.  Requerimiento
-
     - i conquistadores prima di conquistare con il massacro le terre indigene dichiaravano un *requerimiento* con cui intimavano a cedere il terreno agli indigeni, in spagnolo ovviamente
     - una sorta di assoluzione dall'etica tramite sovrastrutture e costrutti sociali
-
 2.  Cartesio
-
     - porta una materia complessa nel campo della matematica
     - permette di trattarla con linguaggio formale
     - il corpo era tabù religioso
@@ -1288,20 +1242,14 @@ Il cambio di prospettiva è:
 ### Emile Durkheim
 
 - [[De la Division du Travail Social]]
-
 - a seguito della rivoluzione industriale i lavoratori si sono specializzati
-
   - quindi *interdipendenze* sociali
   - questo è positivo in quanto la rete sociale ha una dipendenza reciproca tra i lavoratori
   - questo ha una forza morale
-
 - questo porta anche grossa disuguaglianza
-
   - più difficile la rivendicazione all'interno della società
   - la politica deve mantenere il diritto al miglioramento della propria situazione
-
 - queste *interdipendenze* stanno scomparendo a causa dell'automazione
-
   - questo aumento la disuguaglianza di conseguenza
 
 ## Monopoli
@@ -1341,15 +1289,11 @@ I monopoli ora sono cambiati, mentre prima i prezzi venivano mantenuti alti
 Ora i monopoli sul web portano tutto a essere *apparentemente* gratuito.
 
 - **Theodore Vail**, giustificava i monopoli
-
   - sosteneva che la competizione incontrollata fosse a detrimento dell'utente finale
   - con la sicurezza provveduta dal monopolio sosteneva che le virtù dell'uomo sarebbero emerse
   - immaginava un futuro economico libero dalla competizione Darwiniana in cui corporazioni organizzate **scientificamente** da uomini buoni e a stretto contatto con lo stato avrebbero servito il bene comune
-
 - AT&T, standard acquisiti da J.P.Morgan
-
 - [[Karl Polanyi]]
-
   - conclude che le operazioni di un mercato che si auto-regola sono profondamente *distruttive* se lanciate incontrollate da leggi e regolazioni
   - descrive una **rete di misure e regolamenti** integrate da **forti istituzioni di controllo**
   - esamina come si arriva al capitalismo
@@ -1358,9 +1302,7 @@ Ora i monopoli sul web portano tutto a essere *apparentemente* gratuito.
       - l'idea che la natura potesse essere traslata sul mercato come possedimenti terrieri e *real estate*
         - [[Karl Marx]] definiva proprio questo il **big bang** da cui origina l'accumulo moderno di capitale
       - l'idea che gli scambi diventassero *denaro*
-
 - [[Hannah Arendt]], [[The Origins of Totalitarianism]]
-
   - vede che l'accumulo primitivo di Marx non è una esplosione singola ma un evento ciclico
   - il capitalismo si sostiene grazie a un ciclico accumulo nel mondo naturale
     - il c. va a *conquistare* ciclicamente nuove aree naturali e sociali e le trasporta nel mercato assoggettandole alle sue leggi
@@ -1416,11 +1358,8 @@ La guerra ai monopoli si smorza allo scoppio della guerra fredda nel 1949
 Nel 1984 viene spezzato `AT&T`
 
 - il sistema Bell viene riorganizzato in tante diverse compagnie
-
 - ma in pochi anni queste si riconglomerano in `AT&T`
-
 - [[Discipline and Punish- The Birth of the Prison]], M.Foucault 1975
-
   - la formazione della prigione moderna ha formato parallelamente la nostra organizzazione societaria
 
 ### Patriot Act

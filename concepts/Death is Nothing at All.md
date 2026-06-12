@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-01-04 Tue 00:52\\]"
+date: 2022-01-04 00:52
 id: 7fd778d4-8ce4-403d-91a1-a558ebc7fb0b
 title: Death is Nothing at All
 ---

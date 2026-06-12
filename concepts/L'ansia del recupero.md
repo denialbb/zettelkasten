@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-27 Mon 23:02\\]"
+date: 2021-12-27 23:02
 id: 93041c48-ddc0-41d2-a876-ec728d1e122f
 title: L'ansia del recupero
 ---

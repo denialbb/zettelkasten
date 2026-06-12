@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-01-18 Wed 18:50\\]"
+date: 2023-01-18 18:50
 id: 4d6146ac-92b1-4936-b239-7f77c1c34de0
 title: PhotOntology Project
 ---

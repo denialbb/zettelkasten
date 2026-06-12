@@ -1,6 +1,5 @@
 ---
-date: "\\[2024-06-08 Sat 07:50\\]"
+date: 2024-06-08 07:50
 id: cb4807c4-dbf3-4892-ac36-a9926c77cb15
 title: Pragmatism
 ---
-

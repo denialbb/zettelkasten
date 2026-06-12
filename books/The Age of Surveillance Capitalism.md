@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-03 Sun 03:46\\]"
+date: 2023-12-03 03:46
 id: d921718f-4abb-4fd1-b06b-706ae7bb479b
 title: The Age of Surveillance Capitalism
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-01-09 Sun 13:30\\]"
+date: 2022-01-09 13:30
 id: 7f5747ca-c9a8-43f4-ab00-aafe8fcd13be
 title: "Sapiens: A brief History of Humankind"
 ---

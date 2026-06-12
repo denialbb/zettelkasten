@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-06-08 Wed 19:47\\]"
+date: 2022-06-08 19:47
 id: 2186f2cf-9aa5-4ddd-997e-6e8d4597e4db
 title: QuBit
 ---

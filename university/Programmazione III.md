@@ -48,38 +48,27 @@ Secondo <u>Alan Kay (Smalltalk)</u>
 
 - kind-of hierarchy
 - part-of hierarchy
-
 1.  ereditarieta'
-
 2.  polimorfismo
-
     1.  Binding Dinamico
-
         <u>Binding statico</u>, all'atto della compilazione <u>Binding dinamico</u>, l'esecutore puó controllare i tipi degli oggetti, e decidere a runtime il body del metodo da eseguire
 
         - esegue l'implementazione piú specifica possibile
         - solo sui metodi, le variabili non vanno a fare overriding
-
         Estremamente modulare e scalabile, meccanismo di delaga
 
     2.  Classi Astratte
-
         Utilizzate come interfaccia comune e pubblica, la sottoclasse andrá a implementare i dettagli
 
     3.  Interfacce
-
         Non possono avere metodi non astratti
 
         - non sono soggette all'ereditarietá singola, una classe puó implementare tutte le interfacce di cui ha bisogro
-
     4.  Overloading
-
         Definizione di firma alternativa di metodo esistente A tempo <u>statico</u> viene scelta la firma, é bloccante e se ci sono eventuali overloading vengono persi
 
         - a runtime si discende solamente la catena di ereditarietá
-
     5.  Overriding
-
         Diverso dall'Overloading in quanto le firme sono le stesse
 
 3.  reflection
@@ -95,18 +84,14 @@ Introdotti per scrivere codice generico, applicabile a piú tipi di dati
   - `extends Comparable <T>.`
   - `extends` a una singola classe
     - ma multiple inferfacce
-
 1.  Raw types
-
     Utilizzando Object direttamente, in questo modo peró il compilatore non puó controllare la correttezza dei tipi
 
 2.  Collezioni
-
     Vincoli sintattici per evitare errori a Runtime che non sarebbero rilevati:
 
     - quindi le `Collection` sono controllate per Nome del tipo, non viene considerata l'ereditarietá
       - si risolve utilizzando l'upcasting
-
     Per risolvere e definire una `Collection` di qualsiasi cosa
 
     - `Collection<?>.`
@@ -131,17 +116,13 @@ Per information hiding la classe interna puó essere solo meno visibile o uguale
 
 - le classe `IN` hanno un puntatore `outerThis` che permette di fare riferemento al contenitore
   - tramite quello hanno accesso come fossero locali
-
 1.  Classi innestate in interfacce
-
     - Interfaccia publica
       - classe statica che rappresenta l'implementazione di default dell'Iterfaccia
     - si puó estendere oppure
-
     Possibile avere classi nested anonime definendo in line
 
     - `return new Iteratore(){ ... }`
-
     Posso essere ancora piú sintetico utilizzando le `lambda expression`
 
     - ovviamente non deve esserci ambiguitá per quanto riguarda i parametri, un'interfaccia con metodi non ambigui e con poche righe di codice si presta ad una `lambda`
@@ -221,31 +202,25 @@ Si distinguono due fasi:
 Dopo essere stati creati gli *event-handlers* devono essere associati come *listener* ad un evento di una specifica sorgente, componente la `GUI`
 
 1.  Eventi
-
     In `Java` Oggetti derivati dalla classe `EventObject`
 
     - eventi *semantici*
       - su componenti virtuali dell'interfaccia
     - eventi *low-level*
       - eventi fisici relativi al mouse o tastiera
-
     Sono gestiti con un meccanismo di <u>delega</u>
 
     - la sorgente, generato un evento, passa un **oggetto** che descrive l'evento ad un listener
       - registrato presso la sorgente
       - il passaggio dell'evento cousa l'invocazione di un metodo del *listener*
-
 2.  Sorgenti
-
     I diversi componenti dell'interfaccia
 
     - `JButton`
     - `JTextField`
     - `Component`
     - `Window`
-
 3.  Listener
-
     O *event-handler*, istanza di una classe che contiene metodi per gestire gli eventi Per ogni tipo di evento é definita una interfaccia che il *listener* deve implementare
 
     - `ActionListener`
@@ -253,7 +228,6 @@ Dopo essere stati creati gli *event-handlers* devono essere associati come *list
     - `MouseListener`
     - `MouseMotionListener`
     - `WindowListener`
-
     Per non dover implementare tutti i metodi dell'interfaccia che ci interessa sono state introdotte le *classi filtro*
 
     - implementazioni di default delle interfacce dei listener
@@ -293,16 +267,13 @@ Il successore di `SWING`
 - permette il binding di property dei Model con elementi dell'interfaccia utente aggiornando automaticamente le viste
 - offre classi/interface che implementano Observer Observable
 - permette anche di scrivere interfacce in `XML`
-
 1.  Componenti
-
     - Stage
       - finestra
     - Scene
       - una principale
     - Panels
     - Buttons
-
 2.  Scene Builder
 
 ## Programmazione Multithread
@@ -366,7 +337,6 @@ Per dichiarare sezioni critiche solamente sezioni di metodi si utilizza il metod
 Per i puntatori o contatori esiste `AtomicInteger`
 
 1.  Thread
-
     I `Thread` possono attendere lo stato giusto della risorsa con il metodo:
 
     - `wait()`
@@ -374,20 +344,16 @@ Per i puntatori o contatori esiste `AtomicInteger`
       - `notifyAll()`
       - `notify()`
         - risvegli il primo della coda di `wait`
-
     Le due situazioni che si possono creare con un utilizzo errato della sincronizzazione:
 
     - *deadlock*
     - *starvation*
-
     Tra `Thread` la comunicazione puó essere gestita facilmente con le `Pipe`
 
 2.  BlockingQueue
-
     Interfaccia generica
 
 3.  Lock e Condition
-
     Ogni oggetto ha un lock implicito. Per usare lock espliciti si utilizza l'interfaccia `Lock` Implementata ad esempio in `ReentrantLock`
 
     - `newCondition()`
@@ -395,7 +361,6 @@ Per i puntatori o contatori esiste `AtomicInteger`
         - `await()`
         - `signal()`
         - `signalAll()`
-
     `ReadWriteLock`
 
     - `Lock readLock()`
@@ -407,15 +372,12 @@ Per i puntatori o contatori esiste `AtomicInteger`
 
 - sono dotati di coda in cui sono inserite le task man mano
 - il `Pool` si auto gestisce le code bilanciandole
-
 1.  Executor
-
     `Executor` Interface
 
     - `ExecutorService newFixedThreadPool(int n)`
     - `ScheduleExecutorService newScheduledThreadPool(int n)`
     - `ScheduleAtFixedRate`
-
     `shutdown()`
 
 ### Runnable
@@ -427,9 +389,7 @@ Task che corrisponde a un metodo con ritorno `void`
 Task che é parametrizzato con `T` generico
 
 - `public T call()`
-
 1.  Future\<T\>
-
     `Futuretask(Callabre<T> task)`
 
     - `isDone()`

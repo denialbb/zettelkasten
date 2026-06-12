@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-02 Fri 18:51\\]"
+date: 2022-12-02 18:51
 id: cc205a71-5d72-48ac-b6ef-0703963c5bb1
 title: Human-Level Intelligence or Animal-Like Abilities?
 ---

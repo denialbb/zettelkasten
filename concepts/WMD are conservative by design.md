@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-02-02 Fri 10:33\\]"
+date: 2024-02-02 10:33
 id: 7a468b41-3c73-4009-a1af-4510795ceb71
 title: WMD are conservative by design
 ---

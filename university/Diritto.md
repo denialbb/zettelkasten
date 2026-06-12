@@ -392,40 +392,30 @@ Accesso Abusivo a Sistema Informatico
 `Accesso Abusivo`
 
 - **domicilio informatico**
-
   - deve essere protetto, anche da misure minime
   - **misura di sicurezza**
-
 - non hanno rilievo gli scopi e le finalitá che hanno soggettivamente motivato l'ingresso al sistema
-
 - **Locus Commissi Delicti**
-
   |  |
   |----|
   | l'introduzione abusiva \[…\] integrati nel luogo in cui l'operatore materialmente digita la password di accesso o esegue la procedura di login, che determina il superamento delle misure di sicurezza |
 
   - client / terminale
   - condotta criminosa fisicamente, nel senso di movimento muscolare dell'agente, é l'attivazione del terminale periferica da parte dell'operatore
-
 - `Cassazione 2019`: in caso di **pubblico ufficiale**:
-
   |  |
   |----|
   | é sufficiente che si acceda o si mantenga nel sistema per **ragioni deontologicamente entranee** a quelle per cui la facoltá di accesso gli é stata attribuita |
 
   - anche se non violando prescrizioni impartite per delimitarne l'accesso dall'amministratore del s.i.
-
 - `Cassazione 2011`:
-
   |  |
   |----|
   | reato sussiste anche se i dati cancellati abusivamente possono essere recuperati |
 
   - nuova specifica previsione della **cancellazione** in accezione informatica e non semantica del termine, anche in presenza di backup o se eventualmente reversibili
   - coerente anche con l'interpretazione tradizionale del reato di danneggiamento, dove la condotta criminosa apporti una modificazione - anche impedendone anche parzialmente l'uso - che richieda un intervento ripristinatorio dell'essenza e della funzionalitá della cosa stessa
-
 - `Cassazione 2019`:
-
   |  |
   |----|
   | il **file** possiede una dimensione fisica che é determinata dal numero delle componenti \[…\] il file \[…\] possiede una dimensione fisica costituita dalla grandezza dei dati che lo compongonosono qualificabili come cose mobili e sono suscettibili di appropriazione rilevante |
@@ -912,17 +902,12 @@ Il trattamento é *lecito* solo se e nella misura in cui ricorre almeno delle co
 origine `->` natura `->` gravitá `->` probabilitá `->` `->` impatto sui diritti e le libertá degli interessati = rischio
 
 - non confondere la gestione dei rischi con le misure di sicurezza
-
 - non riferire il rischio al titolare ma al soggetto interessato
-
 - Elementi
-
   - riservatezza
   - integritá
   - disponibilitá
-
 - Impatto
-
   - basso
     - minori inconvenienti superabile senza problemi
   - medio
@@ -931,9 +916,7 @@ origine `->` natura `->` gravitá `->` probabilitá `->` `->` impatto sui diritt
     - conseguenze significative superabili ma con difficoltá serie (perdita di fondi, collocazione in liste nere, perdita di impiego)
   - molto alto
     - inconvenienti significativi quasi del tutto irreversibili (perdita capacitá lavorativa, danni psicologici a lungo termine, morte)
-
 - `DPIA` - Valutazione Impatto Preventiva
-
   - valutare necessitá e proporzionalitá di un trattamento
   - rischi allo scopo di approntare misure idonee ad affrontarli
   - obbligatoria se un trattamento puó presentare rischio elevato per diritti e libertá degli interessati
@@ -1196,14 +1179,10 @@ Non sono invenzioni:
 `prodotto` é qualsiasi oggetto industriale/artigianale, `prodotto complesso` é prodotto formato da componenti sostituibili
 
 - un disegno o modello si considera *divulgato* se
-
   - **accessibile al pubblico**
   - **esposto, messo in commercio**
-
 - <u>non lo é se rivelato sotto vincolo di riservatezza</u>
-
 - un design non registrato é meritevole di tutela al pari di qualsiasi altro design per tre anni
-
   - i design protetti rimangono tali fino al sessantesimo anno dopo la morte dell'autore
 
 ### Funzione tecnica

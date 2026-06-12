@@ -207,7 +207,6 @@ namespace HelloQuantum {
     open Microsoft.Quantum.Canon;
     open Microsoft.Quantum.Intrinsic;
 
-
     @EntryPoint()
     operation SayHelloQ() : Unit {
         Message("Hello quantum world!");

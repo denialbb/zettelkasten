@@ -203,7 +203,6 @@ NB per fine linea
 passo riferimenti a variabili dove memorizzare cio' che e' letto dallo stream di input, secondo il formato specificato dal programmatore
 
 - se lo stream e' vuoto la scaf si mette in attesa, l'OS lo inserisce in uno stato di wait fino a che lo stream non sara' riempito
-
 - Restituisce il numero di conversioni avvenute con successo
 
 Utilizzando la `scanf` con il formato %s si leggono dallo stdin parole, ignorando spazi bianchi.
@@ -219,20 +218,15 @@ restituisce un int(4 byte) per trattare altri casi oltre ai caratteri(1 byte)
 ## array \[\]
 
 - un array in C é sempre un `const`, un puntatore al primo elemento
-
 - le stringhe in realtá sono codificate con un array di `char`
-
 - per modificare i valori sono usati i puntatori
-
 - es array di char di stringhe
-
   ``` c
   char *weekdays[] = {"Mon", "Tue", "Wen", "Tue", "Fri"}; // un puntatore ad un puntatore
   // al primo oggetto dell'array
   ```
 
 - NB sull'uso di `sizeof()` sizeof(a)/sizeof(int) per sapere quanti interi conta l'array a (sizeof restituisce dimensioni in byte) MA ció non funziona se l'array e' passato come argomento di una funzione, in quanto sizeof(a) restituirá la dimensione del puntatore
-
   - il problema si puó risolvere passando un altro argomento n numero di argomenti
 
 Per `matrici` la memoria é allocata linermente, indirizzo: a+i\*LRighe+j Perció il compilatore ha bisogno di sapere la dimensione della seconda grandezza dell'array a\[r\]\[c\]
@@ -271,7 +265,6 @@ sizeof()
 ## typedef
 
 - typedef `tipobase` `tipodefinito`
-
   Su questi tipi <u>non viene attuato un controllo stretto</u> da parte del compilatore
 
   ``` c
@@ -303,18 +296,13 @@ Il Sistema Operativo gestisce una tabella di tutti i file aperti
 Funzioni di piú alto livello che interfacciano sui `descrittori dei file`
 
 - open()
-
 - read()
-
   - viene passato:
     - un <u>fd</u>
     - un void \* ad un <u>buffer</u> di dimensione necessaria (per poter contenere count byte)
     - una size<sub>t</sub> <u>count</u>
-
 - write()
-
 - lseek()
-
 - close()
 
 Funzioni che utilizzano gli stream

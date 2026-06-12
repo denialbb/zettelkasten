@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-03-07 Tue 21:31\\]"
+date: 2023-03-07 21:31
 id: b73e33c0-6776-42d1-990d-a271a9ee4d8b
 title: Toward Real Microkernels
 ---

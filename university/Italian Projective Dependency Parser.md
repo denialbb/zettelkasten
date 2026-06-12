@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-06-06 Thu 19:59\\]"
+date: 2024-06-06 19:59
 id: cfd74497-ade8-4704-b9fa-a29414a38458
 title: Italian Projective Dependency Parser
 ---

@@ -38,20 +38,14 @@ Costruttore: Relazione
 <u>3 Accezioni</u>
 
 - Relazione matematica
-
 - Relazione secondo il modello relazionale dei dati
-
 - Relazione (Relationship) che rappresenta una classe di fatti in un modello Entity Relationship; traduzione alternativa **associazione**
-
 - Relazione
-
   - sottoinsiemi di prodotti cartesiani
     - n-uple (basate su posizione)
     - tuple (non importa la posizione ma il nome (attributo) nella tebella)
       - un diverso concetto di relazione che quello matematico
-
 - Tabelle
-
   - ordinamento tra righe irrilevante
   - ordinamento tra colonne irrilevante
   - le righe sono diverse fra loro
@@ -61,17 +55,11 @@ Costruttore: Relazione
     - indipendente dalle strutture fisiche, che possono cambiare dinamicamente
     - Si rappresenta solo cio' che e' rilevante dal punto di vista dell'applicazione
     - Portabilita' tra un DBMS ad un altro
-
 - Schema di base di dati:
-
   - insieme di schemi di relazione
-
 - (Istanza di) Relazione
-
   - su uno schema di relazione R(X) dave X sono attributi: insieme r di tuple su X
-
 - (Istanza di) Base di dati
-
   - su uno schema di base di dati: insieme di relazioni $`\{r_1, ... , r_h\}`$
 
 <u>Non sono permesse tabelle nidificate</u> **prima forma normale**
@@ -96,9 +84,7 @@ Costruttore: Relazione
     - vincoli di tupla
       - booleani di atomi che confrontano valori di attributo o espressioni aritmetiche su di essi
   - interrelazionali
-
 1.  Vincoli di chiave
-
     - Superchiave
       - insieme di attributi usato per identificare univocamente le tuple di una relazione
       - un insieme di attributi $`K`$ é detto superchiave di una relazione $`r`$ se $`r`$ non puó contenere due tuple che hanno valori uguali su $`K`$
@@ -112,18 +98,14 @@ Costruttore: Relazione
       - é rappresentata mediante sottolineatura
       - usata per stabilire corrispondanza tra relazioni
     - Le chiavi sono utilizzate per fare riferimento a tuple in altre relazioni
-
 2.  Vincoli di integritá referenziale
-
     Vincoli foreign key
 
     - tra relazioni diverse non possiamo utilizzare vincoli chiave con valori qualsiasi
       - questi vincoli hanno un verso
       - devono indicare valori gia' inseriti nella relazione referenziata
       - fatto riferimento a chiavi, non per forza primarie
-
     1.  Azioni compensative
-
         - Standard
           - rifiuto dell'operazione
         - Eliminazione in cascata
@@ -323,21 +305,15 @@ Standard `SQL-92`, il piú diffuso La maggior parte dei DBMS si basa sull'archit
 Il linguaggio é <u>dichiarativo</u> per la maggior parte
 
 - l'utente definisce cosa vuole non come ottenerlo, si ignora idealmente l'aspetto prestazionale e di efficienza
-
 - `unique`
-
   - se piú `null` non infrangeranno il vincolo
-
 - `primary key`
-
   - possibile una tabella senza ma sconsigliabile
   - sottointeso
     - `not null`
     - `unique`
   - possibile sia composta da piú attributi
-
 - `foreign key` … `refences`
-
   - chiave esterna
 
 Normalmente la violazione di un viscolo non vengono accettate In caso di violazione di integritá referenziale si possono specificare reazioni diverse a seconda se la violazione sia interna o esterna
@@ -460,9 +436,7 @@ clausola `having`
 `query nidificate` query all'interno di altre query
 
 - si risolvono problemi intermedi passando il risultato al problema esterno
-
 - `semplici` stratificate
-
   - `where`
     - se la query restituisce una sola riga allora si utilizzano i classici operatori
     - altrimenti usiamo i quantificatori
@@ -471,11 +445,8 @@ clausola `having`
       - `all`
         - il ris deve essere soddisfatto da tutte le righe
         - in caso di NULL all non seleziona mai nessuna riga
-
 - `in` e `not in`
-
 - `correlate` incrociate
-
   - dall'interno si fanno riferimento a tabelle esterne
   - le query vengono valutate con passaggio di binding tra un conteste e l'altro
   - `exists` e `not exists`
@@ -514,11 +485,9 @@ Il processo di riproduzione di uno schema concettuale a partire da una schema lo
 ### Costrutti
 
 1.  Entitá
-
     Rappresentano aspetti del mondo reale con <u>esistenza "autonoma"</u> ai fini della'applicazione Sono rappresentate da rettangoli, hanno nomi propri e unici. L'occorrenza di un'entitá é un oggetto della classe che l'entita rappresenta. Le entitá possono essere pensate come l'`insieme` delle loro occorrenze Un'occorrenza di entitá non si riduce ai valori che la identificano: questo a differenza del modello relazionale
 
 2.  Attributi
-
     <u>Proprietá delle entitá o associazioni</u> che sono di interesse ai fini dell'applicazione
 
     - dominio, insieme dei valori ammissibili per l'attributo
@@ -530,15 +499,12 @@ Il processo di riproduzione di uno schema concettuale a partire da una schema lo
       - attributi multivalore
         - costrutto non ammesso dal modello relazionale
           - ogni tupla ha un singolo valore
-
 3.  Associazione
-
     Rappresentano legami logici tra due e piú entitá Sono rappresentate da rombi. Sono linee semplici che collegano le associazioni, non c'é un verso di lettura. Le Associazioni possono essere ricorsive.
 
     - Simmetriche
     - Non simmetriche
       - occorre specificare i versi che specificano la associazione
-
     Le occorrenze di un'associazione fra due entitá sono le coppie delle occorrenze delle entitá. Un'associazione puó essere pensata come l'`insieme` delle sue occorrenze (essendo un'insieme <u>non possono esserci duplicati</u>)
 
     - **cardinalitá** , numero di occorrenze dell'associazione a cui l'occorrenza di entitá puó partecipare
@@ -551,30 +517,24 @@ Il processo di riproduzione di uno schema concettuale a partire da una schema lo
         - molti a molti
         - uno a molti
         - uno a uno
-
 4.  Identificatori
-
     Simile al concetto di chiave primaria ma **diverso**
 
     - che é un concetto del modello relazionale
       - **differenza**: possiamo avere piú identificatori allo stesso tempo, nel modello relazionale abbiamo una sola chiave primaria
-
     Identificano univocamente le occorrenze di una entitá, rappresentati da pallini pieni Distinti in
 
     - identificatore interno
       - attributi dell'entitá
     - identificatore esterno
       - attributi dell'entitá e entitá esterne attraverso associazioni
-
     Ogni entitá deve avere almeno un identificatore, questo per facilitare il passaggio al modello relazionale.
 
     - NB
       - ogni attributo che fa parte di un identificatore deve avere cardinalitá (1,1)
       - in id. esterna é possibile solo attraverso associazioni a cui l'entitá da identificare partecipa con cardinalitá (1,1)
       - una id. esterna puó convolgere entitá a loro volta identificate esternamente purché non vengano generati cicli
-
 5.  Generalizzazioni
-
     Mette in relazione una o piú entitá
 
     - $`E`$ generalizzazione dei figli
@@ -613,9 +573,7 @@ Analisi dei requisiti, spesso ambigui. Vanno rimosse le ambiguitá
     - normative
     - regole interne
   - realizzazioni preesistenti
-
 1.  Pattern di progettazione
-
     un ricettario di casi comuni di progettazione
 
     - `Reificazione di attributo di entitá`
@@ -633,9 +591,7 @@ Analisi dei requisiti, spesso ambigui. Vanno rimosse le ambiguitá
     - `Evoluzione di concetto`
     - `Reificazione di associazione ternaria`
       - permette di capire la correttezza dell'associazione ternaria
-
 2.  Strategie di progettazione
-
     - `top-down`
       - serie di raffinamenti successivi
       - aumenta il dettagli passo passo
@@ -654,15 +610,12 @@ Analisi dei requisiti, spesso ambigui. Vanno rimosse le ambiguitá
       - ci espandiamo a partire da questi ultimi
       - pro: non richiede passi di integrazione
       - contro: ogni passo vanno riesaminati gli elementi presenti e non presenti
-
     <u>Nella pratica si utilizza una strategia ibrida</u>
 
     - vanno suddivisi i requisiti in componenti separati
     - si forma uno schema scheletro
       - fa da base per successivi raffinamenti
-
 3.  Schema di Analisi
-
     - Inizialmente
       - vanno specificate parole abigue, concetti simili tra loro
         - individuare omonimie (stessa parola ma diverso concetto) e sinonimie (stessa parola e stesso concetto)
@@ -693,9 +646,7 @@ Analisi dei requisiti, spesso ambigui. Vanno rimosse le ambiguitá
         - **associazione** (se non possono ripetersi, altrimenti dovrá essere un'altra entitá)
       - se é un caso particolare di un altro
         - **generalizzazione**
-
 4.  Qualitá di uno schema ER
-
     - Correttezza
     - Completezza
     - Leggibilitá
@@ -720,14 +671,10 @@ OUT:
 - schema logico
 - vincoli di integritá
 - documentazione associata
-
 1.  Fasi
-
     1.  Ristrutturazione dello schema concettuale (EER)
-
         - vanno rimosse inefficienze
         - se serve si cambiano le business rules
-
         Si crea uno schema che non é piú uno schema concettuale in quanto si introducono considerazioni applicative Non si possono valutare prestazioni senza parametri fisici
 
         - facciamo solo una stima con indicatori di **massima**
@@ -749,7 +696,6 @@ OUT:
           - operazione \| descrizione \| tipo \| frequenza
             - particolare attenzione per le op. di tipo interattivo
           - di solito sufficiente considerare solo le operazioni principali per la regola 80-20
-
         Passi:
 
         1.  Analisi delle `ridondanze` a. ridondonza: informazione significativa ma derivabile da altre
@@ -757,16 +703,13 @@ OUT:
               - **passo piú difficile**
               - derivabile da attributi della stessa entitá o associazione
               - derivabile da attributi di altre entitá o associazioni
-
             b\. <u>vantaggi</u>
             - in caso di op. di interrogazione/lettura dei dati
               - semplificate
               - piú efficienti
-
             c\. <u>svantaggi</u>
             - op. di inserimento e modifica dei dati
               - meno efficienti
-
             d\. maggiore occupazione di spazio e. Analisi **costi/benefici** f. per ogni ridondanza
             - per ogni operazione significativa su cui la presenza o assenza della ridondanza puó avere effetto
               - schema delle operazioni nei due scenari
@@ -777,12 +720,10 @@ OUT:
               - totale: vincolo che gli attributi non possono essere contemporaneamente valorizzati
             - conveniente quando le operazioni non fanno troppa distinzione tra le istanze della varie entitá (le transazioni accederebbero infatti a un'unica tabella relazionale)
             - spreca spazio producendo una base di dati con valori nulli
-
             b\. accorpamento del genitore della generalizzazione nei figli
             - possibile quando la generalizzazione é a partecipazione totale
               - conveniente quando le operazioni effettuano pochi accessi alle istanze di entrambe le entitá
               - ottimizza maggiormente lo spazio rispetto alle altre alternative perché usa meno attributi e associazioni
-
             c\. sostituzione della generalizzazione con associazioni
             - se esclusiva occorre aggiungere il vincolo che ogni occorrenza del genitore non puó partecipare contemporaneamente alle due relazioni
             - se totale occorre aggiungere il vincolo che ogni occorrenza del genitore deve partecipare ad una delle relazioni
@@ -802,13 +743,10 @@ OUT:
             - si reificano in entitá e si collegano con relazioni
         6.  Eliminazione degli `attributi composti`
             - vengono ereditati direttamente dall'entitá
-
     2.  traduzione verso il modello logico e ottimizzazione
-
         - algoritmo traduce lo schema
           - Le `entitá` diventano relazioni con gli stessa attributi delle entitá
           - Le `associazioni` diventano relazioni con attributi delle associazioni + gli identificatori delle entitá coinvolte
-
         **Associazioni:** (le cardinalitá minime non sono tenute in conto, sarebbero necessari costrutti SQL complessi e poco efficienti)
 
         - molti a molti
@@ -874,34 +812,28 @@ Ci sono attributi che caratterizzano concetti, inoltre alcuni attributi hanno un
 Le dipendenze funzionali si modellano conoscendo il *dominio* che si rappresenta
 
 1.  Problema dell'equivalenza
-
     Come stabilire che due insiemi di dipendenze funzionali sono equivalenti?
 
     - dimostrazione della biimplicazione
     - utilizzare la **Teoria di Armstrong**
     - calcolarne la chiusura
-
     Due `def` di equivalenza
 
     1.  $`F \equiv G \iff F\vdash G \land G \vdash F`$
         - deducibile
     2.  $`F \equiv G \iff F^+ = G^+`$
-
     La chiusura di un insieme di dipendenze funzionali e la chiusura di un insieme di attributi sono strettamente legati: $`X \rightarrow Y \in F^+ \iff Y \subseteq X_X^+`$ allora controllo che ogni $`X \rightarrow Y`$ di $`F`$ é deducibile in $`G`$: $`Y \subseteq X_G^+`$ e viceversa che ogni $`X \rightarrow Y`$ di $`G`$ é deducibile in $`F`$: $`Y \subseteq X_F^+`$
 
     1.  $`F \equiv G \iff \forall X \rightarrow Y \in F(Y \subseteq X_G^+) \land \forall X \rightarrow Y \in G(Y \subseteq X_F^+)`$
-
     <!-- -->
 
     1.  Teoria di Armstrong
-
         **Assiomi** della Teoria di Armstrong
 
         - assiomi non sono dimostrabili, *sarebbero meglio definibili come regole*
         - Riflessivitá
         - Unione
         - Transitivitá
-
         Si dimostra che la Teoria é `corretta` e `completa`
 
         **Regole** aggiuntive
@@ -911,21 +843,16 @@ Le dipendenze funzionali si modellano conoscendo il *dominio* che si rappresenta
           - si applica solo al conseguente
         - Pseudo-transitivitá
         - Prodotto
-
     2.  Chiusura di un insieme F
-
         Calcolo di $`F^*`$ applicando Armstrong fino a che non é piú possibile applicarne le regole $`F \equiv G \iff F^+ = G^+`$ ma la complessitá di un algoritmo che verifica l'equivalenza é almeno **esponenziale** in $`|F|`$
 
     3.  Chiusura di un insieme di Attributi
-
         $`X_F^+ = \{A \mid X \rightarrow A \in F^+\}`$ Ottenibile con un algoritmo, possiamo ciclare sul insieme $`F`$ aggiungendo gli attributi alla chiusura passo passo e ripetendo fino al termine del algoritmo É dimostrabile che l'algoritmo é `corretto` e `completo` La complessitá é **polinomiale**
 
 2.  Dipendenze Funzionali e Superchiavi
-
     Nuova definizione in luce della definizione di Dip. F. Dato uno schema di relazione $`R(A)`$ con Dip. F. $`F`$ un insieme di attributi $`K \subseteq A`$ é superchiave se e solo se $`A=K_F^+`$
 
     - cioé se in $`F^+`$ si trova il vincolo di dipendenza funzionale $`K \rightarrow A`$
-
     Una chiave (candidata) é una superchiave minimale
 
 ### Decomposizioni
@@ -933,32 +860,25 @@ Le dipendenze funzionali si modellano conoscendo il *dominio* che si rappresenta
 Normalizzazione consistente nella decomposizione di uno schema di relazione in modo da ottenere piú schemi che rispettino una forma normale e minimizzino le anomalie
 
 - esistono diverse forme normali
-
 1.  Senza perdita
-
     Da una relazione originale ottengo la decomposizione proiettandola rispetto agli attributi scelti $`r_1(A_1) = \pi_A_1(r(A))`$ $`r_2(A_2) = \pi_A_{2}(r(A))`$ $`A_1 \cup A_2 = A`$ Posso ricomporre le informazioni con un natural join, includendo peró eventuali `spurie`
 
     - pur avendo tuple in piú ho una `perdita di informazioni` in quanto non si sa quale sia la combinazione originale
-
     <u>Una decomposizione é senza perdita se non ha tuple spurie nel self join</u>
 
     `Teorema` La decomposizione di $`R`$ é senza perdita di informazione per ogni istanza che soddisfa le dipendenze funzionali $`F`$ se e solo se: $`A_1 \cap A_2`$ é superchiave di $`A_1`$ oppure $`A_1 \cap A_2`$ é superchiave di $`A_2`$
 
     - questa intersezione di attributi é quella usata dal natural join per ricomporre $`R`$
-
     Quindi con $`K`$ superchiave di $`R`$ se e solo se $`K \rightarrow A \in F^+`$ $`A_1 \subseteq (A_1 \cap A_2)_F^+ \lor A_2 \subseteq (A_1 \cap A_2)_F^+`$
 
 2.  Che conservano le dipendenze
-
     Definendo le restrizioni di $`F`$ di $`R`$ in
 
     - $`F_1`$ restrizione di $`F`$ in $`R_1`$
     - $`F_2`$ restrizione di $`F`$ in $`R_2`$
-
     `def` restrizione
 
     - $`F_1 = \{X\rightarrow Y \mid (X \rightarrow Y \in F^+) \land (X,Y\subseteq A_i)\}`$
-
     Ma alcune decomposizioni non conservano le dipendenze
 
     - andrebbero aggiunte le d.f. perse come vincoli globali
@@ -969,12 +889,10 @@ Normalizzazione consistente nella decomposizione di uno schema di relazione in m
 Sono ricette di buona progettazione volte alla minimizzazione delle ridondanze e anomalie A una forma puó essere associato un algoritmo di normalizzazione Esistono forme diverse, diversi compromessi tra proprietá delle decomposizione, compattezza e minimizzazione delle anomalie
 
 1.  BCNF
-
     Per ogni $`X \rightarrow Y \in F`$ si verifica almeno una delle condizioni:
 
     1.  $`Y \subseteq X`$ ovvero $`X \rightarrow Y`$ é una dipendenza riflessiva
     2.  $`X`$ é superchiave di $`R`$
-
     La BCNF, escludendo le d.f. banali (riflessive), ammette solo d.f. che dipendono da superchiavi
 
     - evita `ridondanze`
@@ -988,15 +906,12 @@ Sono ricette di buona progettazione volte alla minimizzazione delle ridondanze e
         - in BCNF non ci sono ridondanze
       - inserimento/cancellazione
         - ogni concetto viene rappresentato in una relazione a sé e quindi un inserimento non darebbe problemi di NULL
-
     Ma esistono degli schemi che víolano la BCNF e per cui non esiste alcuna decomposizione in BCNF che conservi le dipendenze
 
 2.  3NF
-
     - meno restrittiva
     - non elimina tutte le anomalie
     - é sempre possibile raggiungerla conservando le dipendenze funzionali
-
     `def` **Attributo Primo** Data una relazione $`R(A)`$ gli attributi $`Y \subseteq A`$ sono detti **attributi primi** se e solo se $`Y \subseteq K`$, dove $`K`$ é chiave di $`R(A)`$
 
     Per ogni $`X \rightarrow Y \in F`$ si verifica almeno una delle seguenti proprietá:
@@ -1004,7 +919,6 @@ Sono ricette di buona progettazione volte alla minimizzazione delle ridondanze e
     1.  $`X \rightarrow Y`$ é riflessiva
     2.  $`X`$ é superchiave
     3.  $`Y`$ sono attributi primi
-
     Se una relazione é in BCNF allora é anche in 3NF, <u>l'inverso non é necessariamente vero</u>. La 3NF puó avere <u>anomalie</u> di inserimento e cancellazione
 
 ### Insieme di copertura minimale
@@ -1029,15 +943,11 @@ Un insieme $`F^'`$ di d.f. é un insieme di copertura minimale rispetto a $`F`$ 
 La complessitá é **polinomiale**
 
 - contiene cicli su F e cicli su X con all'interno il calcolo della chiusura di attributi che é polinomiale
-
 1.  Attributo estraneo
-
     Un attributo in uno d.f. che é possibile rimuovere continuando ad avere un insieme di d.f. equivalente
 
     - possibile calcolarlo con la chiusura degli attributi
-
 2.  Dipendenze ridondanti
-
     Possibile rimuoverla continuando ad avere un insieme di d.f. equivalente
 
     - verificabile usando la chiusura di un insieme di attributi
@@ -1113,7 +1023,6 @@ utente - Schema Logico - Schema Interno - Base Dati
 Indipendenza tra livello Logico e Fisico
 
 1.  ANSI-SPARC
-
     Architettura a tre livelli utente - schema esterno - schema logico - schema interno - BD
 
     - Schema Esterno

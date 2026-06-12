@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-12-07 Wed 02:14\\]"
+date: 2022-12-07 02:14
 id: 126edf30-7ebf-4d54-9607-8dea48e478ce
 title: Beware The Man Of One Study
 ---

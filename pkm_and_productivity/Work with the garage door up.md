@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-29 Wed 02:01\\]"
+date: 2021-12-29 02:01
 id: dd94b067-fcd4-4ff9-8c0d-11d410b5e605
 title: Work with the garage door up
 ---

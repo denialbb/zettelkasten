@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-03-03 Thu 00:08\\]"
+date: 2022-03-03 00:08
 documentclass: arsclassica
 id: b548a50a-dd36-41b8-8eb4-8fdb0f4cd078
 roam_aliases: SAS
@@ -249,36 +249,29 @@ La disciplina dei requisiti é il processo per scoprire cosa deve essere costrui
 - costi stimati di implementazione
 - priorità
 - rischio stimato per l'implementazione
-
 1.  Casi d'uso
-
     Catturano (in `UP` e `Agile`) i requisiti funzionali Sono descrizioni testuali che indicano l'uso che l'utente farà del sistema
 
     - attori; qualcuno o qualcosa dotato di comportamento
     - scenario (istanza di caso d'uso); sequenza specifica di azioni e interazioni tra sistema e attori
     - caso d'uso; collezione di scenari correlati (di successo/fallimento) che descrivono un attore che usa il sistema per raggiungere un obiettivo specifico
-
     `UP` é *use-case driven*, questi sono il modo in cui si definiscono i requisiti di sistema
 
     - i casi d'uso definiscono analisi e progettazione
     - i casi sono utilizzati per pianificare le iterazioni
     - i casi definiscono i test
-
     Il **modello dei casi d'uso** include un grafico `UML`
 
     - é un modello delle funzionalità del sistema
-
     I casi d'uso non sono orientati agli oggetti, ma sono utili a rappresentare i requisiti come input all' `OOA/D`
 
     - l'enfasi é sull'utente, sono il principale metodo di inclusione dell'attore nel processo di sviluppo
     - questi non sono algoritmi, sono semplici descrizioni dell'interazione, non la specifica di implementazione
       - il *come* é obiettivo della progettazione `OOD`
       - i casi descrivono gli eventi o le interazioni tra attori e sistema, si tratta il *cosa* e nulla riguardo al *come*
-
     I casi devono essere *guidelines*, esprimerle in uno **stile essenziale**. A livello delle intenzioni e delle responsabilità, non delle azioni concrete.
 
     1.  Attori
-
         Sono ruoli svolti da persone, organizzazioni, software, macchine
 
         - primario
@@ -287,22 +280,17 @@ La disciplina dei requisiti é il processo per scoprire cosa deve essere costrui
           - chiarisce interfacce esterne e protocolli
         - fuori scena
           - ha interesse nel comportamento del caso d'uso
-
     2.  Formati
-
         - breve
           - un solo paragrafo informale che descrive solitamente lo scenario principale
         - informale
           - più paragrafi in modo informale che descrivono vari scenari
         - dettagliato
           - include precondizioni e garanzie di successo
-
 2.  Requisiti non funzionali
-
     Possono essere inclusi nei casi d'uso se relazionati con il requisito funzionale descritto dal caso. Altrimenti vengono descritti nelle specifiche supplementari.
 
 3.  SSD
-
     Diagrammi di Sequenza di Sistema
 
     - illustra eventi di input e output relativi ai sistemi in discussione
@@ -310,17 +298,13 @@ La disciplina dei requisiti é il processo per scoprire cosa deve essere costrui
     - sviluppo *blackbox*, non si pensa al come ma al cosa
       - l'intenzione dell'utente
     - input dei contratti
-
 4.  Contratti
-
     - usano **pre** e **post** condizioni per definire nel dettaglio i cambiamenti agli oggetti <u>concettuali</u> nel <u>modello di dominio</u>
-
     Precondizioni: *ipotesi significative sullo stato del sistema o degli oggetti del modello di dominio prima dell'esecuzione dell'operazione di sistema* Postcondizioni: *descrive i cambiamenti di stato degli oggetti del dominio dopo il completamento dell'operazione*
 
     - oggetti creati
     - collegamenti formati/rotti
     - attributi modificati
-
     I contratti sono input per il processo di progettazione software.
 
 ### Modello di Dominio
@@ -358,13 +342,10 @@ I modelli per gli oggetti possono essere
 - dinamici, rappresentano il comportamento del sistema (*diagrammi di sequenza*)
   - collaborazione tra oggetti per realizzare una caso d'uso
   - i metodo delle classi software
-
 1.  Diagrammi dei Package
-
     Vista *statica*
 
 2.  Diagrammi di Interazione
-
     Vista *dinamica*
 
     > Un interazione é una specifica di come alcuni oggetti si scambiano messaggi nel tempo per eseguire un compito nell'ambito di un certo contesto.
@@ -372,11 +353,9 @@ I modelli per gli oggetti possono essere
     > Un compito é rappresentato da un messaggio che dà inizio all'interazione
 
     - questo messaggio é detto *messaggio trovato*
-
     Per questo scopo vengono usati i *diagrammi di sequenza* o i *diagrammi di comunicazione* In particolare questi sono chiamati `Design Sequence Diagram - DSD`.
 
 3.  Diagrammi delle Classi
-
     `Design Class Diagram - DCD` Vista *statica*
 
     > Il diagramma delle classi di progetto é un diagramma delle classi utilizzato da un punto di vista software o di progetto.
@@ -384,13 +363,10 @@ I modelli per gli oggetti possono essere
     A differenza del `Modello di Dominio` in questo contesto la visibilità ha un significato:
 
     - le associazioni qui hanno un verso
-
 4.  Progettazione a oggetti
-
     - *Quali sono le responsabilità dell'oggetto?*
     - *Con chi collabora l'oggetto?*
     - *Quali design pattern devono essere applicati?*
-
     Si parte dal `Modello di Dominio`, ma l'implementazione impone dei vicoli ulteriori dovuti al `Object Oriented`
 
     - vengono letti e implementati i contratti, con le loro pre e post-condizioni
@@ -457,7 +433,7 @@ In `UML` la responsabilità é un *contratto* o un *obbligo* di un classificator
 
 `General Responsibility Assignment Software Patterns`
 
-> Capire le responsabilità é fondamentale per una buona programmazione a oggetti. $`\qquad\qquad\qquad`$ ~ [[Martin Fowler]] [[$cit]]
+> Capire le responsabilità é fondamentale per una buona programmazione a oggetti. $`\qquad\qquad\qquad`$ ~ [[Martin Fowler]] #cit
 
 [[GRASP]] tratta i pattern di base per l'assegnazione di responsabilità.
 

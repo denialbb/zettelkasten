@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-03-09 Wed 17:09\\]"
+date: 2022-03-09 17:09
 id: f5fa7caa-aa5f-403f-b340-57b7d07d673d
 title: Cifrario di Vernam
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-03-29 Tue 18:03\\]"
+date: 2022-03-29 18:03
 id: 6e504ff7-9a50-4a47-901d-4c524c229bc6
 title: Quantum Computing
 ---

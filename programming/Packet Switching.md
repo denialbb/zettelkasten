@@ -55,27 +55,21 @@ In sostanza:
     - reti di accesso residenziale/istituzionale/mobile
 - routers in profonditá nella rete / <u>core network</u>
   - in prevalenza wired
-
 1.  Accesso
-
     1.  Digital Subscriber Line
-
         `DSL` Utilizza linee telefoniche esistenti
 
         - splitter
           - dati vanno su Internet
           - voce va sulla rete telefonica
-
         La linea é asincrona:
 
         - Up \< 1Mbps
         - Down \< 10Mbps
           - poiché questa é la piú utilizzata generalmente
-
         Collegato direttamente alla Centrale
 
     2.  Cable Network
-
         Via cavo, utilizzata dagli anglosassoni
 
         - cavo condiviso da vari utenti
@@ -87,20 +81,16 @@ In sostanza:
         - Hybrid fiber coax
           - Up \< 2Mbps
           - Down \< 30Mbps
-
         A differenza della DSL non ha un collegamento diretto al centtrale
 
     3.  Enterprise Access Network
-
         Ethernet, sono dei Router che fanno parte della rete internet del ISP
 
         - institutional router
           - Ethernet switch
             - connessioni singole
         - Velocitá: 10Mbps, 100Mbps, 1Gbps, 10Gbps
-
     4.  Wireless Access Network
-
         - LAN:
           - 100ft
           - 802.11 b/g: 11Mbps, 54Mbps
@@ -108,18 +98,14 @@ In sostanza:
           - telco operator, 10km
           - 1 - 10 Mbps
             - 3G, 4G, LTE
-
 2.  Host
-
     Invio di pacchetti di dati tra gli Host pacchetti di bit di lunghezza $`L`$, trasmissione a velocitá $`R`$
 
     - packets
     - link bandwidth
-
     Packet Transmission Delay = $`\frac{L}{R}`$
 
 3.  Mezzi Trasmissivi
-
     - guiditati
       - il segnale segue un percorso ben preciso
       - cavi
@@ -148,25 +134,19 @@ In sostanza:
         - satellitare
           - delay per la distanza con il satellite
           - da Kbps a Mbps
-
 4.  Nucleo della Rete
-
     Packet Switching preferito perché permette a piú utenti di usare la rete contemporaneamente
 
     - questo in quanto é bassa la probabilitá che tutti gli utenti siano attivi contemporaneamente
-
 5.  Packet Switching
-
     Router Interconnessi che comunicano usando il packet switching
 
     - ogni pacchetto ha lo stesso formato e dimensione, semplici da <u>smistare</u> verso la destinazione
     - ogni pacchetto usa l'intera capacitá del collegamento per essere inviato
-
     <u>Store-And-Forward</u>
 
     - il router deve ricevere almeno parte del pacchetto, supponiamo tutto
     - solo allora puó decidere su quale collegamento in uscita trasmetterlo
-
     <u>Queuieng and Loss</u>
 
     - in uscita solo un pacchetto puó passare per volta
@@ -179,22 +159,17 @@ In sostanza:
         - Local Forwarding Table
       - forwarding - inoltro
         - copia sull'uscita scelta il pacchetto
-
     Piú semplice del circuit switching, i router non devono attivarsi per creare la connessione, ma condividendo le risorse possono crearsi congestioni
 
     - puó essere garantita banda ad alcune app audio/video per ottenere del comportamento simile al circuit switching
-
     1.  Circuit Switching
-
         Creare un collegamento diretto tra mittente e destinatario C'é una ridondanza di collegamenti tra i router
 
         - a seguito di una richiesta i router aprono e chiudono i circuiti per creare una linea diretta di circuiti
         - con questo schema non ci sono risorse condivise a differenza del Packet Switching
           - i pacchetti andranno alla massima velocitá possile
           - un circuito non utilizzato puó essere considerato uno spreco
-
         1.  FDM
-
         2.  TDM
 
 ### Protocolli
@@ -229,7 +204,6 @@ $`d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}`$
 Se il buffer é pieno il packetto é perso (*packet drop*) $`\frac{L\cdot a}{R}`$ = traffic intensity $`a`$ é la quantitá media di pacchetti in entrata quando questa frazione supera 1 i bit in entrata superano la capacitá trasmissiva, i buffer si vanno a riempire
 
 1.  Packet Loss
-
     Il buffer (coda) é piena, un pacchetto é perso, viene comunicato al router precedente/alla sorgente/viene ignorato
 
 ### Throughput
@@ -311,9 +285,7 @@ Commercializzazione e World Wide Web
 Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto veloce
 
 - il software non si occupa dei dettagli implementativi della comunicazione web
-
 1.  Concetti delle Implementazioni
-
     Esistono strutture diverse per le applicazioni
 
     - client-server
@@ -331,12 +303,10 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
       - i peer possono comunicare direttamente
       - i peer richiedono servizio ad altri peer che li fornincono
       - auto-scalabile
-
     I processi inviano/ricevono messaggi attraverso i `socket`
 
     - analogo ad una porta
     - il percoso e il trasporto é lasciato ai livelli sottostanti
-
     Per ricevere i messaggi i processi devono avere un <u>identificatore</u>
 
     - l'host ha un IP unico, ma non basta
@@ -344,45 +314,35 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
     - IP-host + port number
       - HTTP server: 80
       - mail servel: 25
-
 2.  Protocolli di Livello Applicativo
-
     Definiscono
 
     - tipo dei messaggi
     - sintassi dei messaggi
     - semantica dei messaggi
     - regole per quando si inviano messaggi e si risponde
-
     Due tipologia
 
     - open protocols
       - RFC liberamente consultabili
       - permettono interoperabilitá
     - proprietary protocols
-
     1.  Integritá dati
-
         Alcune applicazioni non necessitano dati al 100% corretti Altre necessitano della completa integritá dei dati
 
     2.  Tempi di comunicazione
-
         Alcune applicazioni necessitano una certa temporizzazione, delay basso
 
     3.  Throughput
-
         Alcune applicazioni necessitano un minimo throughput da mantenere per funzionare
 
         - multimedia
         - a differenza di file-transfer
           - elastic app
-
     4.  Sicurezza
-
         Criptazione dei dati, integritá dei dati
 
     5.  TCP
-
         - reliable transport
         - flow control
         - congestion control
@@ -391,22 +351,17 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
           - security
           - minimum throughput
         - connection-oriented
-
     6.  UDP
-
         - unreliable data transfer
         - no
           - reliability
           - flow control
           - timing
           - security
-
         Non fornisce servizi particolari, é utilizzato per esempio da applicazioni multimediali
 
         - permette di inviare dati alla stesso velocitá a cui il mittente li puó inviare
-
     7.  HTTP
-
         `HyperText Transfer Protocol`
 
         - pagine = insieme di oggetti
@@ -414,39 +369,28 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
           - identificati URL
         - client: browser
         - server: web server
-
         Utilizzando TCP
 
         - lato client inizializza connessione creando socket su client e connettendosi alla porta 80 sul server
-
         HTTP é *stateless*
 
         - non mantiene informazioni riguardo le passate connessioni
-
         - questo perché un protocollo con stato é molto complesso
-
         - *non-persistent*
-
           - al massimo 1 oggetto viene inviato su TCP
             - poi si chiude
           - si deve aprire una nuova connessione per ogni UL/DL
           - `RTT` tempo di andata e ritorno per dati dal client al server
             - puó essere calcolato dal client con questa definizione
-
         - *persistent*
-
           - viene mantenuta la stessa connessione TCP per un periodo
           - puó velocizzare leggermente la comunicazione
           - 1.0
-
         - Metodi
-
           - POST
             - web page include input
           - URL
-
         - differenze versioni
-
           - 1.0
             - GET
             - POST
@@ -455,17 +399,13 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
             - precedenti
             - PUT
             - DELETE
-
         1.  Status Codes
-
             - 200 OK
             - 301 Moved Permanently
             - 400 Bad Request
             - 404 Not Found
             - 505 HTTP Version Not Supported
-
         2.  Cookies
-
             Dato che il protocollo é *stateless* i cookies sono utilizzati per memorizzare alcune informazioni
 
             - 4 componti
@@ -473,16 +413,13 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
               - header HTTP request
               - cookies mantenuti sulla memoria del browser
               - DB backend sito Web
-
             Utilizzati per
 
             - mantenere autorizzazioni
             - carrelli della spesa
             - pubblicitá targettizzata
             - sessione Web utente (email)
-
         3.  Web Caches
-
             Per fornire all'utente ció che richiede senza interagire direttamente con il server d'origine
 
             - una richiesta giá fornita puó essere risolta da un *proxy server cache*
@@ -490,16 +427,12 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
               - riduce il carico sul link di accesso
                 - secondo un suo *hit rate*
             - lo stesso browser inserisce gli oggetti ricevuti in cache
-
         4.  Conditional GET
-
             Per controllare che gli oggetti ricevuti siano aggiornati
 
             - le cache fanno C.GET al server
               - la risposta non contiene nessun oggetto se la versione in cache sia aggiornata
-
     8.  FTP
-
         `File Transfer Protocol`
 
         - TCP, per trasferimento affidabile
@@ -515,9 +448,7 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
         - il server FTP mantiene lo stato
           - directory corrente
           - autenticazione utente
-
         1.  Comandi e Codici
-
             Comandi
 
             - USER username
@@ -525,16 +456,13 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
             - RETR filename
             - STOR filename
             - CD directory
-
             Codici di ritorno
 
             - 331 Username OK, password required
             - 125 data connection already open
             - 425 Can't open data connection
             - 452 Error writing file
-
     9.  SMTP
-
         `Simple Mail Transfer Protocol` 3 componenti
 
         - user agents
@@ -544,7 +472,6 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
           - i messaggi in uscita e in entrata vengono memorizzati qui
         - SMTP
           - utilizzato nella comunicazione diretta tra i mail server, o dai user agents ai server
-
         Specifiche:
 
         - porta 25
@@ -562,26 +489,20 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
           - invia dati al server, al contrario di `HTTP`
         - oggetti multipli fanno <u>parte dello stesso messaggio</u>
           - mentre `HTTP` incapsula ogni oggetto all'interno di una risposta ognuno
-
     10. POP3
-
         - authorization phase
           - user, pass
           - OK, ERR
         - transaction phase
           - list, retr, dele, quit
-
     11. DNS
-
         `Domain Name System` *protocollo di Livello Applicativo*
 
         - Internet hosts router
           - IP address 32 bit
           - nome simbolico leggibile
         - `DNS` si occupa di mappare IP a nome e viceversa
-
         1.  Specifiche
-
             - database <u>distribuito</u>
             - host e name server comunicano per risolvere i nomi in IP
             - é implementato come <u>Application-Layer</u>
@@ -589,7 +510,6 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
                 - se fosse centralizzato sarebbe l'unico punto di fallimento, database singolo e lontano, grande traffico, manutenzione complessa e costosa
             - <u>distribuisce il carico</u>
               - indirizza il client che fa la richiesta verso l'indirizzo IP meno carico di richieste tra quelli disponibili
-
             Il sistema é distribuito e gerarchico
 
             - com *DNS servers*
@@ -599,25 +519,18 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
               - pbs.org *DNS servers*
             - edu *DNS servers*
               - poly.edu *DNS servers*
-
         2.  Gerarchia
-
             1.  Root
-
                 I server DNS radici sono 13, in tutto il mondo
 
                 - interrogati solo se uno dei server sottostanti non riesce a risolvere il nome
-
             2.  TLD
-
                 `Top Level Domain` com, org, net, edu, jobs, uk, it, fr Educause e Network Solution gestiscono questi domini
 
             3.  Authorative DNS
-
                 `DNS` propri delle organizzazioni pubbliche e private
 
             4.  Local DNS
-
                 Non appartengono strettamente alla gerarchia
 
                 - ogni ISP ne ha uno
@@ -625,17 +538,13 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
                   - gestito localmente
                   - se non puó risolvere l'indirizzo agisce come proxy e risale la gerarchia
                     - la query puó essere *ricorsiva* o *itecativa*
-
         3.  Caching
-
             Una volta risolto un indirizzo il servel lo memorizza
 
             - timeout, per evitare associazioni obsolete - `TTL`
               - *time to leave*
             - tipicamente la cache é mantenuta nei DNS locali
-
         4.  Resource Records
-
             `RR` `(name, value, type, ttl)`
 
             - tipi
@@ -651,9 +560,7 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
               - `MX`
                 - name = nome
                 - value = mailserver
-
         5.  Messaggi
-
             - header
               - identification
               - flags
@@ -667,13 +574,9 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
               - RRs
             - authority
             - info
-
 3.  Architetture
-
     1.  Client-Server
-
     2.  P2P
-
         `Peer to Peer` Non esiste un server sempre attivo
 
         Utilizzato in
@@ -690,30 +593,24 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
               - ogni 30 secondi si selezionano peer random
         - VoIP
         - streaming
-
         Qualunque Peer é un pari, ognuno di essi puó condividere risorse
 
         1.  Skype
-
             Inerentemente `P2P` Server:
 
             - gestisce login
             - mette in contatto i peer
-
             Clients
 
             - mappati sui SuperNodi
               - username `->` IP
-
             Peer riflettori - *relays*
 
             - I `NAT` non permettono connessione diretta tra i clients
             - i supernodi fanno da *relay*
               - i supernodi tra loro comunicano
               - aprono una connessione tra i dispositivi
-
 4.  Programmazione Socket
-
     - Socket - operato dallo sviluppatore
       - porta tra processo e protocollo di trasporto end-to-end
     - TCP - operato dal `OS`
@@ -732,26 +629,20 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
   - **TCP**
 - non affidabile, consegna disordinata
   - **UDP**
-
 1.  Multiplexing
-
     - Multiplexing mittente
       - aggiunge <u>transport header</u>
     - Demultiplexing ricevente
       - riceve *IP datagramma*
       - con IP mittente e IP destinatario
       - con numero di porta mittente e destinatario
-
 2.  TCP
-
     - 4-tupla
       - source IP
       - source port number
       - dest IP
       - dest port number
-
     1.  Caratteristiche
-
         - *point-to-point*
         - *reliable*, in-order byte stream
         - *full duplex data*
@@ -762,9 +653,7 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
         - *connection-oriented*
           - handshaking
         - *flow controlled*
-
     2.  Segmento
-
         - campi da 32 bit
           - source port \# \| dest port \#
           - sequence \#
@@ -774,9 +663,7 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
         - campi a lunghezza variabile
           - options
           - application
-
     3.  Timeout
-
         - piú lungo del `RTT` - *Round Trip Time*
           - ma puó variare
         - corto
@@ -793,33 +680,24 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
               - <u>margine di sicurezza</u>
           - $`\text{TimeoutInterval} = RTT_{\text{est}} + 4\cdot \textsc{Dev}_{\textsc{rtt}}`$
         - timer impostato sul pacchetto piú vecchio di cui non si é ricevuto `ACK`
-
     4.  ACK
-
         - vari scenari per ridurre il numero di `ACK`
-
     5.  Fast Retransmit
-
         - 3 `ACK` duplicati indicano che probabilmente un segmento é andato perso
         - non aspettare il timer ma ritrasmetti immediatamente il segmento *unacked*
-
     6.  Connection Management
-
         - handshake
           - si decide di stabilere la connessione
           - si decidono i parametri di comunicazione
         - socket buffer, variabile
           - comunicato dal ricevente
-
         Listen → SYN sent → Established Listen → SYN received → Established
 
         1.  Congestion Control
-
             `TCP` é un protocollo *fair* rispetto alle connessioni e le loro capacitá trasmissive Troppe sorgenti che inviano dati ad una velocitá superiore a quella gestibile dalla rete
 
             - pacchetti perse per buffer overflow ai router
             - lunghi ritardi in coda ai buffer dei router
-
             Con conoscenza perfetta il mittente invierebbe solo quando il router ha spazio libero in buffer, questo ovviamente non puó avvenire. Anche se si sapesse prima che il pacchetto é perso per buffer pieno il mittente reinvia Le <u>ritrasmissioni</u> sono il prezzo da pagare per avere un buon throughput
 
             Due approcci:
@@ -851,11 +729,9 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
                   - mandate assieme alle celle dei dati
                   - contengono informazioni sulla congestione
                   - restituiti al mittente dal ricevente con i bit intatti
-
             Le app di multimedia non usano `TCP` per evitare il throttling dovuto al congestion control, tollerano il packet loss.
 
 3.  UDP
-
     `User Datagram Protocol`
 
     - bare bones
@@ -869,15 +745,12 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
       - streaming
       - DNS
       - SNMP
-
     Non avendo connessione iniziale é piú veloce, non ha limiti di congestion control, header piccoli.
 
     - gestione errori
       - UDP checksum
         - mittende e destinatario calcolano la checksum e la confrontano
-
 4.  RDT
-
     `Reliable Data Transfer`
 
     - 1.0
@@ -904,17 +777,13 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
       - implementiamo un'attesa ragionevole
         - dopo di che il mittente se non ha ancora ricevuto `ACK` ritrasmette
         - i ritardi inducono del lavoro in piú con delle sovrapposizioni di invio e risposta
-
     1.  Performance
-
         3.0 é corretto, le performance sono problematiche
 
         - il protocollo limita l'uso delle risorse fisiche disponibili
-
         Il protocollo é molto limitato dal $`\textsc{rtt}`$ in quanto si deve stare in attesa del `ACK` di risposta per poter procedere
 
 5.  Pipelining
-
     Per risolvere il problema di performance del `RDT` si continuano a trasmettere pacchetti anche durante l'attesa dell'`ACK` Ci sono due <u>forme generiche di pipelined protocols</u>:
 
     - `Go-Back-N`
@@ -937,12 +806,10 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
 *Comunicazione logica tra hosts*
 
 1.  Datagram
-
     *Internet* Non c'é setup di chiamata al livello di rete, i router non mantengono stati sulle connessioni.
 
     - non esiste il concetto di connessione a livello di rete
     - pacchetti inviati usando l'indirizzo di destinazione
-
     Caratteristiche:
 
     - scambio di dati tra computer
@@ -951,34 +818,24 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
       - servizio poco uniforme
     - terminali intelligenti
       - semplice nella rete, complesso ai terminali
-
 2.  Virtual Circuit
-
     *ATM* Consiste in:
 
     - path
-
     - `VC` number
-
       - pacchetti appartenenti a `VC` portano il suo numero invece che l'indirizzo destinazione
-
     - voci delle *forwarding tables*
-
     - signalling protocols
-
       - setup, mantenimento e teardown `VC`
       - in `ATM`, frame-delay, X.25
       - non usato nell'internet odierno
-
     I router `VC` mantengono informazioni sullo stato della connessione.
 
     Tecnologia evoluta dalla telefonia
 
     - terminali semplici
       - complessitá all'interno della rete
-
 3.  Architettura Router
-
     Funzioni principali:
 
     - routing algorithms / protocol
@@ -1014,9 +871,7 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
       - dimensione approssimata a $`\frac{RTT \cdot C}{\sqrt{N}}`$
         - $`C`$ link capacity
         - $`N`$ numero di flussi
-
 4.  Internet Protocol
-
     `IP` Protocolli:
 
     - routing
@@ -1024,13 +879,10 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
       - altri 20B di intestazioni
       - complessivamente 40B di overhead (`TCP` + `IP`) per ogni pacchetto
     - `ICMP`
-
     1.  IP Fragmentation
-
         Diversi collegamenti all'interno della rete hanno `MTU` diversi
 
         - Max. transfer size
-
         Datagrammi di grandi dimensione frammentati all'interno della rete
 
         - riasseblati alla destinazione
@@ -1039,9 +891,7 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
           - *offset*
             - su 13 bit
               - offset di 8B sul file (moltiplicare per 8 per posizione esatta)
-
     2.  Addressing
-
         identificatore a 32-bit per host, interfaccia del router
 
         - un `IP` per interfaccia
@@ -1061,19 +911,15 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
             - `a.b.c.d/x`
               - x \# bit nella porzione di sottorete dell'indirizzo
         - gli ISP prendono carico degli indirizzi di loro dominio e di tutti i pacchetti a loro indirizzati
-
     3.  Network Address Translation
-
         `NAT` Gli indirizzi, anche se di numero molto grande, non soddisfano la domanda
 
         - in quanto sono assegnati in blocco
-
         Le reti locali utilizzano <u>un solo IP</u> per tutti i dispositivi
 
         - i singoli terminali non sono direttamente raggiungibili
           - livello di sicurezza in piú
         - si puó cambiare `ISP` senza cambiare `IP` a tutti i dispositivi in rete locale
-
         Implementazione:
 
         - datagrammi in uscita
@@ -1082,7 +928,6 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
           - altri pacchetti della stessa connessione riutilizzano sempre la stessa porta assegnata fino a che necessario
         - datagrammi in entrata
           - tradotto attraverso la `NAT` <u>translation table</u>
-
         Controverso:
 
         - i router non dovrebbero modificare le intestazione di livelli superiori, livello di rete e di trasporto
@@ -1090,7 +935,6 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
         - viola la comunicazione punto-punto tra host
           - questo crea problemi nel `P2P` ad esempio
             - risolvibile attraverso *relay*
-
         Per rendere raggiungibile direttamente dall'esterno un dispositivo posto dietro `NAT` é possibile:
 
         - associare un indirizzo pubblico ad un indirizzo interno direttamento all'interno del Router
@@ -1098,29 +942,23 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
           - Universal Plug and Play
           - automatizza la soluzione statica precedente
         - *relay*
-
     4.  ICMP
-
         Protocollo di messaggistica
 
         - utilizzato da host e router per comunicare informazioni a livello di rete
         - ping
-
         Messaggi `ICMP` costituiti da
 
         - tipo
         - codice
-
         Utilizzato da `traceroute`
 
     5.  IPv6
-
         128 bit - 16 Byte Motivazioni principale
 
         - estendere lo spazio degli indirizzi
         - migliorare la velocitá di eleborazione dell'intestazione
         - non piú *best-effort* ed *elastica* ma per facilitare il Quality of Service
-
         Formato:
 
         - lunghezza 40B fissa
@@ -1131,20 +969,16 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
         - non c'é piú il *checksum*
         - non ci sono piú le *options*
           - possono essere inserite al di fuori dell'intestazioni
-
         Per la transizioni viene utilzzato il *tunnelling*
 
         - `IPv6` pacchetti trasportati come *payload* all'interno di pacchetti `IPv4` attraverso router `IPv4`
-
 5.  Routing Algorithms
-
     vedi: [[Cammini Minimi]]
 
     Astrazione in forma di grafo $`G = (N,E)`$
 
     - $`N`$ insieme di *router*
     - $`E`$ insieme di *link*
-
     Costi: $`c(x,x')`$ - costo link $`(x,x')`$
 
     Specifiche:
@@ -1157,26 +991,20 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
     - static \| dynamic
       1.  i cammini cambiano lentamente
       2.  i cammini cambiano velocemente, l'algoritmo puó reagire ai cambiamenti
-
     1.  Link-State Routing
-
         [[Algoritmo di Dijkstra]]
 
         - $`O(n^{2})`$
           - esiste anche un costo in quanto i router si devono scambiare necessariamente dei messaggi per avere tutte le informazioni sulla topografia
         - esistono implementazioni piú efficienti in $`O(n\log{n})`$
-
         I costi dei link sono conosciuti da tutti i router, tutti possono eseguire l'algoritmo di Dijkstra
 
         - producendo la *forwarding table* per quel particolare nodo
-
         Sono possibili **oscillazioni**
 
         - scegliendo un particolare cammino piú efficiente fa si di cambiare il costo stesso del cammino
         - aumentando il traffico per quel collegamento
-
     2.  Distance Vector Routing
-
         vedi: [[Programmazione Dinamica]] **Bellman-Ford Equation**
 
         $`d_{x}(y) = \text{min}_{v}\{c(x,v) + d_{v}(y)\}`$
@@ -1187,46 +1015,37 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
 
         - una stima $`D_x(y)`$ per ogni nodo nella rete
         - una stima $`D_v(y)`$ dei vicini
-
         quando la propria $`D_{x}(y)`$ cambia lo si scambia tra vicini
 
         - si ricalcolano le stime
         - questo procedimento porta $`D_{x}(y)`$ a tendere a $`d_{x}(y)`$
-
         L'algoritmo é
 
         - *iterativo*
         - *asincrono*
         - *distribuito*
-
         L'algoritmo permette:
 
         - una veloce propagazione di cambiamenti positivi della rete
         - una lenta propagazione di cambiamenti negativi della rete
           - *count to infinity problem*
           - risolvibile attraverso la *poisoned reverse*
-
         In caso di errori questi si propagano nella rete in quanto i router utilizzano i risultati gli uni degli altri
 
 6.  Routing
-
     Nella realtá:
 
     - i router non sono tutti identici
     - la struttura reale della rete non é piatta
-
     Principali problemi:
 
     - scala
     - amministrazione autonoma
       - ogni admin potrebbe voler controllare il proprio routing
-
     Quindi si utilizza un `Hierarchical Routing`
 
     - collezioni di router
-
     1.  Autonomous Systems
-
         `AS`
 
         - Un `ISP` puó consistere di piú `AS`
@@ -1234,23 +1053,18 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
           - Intra-AS routing algorithm
         - Router in `AS` diversi
           - Inter-AS routing algorithm
-
         Un *gateway router*
 
         - terminale rispetto al suo `AS`
         - connette a router di altri `AS`
-
     2.  RIP
-
         - advertisement a timer
         - se la table cambia si invia advertisement
         - utilizza *poison reverse* per evitare ping-pong loops
           - distanza infinita = 16 salti
-
         `RIP` implementata su livello applicativo (daemon), advertisement attraverso pacchetti `UDP`
 
     3.  OSPF
-
         `Open Shortest Path First`
 
         - algoritmo a stato del collegamento
@@ -1267,16 +1081,13 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
         - é possibile strutturare grandi domini in livelli gerarchici ulteriori
           - area locale - local
           - area dorsale - backbone
-
     4.  BGP
-
         `Border Gateway Protocol`
 
         - protocollo tra domini
         - `eBGP` info di raggiungibilitá
         - `iBGP` propaga le info di raggiungibilitá ai router interni alla sottorete
         - permette alle sottoreti di informare il resto di Internet della propria esistenza
-
         Si basa sul concetto di *sessione* di messaggi `BGP`
 
         - *prefix advertisement* tra peers
@@ -1294,9 +1105,7 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
             - lunghezza del collegamento
               - `AS-PATH`
             - 
-
 7.  Broadcast
-
     un singolo nodo trasmette a molti
 
     - duplicazione alla sorgente i pacchetti che invia
@@ -1318,14 +1127,11 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
           1.  selezione di un nodo centrale
               - si inviano dei messaggi di `join` dagli altri nodi
               - questi messaggi sono reinviati fino a che non si raggiunge un nodo giá inserito nell'albero di distribuzione
-
 8.  Multicast
-
     sistemi mittenti e sistemi riceventi
 
     - alcuni fanno parte del gruppo multicast altri no
     - anche router che non hanno membri multicast possono fare parte della rete multicast se essenziali al collegamento
-
     Approcci alla costruzione dell'albero di distribuzione
 
     - *source-based tree*
@@ -1341,9 +1147,7 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
           - va rieseguito ogni volta che la rete varia
         - esistono buone euristiche ma rimane poco usato
       - center-base trees
-
     1.  DVMRP
-
         `Distance Vector Multicast Routing Protocol`
 
         - *flood and prune*
@@ -1356,9 +1160,7 @@ Applicazioni su terminali, permettono uno sviluppo e propagaziose software molto
           - utilizzato per collegare <u>fisicamente</u> router multicast che sono connessi logicamente
           - collegamenti virtuali
             - datagrammi multicast inseriti in datagrammi non multicast
-
     2.  PIM
-
         `Protocol Independent Multicast`
 
         - non dipende dall'algoritmo di routing utilizzato al livello di unicast
@@ -1396,7 +1198,6 @@ I protocolli di questo livello si trovano su tutti i nodi della rete
 Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controller della scheda), in parte in <u>software</u>
 
 1.  Servizi
-
     - *framing*
       - incapsulamento di un datatramma
       - aggiunge header, trailer
@@ -1409,49 +1210,36 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
     - *error detection*
     - *error correction*
     - *half-duplex* - *full-duplex*
-
 2.  Errori
-
     1.  Detection & Correction
-
         Bit aggiunti al datagramma:
 
         - `EDC` - Error Detection and Correction bits
-
         I bit sono controllati da ricevente
 
         - possono esserci errori non rilevati anche se raramente
-
         - *Parity checking*
-
           - paritá singola
             - permette di individuare errori di singoli bit
             - non molto sicuro ma semplice e veloce
           - paritá bidimensionale
             - permette di individuare e correggere errori di singoli bit
-
         - **Cyclic Redundancy Check**
-
           - $`R`$ bit tali che
             - $`\langle D,R \rangle`$ divisibile per $`G`$
           - permette di individuare fino a $`r`$ errori di bit consecutivi
             - questo perché solitamente gli errori si presentano in *burst*
           - $`D \cdot 2^{r}\: \textsc{xor}\: R = nG`$
-
 3.  Protocolli ad Accesso Multiplo
-
     Esistono mezzi *broadcast* condivisi oltre a quelli *point-to-point*
 
     - si verificano interferenze/collisioni se due o piú nodi trasmettono allo stesso momento
-
     I protocolli di questo tipo:
 
     - algoritmi distribuiti che determinano quando i nodi possono trasmettere
     - le comunicazioni riguardanti la condivisione del canale possono necessitare il canale stesso
       - *in-band channel coordination*
-
     1.  MAC
-
         `Medium Access Control Protocols`
 
         - *channel partitioning*
@@ -1465,29 +1253,21 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
               - tipicamente con la ritrasmissione ritardata
         - *turns*
           - i nodi vanno a turni
-
         1.  Channel Partitioning
-
             1.  TDMA - channel part
-
                 `Time Division Multiple Access`
 
                 - accesso diviso su turni
                 - ad ogni nodo é assegnato uno slot temporale
                   - slot non utilizzati vanno sprecati
-
             2.  FDMA
-
                 `Frequency Division Multiple Access`
 
                 - banda divisa in bande piú piccole
                   - su frequenze diverse
                 - ogni nodo é assegnato ad una sotto-banda
-
         2.  Random Access
-
             1.  ALOHA
-
                 - frame di grandezza uguale
                 - tempo diviso in slot uguali
                 - i nodi sono sincronizzati
@@ -1495,41 +1275,33 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
                   - tutti i nodi registrano la collisione
                 - quando un nodo riceve un frame, trasmette nello slot successivo
                   - se si verifica una collisione si tenta di ritrasmettere nello slot successivo con una certa probabilitá $`p`$, altrimenti ritenterá allo slot successivo ancora con la stessa probabilitá
-
                 Quindi:
 
                 - prob che un nodo abbia successo in un dato slot, $`p(1-p)^{N-1}`$
                 - prob che un qualsiasi nodo abbia successo, $`N\cdot p(1-p)^{N-1}`$
                 - massima efficienza massimizza questo valore, $`1/e = 0.37`$
                   - nel caso migliore solo il 37% del tempo uno slot viene sfruttato
-
                 Nella versione pura, *unslotted*, di `ALOHA` non c'é sincronizzazione e qualsiasi nodo puó trasmettere immediatamente quando necessario
 
                 - le collisioni avvengono nelle sovrapposizioni tra le trasmissioni
                 - le collisioni aumentano
-
                 In questa versione:
 
                 - prob che un qualsiasi nodo abbia successo, $`p \cdot (1-p)^{N-1} \cdot (1-p)^{N-1}`$
                   - $`p \cdot (1-p)^{2(N-1)}`$
                 - massima efficienza $`1/e = 0.18`$
-
             2.  CSMA
-
                 `Carrier Sense Multiple Access` Non interrompe la comunicazione altrui
 
                 - se il canale viene individuato come in *idle*
                   - trasmette l'intero frame
                 - se il canale é *busy*
                   - rimanda la trasmissione
-
                 A causa del *propagation delay* le collisioni possono ancora accadere
 
                 - i nodi potrebbero non accorgersi in tempo che il canale é occupato in realtá
                 - in caso di collisione tutto il tempo di trasmissione viene sprecato
-
                 1.  CSMA/CD
-
                     `CSMA Collision Detection`
 
                     <span class="spurious-link" target="~/org/media/img/CSMA-CD.jpg">*~/org/media/img/CSMA-CD.jpg*</span>
@@ -1551,9 +1323,7 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
                       - $`\text{efficiency} = \frac{1}{1+ 5\frac{t_{\text{prop}}}{t_{\text{trans}}}}`$
                         - aumenta con l'aumentare di $`t_{\text{trans}}`$
                         - aumenta con il diminuire di $`t_{\text{prop}}`$
-
                     1.  Algoritmo Ethernet CSMA/CD
-
                         - `NIC` riceve datagramma, crea frame
                         - `NIC` controlla il canale
                           - se occupato aspetta
@@ -1564,31 +1334,23 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
                                 - *binary backoff*
                                 - $`k`$ casuale tra $`0`$ e $`2^{m}-1`$ con $`m`$ collisioni
                                 - `NIC` aspetta $`k\cdot512\text{bit}`$
-
         3.  Turns
-
             1.  Polling
-
                 - nodo *master* invita i nodi *slave* a trasmettere a turno
                 - solitamente *slave* "dumb"
                 - downsides
                   - overhead del *polling*
                   - latenza
                   - singolo punto di fallimento - *master*
-
             2.  Token
-
                 - *token* di controllo passato da un nodo all'altro in sequenza
                 - downsides
                   - *token* overhead
                   - latenza
                   - singolo punto di fallimento - *token*
                     - puó essere perso
-
 4.  LANs
-
     1.  Addressing
-
         Il nodo destinazione nella rete locale é individuato con gli indirizzi fisici `MAC` o `LAN`
 
         - 48 bit scritto in `ROM` del `NIC`
@@ -1599,9 +1361,7 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
           - amministrato da `IEEE` che assegna porzioni di indirizzi a produttori diversi
             - garantisce l'unicitá
         - utilizzato per trasferire da un'interfaccia ad un altro, stesso `IP` per quanto riguardo il livello di rete
-
         1.  ARP
-
             `Address Resolution Protocol` Passaggio da `IP` a `MAC`
 
             - nodo contiene una `ARP` table
@@ -1611,22 +1371,18 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
             - quando si necessitá di un `MAC` si manda la richiesta nella propria rete
               - il nodo cui corrisponde l'`IP` della richiesta e se questo é il suo risponde con il proprio `MAC`
               - cosí viene popolata la `ARP` table
-
     2.  Ethernet
-
         Inizialmente pensato con una gerarchia definita:
 
         1.  transiver
         2.  cavo
         3.  interfaccia
         4.  controller
-
         Permettava una velocitá tra 10Mbps e 10 Gbps Inizialmente la topologia era di **bus** La topologia attuale é quella a **stella**
 
         - ora con una *switch* al centro
         - collegamenti diretti tra nodi e *switch*
         - non c'é collisione
-
         I *frame* Ethernet sono gli stessi indipendentemente dalla velocitá trasmissiva
 
         - preamble
@@ -1636,7 +1392,6 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
           - solitamente `IP` ma puó essere un qualunque protocollo
         - data
         - `CRC`
-
         I *frame* che non sono indirizzati al ricevente sono scartati
 
         - *connectionless*
@@ -1648,16 +1403,13 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
             - questo quantitativo di bit é utilizzato per attendere un tempo dipendente dalla velocitá del collegamento
           - attesa esponenziale
             - l'adattatore tenta di stimare quanti sono gli adattatori coinvolti
-
     3.  Switches
-
         funzione di `store-and-forward` dei *frame* Ethernet
 
         - *trasparenti*
           - gli host non sono a conoscenza degli switch
         - *plug-and-play*
         - *self-learning*
-
         Grazie a questi sono possibili trasmissioni simultanee
 
         - riceve i *frame* e li inserisce in buffer
@@ -1669,11 +1421,9 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
             - se il destinatario non é all'interno della tabella allora il *frame* viene inviato su tutte le interfacce
               - *flood*
         - le collisioni non avvengono in quanto pacchetti non si incontrano perché smistati su code diverse dallo switch
-
         Gli switch possono essere collegati tra di loro per creare sottoreti e strutture complesse
 
     4.  VLANS
-
         Permettono di risolvere problemi di privacy e sicurezza delle `LAN` Porte di uno *switch* raggruppate in modo che un solo *switch* fisico operi come piú dispositivi <u>virtuali</u>
 
         Se switch diversi fanno parte di una stessa `VLAN` questi sono collegati tra loro da porte particolari:
@@ -1681,11 +1431,8 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
         - *trunk port*
           - scambia *frame* aggiungendo degli identificatori
           - protocollo `802.1Q VLAN`
-
 5.  Virtualizzazione
-
     1.  MPLS
-
         `Multiprotocol Label Switching`
 
         - goal:
@@ -1697,11 +1444,9 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
             - l'inoltro viene fatto in base all'etichetta e non viene ispezionato l'`IP`
             - capacitá di bilanciare il carico
               - l'invio ad uno stesso destinatario puó essere diverso in base all'etichetta associata al *frame*
-
         Simile ai `Circuiti Virtuali`
 
 6.  Data Center Netwoking
-
     Da decine a centinaia di *hosts* in prossimitá
 
     L'obiettivo é bilanciare il carico ed evitare bottleneck nell'accesso ai dati
@@ -1717,7 +1462,6 @@ Implementati in parte in <u>hardware</u>, in parte in <u>firmware</u> (controlle
           - ritorna i risultati ai client esterni
             - nasconde l'interno del data center dai client
     6.  Border Router
-
     Possono essere possibili diversi schemi di connessione tra i livelli di switch per ottimizzare l'accesso
 
 ### Incapsulamento
@@ -1810,7 +1554,6 @@ Se dei terminali sono nascosti questi non possono verificare le trasmessioni l'u
 ### Protocolli
 
 1.  802.11
-
     `Wireless LAN` Copertura abbastanza limitata ma ad alta velocitá
 
     - esiste una versione a lunga portata: `802.11a,g point-to-point`
@@ -1819,15 +1562,12 @@ Se dei terminali sono nascosti questi non possono verificare le trasmessioni l'u
       - i canali si sovrappongono, possono avvenire delle interferenze
         - solo 1, 6, 11 non si sovrappongono
       - per gestire l'aumento di `BER` si cambia tipo di trasmissione, piú lenta ma anche piú efficace
-
     Le stazioni base in modalitá infrastruttura sono gli `AP`, Access Points
 
     - trasparente rispetto alla rete
-
     Le *cells* sono i `BSS`, Basic Service Sets
 
     - in modalitá ad hoc contengono solo i terminali
-
     Gli host si associano agli `AP`
 
     - passive scanning
@@ -1836,18 +1576,14 @@ Se dei terminali sono nascosti questi non possono verificare le trasmessioni l'u
     - active scanning
       - probe request broadcast
       - probe request frame dall'`AP`
-
     1.  Accesso Multiplo
-
         Evitare le collisioni Utilizza `CSMA`
 
         - se si nota una trasmissione in corso si aspetta
-
         Rimangono problemi
 
         - decadimento del segnale
         - terminali nascosti
-
         Non é implementata collision detection
 
         - Sender
@@ -1863,15 +1599,11 @@ Se dei terminali sono nascosti questi non possono verificare le trasmessioni l'u
           - frame ricevuta `OK`
           - trasmetti `ACK` dopo `SIFS`
             - `ACK` necessario a causa del problema del terminale nascosto
-
     2.  Capacitá ulteriori
-
         - power management
           - nodo si spegne attendendo il prossimo *beacon frame*
           - `AP` non trasmette nodi a questo nodo
-
 2.  802.15
-
     Infrastruttura *master* - *slave*
 
     - 10m di diametro
@@ -1902,9 +1634,7 @@ Tecniche di condivisione di banda:
   - divide canali in slot temporali
 - `CDMA`
   - code division multiple access
-
 1.  2G
-
     Voice network
 
     1.  `BSS`
@@ -1912,9 +1642,7 @@ Tecniche di condivisione di banda:
     2.  `MSC`
     3.  Gateway `MSC`
     4.  rete telefonica pubblica, cablata
-
 2.  3G
-
     Voice + Data network Divisione tra le due reti per permettere scalabilitá
 
     1.  `BSS`
@@ -1931,17 +1659,11 @@ Tecniche di condivisione di banda:
 Un dispositivo che si sposta, si connette e disconnette attraverso `AP` diversi
 
 - la mobilitá piú <u>elevata</u> si ha quando il dispositivo pur spostandosi e cambiando `AP` mantiene una stessa connessione
-
 - home network
-
   - indirizzo `IP` permanente
-
 - home agent
-
   - gestisce le funzioni di mobilitá per conto del dispositivo mobile quando quest'ultimo non si trova all'interno della rete domestica
-
 - visited network
-
 - foreign agent
 
 Ci sono diversi approcci possibili
@@ -1959,22 +1681,16 @@ Il mobile si <u>registra</u> contattando il *foraign agent*
 
 - questo contatta l'*home agent*
 - entrambi sanno come contattare l'utente mobile
-
 1.  Mobile IP
-
     - indirect routing
     - agent discovery
       - agent advertisement
         - foreign/home agents fanno broadcast di messaggi `ICMP`
-
 2.  Cellulare
-
     - indirect routing
       - switching center home controlla il proprio registro
       - contatta lo switching center visitato creando la connessione
-
 3.  Handoff
-
     1.  vecchio `BSS` informa `MSC` dell'handoff
         - lista di piú di uno `BSS`
     2.  `MSC` imposta il cammino per il nuovo `BSS`
@@ -1987,5 +1703,4 @@ Il mobile si <u>registra</u> contattando il *foraign agent*
     7.  mobile segnala attraverso nuovo `BSS` a `MSC`
         - handoff complete
     8.  `MSC` rilascia risorse del vecchio `BSS`
-
     In caso di `MSC` diversi l'originale ha funzione di ancora verso un nuovo `MSC`

@@ -1,5 +1,5 @@
 ---
-date: "\\[2023-12-18 Mon 09:46\\]"
+date: 2023-12-18 09:46
 id: 1118d7fe-cebd-4dbe-9079-c6e6ba16460d
 title: The Problem With Counterfeit People
 ---

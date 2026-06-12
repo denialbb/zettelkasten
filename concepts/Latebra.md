@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-06-05 Sun 02:52\\]"
+date: 2022-06-05 02:52
 id: be0b103d-b765-409f-a1a2-bcbd38826d5f
 title: Latebra
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-05-05 Thu 23:11\\]"
+date: 2022-05-05 23:11
 id: 44614dc1-b3fd-494c-abc4-9a1682a721f6
 title: Quantum Device Simulator
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-03-29 Tue 18:05\\]"
+date: 2022-03-29 18:05
 id: c2bda57f-a02a-460c-96a2-796dd2fee708
 title: "Learn Quantum Computing with Python and Q#"
 ---
@@ -125,7 +125,6 @@ U_{f} |x \rangle | y \rangle = | x \rangle | y \oplus f(x) \rangle
 The algorithm works by using a quantum programming technique colled *phase kickback*.
 
 - the fact that the input qubit's state changes base on transformations defined in the output qubit
-
   The algorithm can be extended to $`n`$ qubits with functions of form
   ``` math
   f(x_{0}, x_{1},\cdots,x_{n})

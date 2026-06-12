@@ -1,5 +1,5 @@
 ---
-date: "\\[2024-02-02 Fri 10:12\\]"
+date: 2024-02-02 10:12
 id: b6ab92bf-b06e-4f3d-9462-86ad466ae895
 title: Biased predictions reinforce the bias in the data
 ---

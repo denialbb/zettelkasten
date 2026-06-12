@@ -1,5 +1,5 @@
 ---
-date: "\\[2021-12-24 Fri 23:27\\]"
+date: 2021-12-24 23:27
 id: 32f0ad3c-44e7-4be1-949c-38e487875032
 title: How to Annotate Literally Everything
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-09-22 Thu 00:00\\]"
+date: 2022-09-22 00:00
 id: 664d99ea-5c74-47c4-89f6-4bbee86e5bca
 title: Performance Analysis - Simulations and Models
 ---

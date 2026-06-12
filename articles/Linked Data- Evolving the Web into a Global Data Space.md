@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-11-30 Wed 16:24\\]"
+date: 2022-11-30 16:24
 id: 88805531-eaa4-44f1-b819-8b25a84d96ba
 title: "Linked Data: Evolving the Web into a Global Data Space"
 ---

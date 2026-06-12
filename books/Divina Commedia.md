@@ -1,6 +1,5 @@
 ---
-date: "\\[2021-12-21 Tue 02:53\\]"
+date: 2021-12-21 02:53
 id: 6bf0cf1d-12ba-4092-8d3d-5c55fcdf956f
 title: Divina Commedia
 ---
-

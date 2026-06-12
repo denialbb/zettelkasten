@@ -12,7 +12,6 @@ title: Analisi I
 ### pendenza di un grafico in un punto (x<sub>1</sub>, f(x<sub>1</sub>)) == derivata prima nel punto
 
 1.  limite da x<sub>2</sub> a x<sub>1</sub>
-
 2.  pendenza non definita se pendenza da sx != pendenza da dx
 
 ## funzione localmente dritta in ( x<sub>1</sub> , f(x<sub>1</sub>) )
@@ -28,13 +27,11 @@ title: Analisi I
 ### Monotonia / Segno della pendenza
 
 1.  f monotona crescente \<=\> pendenza di f su (a,b) e' positiva
-
 2.  f monotona decrescente \<=\> pendenza di f su (a,b) e' negativa
 
 ### Convessita' / Monotonia della pendenza
 
 1.  f convessa \\ \<=\> la pendenza cresce
-
 2.  f concava /\\ \<=\> la pendenza e' decrescente
 
 # Integrali
@@ -46,9 +43,7 @@ title: Analisi I
 ### Ottenibile per approssimazione suddividendo in N intervalli con N –\> infinito
 
 1.  sum(a,b) F(x)dx
-
 2.  intervalli dx = (b-a) / N
-
 3.  NB: abbiamo un integrale definito solo se il limite di N a infinito esiste finito e non dipende dagli z<sub>i</sub> scelti (ad esempio z<sub>i</sub> punto medio del intervallo corrispondente)
 
 ### \[sum(i=1,N) F(z<sub>i</sub>)\] \* (b-a)/N = S<sub>N</sub> `~~~~` Somma di Riemann di F
@@ -80,9 +75,7 @@ integrale(1,+inf)(1/x<sup>a</sup>)dx
 ### T. fondamentale del calcolo integrale
 
 1.  sia G(x) := integrale(a,x)f(t)dt
-
 2.  Allora G derivabile e G'(x) = f(x) per qualsiasi x nel intervallo \[a,b\]
-
     1.  ovvero: G e' una primitiva di f su \[a,b\]
 
 ### T. della Media integrale `L20`
@@ -140,15 +133,12 @@ integrale(1,+inf)(1/x<sup>a</sup>)dx
 ### T. del confronto
 
 1.  limiti finiti
-
 2.  limiti infiniti
 
 ### T. di Weierstrass
 
 1.  Se f continua in \[a,b\]
-
     1.  esistono x<sub>m</sub> minimo assoluto e x<sub>M</sub> massimo assoluto appartententi a \[a,b\] :
-
     2.  f(x<sub>m</sub>) \<= f(x) \<= f(x<sub>M</sub>)
 
 ### f Derivabile ==\> f Continua
@@ -160,7 +150,6 @@ integrale(1,+inf)(1/x<sup>a</sup>)dx
 ### per una f
 
 1.  continua per \[a,b\]
-
 2.  derivabile in (a,b)
 
 ### esiste un c contenuto in (a,b):
@@ -222,7 +211,6 @@ a!=1
 -1 \< a \< 1
 
 - converge
-
   |     |      |
   |-----|------|
   | a   | \> 1 |

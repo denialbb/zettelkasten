@@ -1,17 +1,13 @@
 ---
-date: "\\[2021-12-19 Sun 20:04\\]"
+date: 2021-12-19 20:04
 id: 50e1c257-b616-4473-a555-a80de075021a
 title: Capturing Notes Efficiently with Org Roam
 ---
 
 - Source: <https://systemcrafters.net/build-a-second-brain-in-emacs/capturing-notes-efficiently/>
-
 - Author: [[System Crafters]]
-
 - Related: [[Emacs]]
-
 - [[org-roam]] uses the same system as [[org-capture]]
-
 - pretty easy to set-up
 
 ``` elisp

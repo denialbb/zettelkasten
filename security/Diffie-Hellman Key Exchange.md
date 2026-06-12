@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-03-23 Wed 14:42\\]"
+date: 2022-03-23 14:42
 id: 9f283e41-6b09-40bf-9dbe-26b10e493c8d
 title: Diffie-Hellman Key Exchange
 ---

@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-10-06 Thu 06:39\\]"
+date: 2022-10-06 06:39
 id: 619629fe-8461-4316-b4ad-d9545490d1b5
 title: Markovian Queueing Network Theory
 ---

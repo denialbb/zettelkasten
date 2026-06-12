@@ -1,5 +1,5 @@
 ---
-date: "\\[2022-06-30 Thu 20:46\\]"
+date: 2022-06-30 20:46
 id: 4ecf9a2a-1561-437e-857f-568603e09601
 title: Keycaps Profiles
 ---

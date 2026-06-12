@@ -1,6 +1,5 @@
 ---
-date: "\\[2022-01-02 Sun 23:40\\]"
+date: 2022-01-02 23:40
 id: 2218c0bd-2e5f-46d1-bcd0-313bbe02cec3
 title: Cherry Picking
 ---
-
