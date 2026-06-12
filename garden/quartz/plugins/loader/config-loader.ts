@@ -21,6 +21,7 @@ import {
   getPluginEntryPoint,
   toFileUrl,
   isLocalSource,
+  regeneratePluginIndex,
 } from "./gitLoader"
 import { loadComponentsFromPackage } from "./componentLoader"
 import { loadFramesFromPackage } from "./frameLoader"
@@ -275,6 +276,8 @@ export async function loadQuartzConfig(
   if (allNativeDeps.size > 0) {
     installNativeDeps(allNativeDeps, { verbose: false })
   }
+
+  await regeneratePluginIndex({ verbose: false })
 
   // Collect manifests (requires native deps to be installed first)
   for (const entry of enabledEntries) {
