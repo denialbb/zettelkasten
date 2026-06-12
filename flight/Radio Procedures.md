@@ -1,5 +1,3 @@
----
-
 # AWACS
 
 AWACS is the primary sensor manager, understand **BRAA** vs. **Bullseye**.

@@ -1,5 +1,3 @@
----
-
 ## 1. Custom Core Bindings
 
 | Keybind | Mode | Description |
