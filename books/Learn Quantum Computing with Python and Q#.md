@@ -6,7 +6,7 @@ title: "Learn Quantum Computing with Python and Q#"
 
 Sarah Kaiser, Christopher Granade, *Learn Quantum Computing with Python and Q#*, 2021, Manning
 
-- Tags: [[Quantum Computing]], [[Q#]]
+- Related: [[Quantum Computing]], [[Q#]]
 - Code: <https://github.com/crazy4pi314/learn-qc-with-python-and-qsharp>
 
 # Concepts

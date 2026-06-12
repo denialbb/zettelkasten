@@ -5,7 +5,7 @@ title: Roamkasten - a practical how to guide to optimize Zettelkasten in Roam Re
 
 - Source: <https://www.thrivinghenry.com/writings/roamkasten-a-practical-how-to-guide-to-optimize-zettelkasten-in-roam-research>
 - Author: [[Thriving Henry]]
-- Tags: [[Zettelkasten]], [[roam]], [[Note Taking]], [[PKM]]
+- Related: [[Zettelkasten]], [[roam]], [[Note Taking]], [[PKM]]
 
 # Outline
 

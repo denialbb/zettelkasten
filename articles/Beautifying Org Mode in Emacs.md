@@ -7,7 +7,7 @@ title: Beautifying Org Mode in Emacs
 
 - Source: <https://zzamboni.org/post/beautifying-org-mode-in-emacs/>
 
-- Tags: [[Emacs]], [[Typography]]
+- Related: [[Emacs]], [[Typography]]
 
 - References: [[Org as a Word Processor]]
 
