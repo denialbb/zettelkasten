@@ -5,7 +5,9 @@
 /* Premium Modern Aesthetics */
 
 body {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Link animations */
@@ -14,7 +16,9 @@ a.internal {
   background-image: linear-gradient(transparent 50%, var(--tertiary) 50%);
   background-size: 100% 200%;
   background-position: 0 0;
-  transition: background-position 0.3s ease, color 0.3s ease;
+  transition:
+    background-position 0.3s ease,
+    color 0.3s ease;
   padding: 0 2px;
   border-radius: 2px;
 }
@@ -28,7 +32,9 @@ a.internal:hover {
 img {
   border-radius: 8px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 img:hover {
@@ -55,4 +61,46 @@ blockquote {
 
 .callout:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Typography Overrides */
+:root {
+  --codeFont: "Iosevka Term", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+}
+
+/* Table of Contents Customizations */
+.toc-content {
+  li {
+    margin: 0.4rem 0;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+
+      &::before {
+        content: "... ";
+        opacity: 0.5;
+        margin-right: 0.35rem;
+        font-family: var(--codeFont);
+      }
+    }
+  }
+}
+
+/* Backlinks Customizations */
+.backlinks {
+  margin-top: 2rem;
+
+  ul.overflow > li {
+    &:not(.overflow-end):not(:nth-last-child(2)) {
+      border-bottom: 1px solid var(--divider-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &:not(.overflow-end) {
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+    }
+  }
 }

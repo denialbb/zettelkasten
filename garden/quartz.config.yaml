@@ -17,8 +17,8 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Inter
-      body: Inter
+      header: Roboto
+      body: Roboto
       code: JetBrains Mono
     colors:
       lightMode:
