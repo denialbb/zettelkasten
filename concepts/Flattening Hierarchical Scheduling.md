@@ -12,7 +12,7 @@ title: Flattening Hierarchical Scheduling
 
 - the objective is to integrate multiple real-time systems as guests on a single host using `VM`​s
 - in literature there are different takes on the matter
-  - *mismatch between embedded-systems requirements and the virtual-machine model is evident in scheduling \[…\] the integrated nature of embedded systems requires that scheduling priorities of different subsystems must be interleaved. This is at odds with the concept of virtual machines.*\[fn:heiser The Role of Virtualization in Embedded Systems\]
+  - *mismatch between embedded-systems requirements and the virtual-machine model is evident in scheduling \[…\] the integrated nature of embedded systems requires that scheduling priorities of different subsystems must be interleaved. This is at odds with the concept of virtual machines.*[^heiser]
   - some argue bandwidth servers with small and frequently replenished budgets is sufficient
 - the paper argues the root of the dispute lies in limitations in current virtualization technology
   - a small enhancement of the scheduler in the guest task sets for the host scheduler to integrate these workloads onto a single system by interleaving
@@ -25,3 +25,5 @@ title: Flattening Hierarchical Scheduling
   - this is done by having the host scheduler allocating budgets as *scheduling contexts*
   - as the schedulability of the system is validated this is attached to the `vCPU` of the `VM`
 - interrupts are implemented as assignments of `SC` to events by the host
+
+[^heiser]: The Role of Virtualization in Embedded Systems

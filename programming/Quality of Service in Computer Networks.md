@@ -97,7 +97,7 @@ Definition of *announcement*:
 ``` math
 P_x=\frac{}{}]
 
-Definition of /loss probability/:[fn:loss: This is the probability that the network is full.]
+Definition of /loss probability/:[^loss]
 \[B := P_n = \frac{\frac{A^{n}}{n!}}{\sum_{i=0}^{n}\frac{A^{i}}{i!}}
 ```
 *Expectation value* is calculated over all probabilities.
@@ -174,3 +174,5 @@ Solution can be a **Trusted Third Party** (`TTP`)
 [^2]: "Untraceable electronic mail, return addresses, and digital pseudonyms", Communications of the ACM, 1981
 
 [^3]: "The dining cryptographers problem: unconditional sender and recipient untraceability", Journal of Cryptology, 1988
+
+[^loss]: This is the probability that the network is full.

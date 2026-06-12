@@ -753,7 +753,7 @@ Questa funzione trasporta informazione nella sua parte centrale (derivate divers
 `LSTM` [Blog a Riguardo](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
 - cattura dipendenze *long distance*, una memoria
-- le unità hanno dei *gate* che decidono **quando** aggiornare le celle di memoria, cosa mantenere e cosa dimenticare\[fn:gate /refresh when new subject/\]
+- le unità hanno dei *gate* che decidono **quando** aggiornare le celle di memoria, cosa mantenere e cosa dimenticare[^gate]
   - forget gate, moltiplicato elemento per elemento per $`C`$
     - ogni bit indica se mantenere o dimenticare
   - input gate
@@ -782,7 +782,7 @@ Architettura di `RNN` in cui la prima parte processa l'input e la seconda genera
 
 - **encoder**
   - l'output delle celle viene scartato
-  - lo stato (hidden e non) dell'ultima cella viene inserito in un *summary vector*\[fn:summary L'ultima cella è quella che ha visto tutto l'input.\]
+  - lo stato (hidden e non) dell'ultima cella viene inserito in un *summary vector*[^summary]
 - **decoder**
   - prende in input il *summary vector*
   - produce la traduzione
@@ -971,7 +971,7 @@ Blocchi composti da:
 - activation function
   - per evitare il *vanishing gradient* nelle reti molto profonde viene utilizzata `RELU`
 
-Alla fine vengono estratta la **feature map**. Questa (flattened) viene seguita da uno o più strati completamente connessi (`MLP`).\[fn:flatten La feature map finale non contiene più informazioni spaziali e per questo si può appiattire senza problemi.\]
+Alla fine vengono estratta la **feature map**. Questa (flattened) viene seguita da uno o più strati completamente connessi (`MLP`).[^flatten]
 
 # RELU
 
@@ -1096,3 +1096,9 @@ L (\overline w ) = L(\overline w) + \lambda \sum_{n,i,j} \big ( I_{n,i,j} \cdot 
 Questo permette un metodo più generale che consente anche l'uso di altri ottimizzatori.
 
 [^1]: deve essere compatibile con l'input $`x_k`$ per poter effettuare la distanza.
+
+[^flatten]: La feature map finale non contiene più informazioni spaziali e per questo si può appiattire senza problemi.
+
+[^summary]: L'ultima cella è quella che ha visto tutto l'input.
+
+[^gate]: /refresh when new subject/

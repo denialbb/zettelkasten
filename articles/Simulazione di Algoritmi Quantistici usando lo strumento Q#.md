@@ -250,7 +250,7 @@ operation MeasureOneQubit() : Result {
 
 Nel listato vediamo un esempio di misurazione in base Z di un qubit. Questa base di misurazione è spesso chiamata anche *base computazionale*. Il qubit viene allocato, gli viene applicata la trasformata di Hadamard tramite la procedura `H` e poi viene misurato utilizzando `M`. `M` effettua una misura di un singolo qubit in base Z di Pauli. Questa è del tutto equivalente a `Measure([PauliZ], [qubit])`.
 
-L'operazione di misura è spesso seguita dal reset, quindi spesso è comodo l'utilizzo dell'operazione `MResetX`\[fn:mresetx\], che si assicura che il qubit sia riportato allo stato $`|0\rangle`$.
+L'operazione di misura è spesso seguita dal reset, quindi spesso è comodo l'utilizzo dell'operazione `MResetX`[^mresetx], che si assicura che il qubit sia riportato allo stato $`|0\rangle`$.
 
 ``` c
 operation MResetX (target : Qubit) : Result
@@ -847,3 +847,5 @@ $`\pagebreak`$
 [^26]: S. Kumar - *Fundamental Limits to Moore's Law*, 2015 (<https://arxiv.org/abs/1511.05956>)
 
 [^27]: Nature 530 (7589) - *The chips are down for Moore's Law* (<https://www.nature.com/news/the-chips-are-down-for-moore-s-law-1.19338>)
+
+[^mresetx]: mresetx

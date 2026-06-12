@@ -26,8 +26,10 @@ With these basic concepts it is possible to implement applications typically inc
 
 # Notes
 
-\$μ\$​-kernels are costructed on the basic idea that one must implement whatever possible outside of the kernel\[fn:kernel The kernel is commonly used to denote the part of the `OS` that is mandatory and common to all software.\]. Advantages:
+\$μ\$​-kernels are costructed on the basic idea that one must implement whatever possible outside of the kernel[^kernel]. Advantages:
 
 - clear kernel interface enforces a more modular system structure
 - servers can use the mechanisms provided by the `MK` like ony other program, server malfunction is isolated
 - more flexible system, different `API`​s, different servers can coexist
+
+[^kernel]: The kernel is commonly used to denote the part of the `OS` that is mandatory and common to all software.

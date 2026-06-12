@@ -29,7 +29,7 @@ This paper outlines well what is the purpose behind the research on `MK` and why
   - system is flexible and extensible, can be easily adapted to new hardware and application, only some servers need to be modified for this
   - system is contained and easier to manage, less error prone
   - system is modular
-  - interdependencies between different parts could be restricted and reduced (`TCB` is smaller)\[fn:TCB the Trusted Computing Base\]
+  - interdependencies between different parts could be restricted and reduced (`TCB` is smaller)[^TCB]
 
 The expectations met reality when some problems arose
 
@@ -71,3 +71,5 @@ The expectations met reality when some problems arose
       - real-time
       - multimedia
       - file caching
+
+[^TCB]: the Trusted Computing Base
