@@ -4,12 +4,12 @@ import script from "./scripts/animatedHeader.inline"
 
 const Header: QuartzComponent = ({ children }: QuartzComponentProps) => {
   return (
-    <>
+    <div class="header-wrapper">
       <div class="header-image">
         <canvas id="header-canvas"></canvas>
       </div>
       {children.length > 0 ? <header>{children}</header> : null}
-    </>
+    </div>
   )
 }
 
@@ -51,4 +51,8 @@ header h1 {
 
 Header.afterDOMLoaded = script
 
-export default (() => Header) satisfies QuartzComponentConstructor
+const constructor = (() => Header) satisfies QuartzComponentConstructor
+import { componentRegistry } from "./registry"
+componentRegistry.register("Header", constructor, "Header.tsx")
+
+export default constructor

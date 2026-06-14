@@ -12,4 +12,3 @@ replit.nix
 .quartz/
 !.quartz/plugins.ts
 quartz/cli/tui/dist/
-content/
