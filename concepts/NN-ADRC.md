@@ -65,6 +65,8 @@ The source paper (gimbal system) validated on **smooth, continuous disturbances*
 - [[Control Allocation]] — Where NN output is integrated
 - [[Fault Detection and Isolation]] — Monitors NN and ESO signals
 - [[Extended Kalman Filter]] — The current state estimator (to be augmented)
+- [[Optuna Hyperparameter Tuning]] — Tuning ADRC parameters
+- [[State Machine]] — Mission phases for NN training
 
 ## Sources
 

@@ -53,6 +53,13 @@ Two key features make RL effective:
 
 RL draws parallels to **animal learning** — animals learn behaviors that maximize positive reinforcements (food, pleasure) and minimize negative ones (pain, hunger). This is closely related to [[Operant conditioning]] and [[Reinforcement]] in psychology.
 
+## Related Concepts
+
+- [[Artificial Intelligence]] — Broader field including RL as a subfield
+- [[Extended Kalman Filter]] — State estimation in aerospace systems
+- [[Optuna Hyperparameter Tuning]] — Optimizing RL algorithms
+- [[State Machine]] — Used in RL agent architectures
+
 ## Sources
 
 - [[Wikipedia - Reinforcement Learning]]

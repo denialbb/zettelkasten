@@ -59,12 +59,13 @@ During `SENSOR_WARMUP` phase:
 
 ## Related Concepts
 
-- [[Extended Kalman Filter]] — The main state estimator in AEGIS
-- [[Error-State Kalman Filter]] — The specific EKF formulation used
-- [[Sensor Fusion]] — Combining multiple sensors
-- [[Quaternion]] — Attitude representation
+- [[Extended Kalman Filter]] — The EKF that provides bias-corrected gyroscope rates and the main state estimator in AEGIS
+- [[Sensor Fusion]] — Combining gyroscope and accelerometer data
+- [[Quaternion]] — Attitude representation used by the filter
 - [[Gyroscope]] — Angular velocity measurement
 - [[Accelerometer]] — Linear acceleration measurement
+- [[Artificial Intelligence]] — Broader field of intelligent systems
+- [[Neural Network]] — Can be used for attitude prediction
 
 ## Sources
 

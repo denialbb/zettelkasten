@@ -12,9 +12,18 @@ Artificial Intelligence (AI) is a broad field of computer science focused on cre
 - [[Reinforcement Learning]] — learning through interaction and reward
 - [[Computer Vision]] — interpreting visual information
 - [[Neural Network]] — computational models inspired by biological neural networks
+- [[NN-ADRC]] — Neural Network Active Disturbance Rejection Control for aerospace
 - Natural Language Processing
 - Expert Systems
 - Robotics
+
+## Related Aerospace Concepts
+
+- [[Extended Kalman Filter]] — State estimation in noisy environments
+- [[Control Allocation]] — Mapping control commands to actuators
+- [[Fault Detection and Isolation]] — Diagnosing system failures
+- [[State Machine]] — Phase-based mission control
+- [[Optuna Hyperparameter Tuning]] — Optimizing AI/ML parameters
 
 ## Types of AI
 

@@ -18,7 +18,15 @@ Neural Networks are computational models inspired by the structure and function 
 - Natural Language Processing
 - Speech Recognition
 - [[Reinforcement Learning]] — neural networks can approximate value functions and policies
+- [[NN-ADRC]] — Neural Network in Active Disturbance Rejection Control for aerospace
 - Pattern Recognition
+
+## Related Concepts
+
+- [[Extended Kalman Filter]] — State estimation using neural network approximations
+- [[Optuna Hyperparameter Tuning]] — Tuning neural network architectures
+- [[Fault Detection and Isolation]] — Using NN for fault detection
+- [[Control Allocation]] — NN-based control allocation
 
 ## Key Concepts
 
