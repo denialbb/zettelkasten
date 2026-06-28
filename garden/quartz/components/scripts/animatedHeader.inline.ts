@@ -85,22 +85,15 @@ const fsSource = `
     float scale = 0.0133;
     vec2 p = gl_FragCoord.xy * scale;
 
-    // Custom colors based on quartz.config.yaml themes
-    vec3 lightBright = vec3(0.91, 0.89, 0.85); // #e8e3d9
-    vec3 lightDark = vec3(0.71, 0.667, 0.616); // #b5aa9d
-    vec3 lightPageBg = vec3(0.976, 0.965, 0.941); // #f9f6f0
+    uniform vec3 u_colorBright;
+    uniform vec3 u_colorDark;
+    uniform vec3 u_colorPageBg;
+    uniform vec3 u_colorAccent;
 
-    vec3 darkBright = vec3(0.396, 0.369, 0.412); // #655e69
-    vec3 darkDark = vec3(0.157, 0.141, 0.165); // #28242a
-    vec3 darkPageBg = vec3(0.094, 0.082, 0.102); // #18151a
-
-    vec3 lightAccent = vec3(0.541, 0.294, 0.686); // #8a4baf
-    vec3 darkAccent = vec3(0.694, 0.463, 0.875);  // #b176df
-
-    vec3 bright = mix(lightBright, darkBright, u_isDark);
-    vec3 dark = mix(lightDark, darkDark, u_isDark);
-    vec3 pageBg = mix(lightPageBg, darkPageBg, u_isDark);
-    vec3 accent = mix(lightAccent, darkAccent, u_isDark);
+    vec3 bright = u_colorBright;
+    vec3 dark = u_colorDark;
+    vec3 pageBg = u_colorPageBg;
+    vec3 accent = u_colorAccent;
 
     float baseHeight = 50.0 * u_dpr;
     float waveAmplitude = 25.0 * u_dpr;
@@ -165,6 +158,24 @@ function getIsDark() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? 1.0 : 0.0
 }
 
+function hexToRgb(hex: string): number[] {
+  hex = hex.replace(/^#/, "")
+  if (hex.length === 3) hex = hex.split("").map((c) => c + c).join("")
+  const int = parseInt(hex, 16) || 0
+  return [((int >> 16) & 255) / 255, ((int >> 8) & 255) / 255, (int & 255) / 255]
+}
+
+function getCssVarRgb(name: string, fallback: number[]): number[] {
+  const val = getComputedStyle(document.documentElement).getPropertyValue(name).trim()
+  if (!val) return fallback
+  if (val.startsWith("#")) return hexToRgb(val)
+  if (val.startsWith("rgba")) {
+    const parts = val.substring(5, val.length - 1).split(",").map(s => parseFloat(s.trim()));
+    if (parts.length >= 3) return [parts[0] / 255, parts[1] / 255, parts[2] / 255];
+  }
+  return fallback
+}
+
 interface EffectConfig {
   canvas: HTMLCanvasElement
   gl: WebGLRenderingContext
@@ -173,9 +184,14 @@ interface EffectConfig {
   isDarkLoc: WebGLUniformLocation | null
   dprLoc: WebGLUniformLocation | null
   hoverLoc: WebGLUniformLocation | null
+  colorBrightLoc: WebGLUniformLocation | null
+  colorDarkLoc: WebGLUniformLocation | null
+  colorPageBgLoc: WebGLUniformLocation | null
+  colorAccentLoc: WebGLUniformLocation | null
   hoverTarget: number
   hoverValue: number
   needsResize: boolean
+  needsColorUpdate: boolean
 }
 
 function initWaterEffect(canvasId: string, fadeTop: boolean): EffectConfig | null {
@@ -208,6 +224,11 @@ function initWaterEffect(canvasId: string, fadeTop: boolean): EffectConfig | nul
   const fadeTopLoc = gl.getUniformLocation(program, "u_fadeTop")
   const dprLoc = gl.getUniformLocation(program, "u_dpr")
   const hoverLoc = gl.getUniformLocation(program, "u_hover")
+  
+  const colorBrightLoc = gl.getUniformLocation(program, "u_colorBright")
+  const colorDarkLoc = gl.getUniformLocation(program, "u_colorDark")
+  const colorPageBgLoc = gl.getUniformLocation(program, "u_colorPageBg")
+  const colorAccentLoc = gl.getUniformLocation(program, "u_colorAccent")
 
   gl.uniform1f(fadeTopLoc, fadeTop ? 1.0 : 0.0)
 
@@ -219,9 +240,14 @@ function initWaterEffect(canvasId: string, fadeTop: boolean): EffectConfig | nul
     isDarkLoc,
     dprLoc,
     hoverLoc,
+    colorBrightLoc,
+    colorDarkLoc,
+    colorPageBgLoc,
+    colorAccentLoc,
     hoverTarget: 0,
     hoverValue: 0,
     needsResize: true,
+    needsColorUpdate: true,
   }
 }
 
@@ -258,6 +284,14 @@ function render(timestamp: number) {
     }
   }
 
+  // Update colors over 15 frames for smooth transition when theme changes
+  if (colorTransitionFrames > 0) {
+    for (const effect of effects) {
+      effect.needsColorUpdate = true
+    }
+    colorTransitionFrames--;
+  }
+
   const effectiveDpr = getEffectiveDpr()
   const deltaTime = FRAME_INTERVAL / 1000.0
 
@@ -272,6 +306,21 @@ function render(timestamp: number) {
       gl.viewport(0, 0, canvas.width, canvas.height)
       gl.uniform2f(resolutionLoc, canvas.width, canvas.height)
       effect.needsResize = false
+    }
+
+    if (effect.needsColorUpdate) {
+      const isDarkVal = getIsDark() > 0.5
+      // Fetch default quartz colors depending on theme, or read custom CSS variables
+      const bright = getCssVarRgb("--lightgray", isDarkVal ? [0.157, 0.141, 0.165] : [0.91, 0.89, 0.85])
+      const dark = getCssVarRgb("--gray", isDarkVal ? [0.396, 0.369, 0.412] : [0.71, 0.667, 0.616])
+      const pageBg = getCssVarRgb("--light", isDarkVal ? [0.094, 0.082, 0.102] : [0.976, 0.965, 0.941])
+      const accent = getCssVarRgb("--secondary", isDarkVal ? [0.694, 0.463, 0.875] : [0.541, 0.294, 0.686])
+
+      gl.uniform3f(effect.colorBrightLoc, bright[0], bright[1], bright[2])
+      gl.uniform3f(effect.colorDarkLoc, dark[0], dark[1], dark[2])
+      gl.uniform3f(effect.colorPageBgLoc, pageBg[0], pageBg[1], pageBg[2])
+      gl.uniform3f(effect.colorAccentLoc, accent[0], accent[1], accent[2])
+      effect.needsColorUpdate = false
     }
 
     const hoverSpeed = 1.0 / 2.65
@@ -346,8 +395,7 @@ function init() {
   const themeObserver = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.attributeName === "saved-theme") {
-        // Force a re-render to pick up new theme
-        // getIsDark() will be called on next render frame
+        colorTransitionFrames = 15; // Smooth transition over 15 frames
       }
     })
   })
@@ -355,6 +403,8 @@ function init() {
 
   render(performance.now())
 }
+
+let colorTransitionFrames = 0;
 
 document.addEventListener("nav", () => {
   // Re-init or check element when quartz does SPA navigation

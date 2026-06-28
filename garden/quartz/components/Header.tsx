@@ -20,6 +20,7 @@ header {
   align-items: center;
   margin: 2rem 0;
   gap: 1.5rem;
+  padding-top: 150px;
 }
 
 header h1 {
@@ -28,23 +29,32 @@ header h1 {
 }
 
 .header-image {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -50vw;
+  width: 100vw;
   height: 150px;
   overflow: hidden;
-  margin-bottom: 2rem;
-  border-radius: 8px;
+  margin-bottom: 0;
+  border-radius: 0;
+  z-index: 999;
+  pointer-events: none; /* so users can click links underneath */
 }
 
 .header-image canvas {
   width: 100%;
   height: 100%;
   display: block;
+  pointer-events: auto; /* re-enable pointer events for hover effect */
 }
 
 @media only screen and (max-width: 800px) {
   .header-image {
     height: 100px;
+  }
+  header {
+    padding-top: 100px;
   }
 }
 `
