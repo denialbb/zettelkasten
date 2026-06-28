@@ -292,9 +292,16 @@ function render(timestamp: number) {
 
     if (!visibleCanvases.has(canvas)) continue
 
+    const targetWidth = Math.floor(canvas.offsetWidth * effectiveDpr)
+    const targetHeight = Math.floor(canvas.offsetHeight * effectiveDpr)
+    
+    if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
+      effect.needsResize = true
+    }
+
     if (effect.needsResize) {
-      canvas.width = canvas.offsetWidth * effectiveDpr
-      canvas.height = canvas.offsetHeight * effectiveDpr
+      canvas.width = targetWidth
+      canvas.height = targetHeight
       gl.viewport(0, 0, canvas.width, canvas.height)
       gl.uniform2f(resolutionLoc, canvas.width, canvas.height)
       effect.needsResize = false
