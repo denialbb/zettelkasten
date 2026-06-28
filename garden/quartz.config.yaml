@@ -27,7 +27,7 @@ configuration:
         darkgray: "#504945"
         dark: "#3c3836"
         secondary: "#6c782e"
-        tertiary: "#b47109"
+        tertiary: "#d8a657"
         shaderSecondary: "#ea6962"
         shaderTertiary: "#ebdbb2"
         highlight: "rgba(108, 120, 46, 0.15)"

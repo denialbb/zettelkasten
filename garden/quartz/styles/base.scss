@@ -232,15 +232,8 @@ a {
       z-index: 1;
       grid-area: grid-sidebar-left;
       flex-direction: column;
-      @media all and ($mobile) {
-        gap: 0;
-        align-items: center;
-        position: initial;
-        display: flex;
-        height: unset;
-        flex-direction: row;
-        padding: 0;
-        padding-top: 2rem;
+      @media all and not ($desktop) {
+        display: none;
       }
     }
 
