@@ -365,6 +365,23 @@ export function renderPage(
             ]}
           </Body>
         </div>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            document.addEventListener("nav", () => {
+              const pref = localStorage.getItem("reader-mode-pref") ?? "on";
+              setTimeout(() => {
+                const current = document.documentElement.getAttribute("reader-mode");
+                if (current !== pref) {
+                  const btn = document.querySelector(".readermode");
+                  if (btn) btn.click();
+                }
+              }, 10);
+            });
+            document.addEventListener("readermodechange", (e) => {
+              localStorage.setItem("reader-mode-pref", e.detail.mode);
+            });
+          `
+        }} />
       </body>
       {pageResources.js
         .filter((resource) => resource.loadTime === "afterDOMReady")
