@@ -8,6 +8,8 @@ export interface ColorScheme {
   tertiary: string
   highlight: string
   textHighlight: string
+  shaderSecondary: string
+  shaderTertiary: string
 }
 
 interface Colors {
@@ -187,6 +189,8 @@ ${stylesheet.join("\n\n")}
   --tertiary: ${theme.colors.lightMode.tertiary};
   --highlight: ${theme.colors.lightMode.highlight};
   --textHighlight: ${theme.colors.lightMode.textHighlight};
+  --shader-secondary: ${theme.colors.lightMode.shaderSecondary};
+  --shader-tertiary: ${theme.colors.lightMode.shaderTertiary};
 
   --titleFont: "${getFontSpecificationName(theme.typography.title || theme.typography.header)}", ${DEFAULT_SANS_SERIF};
   --headerFont: "${getFontSpecificationName(theme.typography.header)}", ${DEFAULT_SANS_SERIF};
@@ -204,6 +208,8 @@ ${stylesheet.join("\n\n")}
   --tertiary: ${theme.colors.darkMode.tertiary};
   --highlight: ${theme.colors.darkMode.highlight};
   --textHighlight: ${theme.colors.darkMode.textHighlight};
+  --shader-secondary: ${theme.colors.darkMode.shaderSecondary};
+  --shader-tertiary: ${theme.colors.darkMode.shaderTertiary};
 }
 
 :root {

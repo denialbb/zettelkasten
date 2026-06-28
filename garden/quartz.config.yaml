@@ -28,6 +28,8 @@ configuration:
         dark: "#3c3836"
         secondary: "#6c782e"
         tertiary: "#b47109"
+        shaderSecondary: "#ea6962"
+        shaderTertiary: "#ebdbb2"
         highlight: "rgba(108, 120, 46, 0.15)"
         textHighlight: "rgba(180, 113, 9, 0.25)"
       darkMode:
@@ -38,6 +40,8 @@ configuration:
         dark: "#e2cca9"
         secondary: "#a9b665"
         tertiary: "#d8a657"
+        shaderSecondary: "#7daea3"
+        shaderTertiary: "#ea6962"
         highlight: "rgba(169, 182, 101, 0.15)"
         textHighlight: "rgba(216, 166, 87, 0.25)"
 plugins:

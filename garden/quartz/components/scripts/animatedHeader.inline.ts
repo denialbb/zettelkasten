@@ -310,8 +310,8 @@ function render(timestamp: number) {
     if (effect.needsColorUpdate) {
       const isDarkVal = getIsDark() > 0.5
       // Fetch default quartz colors depending on theme, or read custom CSS variables
-      const bright = getCssVarRgb("--tertiary", isDarkVal ? [0.95, 0.54, 0.65] : [0.84, 0.5, 0.49])
-      const dark = getCssVarRgb("--secondary", isDarkVal ? [0.79, 0.65, 0.96] : [0.56, 0.47, 0.66])
+      const bright = getCssVarRgb("--shader-tertiary", isDarkVal ? [0.95, 0.54, 0.65] : [0.84, 0.5, 0.49])
+      const dark = getCssVarRgb("--shader-secondary", isDarkVal ? [0.79, 0.65, 0.96] : [0.56, 0.47, 0.66])
       const pageBg = getCssVarRgb("--light", isDarkVal ? [0.094, 0.082, 0.102] : [0.976, 0.965, 0.941])
       const accent = getCssVarRgb("--textHighlight", isDarkVal ? [0.95, 0.54, 0.65] : [0.84, 0.5, 0.49])
 

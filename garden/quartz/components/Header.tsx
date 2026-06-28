@@ -1,4 +1,8 @@
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import {
+  QuartzComponent,
+  QuartzComponentConstructor,
+  QuartzComponentProps,
+} from "./types"
 // @ts-ignore
 import script from "./scripts/animatedHeader.inline"
 
@@ -15,7 +19,7 @@ const Header: QuartzComponent = ({ children }: QuartzComponentProps) => {
 
 Header.css = `
 .header-wrapper {
-  padding-top: 150px;
+  padding-top: 20px;
 }
 
 header {
