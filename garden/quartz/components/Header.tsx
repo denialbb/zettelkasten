@@ -14,13 +14,16 @@ const Header: QuartzComponent = ({ children }: QuartzComponentProps) => {
 }
 
 Header.css = `
+.header-wrapper {
+  padding-top: 150px;
+}
+
 header {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin: 2rem 0;
   gap: 1.5rem;
-  padding-top: 150px;
 }
 
 header h1 {
@@ -52,7 +55,7 @@ header h1 {
   .header-image {
     height: 100px;
   }
-  header {
+  .header-wrapper {
     padding-top: 100px;
   }
 }
