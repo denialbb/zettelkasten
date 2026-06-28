@@ -310,10 +310,10 @@ function render(timestamp: number) {
     if (effect.needsColorUpdate) {
       const isDarkVal = getIsDark() > 0.5
       // Fetch default quartz colors depending on theme, or read custom CSS variables
-      const bright = getCssVarRgb("--lightgray", isDarkVal ? [0.157, 0.141, 0.165] : [0.91, 0.89, 0.85])
-      const dark = getCssVarRgb("--gray", isDarkVal ? [0.396, 0.369, 0.412] : [0.71, 0.667, 0.616])
+      const bright = getCssVarRgb("--tertiary", isDarkVal ? [0.95, 0.54, 0.65] : [0.84, 0.5, 0.49])
+      const dark = getCssVarRgb("--secondary", isDarkVal ? [0.79, 0.65, 0.96] : [0.56, 0.47, 0.66])
       const pageBg = getCssVarRgb("--light", isDarkVal ? [0.094, 0.082, 0.102] : [0.976, 0.965, 0.941])
-      const accent = getCssVarRgb("--secondary", isDarkVal ? [0.694, 0.463, 0.875] : [0.541, 0.294, 0.686])
+      const accent = getCssVarRgb("--textHighlight", isDarkVal ? [0.95, 0.54, 0.65] : [0.84, 0.5, 0.49])
 
       gl.uniform3f(effect.colorBrightLoc, bright[0], bright[1], bright[2])
       gl.uniform3f(effect.colorDarkLoc, dark[0], dark[1], dark[2])
