@@ -31,9 +31,8 @@ header h1 {
 .header-image {
   position: absolute;
   top: 0;
-  left: 50%;
-  margin-left: -50vw;
-  width: 100vw;
+  left: 0;
+  width: 100%;
   height: 150px;
   overflow: hidden;
   margin-bottom: 0;

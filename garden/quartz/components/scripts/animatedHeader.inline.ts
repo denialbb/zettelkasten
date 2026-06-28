@@ -81,14 +81,14 @@ const fsSource = `
     return p + vec2(warp1, warp2) * 0.4;
   }
 
+  uniform vec3 u_colorBright;
+  uniform vec3 u_colorDark;
+  uniform vec3 u_colorPageBg;
+  uniform vec3 u_colorAccent;
+
   void main() {
     float scale = 0.0133;
     vec2 p = gl_FragCoord.xy * scale;
-
-    uniform vec3 u_colorBright;
-    uniform vec3 u_colorDark;
-    uniform vec3 u_colorPageBg;
-    uniform vec3 u_colorAccent;
 
     vec3 bright = u_colorBright;
     vec3 dark = u_colorDark;
@@ -284,14 +284,6 @@ function render(timestamp: number) {
     }
   }
 
-  // Update colors over 15 frames for smooth transition when theme changes
-  if (colorTransitionFrames > 0) {
-    for (const effect of effects) {
-      effect.needsColorUpdate = true
-    }
-    colorTransitionFrames--;
-  }
-
   const effectiveDpr = getEffectiveDpr()
   const deltaTime = FRAME_INTERVAL / 1000.0
 
@@ -395,7 +387,9 @@ function init() {
   const themeObserver = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.attributeName === "saved-theme") {
-        colorTransitionFrames = 15; // Smooth transition over 15 frames
+        for (const effect of effects) {
+          effect.needsColorUpdate = true
+        }
       }
     })
   })
@@ -403,8 +397,6 @@ function init() {
 
   render(performance.now())
 }
-
-let colorTransitionFrames = 0;
 
 document.addEventListener("nav", () => {
   // Re-init or check element when quartz does SPA navigation
