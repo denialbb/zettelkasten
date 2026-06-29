@@ -22,7 +22,7 @@ title: "I Trained an LLM to Think Deeper (Here's How)"
 - **GRPO – The “Guided RPO” algorithm** – an extension of PPO that adds a _guidance loss_ to keep the model’s policy close to a set of “expert demonstrations” (e.g., human‑generated reasoning traces). This prevents drift and speeds up convergence.
 
 - **DeepSeek‑R1 training pipeline** – a zero‑shot pre‑training of a policy network that is then fine‑tuned with GRPO. It consists of:
-  1. **Model loading** – load a large transformer (e.g., Qwen‑2.5‑3B‑Instruct) as the base.
+  1. **Model loading** – load a large transformer as the base.
   2. **Dataset preparation** – construct a faithful, curated set of question‑answer pairs with multi‑step reasoning traces.
   3. **Reward specification** – use a reward function that rewards correct chain‑of‑thought steps and penalizes hallucinations.
   4. **GRPO trainer** – the PPO loop with guidance loss, trained for several million steps.
@@ -121,12 +121,13 @@ graph TD
   - DeepSeek began training using pure GRPO RL on DeepSeek-R1-Zero
     - base model DeepSeek-V3 LLM
     - prompt template
-    - ````A conversation between User and Assistant. The user asks a question and
+    - ```prompt
+      A conversation between User and Assistant. The user asks a question and
       the Assistant solves it. The assistant first thinks about the reasoning
-      process in the mind and then provides the user with the answer. The
-      reasoning process and answer are enclose within <think></think> and
-      <answer></answer> respectively. User: *prompt* Assistant: ```
-      ````
+      process in the mind and then provides the user with the answer.
+      The reasoning process and answer are enclose within
+      <think></think> and <answer></answer> respectively. User: _prompt_ Assistant:
+      ```
     - math, code, logic based questions
     - verifiable outcomes
 - results
