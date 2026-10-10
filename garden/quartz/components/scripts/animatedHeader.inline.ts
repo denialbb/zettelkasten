@@ -1,8 +1,22 @@
 // Animation effect (WebGL metaballs)
+//
+// Lifecycle/perf notes (fixes for mobile slowdown + renderer crash):
+// - Installs exactly once per document (globalThis guard). Quartz re-appends
+//   afterDOMLoaded scripts on SPA navigations and the serve-mode monolithic
+//   IIFE bundle re-executes them; previously that duplicated the rAF loop,
+//   listeners and observers on every navigation until the tab died.
+// - Per-frame canvas.offsetWidth reads and the duplicated listeners are gone:
+//   sizes are only re-read on resize events (no forced layout every frame).
+// - devicePixelRatio is capped at 1.5. Phones report dpr up to 3.5, which
+//   rendered this shader at far more fragments than a mobile GPU sustains —
+//   that is the slowdown → GPU-process crash on mobile.
+// - WebGL context loss is handled instead of drawing into a dead context.
 const FRAME_INTERVAL = 33 // ~30fps
-let initialized = false
-let isPageVisible = true
-let visibleCanvases = new Set<Element>()
+
+// ponytail: u_time wraps at ~72min (one-frame clock jump the shader will
+// visibly hiccup on once); without the wrap mediump fp16 GPUs NaN out.
+// If the hiccup matters, wrap the animation phases in the shader instead.
+const TIME_WRAP_S = 4300
 
 const vsSource = `
   attribute vec2 a_position;
@@ -14,10 +28,9 @@ const vsSource = `
 `
 
 const fsSource = `
-  precision mediump float;
+  precision highp float;
   uniform vec2 u_resolution;
   uniform float u_time;
-  uniform float u_isDark;
   uniform float u_fadeTop;
   uniform float u_dpr;
   uniform float u_hover;
@@ -159,9 +172,13 @@ function getIsDark() {
 }
 
 function hexToRgb(hex: string): number[] {
-  hex = hex.replace(/^#/, "")
-  if (hex.length === 3) hex = hex.split("").map((c) => c + c).join("")
-  const int = parseInt(hex, 16) || 0
+  let parts = hex.replace(/^#/, "")
+  if (parts.length === 3)
+    parts = parts
+      .split("")
+      .map((c) => c + c)
+      .join("")
+  const int = parseInt(parts, 16) || 0
   return [((int >> 16) & 255) / 255, ((int >> 8) & 255) / 255, (int & 255) / 255]
 }
 
@@ -170,8 +187,11 @@ function getCssVarRgb(name: string, fallback: number[]): number[] {
   if (!val) return fallback
   if (val.startsWith("#")) return hexToRgb(val)
   if (val.startsWith("rgba")) {
-    const parts = val.substring(5, val.length - 1).split(",").map(s => parseFloat(s.trim()));
-    if (parts.length >= 3) return [parts[0] / 255, parts[1] / 255, parts[2] / 255];
+    const nums = val
+      .substring(5, val.length - 1)
+      .split(",")
+      .map((s) => parseFloat(s.trim()))
+    if (nums.length >= 3) return [nums[0] / 255, nums[1] / 255, nums[2] / 255]
   }
   return fallback
 }
@@ -179,33 +199,66 @@ function getCssVarRgb(name: string, fallback: number[]): number[] {
 interface EffectConfig {
   canvas: HTMLCanvasElement
   gl: WebGLRenderingContext
+  program: WebGLProgram
+  vertexShader: WebGLShader
+  fragmentShader: WebGLShader
+  posBuffer: WebGLBuffer | null
   resolutionLoc: WebGLUniformLocation | null
   timeLoc: WebGLUniformLocation | null
-  isDarkLoc: WebGLUniformLocation | null
   dprLoc: WebGLUniformLocation | null
   hoverLoc: WebGLUniformLocation | null
+  fadeTopLoc: WebGLUniformLocation | null
   colorBrightLoc: WebGLUniformLocation | null
   colorDarkLoc: WebGLUniformLocation | null
   colorPageBgLoc: WebGLUniformLocation | null
   colorAccentLoc: WebGLUniformLocation | null
+  fadeTop: boolean
   hoverTarget: number
   hoverValue: number
   needsResize: boolean
   needsColorUpdate: boolean
+  cssWidth: number
+  cssHeight: number
 }
 
-function initWaterEffect(canvasId: string, fadeTop: boolean): EffectConfig | null {
-  const canvas = document.getElementById(canvasId) as HTMLCanvasElement
-  if (!canvas) return null
-  const gl = canvas.getContext("webgl", { antialias: true })
-  if (!gl) return null
+// Single active effect per page. Rebuilt on SPA navigation instead of
+// accumulating new contexts/programs.
+let active: EffectConfig | null = null
+let running = false
+let rafId = 0
+let headerVisible = true
+let contextLost = false
+let lastFrameTime = 0
+let isPageVisible = !document.hidden
+let savedDpr = window.devicePixelRatio
+const startTime = performance.now()
 
+function getEffectiveDpr() {
+  // Cap render resolution: phones report dpr up to 3.5 and the fragment
+  // shader cannot sustain 30fps at that size — the mobile slowdown/crash.
+  return Math.min(window.devicePixelRatio || 1, 1.5)
+}
+
+function buildPipeline(canvas: HTMLCanvasElement, fadeTop: boolean): EffectConfig | null {
+  const gl = canvas.getContext("webgl", {
+    antialias: false, // full-screen shader quad: MSAA costs 4x tile memory on mobile for nothing
+    alpha: false, // output is fully opaque anyway
+    powerPreference: "low-power",
+  }) as WebGLRenderingContext | null
+  if (!gl) return null
   const vs = createShader(gl, gl.VERTEX_SHADER, vsSource)
   const fs = createShader(gl, gl.FRAGMENT_SHADER, fsSource)
-  if (!vs || !fs) return null
-
+  if (!vs || !fs) {
+    if (vs) gl.deleteShader(vs)
+    if (fs) gl.deleteShader(fs)
+    return null
+  }
   const program = gl.createProgram()
-  if (!program) return null
+  if (!program) {
+    gl.deleteShader(vs)
+    gl.deleteShader(fs)
+    return null
+  }
   gl.attachShader(program, vs)
   gl.attachShader(program, fs)
   gl.linkProgram(program)
@@ -218,217 +271,254 @@ function initWaterEffect(canvasId: string, fadeTop: boolean): EffectConfig | nul
   gl.enableVertexAttribArray(posLoc)
   gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0)
 
-  const resolutionLoc = gl.getUniformLocation(program, "u_resolution")
-  const timeLoc = gl.getUniformLocation(program, "u_time")
-  const isDarkLoc = gl.getUniformLocation(program, "u_isDark")
-  const fadeTopLoc = gl.getUniformLocation(program, "u_fadeTop")
-  const dprLoc = gl.getUniformLocation(program, "u_dpr")
-  const hoverLoc = gl.getUniformLocation(program, "u_hover")
-  
-  const colorBrightLoc = gl.getUniformLocation(program, "u_colorBright")
-  const colorDarkLoc = gl.getUniformLocation(program, "u_colorDark")
-  const colorPageBgLoc = gl.getUniformLocation(program, "u_colorPageBg")
-  const colorAccentLoc = gl.getUniformLocation(program, "u_colorAccent")
-
-  gl.uniform1f(fadeTopLoc, fadeTop ? 1.0 : 0.0)
-
   return {
     canvas,
     gl,
-    resolutionLoc,
-    timeLoc,
-    isDarkLoc,
-    dprLoc,
-    hoverLoc,
-    colorBrightLoc,
-    colorDarkLoc,
-    colorPageBgLoc,
-    colorAccentLoc,
+    program,
+    vertexShader: vs,
+    fragmentShader: fs,
+    posBuffer,
+    resolutionLoc: gl.getUniformLocation(program, "u_resolution"),
+    timeLoc: gl.getUniformLocation(program, "u_time"),
+    dprLoc: gl.getUniformLocation(program, "u_dpr"),
+    hoverLoc: gl.getUniformLocation(program, "u_hover"),
+    fadeTopLoc: gl.getUniformLocation(program, "u_fadeTop"),
+    colorBrightLoc: gl.getUniformLocation(program, "u_colorBright"),
+    colorDarkLoc: gl.getUniformLocation(program, "u_colorDark"),
+    colorPageBgLoc: gl.getUniformLocation(program, "u_colorPageBg"),
+    colorAccentLoc: gl.getUniformLocation(program, "u_colorAccent"),
+    fadeTop,
     hoverTarget: 0,
     hoverValue: 0,
     needsResize: true,
     needsColorUpdate: true,
+    cssWidth: canvas.offsetWidth,
+    cssHeight: canvas.offsetHeight,
   }
 }
 
-let effects: EffectConfig[] = []
-let startTime = performance.now()
-let lastFrameTime = 0
-let currentDpr = window.devicePixelRatio
+function disposePipeline(fully: boolean) {
+  if (!active) return
+  const { gl, program, vertexShader, fragmentShader, posBuffer } = active
+  gl.deleteProgram(program)
+  gl.deleteShader(vertexShader)
+  gl.deleteShader(fragmentShader)
+  if (posBuffer) gl.deleteBuffer(posBuffer)
+  if (fully) {
+    // Explicitly release the backing context (e.g. the canvas was replaced
+    // during SPA navigation and its context would otherwise linger in GPU
+    // memory until GC — on mobile that is the WebGL memory-leak symptom).
+    gl.getExtension("WEBGL_lose_context")?.loseContext()
+  }
+  active = null
+}
 
-function getEffectiveDpr() {
-  const dpr = window.devicePixelRatio
-  return dpr <= 1 ? 1.5 : dpr
+function updateColors(effect: EffectConfig) {
+  const { gl } = effect
+  const isDarkVal = getIsDark() > 0.5
+  // Fetch default quartz colors depending on theme, or read custom CSS variables
+  const bright = getCssVarRgb(
+    "--shader-tertiary",
+    isDarkVal ? [0.95, 0.54, 0.65] : [0.84, 0.5, 0.49],
+  )
+  const dark = getCssVarRgb(
+    "--shader-secondary",
+    isDarkVal ? [0.79, 0.65, 0.96] : [0.56, 0.47, 0.66],
+  )
+  const pageBg = getCssVarRgb("--light", isDarkVal ? [0.094, 0.082, 0.102] : [0.976, 0.965, 0.941])
+  const accent = getCssVarRgb("--textHighlight", isDarkVal ? [0.95, 0.54, 0.65] : [0.84, 0.5, 0.49])
+
+  gl.uniform3f(effect.colorBrightLoc, bright[0], bright[1], bright[2])
+  gl.uniform3f(effect.colorDarkLoc, dark[0], dark[1], dark[2])
+  gl.uniform3f(effect.colorPageBgLoc, pageBg[0], pageBg[1], pageBg[2])
+  gl.uniform3f(effect.colorAccentLoc, accent[0], accent[1], accent[2])
+  gl.uniform1f(effect.fadeTopLoc, effect.fadeTop ? 1.0 : 0.0)
 }
 
 function render(timestamp: number) {
-  if (!isPageVisible || visibleCanvases.size === 0) {
-    requestAnimationFrame(render)
-    return
-  }
+  if (!running) return
+  rafId = requestAnimationFrame(render)
+  if (!isPageVisible || !active || contextLost || !headerVisible) return
 
-  if (timestamp - lastFrameTime < FRAME_INTERVAL) {
-    requestAnimationFrame(render)
-    return
-  }
+  if (timestamp - lastFrameTime < FRAME_INTERVAL) return
   lastFrameTime = timestamp
 
-  const elapsed = (performance.now() - startTime) / 1000.0
-  const isDark = getIsDark()
+  const effect = active
+  const { canvas, gl, resolutionLoc, timeLoc, dprLoc, hoverLoc } = effect
 
   const newDpr = window.devicePixelRatio
-  if (newDpr !== currentDpr) {
-    currentDpr = newDpr
-    for (const effect of effects) {
-      effect.needsResize = true
-    }
+  if (newDpr !== savedDpr) {
+    savedDpr = newDpr
+    effect.needsResize = true
   }
 
   const effectiveDpr = getEffectiveDpr()
+  const targetWidth = Math.floor(effect.cssWidth * effectiveDpr)
+  const targetHeight = Math.floor(effect.cssHeight * effectiveDpr)
+  if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
+    effect.needsResize = true
+  }
+
+  if (effect.needsResize) {
+    canvas.width = targetWidth
+    canvas.height = targetHeight
+    gl.viewport(0, 0, canvas.width, canvas.height)
+    gl.uniform2f(resolutionLoc, canvas.width, canvas.height)
+    effect.needsResize = false
+  }
+
+  if (effect.needsColorUpdate) {
+    updateColors(effect)
+    effect.needsColorUpdate = false
+  }
+
+  const hoverSpeed = 1.0 / 2.65
   const deltaTime = FRAME_INTERVAL / 1000.0
-
-  for (const effect of effects) {
-    const { canvas, gl, resolutionLoc, timeLoc, isDarkLoc, dprLoc, hoverLoc } = effect
-
-    if (!visibleCanvases.has(canvas)) continue
-
-    const targetWidth = Math.floor(canvas.offsetWidth * effectiveDpr)
-    const targetHeight = Math.floor(canvas.offsetHeight * effectiveDpr)
-    
-    if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
-      effect.needsResize = true
-    }
-
-    if (effect.needsResize) {
-      canvas.width = targetWidth
-      canvas.height = targetHeight
-      gl.viewport(0, 0, canvas.width, canvas.height)
-      gl.uniform2f(resolutionLoc, canvas.width, canvas.height)
-      effect.needsResize = false
-    }
-
-    if (effect.needsColorUpdate) {
-      const isDarkVal = getIsDark() > 0.5
-      // Fetch default quartz colors depending on theme, or read custom CSS variables
-      const bright = getCssVarRgb("--shader-tertiary", isDarkVal ? [0.95, 0.54, 0.65] : [0.84, 0.5, 0.49])
-      const dark = getCssVarRgb("--shader-secondary", isDarkVal ? [0.79, 0.65, 0.96] : [0.56, 0.47, 0.66])
-      const pageBg = getCssVarRgb("--light", isDarkVal ? [0.094, 0.082, 0.102] : [0.976, 0.965, 0.941])
-      const accent = getCssVarRgb("--textHighlight", isDarkVal ? [0.95, 0.54, 0.65] : [0.84, 0.5, 0.49])
-
-      gl.uniform3f(effect.colorBrightLoc, bright[0], bright[1], bright[2])
-      gl.uniform3f(effect.colorDarkLoc, dark[0], dark[1], dark[2])
-      gl.uniform3f(effect.colorPageBgLoc, pageBg[0], pageBg[1], pageBg[2])
-      gl.uniform3f(effect.colorAccentLoc, accent[0], accent[1], accent[2])
-      effect.needsColorUpdate = false
-    }
-
-    const hoverSpeed = 1.0 / 2.65
-    if (effect.hoverTarget > effect.hoverValue) {
-      effect.hoverValue = Math.min(effect.hoverTarget, effect.hoverValue + deltaTime * hoverSpeed)
-    } else if (effect.hoverTarget < effect.hoverValue) {
-      effect.hoverValue = Math.max(effect.hoverTarget, effect.hoverValue - deltaTime * hoverSpeed)
-    }
-
-    gl.uniform1f(timeLoc, elapsed)
-    gl.uniform1f(isDarkLoc, isDark)
-    gl.uniform1f(dprLoc, effectiveDpr)
-    gl.uniform1f(hoverLoc, effect.hoverValue)
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+  if (effect.hoverTarget > effect.hoverValue) {
+    effect.hoverValue = Math.min(effect.hoverTarget, effect.hoverValue + deltaTime * hoverSpeed)
+  } else if (effect.hoverTarget < effect.hoverValue) {
+    effect.hoverValue = Math.max(effect.hoverTarget, effect.hoverValue - deltaTime * hoverSpeed)
   }
 
-  requestAnimationFrame(render)
+  gl.uniform1f(timeLoc, ((performance.now() - startTime) / 1000.0) % TIME_WRAP_S)
+  gl.uniform1f(dprLoc, effectiveDpr)
+  gl.uniform1f(hoverLoc, effect.hoverValue)
+  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
 }
 
-function init() {
-  if (initialized) return
-  initialized = true
-
-  const effect = initWaterEffect("header-canvas", false)
-  if (effect) {
-    effects = [effect]
-  }
-
-  if (effects.length === 0) return
-
-  effects.forEach(function (effect) {
-    const container = effect.canvas.parentElement
-    if (container) {
-      container.addEventListener("mouseenter", function () {
-        effect.hoverTarget = 1
-      })
-      container.addEventListener("mouseleave", function () {
-        effect.hoverTarget = 0
-      })
-    }
-  })
-
-  document.addEventListener("visibilitychange", function () {
-    isPageVisible = !document.hidden
-  })
-
-  const observer = new IntersectionObserver(
-    function (entries) {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          visibleCanvases.add(entry.target)
-        } else {
-          visibleCanvases.delete(entry.target)
-        }
-      }
-    },
-    { threshold: 0 },
-  )
-
-  for (const effect of effects) {
-    observer.observe(effect.canvas)
-  }
-
-  window.addEventListener("resize", function () {
-    for (const effect of effects) {
-      effect.needsResize = true
-    }
-  })
-
-  // Watch for theme changes specifically in Quartz
-  const html = document.documentElement
-  const themeObserver = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.attributeName === "saved-theme") {
-        for (const effect of effects) {
-          effect.needsColorUpdate = true
-        }
-      }
-    })
-  })
-  themeObserver.observe(html, { attributes: true })
-
-  render(performance.now())
+function startRenderLoop() {
+  if (running || !active) return
+  running = true
+  rafId = requestAnimationFrame(render)
 }
 
-document.addEventListener("nav", () => {
-  // Re-init or check element when quartz does SPA navigation
-  if (!initialized) {
-    init()
-  } else {
-    // If element was replaced, re-attach observer
-    const canvas = document.getElementById("header-canvas") as HTMLCanvasElement
-    if (canvas && effects.length > 0 && effects[0].canvas !== canvas) {
-      visibleCanvases.delete(effects[0].canvas)
+function stopRenderLoop() {
+  running = false
+  cancelAnimationFrame(rafId)
+  rafId = 0
+}
 
-      const newEffect = initWaterEffect("header-canvas", false)
-      if (newEffect) {
-        effects = [newEffect]
-        visibleCanvases.add(newEffect.canvas)
-        const container = newEffect.canvas.parentElement
-        if (container) {
-          container.addEventListener("mouseenter", function () {
-            newEffect.hoverTarget = 1
-          })
-          container.addEventListener("mouseleave", function () {
-            newEffect.hoverTarget = 0
-          })
-        }
-      }
+// Pause rendering while the header is scrolled out of view.
+const visibilityObserver = new IntersectionObserver((entries) => {
+  for (const entry of entries) {
+    if (active && entry.target === active.canvas) {
+      headerVisible = entry.isIntersecting
     }
   }
 })
+
+const onNav = () => {
+  // Tear down the previous page's listeners, then rebuild for the new DOM.
+  stopRenderLoop()
+  for (const dispose of pageDisposers) dispose()
+  pageDisposers.length = 0
+
+  const canvas = document.getElementById("header-canvas") as HTMLCanvasElement | null
+  if (active) {
+    // If micromorph swapped the canvas element, release its GL context
+    // explicitly; otherwise the same context object is reused when the page
+    // reuses the canvas element.
+    disposePipeline(active.canvas !== canvas)
+  }
+  if (!canvas) return
+
+  const effect = buildPipeline(canvas, false)
+  if (!effect) return
+  active = effect
+  contextLost = false
+  headerVisible = true
+
+  const container = canvas.parentElement
+  if (container) {
+    const enter = () => {
+      if (active) active.hoverTarget = 1
+    }
+    const leave = () => {
+      if (active) active.hoverTarget = 0
+    }
+    container.addEventListener("mouseenter", enter)
+    container.addEventListener("mouseleave", leave)
+    pageDisposers.push(() => {
+      container.removeEventListener("mouseenter", enter)
+      container.removeEventListener("mouseleave", leave)
+    })
+  }
+
+  // Context loss handling: without this, Chrome/Android silently kills the
+  // context and the loop keeps drawing into nothing at full fragment count.
+  canvas.addEventListener("webglcontextlost", onContextLost, false)
+  canvas.addEventListener("webglcontextrestored", onContextRestored, false)
+
+  visibilityObserver.disconnect()
+  visibilityObserver.observe(canvas)
+
+  startRenderLoop()
+}
+
+const onContextLost = (event: Event) => {
+  event.preventDefault()
+  contextLost = true
+}
+
+const onContextRestored = () => {
+  contextLost = false
+  // Programs/buffers died with the context: rebuild the pipeline.
+  disposePipeline(false)
+  const canvas = document.getElementById("header-canvas") as HTMLCanvasElement | null
+  const effect = canvas ? buildPipeline(canvas, false) : null
+  if (!canvas || !effect) return
+  effect.needsColorUpdate = true
+  active = effect
+  visibilityObserver.observe(canvas)
+  startRenderLoop()
+}
+
+const pageDisposers: (() => void)[] = []
+
+// Called before every nav by spa.inline (and on every prenav in serve mode),
+// so the loop/objects never survive a page transition.
+const cleanup = () => {
+  stopRenderLoop()
+  for (const dispose of pageDisposers) dispose()
+  pageDisposers.length = 0
+}
+window.addCleanup?.(cleanup)
+
+// Theme changes re-read CSS colors (no per-frame getComputedStyle churn).
+const themeObserver = new MutationObserver((mutations) => {
+  for (const mutation of mutations) {
+    if (mutation.attributeName === "saved-theme" && active) {
+      active.needsColorUpdate = true
+    }
+  }
+})
+themeObserver.observe(document.documentElement, { attributes: true })
+
+const onResize = () => {
+  if (!active) return
+  active.cssWidth = active.canvas.offsetWidth
+  active.cssHeight = active.canvas.offsetHeight
+  active.needsResize = true
+}
+window.addEventListener("resize", onResize)
+
+const onVisibilityChange = () => {
+  isPageVisible = !document.hidden
+}
+document.addEventListener("visibilitychange", onVisibilityChange)
+
+document.addEventListener("nav", onNav)
+
+// Scripts are re-appended to <head> (and, in serve mode, re-executed) on every
+// SPA navigation: keep only one instance alive.
+const instanceKey = "__quartzAnimatedHeaderReady"
+// SAFETY: a string-keyed flag on globalThis is the only storage that survives
+// IIFE re-execution (serve-mode bundle) and does not typecheck a custom index
+// signature, hence the double cast.
+// SAFETY: a string-keyed marker on globalThis is the only storage that
+// survives IIFE re-execution (serve-mode bundle re-runs the script); cast
+// through unknown because globalThis has no index signature to check against.
+const existing = globalThis as unknown as Record<string, unknown>
+if (!existing[instanceKey]) {
+  existing[instanceKey] = true
+}
