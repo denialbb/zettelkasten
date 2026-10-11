@@ -344,7 +344,7 @@ export function renderPage(
       ? ""
       : new URL(`https://${cfg.baseUrl}`).pathname.replace(/\/$/, "")
   const doc = (
-    <html lang={lang} dir={direction} reader-mode="on">
+    <html lang={lang} dir={direction} reader-mode="off">
       <Head {...componentData} />
       <body data-slug={slug} data-basepath={basePath}>
         {frame.css && <style dangerouslySetInnerHTML={{ __html: frame.css }} />}
@@ -368,7 +368,7 @@ export function renderPage(
         <script dangerouslySetInnerHTML={{
           __html: `
             document.addEventListener("nav", () => {
-              const pref = localStorage.getItem("reader-mode-pref") ?? "on";
+              const pref = localStorage.getItem("reader-mode-pref") ?? "off";
               setTimeout(() => {
                 const current = document.documentElement.getAttribute("reader-mode");
                 if (current !== pref) {

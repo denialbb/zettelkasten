@@ -12,6 +12,7 @@ configuration:
     - private
     - templates
     - .obsidian
+    - garden # the site engine itself lives here; never publish its own docs/source
   theme:
     fontOrigin: googleFonts
     cdnCaching: true

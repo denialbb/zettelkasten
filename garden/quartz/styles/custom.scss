@@ -165,3 +165,37 @@ blockquote {
   margin-top: 0.75rem;
   text-align: center;
 }
+
+// Header overlay links (top-right, over the shader canvas)
+.header-links {
+  position: absolute;
+  top: 0.75rem;
+  right: 1.25rem;
+  z-index: 1000; /* above the header canvas (999) */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+
+  a {
+    color: var(--light);
+    // dark halo keeps text readable over the coral/teal shader blobs
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 0, 0, 0.7);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // dark translucent pill: text stays readable over light coral pixels too
+  backdrop-filter: blur(7px);
+  background: rgba(20, 20, 24, 0.45);
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+}
+
+.header-social-links {
+  display: flex;
+  gap: 0.65rem;
+  font-size: 0.8rem;
+}

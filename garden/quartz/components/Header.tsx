@@ -12,6 +12,14 @@ const Header: QuartzComponent = ({ children }: QuartzComponentProps) => {
       <div class="header-image">
         <canvas id="header-canvas"></canvas>
       </div>
+      <nav class="header-links">
+        <a class="header-cv-link" href="/cv">Curriculum Vitae</a>
+        <div class="header-social-links">
+          <a href="https://hardcover.app/@denial">hardcover</a>
+          <a href="https://x.com/denialbb">X</a>
+          <a href="https://github.com/denialbb">GitHub</a>
+        </div>
+      </nav>
       {children.length > 0 ? <header>{children}</header> : null}
     </div>
   )
