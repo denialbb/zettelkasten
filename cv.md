@@ -1,5 +1,7 @@
 ---
-title: CV
+title: CV — Daniel Biasiotto
+description: Curriculum vitae of Daniel Biasiotto, available in English and Italian as a downloadable PDF.
+author: Daniel Biasiotto
 ---
 
 Curriculum Vitae — one page per language.

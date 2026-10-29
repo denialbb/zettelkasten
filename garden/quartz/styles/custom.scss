@@ -10,6 +10,16 @@ body {
     color 0.3s ease;
 }
 
+// Keep the page, content surface, and shader canvas on the same theme surface.
+html,
+body,
+#quartz-root,
+.page,
+#quartz-body,
+.center {
+  background-color: var(--light);
+}
+
 /* Link animations */
 a.internal {
   text-decoration: none;
@@ -65,7 +75,7 @@ blockquote {
 
 /* Typography Overrides */
 :root {
-  --codeFont: "Iosevka Term", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  --codeFont: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 }
 
 /* Table of Contents Customizations */
@@ -178,24 +188,43 @@ blockquote {
   gap: 0.25rem;
 
   a {
-    color: var(--light);
-    // dark halo keeps text readable over the coral/teal shader blobs
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 0, 0, 0.7);
+    // light theme: dark text over the dark shader canvas needs a light halo to stay visible
+    color: var(--dark);
+    text-shadow: 0 0 4px rgba(250, 249, 246, 0.9), 0 0 9px rgba(250, 249, 246, 0.6);
 
     &:hover {
       text-decoration: underline;
     }
   }
 
-  // dark translucent pill: text stays readable over light coral pixels too
-  backdrop-filter: blur(7px);
-  background: rgba(20, 20, 24, 0.45);
-  padding: 0.35rem 0.7rem;
-  border-radius: 8px;
+  [saved-theme="dark"] & a {
+    // dark theme: light text + dark halo
+    color: var(--dark);
+    text-shadow: 0 0 4px rgba(15, 15, 18, 0.95), 0 0 9px rgba(15, 15, 18, 0.7);
+  }
 }
 
 .header-social-links {
   display: flex;
   gap: 0.65rem;
   font-size: 0.8rem;
+}
+
+// Keep the explorer's long folder list scrollable without a bulky scrollbar.
+.explorer-content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--lightgray) transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--lightgray);
+    border-radius: 999px;
+  }
 }

@@ -1,8 +1,4 @@
-import {
-  QuartzComponent,
-  QuartzComponentConstructor,
-  QuartzComponentProps,
-} from "./types"
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 // @ts-ignore
 import script from "./scripts/animatedHeader.inline"
 
@@ -13,11 +9,18 @@ const Header: QuartzComponent = ({ children }: QuartzComponentProps) => {
         <canvas id="header-canvas"></canvas>
       </div>
       <nav class="header-links">
-        <a class="header-cv-link" href="/cv">Curriculum Vitae</a>
+        <a class="header-cv-link" href="/cv">
+          Curriculum Vitae
+        </a>
         <div class="header-social-links">
+          <a href="https://www.linkedin.com/in/daniel-biasiotto-04b3b8447/" rel="me">
+            LinkedIn
+          </a>
           <a href="https://hardcover.app/@denial">hardcover</a>
           <a href="https://x.com/denialbb">X</a>
-          <a href="https://github.com/denialbb">GitHub</a>
+          <a href="https://github.com/denialbb" rel="me">
+            GitHub
+          </a>
         </div>
       </nav>
       {children.length > 0 ? <header>{children}</header> : null}
@@ -54,12 +57,14 @@ header h1 {
   border-radius: 0;
   z-index: 999;
   pointer-events: none; /* so users can click links underneath */
+  background-color: var(--light);
 }
 
 .header-image canvas {
   width: 100%;
   height: 100%;
   display: block;
+  background-color: var(--light);
   pointer-events: auto; /* re-enable pointer events for hover effect */
 }
 

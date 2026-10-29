@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Denial
+  pageTitle: Daniel Biasiotto
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -17,12 +17,12 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Roboto
-      body: Roboto
+      header: IBM Plex Sans
+      body: IBM Plex Sans
       code: JetBrains Mono
     colors:
       lightMode:
-        light: "#fbf1c7"
+        light: "#faf9f6"
         lightgray: "#ebdbb2"
         gray: "#928374"
         darkgray: "#504945"
@@ -173,7 +173,7 @@ plugins:
     layout:
       position: left
       priority: 10
-  - source: github:quartz-community/darkmode
+  - source: ./plugins-local/darkmode
     enabled: true
     layout:
       position: left
@@ -203,8 +203,9 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        LinkedIn: https://www.linkedin.com/in/daniel-biasiotto-04b3b8447/
+        GitHub: https://github.com/denialbb
+        CV: https://denial.in.net/cv
   - source: github:quartz-community/recent-notes
     enabled: false
   - source: github:quartz-community/spacer

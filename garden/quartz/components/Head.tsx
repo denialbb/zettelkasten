@@ -29,7 +29,9 @@ export default (() => {
 
     // Url of current page
     const socialUrl =
-      fileData.slug === "404" ? url.toString() : joinSegments(url.toString(), fileData.slug!)
+      fileData.slug === "404" || fileData.slug === "index"
+        ? url.toString()
+        : joinSegments(url.toString(), fileData.slug!)
 
     const usesCustomOgImage = ctx.cfg.plugins.emitters.some(
       (e) => e.name === CustomOgImagesEmitterName,
@@ -85,6 +87,7 @@ export default (() => {
 
         {cfg.baseUrl && (
           <>
+            <link rel="canonical" href={socialUrl} />
             <meta property="twitter:domain" content={cfg.baseUrl}></meta>
             <meta property="og:url" content={socialUrl}></meta>
             <meta property="twitter:url" content={socialUrl}></meta>
@@ -94,6 +97,29 @@ export default (() => {
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
+        {fileData.slug === "index" && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "@id": "https://denial.in.net/#person",
+                name: "Daniel Biasiotto",
+                url: "https://denial.in.net/",
+                sameAs: [
+                  "https://www.linkedin.com/in/daniel-biasiotto-04b3b8447/",
+                  "https://github.com/denialbb",
+                ],
+                subjectOf: {
+                  "@type": "CreativeWork",
+                  name: "Curriculum Vitae",
+                  url: "https://denial.in.net/cv",
+                },
+              }),
+            }}
+          />
+        )}
 
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}
         {js

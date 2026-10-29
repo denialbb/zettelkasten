@@ -1,9 +1,12 @@
 ---
-title: Denial's Garden
+title: Daniel Biasiotto
+description: Official website of Daniel Biasiotto, featuring his CV, GitHub projects, and digital garden about software development and artificial intelligence.
+author: Daniel Biasiotto
 ---
 
-Welcome to my digital garden!
-This is the entry point to the Zettelkasten; use the explorer, search bar and graph view to get around.
+I’m Daniel Biasiotto. This is my personal website and digital garden, where I share notes on software development, artificial intelligence, and what I’m learning.
+
+Find me on [LinkedIn](https://www.linkedin.com/in/daniel-biasiotto-04b3b8447/) and [GitHub](https://github.com/denialbb), or view my [curriculum vitae](/cv).
 
 ## Entry points
 
