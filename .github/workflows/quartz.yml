@@ -33,6 +33,9 @@ jobs:
         run: |
           npm run install-plugins
           npx quartz build -d ..
+      - name: Add Google Search Console verification file
+        working-directory: ./garden
+        run: cp googleaa9a8523e9d34f81.html public/googleaa9a8523e9d34f81.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
