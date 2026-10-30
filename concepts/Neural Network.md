@@ -15,9 +15,9 @@ Neural Networks are computational models inspired by the structure and function 
 ## Applications
 
 - [[Computer Vision]]
-- Natural Language Processing
+- Natural Language Processing ([[university/AI 2025-2026/TLN/nlp_lab/notes|TLN NLP lab notes]])
 - Speech Recognition
-- [[Reinforcement Learning]] — neural networks can approximate value functions and policies
+- [[concepts/Reinforcement Learning]] — neural networks can approximate value functions and policies
 - [[NN-ADRC]] — Neural Network in Active Disturbance Rejection Control for aerospace
 - Pattern Recognition
 
@@ -33,4 +33,4 @@ Neural Networks are computational models inspired by the structure and function 
 - Backpropagation
 - Activation Functions
 - Deep Learning
-- [[Machine Learning]]
+- [Machine learning course notes](/university/apprendimento-automatico)

@@ -4,7 +4,7 @@ id: cfd74497-ade8-4704-b9fa-a29414a38458
 title: Italian Projective Dependency Parser
 ---
 
-- Related: [[Parsing English in 500 Lines of Python]], [[NLP]], [[Tecnologie del Linguaggio Naturale]]
+- Related: [[Parsing English in 500 Lines of Python]], [[NLP]], [[Tecnologie del Linguaggio Naturale]], [[university/AI 2025-2026/TLN/sintassi_e_parsing/deepdive_dependency_parsing|TLN dependency-parsing notes]]
 - Repo: <https://github.com/dnbias/dependency-parser-it>
 - ISDT: <https://github.com/UniversalDependencies/UD_Italian-ISDT>
   - used commit `5bb0bf3`

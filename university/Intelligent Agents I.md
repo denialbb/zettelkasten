@@ -6,6 +6,8 @@ title: Intelligent Agents I
 
 Course taught by **Leon van der Torre** in the University of Luxembourg.
 
+Related: [[university/AI 2025-2026/AILAB/planning/notes|AILAB planning notes]] · [[university/AI 2025-2026/AILAB Study Notes|AILAB course index]]
+
 # Agent
 
 - interacts with an *environment*

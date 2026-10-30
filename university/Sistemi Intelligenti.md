@@ -7,6 +7,7 @@ title: Sistemi Intelligenti
 
 - Professoressa: Cristina Baroglio
 - [PDF Version](./sistemi_intelligenti.pdf)
+- Related: [[university/AI 2025-2026/AILAB Study Notes|AILAB study notes (2025–2026)]]
 
 # Terminologia
 

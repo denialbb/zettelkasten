@@ -5,5 +5,6 @@ title: Transformer
 ---
 
 - [[Neural Network]]
+- Related: [[university/AI 2025-2026/TLN/nlp_lab/deepdive_transformers|TLN transformer notes]]
 
 <span class="spurious-link" target="~/Pictures/misc/transformer.png">*~/Pictures/misc/transformer.png*</span>

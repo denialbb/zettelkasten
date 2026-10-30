@@ -7,6 +7,7 @@ title: IALAB
 
 - Professori:
   - Roberto Micalizio
+- Current notes: [[university/AI 2025-2026/AILAB Study Notes|AILAB study notes (2025–2026)]]
 
 # Prolog
 

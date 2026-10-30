@@ -7,6 +7,7 @@ title: Tecnologie del Linguaggio Naturale
 
 - [[Speech and Language Processing]]
 - [[NLP]]
+- [[university/AI 2025-2026/TLN Study Notes|TLN study notes (2025–2026)]]
 
 # Linguistica
 

@@ -7,3 +7,4 @@ title: Attention is all you need
 
 - [[Neural Network]]
 - the birth of the [[Transformer]]
+- Related: [[university/AI 2025-2026/TLN/nlp_lab/deepdive_transformers|TLN transformer notes]]

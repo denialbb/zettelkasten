@@ -14,3 +14,4 @@ Find me on [LinkedIn](https://www.linkedin.com/in/daniel-biasiotto-04b3b8447/) a
 - [Papers](papers) — DeepSeek-R1 reasoning via RL
 - [Videos](videos) — video notes
 - [CV](cv) — one-page curriculum, EN/IT toggle
+- [[university/AI 2025-2026|University and research notes]] — AI study notes

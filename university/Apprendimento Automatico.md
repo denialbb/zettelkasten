@@ -8,6 +8,7 @@ title: Apprendimento Automatico
 - Prof. Roberto Esposito, Prof.ssa Rosa Mao
 - Peter Flach, *Machine Learning*, Cambridge University Press
 - Mitchell, *Machine Learning*
+- Related: [[university/AI 2025-2026/AILAB/conoscenza_incerta/notes|AILAB notes on Bayesian reasoning]]
 
 # Ingredients of ML
 
