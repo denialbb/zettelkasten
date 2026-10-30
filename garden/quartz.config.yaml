@@ -17,7 +17,7 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: IBM Plex Sans
+      header: JetBrains Mono
       body: IBM Plex Sans
       code: JetBrains Mono
     colors:

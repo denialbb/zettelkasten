@@ -73,9 +73,36 @@ blockquote {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Typography Overrides */
+/* Keep reading prose in a clear sans; use monospace for headings and site UI. */
 :root {
   --codeFont: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  --headerFont: var(--codeFont);
+}
+
+:is(
+  nav,
+  aside,
+  button,
+  input,
+  select,
+  label,
+  summary,
+  time,
+  .page-meta,
+  .breadcrumb-container,
+  .tags,
+  .explorer,
+  .toc,
+  .backlinks,
+  footer,
+  .search,
+  .graph,
+  .darkmode,
+  .readermode,
+  .cv-bar,
+  .cv-download
+) {
+  font-family: var(--codeFont);
 }
 
 /* Table of Contents Customizations */
@@ -161,14 +188,102 @@ blockquote {
   display: block;
 }
 
-.cv-view object,
-.cv-view object > iframe {
+.cv-pdf {
+  position: relative;
   width: 100%;
-  max-height: 85vh;
-  aspect-ratio: 1 / 1.414; /* A4 */
+  aspect-ratio: 595.276 / 841.89;
+  overflow: hidden;
   border: 1px solid var(--lightgray);
-  border-radius: 8px;
+  border-radius: 6px;
   background: var(--light);
+}
+
+.cv-pdf iframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--light);
+}
+
+.cv-fullscreen-button {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  z-index: 1;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid var(--lightgray);
+  border-radius: 5px;
+  color: var(--dark);
+  background: var(--light);
+  opacity: 0;
+  cursor: pointer;
+  transition:
+    opacity 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.cv-pdf:hover .cv-fullscreen-button,
+.cv-fullscreen-button:focus-visible,
+.cv-pdf:focus-within .cv-fullscreen-button,
+.cv-pdf:fullscreen .cv-fullscreen-button {
+  opacity: 1;
+}
+
+.cv-fullscreen-button:hover {
+  border-color: var(--secondary);
+  background: var(--highlight);
+}
+
+.cv-fullscreen-button:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+.cv-fullscreen-button svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.cv-pdf:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  background: var(--light);
+}
+
+.cv-pdf:fullscreen iframe {
+  width: 100vw;
+  height: 100vh;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (hover: none) {
+  .cv-fullscreen-button {
+    opacity: 1;
+  }
 }
 
 .cv-download {
