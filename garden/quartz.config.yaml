@@ -135,11 +135,19 @@ plugins:
     layout:
       position: left
       priority: 50
-  - source: github:quartz-community/graph
+  # vendored fork of github:quartz-community/graph (source in ./plugins-local/graph)
+  # patches: maxNeighbours degree cap in graph.inline.ts
+  - source: ./plugins-local/graph
     enabled: true
+    options:
+      localGraph:
+        maxNeighbours: 8
+      globalGraph:
+        maxNeighbours: 8
     layout:
       position: right
       priority: 10
+      condition: not-index # the graph is heavy on the index landing page
   - source: github:quartz-community/search
     enabled: true
     layout:

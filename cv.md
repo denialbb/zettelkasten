@@ -45,3 +45,9 @@ Curriculum Vitae — one page per language.
     </p>
   </div>
 </section>
+
+## Tesi di laurea
+
+- [Simulazione di algoritmi quantistici con Q#](/articles/simulazione-di-algoritmi-quantistici-usando-lo-strumento-q) — tesi triennale, Università di Torino.
+- [Tesi originale in italiano (PDF)](/static/thesis-it.pdf)
+- [Traduzione inglese corretta (PDF)](/static/thesis-en.pdf)
